@@ -10,11 +10,9 @@ const Navbar = ({ items }: NavbarProps) => {
     ));
 
     return (
-        <header
-            className={`flex justify-center items-center gap-[5vw] pt-[35px] text-lg`}
-        >
+        <header className="flex justify-center items-center gap-[5vw] pt-[35px] text-lg">
             <img
-                className={`w-[100px] h-[100px]`}
+                className="w-[100px] h-[100px]"
                 src="/src/assets/img/logo.png"
                 alt="logo"
             />
