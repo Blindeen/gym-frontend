@@ -3,7 +3,14 @@ import type { Config } from 'tailwindcss';
 export default {
     content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
     theme: {
-        extend: {},
+        extend: {
+            borderRadius: {
+                large: '30px',
+            },
+            boxShadow: {
+                slight: '10px 0 10px -5px rgba(0, 0, 0, 0.5)',
+            },
+        },
         colors: {
             red: '#FF0000',
             spinningSnowflake: '#F1F3F1',
