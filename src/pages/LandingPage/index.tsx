@@ -1,19 +1,10 @@
 import Navbar from '../../components/Navbar';
 
 const LandingPage = () => {
-    const linkItems = [
-        'Home',
-        'Activities',
-        'Trainers',
-        'Contact',
-        'Sign up',
-        'Sign in',
-    ];
-
     return (
         <>
             <div className="flex flex-col items-center gap-[40px] rounded-b-large pb-[75px] bg-gradient-to-t from-blue from-0.1% via-darkNostalgiaSkyBlue via-51.5% to-forrestLagoon to-100.2%">
-                <Navbar items={linkItems} />
+                <Navbar />
                 <div className="flex items-center h-[400px] rounded-large bg-white sm:w-[90%] lg:w-[75%]">
                     <div className="flex flex-col justify-center h-full rounded-large px-[40px] bg-paleMorningBlueSky shadow-slight sm:max-w-[100%] lg:max-w-[35%]">
                         <h2 className="h2">FitSphere</h2>

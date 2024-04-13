@@ -2,18 +2,51 @@ import { useState } from 'react';
 
 import { AiOutlineMenu } from 'react-icons/ai';
 import { IoMdClose } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
-interface NavbarProps {
-    items: string[];
-}
+import { MenuItem } from '../../interfaces.ts';
+import routes from '../../routes.ts';
 
-const Navbar = ({ items }: NavbarProps) => {
+const menuItems: MenuItem[] = [
+    {
+        name: 'Home',
+        path: routes.home,
+        authorizedRoles: ['GUEST', 'TRAINER', 'CLIENT'],
+    },
+    {
+        name: 'Activities',
+        path: routes.activities,
+        authorizedRoles: ['GUEST', 'TRAINER', 'CLIENT'],
+    },
+    {
+        name: 'Trainers',
+        path: routes.home,
+        authorizedRoles: ['GUEST', 'TRAINER', 'CLIENT'],
+    },
+    {
+        name: 'Contact',
+        path: routes.home,
+        authorizedRoles: ['GUEST', 'TRAINER', 'CLIENT'],
+    },
+    {
+        name: 'Sign up',
+        path: routes.register,
+        authorizedRoles: ['GUEST'],
+    },
+    {
+        name: 'Sign in',
+        path: routes.login,
+        authorizedRoles: ['GUEST'],
+    },
+];
+
+const Navbar = () => {
     const [isOpened, setIsOpened] = useState(false);
 
-    const itemElements = items.map((item, idx) => (
-        <a className="font-bold" key={idx}>
-            {item}
-        </a>
+    const itemElements = menuItems.map((item, idx) => (
+        <Link className="font-bold" key={idx} to={item.path}>
+            {item.name}
+        </Link>
     ));
 
     return (
