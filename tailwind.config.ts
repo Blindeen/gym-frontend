@@ -10,6 +10,9 @@ export default {
             boxShadow: {
                 slight: '10px 0 10px -5px rgba(0, 0, 0, 0.5)',
             },
+            screens: {
+                sm: '320px',
+            },
         },
         colors: {
             red: '#FF0000',
