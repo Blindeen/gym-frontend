@@ -6,3 +6,13 @@ body {
   margin: 0;
   font-family: Lato, monospace;
 }
+
+@layer components {
+  .h2 {
+    @apply text-2xl font-bold;
+  }
+
+  .h4 {
+    @apply text-lg font-bold;
+  }
+}
