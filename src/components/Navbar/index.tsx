@@ -1,109 +1,85 @@
-import { ReactNode } from 'react';
+import { useState } from 'react';
 
-import {
-    Box,
-    Flex,
-    Avatar,
-    HStack,
-    IconButton,
-    Button,
-    Menu,
-    MenuButton,
-    MenuList,
-    MenuItem,
-    MenuDivider,
-    useDisclosure,
-    useColorModeValue,
-    Stack,
-} from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { AiOutlineMenu } from 'react-icons/ai';
+import { IoMdClose } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
-interface Props {
-    children: ReactNode;
-}
+import { MenuItem } from '../../interfaces.ts';
+import routes from '../../routes.ts';
 
-const Links = ['Activities', 'Trainers', 'Contact'];
-
-const NavLink = (props: Props) => {
-    const { children } = props;
-
-    return (
-        <Box
-            as="a"
-            px={2}
-            py={1}
-            rounded="md"
-            _hover={{
-                textDecoration: 'none',
-                bg: useColorModeValue('gray.200', 'gray.700'),
-            }}
-            href="#"
-        >
-            {children}
-        </Box>
-    );
-};
+const menuItems: MenuItem[] = [
+    {
+        name: 'Home',
+        path: routes.home,
+        authorizedRoles: ['GUEST', 'TRAINER', 'CLIENT'],
+    },
+    {
+        name: 'Activities',
+        path: routes.activities,
+        authorizedRoles: ['GUEST', 'TRAINER', 'CLIENT'],
+    },
+    {
+        name: 'Trainers',
+        path: routes.home,
+        authorizedRoles: ['GUEST', 'TRAINER', 'CLIENT'],
+    },
+    {
+        name: 'Contact',
+        path: routes.home,
+        authorizedRoles: ['GUEST', 'TRAINER', 'CLIENT'],
+    },
+    {
+        name: 'Sign up',
+        path: routes.register,
+        authorizedRoles: ['GUEST'],
+    },
+    {
+        name: 'Sign in',
+        path: routes.login,
+        authorizedRoles: ['GUEST'],
+    },
+];
 
 const Navbar = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
+    const [isOpened, setIsOpened] = useState(false);
+
+    const itemElements = menuItems.map((item, idx) => (
+        <Link className="font-bold" key={idx} to={item.path}>
+            {item.name}
+        </Link>
+    ));
 
     return (
         <>
-            <Box px={4}>
-                <Flex h={16} alignItems="center" justifyContent="space-between">
-                    <IconButton
-                        size="md"
-                        icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-                        aria-label="Open Menu"
-                        display={{ md: 'none' }}
-                        onClick={isOpen ? onClose : onOpen}
-                    />
-                    <HStack spacing={8} alignItems="center">
-                        <Box>Logo</Box>
-                        <HStack
-                            as="nav"
-                            spacing={4}
-                            display={{ base: 'none', md: 'flex' }}
-                        >
-                            {Links.map((link) => (
-                                <NavLink key={link}>{link}</NavLink>
-                            ))}
-                        </HStack>
-                    </HStack>
-                    <Flex alignItems="center">
-                        <Menu>
-                            <MenuButton
-                                as={Button}
-                                rounded="full"
-                                variant="link"
-                                cursor="pointer"
-                                minW={0}
-                            >
-                                <Avatar
-                                    size="md"
-                                    src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9"
-                                />
-                            </MenuButton>
-                            <MenuList>
-                                <MenuItem>Link 1</MenuItem>
-                                <MenuItem>Link 2</MenuItem>
-                                <MenuDivider />
-                                <MenuItem>Link 3</MenuItem>
-                            </MenuList>
-                        </Menu>
-                    </Flex>
-                </Flex>
-
-                {isOpen ? (
-                    <Box pb={4} display={{ md: 'none' }}>
-                        <Stack as="nav" spacing={4}>
-                            {Links.map((link) => (
-                                <NavLink key={link}>{link}</NavLink>
-                            ))}
-                        </Stack>
-                    </Box>
-                ) : null}
-            </Box>
+            <header className="justify-center items-center gap-[5vw] pt-[35px] text-lg text-white sm:hidden lg:flex">
+                <img
+                    className="w-[100px] h-[100px] pointer-events-none select-none"
+                    src="/src/assets/img/logo.png"
+                    alt="logo"
+                />
+                {itemElements}
+            </header>
+            <header className="justify-between items-center pt-[35px] w-[75%] sm:flex lg:hidden">
+                <h2 className="h2-primary">FitSphere</h2>
+                <AiOutlineMenu
+                    className="cursor-pointer text-white"
+                    size="24px"
+                    onClick={() => setIsOpened(true)}
+                />
+            </header>
+            {isOpened && (
+                <>
+                    <div className="fixed flex-col justify-center items-center gap-[50px] w-[100vw] h-[100vh] z-1000 bg-white text-lg text-black sm:flex lg:hidden">
+                        {itemElements}
+                        <div className="absolute top-[35px] right-[35px] sm:block lg:hidden">
+                            <IoMdClose
+                                className="cursor-pointer text-black text-2xl"
+                                onClick={() => setIsOpened(false)}
+                            />
+                        </div>
+                    </div>
+                </>
+            )}
         </>
     );
 };
