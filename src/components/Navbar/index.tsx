@@ -71,12 +71,12 @@ const Navbar = () => {
                 <>
                     <div className="fixed flex-col justify-center items-center gap-[50px] w-[100vw] h-[100vh] z-1000 bg-white text-lg text-black sm:flex lg:hidden">
                         {itemElements}
-                    </div>
-                    <div className="absolute top-[35px] right-[35px] sm:block lg:hidden">
-                        <IoMdClose
-                            className="cursor-pointer text-black text-2xl"
-                            onClick={() => setIsOpened(false)}
-                        />
+                        <div className="absolute top-[35px] right-[35px] sm:block lg:hidden">
+                            <IoMdClose
+                                className="cursor-pointer text-black text-2xl"
+                                onClick={() => setIsOpened(false)}
+                            />
+                        </div>
                     </div>
                 </>
             )}
