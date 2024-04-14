@@ -1,4 +1,5 @@
 import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 interface ServiceItem {
     header: string;
@@ -68,6 +69,7 @@ const LandingPage = () => {
             <div className="flex justify-evenly flex-wrap my-[40px] sm:gap-y-5 lg:gap-0">
                 {serviceElements}
             </div>
+            <Footer />
         </>
     );
 };
