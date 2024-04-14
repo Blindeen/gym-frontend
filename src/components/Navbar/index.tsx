@@ -60,7 +60,7 @@ const Navbar = () => {
                 {itemElements}
             </header>
             <header className="justify-between items-center pt-[35px] w-[75%] sm:flex lg:hidden">
-                <h2 className="h2">FitSphere</h2>
+                <h2 className="h2-primary">FitSphere</h2>
                 <AiOutlineMenu
                     className="cursor-pointer text-white"
                     size="24px"

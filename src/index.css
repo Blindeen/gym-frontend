@@ -8,11 +8,19 @@ body {
 }
 
 @layer components {
-  .h2 {
-    @apply text-2xl font-bold;
+  .h2-primary {
+    @apply text-[1.5em] my-[0.83em] mx-0 font-bold;
   }
 
-  .h4 {
-    @apply text-lg font-bold;
+  .h3-primary {
+    @apply text-[1.17em] my-[1em] mx-0 font-bold;
+  }
+
+  .h4-primary {
+    @apply my-[1.33em] mx-0 font-bold;
+  }
+
+  .p-primary {
+    @apply my-[1em] mx-0;
   }
 }

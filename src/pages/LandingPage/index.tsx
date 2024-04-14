@@ -35,9 +35,9 @@ const LandingPage = () => {
             key={idx}
             className="flex flex-col justify-center items-center rounded-large bg-white shadow-[0_0_10px_0_rgba(0,0,0,0.5)] sm:p-0 sm:w-[80%] lg:p-[20px] lg:w-auto"
         >
-            <h4 className="h4 mb-4">{item.header}</h4>
+            <h3 className="h3-primary text-[20px] mb-5">{item.header}</h3>
             <img src={item.imgSrc} alt={item.altText} />
-            <p className="text-justify p-2.5">{item.description}</p>
+            <p className="p-primary text-justify p-2.5">{item.description}</p>
         </div>
     ));
 
@@ -47,8 +47,10 @@ const LandingPage = () => {
                 <Navbar />
                 <div className="flex items-center h-[400px] rounded-large bg-white sm:w-[90%] lg:w-[75%]">
                     <div className="flex flex-col justify-center h-full rounded-large px-[40px] bg-paleMorningBlueSky shadow-slight sm:max-w-[100%] lg:max-w-[35%]">
-                        <h2 className="h2">FitSphere</h2>
-                        <h4 className="h4">Get Fit, Stay Fit</h4>
+                        <h2 className="h2-primary m-0">FitSphere</h2>
+                        <h4 className="h4-primary mt-[0px] mb-[10px] ml-0 mr-0">
+                            Get Fit, Stay Fit
+                        </h4>
                         <p className="text-justify mt-[10px]">
                             We're more than just a place to break a sweat. We're
                             more than just a place to break a sweat. We're your
@@ -65,7 +67,7 @@ const LandingPage = () => {
                     </div>
                 </div>
             </div>
-            <h2 className="h2 text-center my-3">Our services</h2>
+            <h2 className="h2-primary text-center my-3">Our services</h2>
             <div className="flex justify-evenly flex-wrap my-[40px] sm:gap-y-5 lg:gap-0">
                 {serviceElements}
             </div>
