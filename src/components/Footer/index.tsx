@@ -60,16 +60,16 @@ const Footer = () => {
 
         return (
             <div key={idx} className="flex flex-col gap-[20px]">
-                <h4 className="h4">{item.header}</h4>
+                <h3 className="h3-primary mb-0">{item.header}</h3>
                 {linkElements}
             </div>
         );
     });
 
     return (
-        <footer className="flex flex-col py-[30px] gap-[40px] bg-darkCharcoal text-white rounded-t-large">
+        <footer className="flex flex-col py-[20px] gap-[40px] bg-darkCharcoal text-white rounded-t-large">
             <div className="flex justify-evenly">{footerElements}</div>
-            <p className="text-center text-xs">
+            <p className="p-primary text-center text-[13px]">
                 © Copyright 2023 FitSphere S.A.
             </p>
         </footer>

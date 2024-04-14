@@ -37,7 +37,9 @@ const LandingPage = () => {
         >
             <h3 className="h3-primary text-[20px] mb-5">{item.header}</h3>
             <img src={item.imgSrc} alt={item.altText} />
-            <p className="p-primary text-justify p-2.5">{item.description}</p>
+            <p className="p-primary text-justify p-[10px]">
+                {item.description}
+            </p>
         </div>
     ));
 
@@ -51,7 +53,7 @@ const LandingPage = () => {
                         <h4 className="h4-primary mt-[0px] mb-[10px] ml-0 mr-0">
                             Get Fit, Stay Fit
                         </h4>
-                        <p className="text-justify mt-[10px]">
+                        <p className="p-primary text-justify mt-[10px]">
                             We're more than just a place to break a sweat. We're
                             more than just a place to break a sweat. We're your
                             fitness sanctuary and your second home, whether
@@ -67,7 +69,7 @@ const LandingPage = () => {
                     </div>
                 </div>
             </div>
-            <h2 className="h2-primary text-center my-3">Our services</h2>
+            <h2 className="h2-primary text-[24px] text-center">Our services</h2>
             <div className="flex justify-evenly flex-wrap my-[40px] sm:gap-y-5 lg:gap-0">
                 {serviceElements}
             </div>
