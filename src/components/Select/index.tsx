@@ -1,6 +1,6 @@
 import { forwardRef, SelectHTMLAttributes } from 'react';
 
-import FormElementWrapper from '@/components/ElementWrapper';
+import ElementWrapper from '@/components/ElementWrapper';
 
 interface Option {
     value: string;
@@ -23,7 +23,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
         ));
 
         return (
-            <FormElementWrapper id={id} label={label} isRequired={isRequired}>
+            <ElementWrapper id={id} label={label} isRequired={isRequired}>
                 <select
                     id={id}
                     className="box-border w-full p-2.5 border-2 border-solid border-blue-500 rounded-large focus:outline-none"
@@ -34,7 +34,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     <option value="" disabled hidden></option>
                     {optionElements}
                 </select>
-            </FormElementWrapper>
+            </ElementWrapper>
         );
     }
 );
