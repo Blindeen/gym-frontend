@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react';
+import { forwardRef, InputHTMLAttributes } from 'react';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     type: 'text' | 'password';
@@ -6,26 +6,30 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     isRequired?: boolean;
 }
 
-const Input = ({ label, type, isRequired = false, ...props }: InputProps) => {
-    const id = label.toLowerCase();
+const Input = forwardRef<HTMLInputElement, InputProps>(
+    ({ label, type, isRequired = false, ...props }, ref) => {
+        const id = label.toLowerCase();
 
-    return (
-        <div className="relative text-[13px]">
-            <label
-                htmlFor={id}
-                className="absolute left-[20px] top-[-6.4px] px-1.5 bg-white"
-            >
-                {isRequired && <span className="text-red-500">*</span>}
-                {label}
-            </label>
-            <input
-                id={id}
-                className="box-border p-2.5 border-2 border-solid border-blue-500 rounded-large focus:outline-none"
-                type={type}
-                {...props}
-            />
-        </div>
-    );
-};
+        return (
+            <div className="relative">
+                <label
+                    htmlFor={id}
+                    className="absolute left-[20px] top-[-6.4px] px-1.5 bg-white"
+                >
+                    {isRequired && <span className="text-red-500">*</span>}
+                    {label}
+                </label>
+                <input
+                    id={id}
+                    className="box-border p-2.5 border-2 border-solid border-blue-500 rounded-large focus:outline-none"
+                    name="password"
+                    type={type}
+                    ref={ref}
+                    {...props}
+                />
+            </div>
+        );
+    }
+);
 
 export default Input;
