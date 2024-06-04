@@ -6,7 +6,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     isRequired?: boolean;
 }
 
-const Input = ({ label, type, isRequired = false }: InputProps) => {
+const Input = ({ label, type, isRequired = false, ...props }: InputProps) => {
     const id = label.toLowerCase();
 
     return (
@@ -22,6 +22,7 @@ const Input = ({ label, type, isRequired = false }: InputProps) => {
                 id={id}
                 className="box-border p-2.5 border-2 border-solid border-blue-500 rounded-large focus:outline-none"
                 type={type}
+                {...props}
             />
         </div>
     );
