@@ -1,6 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import LandingPage from './pages/LandingPage';
+import LandingPage from '@/pages/LandingPage';
+import RegisterPage from '@/pages/Register';
+
 import routes from './routes.ts';
 
 const router = createBrowserRouter([
@@ -14,7 +16,7 @@ const router = createBrowserRouter([
     },
     {
         path: routes.register,
-        element: null,
+        element: <RegisterPage />,
     },
     {
         path: routes.activities,
