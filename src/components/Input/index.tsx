@@ -1,4 +1,6 @@
-interface InputProps {
+import { InputHTMLAttributes } from 'react';
+
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     type: 'text' | 'password';
     label: string;
     isRequired?: boolean;
