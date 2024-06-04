@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react';
+import { ButtonHTMLAttributes } from 'react';
 
 enum ButtonType {
     primary = 'bg-blue-500 text-white',
@@ -6,7 +6,7 @@ enum ButtonType {
     danger = 'bg-red-500 text-white',
 }
 
-interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: string;
     buttonType?: keyof typeof ButtonType;
     onClick?: () => void;
