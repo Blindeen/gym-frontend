@@ -11,7 +11,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         const id = label.toLowerCase();
 
         return (
-            <div className="relative w-full text-xs">
+            <div className="relative w-full text-sm">
                 <label
                     htmlFor={id}
                     className="absolute left-[20px] top-[-8.5px] px-1.5 bg-white"
