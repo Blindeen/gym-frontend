@@ -21,7 +21,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
                 </label>
                 <input
                     id={id}
-                    className="box-border p-3 border-2 border-solid border-blue-500 rounded-large focus:outline-none"
+                    className="box-border w-full p-3 border-2 border-solid border-blue-500 rounded-large focus:outline-none"
                     name="password"
                     type={type}
                     ref={ref}
