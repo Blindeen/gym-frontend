@@ -7,7 +7,7 @@ const RegisterPage = () => {
     return (
         <PageBackground>
             <FormCard>
-                <h2 className="h2-primary">Sign up</h2>
+                <h2 className="h2-primary mt-0">Sign up</h2>
                 <RegisterForm />
             </FormCard>
         </PageBackground>
