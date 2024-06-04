@@ -11,7 +11,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         const id = label.toLowerCase();
 
         return (
-            <div className="relative">
+            <div className="relative w-full text-sm">
                 <label
                     htmlFor={id}
                     className="absolute left-[20px] top-[-6.4px] px-1.5 bg-white"
@@ -21,7 +21,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
                 </label>
                 <input
                     id={id}
-                    className="box-border p-2.5 border-2 border-solid border-blue-500 rounded-large focus:outline-none"
+                    className="box-border p-3 border-2 border-solid border-blue-500 rounded-large focus:outline-none"
                     name="password"
                     type={type}
                     ref={ref}
