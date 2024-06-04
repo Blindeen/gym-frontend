@@ -16,6 +16,7 @@ const Button = ({ children, type = 'primary', onClick }: ButtonProps) => {
     return (
         <button
             className={`min-w-28 p-2 rounded-large ${buttonType} font-bold`}
+            type="button"
             onClick={onClick}
         >
             {children}
