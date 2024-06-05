@@ -24,11 +24,7 @@ const router = createBrowserRouter([
         element: null,
     },
     {
-        path: routes.trainerDashboard,
-        element: null,
-    },
-    {
-        path: routes.clientDashboard,
+        path: routes.dashboard,
         element: null,
     },
 ]);
