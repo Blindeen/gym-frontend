@@ -47,7 +47,11 @@ const menuItems: MenuItem[] = [
     },
 ];
 
-const Navbar = () => {
+const Navbar = ({
+    bgColor = 'transparent',
+}: {
+    bgColor?: 'blue-500' | 'transparent';
+}) => {
     const { state, setState } = useContext(AuthContext);
     const navigate = useNavigate();
     const [isOpened, setIsOpened] = useState(false);
@@ -95,7 +99,9 @@ const Navbar = () => {
 
     return (
         <>
-            <header className="justify-center items-center gap-[5vw] pt-[35px] text-lg text-white sm:hidden lg:flex">
+            <header
+                className={`bg-${bgColor} justify-center items-center gap-[5vw] py-4 rounded-b-large text-lg text-white sm:hidden lg:flex`}
+            >
                 <img
                     className="w-[100px] h-[100px] pointer-events-none select-none"
                     src="/src/assets/img/logo.png"
@@ -103,7 +109,9 @@ const Navbar = () => {
                 />
                 {menuNavigationElements}
             </header>
-            <header className="justify-between items-center pt-[35px] w-[75%] sm:flex lg:hidden">
+            <header
+                className={`bg-${bgColor} justify-between items-center px-8 rounded-b-large w-full sm:flex lg:hidden`}
+            >
                 <h2 className="h2-primary">FitSphere</h2>
                 <AiOutlineMenu
                     className="cursor-pointer text-white"
@@ -113,7 +121,7 @@ const Navbar = () => {
             </header>
             {isOpened && (
                 <>
-                    <div className="fixed flex-col justify-center items-center gap-[50px] w-[100vw] h-[100vh] z-1000 bg-white text-lg text-black sm:flex lg:hidden">
+                    <div className="fixed flex-col justify-center items-center gap-[50px] w-[100vw] h-[100vh] z-1 bg-white text-lg text-black sm:flex lg:hidden">
                         {menuNavigationElements}
                         <div className="absolute top-[35px] right-[35px] sm:block lg:hidden">
                             <IoMdClose

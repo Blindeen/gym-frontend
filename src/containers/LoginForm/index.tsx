@@ -69,7 +69,7 @@ const LoginForm = () => {
                             required: 'Email is required',
                         }}
                         render={({ field }) => (
-                            <div className="w-full">
+                            <div className="w-full -z-10">
                                 <Input type="text" label="Email" {...field} />
                                 <FormError error={errors.email} />
                             </div>
@@ -83,7 +83,7 @@ const LoginForm = () => {
                         required: 'Password is required',
                     }}
                     render={({ field }) => (
-                        <div className="w-full">
+                        <div className="w-full -z-10">
                             <Input
                                 type="password"
                                 label="Password"
