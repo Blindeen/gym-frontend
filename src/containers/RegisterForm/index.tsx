@@ -75,7 +75,7 @@ const RegisterForm = () => {
     return (
         <>
             <form
-                className="flex flex-col flex-grow justify-between min-w-[30%]"
+                className="flex flex-col justify-between h-[600px] min-w-[30%]"
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <FormRow>
