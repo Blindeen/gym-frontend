@@ -57,7 +57,7 @@ const RegisterForm = () => {
             toast('Registered successfully', {
                 type: 'success',
             });
-            navigate(routes.home);
+            setTimeout(() => navigate(routes.home), 1500);
         }).catch((err) => {
             if (err.response) {
                 const { error } = err.response.data as ErrorResponse;
