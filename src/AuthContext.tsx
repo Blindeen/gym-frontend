@@ -1,17 +1,16 @@
 import { createContext, FC, ReactNode, useState } from 'react';
 
-export type Role = 'GUEST' | 'CLIENT' | 'TRAINER';
+export type Role = 'GUEST' | 'CUSTOMER' | 'TRAINER';
 
-interface User {
-    id: number | null;
+export interface User {
     email: string;
-    token: string;
+    role: Role;
 }
 
 interface State {
     isLogged: boolean;
-    role: Role;
     user: User;
+    token: string;
 }
 
 type AuthContextType = {
@@ -21,12 +20,11 @@ type AuthContextType = {
 
 const defaultStateValue: State = {
     isLogged: false,
-    role: 'GUEST',
     user: {
-        id: null,
         email: '',
-        token: '',
+        role: 'GUEST',
     },
+    token: '',
 };
 
 export const AuthContext = createContext<AuthContextType>({
