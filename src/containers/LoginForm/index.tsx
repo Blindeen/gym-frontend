@@ -94,7 +94,7 @@ const LoginForm = () => {
                     )}
                 />
                 <Button type="submit" disabled={isLoading}>
-                    Sign up
+                    Sign in
                 </Button>
             </form>
         </>
