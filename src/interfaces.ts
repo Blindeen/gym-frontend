@@ -1,3 +1,5 @@
+import { User } from '@/AuthContext.tsx';
+
 export interface MenuItem {
     name: string;
     path: string;
@@ -16,4 +18,9 @@ export interface RegisterForm {
     phoneNumber: string;
     paymentMethod: string;
     passType: string;
+}
+
+export interface AuthResponse {
+    user: User;
+    token: string;
 }
