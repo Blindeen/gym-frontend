@@ -58,7 +58,7 @@ const LoginForm = () => {
     return (
         <>
             <form
-                className="flex flex-col justify-between h-[210px] sm:w-[70%] md:w-[40%] lg:w-[20%]"
+                className="flex flex-col justify-between h-[210px] sm:w-[80%] md:w-[40%] lg:w-[20%]"
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <FormRow>
