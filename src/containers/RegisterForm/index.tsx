@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 
 import { Controller, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import Button from '@/components/Button';
@@ -8,7 +9,6 @@ import Input from '@/components/Input';
 import FormRow from '@/components/form/FormRow';
 import FormError from '@/components/form/FormError';
 import Select from '@/components/Select';
-import Toast from '@/components/Toast';
 
 import { AuthContext } from '@/AuthContext.tsx';
 import type {
@@ -17,12 +17,14 @@ import type {
     ErrorResponse,
 } from '@/interfaces.ts';
 import axios from '@/api.ts';
+import routes from '@/routes.ts';
 
 import paymentMethodOptions from '@/containers/RegisterForm/paymentMethodOptions.ts';
 import passTypeOptions from '@/containers/RegisterForm/passTypeOptions.ts';
 
 const RegisterForm = () => {
     const { setState } = useContext(AuthContext);
+    const navigate = useNavigate();
     const {
         control,
         handleSubmit,
@@ -55,10 +57,11 @@ const RegisterForm = () => {
             toast('Registered successfully', {
                 type: 'success',
             });
+            navigate(routes.home);
         }).catch((err) => {
             if (err.response) {
-                const errorRes = err.response.data as ErrorResponse;
-                toast(errorRes.error, {
+                const { error } = err.response.data as ErrorResponse;
+                toast(error, {
                     type: 'error',
                 });
             } else {
@@ -310,7 +313,6 @@ const RegisterForm = () => {
                     Sign up
                 </Button>
             </form>
-            <Toast />
         </>
     );
 };
