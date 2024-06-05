@@ -26,7 +26,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
             <ElementWrapper id={id} label={label} isRequired={isRequired}>
                 <select
                     id={id}
-                    className="box-border w-full p-2.5 border-2 border-solid border-blue-500 rounded-large focus:outline-none"
+                    className="box-border bg-white w-full p-2.5 border-2 border-solid border-blue-500 rounded-large focus:outline-none"
                     ref={ref}
                     {...props}
                 >
