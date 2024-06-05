@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import LandingPage from '@/pages/LandingPage';
 import RegisterPage from '@/pages/Register';
-import LoginPage from '@/pages/Login';
+import LoginPage from '@/pages/LoginPage';
 
 import routes from './routes.ts';
 
