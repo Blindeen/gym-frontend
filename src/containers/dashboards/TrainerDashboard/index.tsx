@@ -1,4 +1,4 @@
-import TrainerTable from '@/containers/TrainerTable';
+import TrainerTable from '@/containers/tables/TrainerTable';
 
 const TrainerDashboard = () => {
     return <TrainerTable />;

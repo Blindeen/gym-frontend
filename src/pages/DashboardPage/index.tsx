@@ -2,8 +2,8 @@ import { useContext } from 'react';
 
 import Navbar from '@/components/Navbar';
 
-import CustomerDashboard from '@/containers/CustomerDashboard';
-import TrainerDashboard from '@/containers/TrainerDashboard';
+import CustomerDashboard from '@/containers/dashboards/CustomerDashboard';
+import TrainerDashboard from '@/containers/dashboards/TrainerDashboard';
 
 import { AuthContext } from '@/AuthContext.tsx';
 

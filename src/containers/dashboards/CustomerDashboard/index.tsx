@@ -1,4 +1,4 @@
-import CustomerTable from '@/containers/CustomerTable';
+import CustomerTable from '@/containers/tables/CustomerTable';
 
 const CustomerDashboard = () => {
     return <CustomerTable />;
