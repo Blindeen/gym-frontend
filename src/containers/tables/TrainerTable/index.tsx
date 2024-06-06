@@ -12,9 +12,14 @@ import { ActivitiesResponse } from '@/interfaces.ts';
 interface TrainerTableProps {
     data: ActivitiesResponse;
     fetchActivities: () => void;
+    onPageChange: (pageNumber: number) => void;
 }
 
-const TrainerTable = ({ data, fetchActivities }: TrainerTableProps) => {
+const TrainerTable = ({
+    data,
+    fetchActivities,
+    onPageChange,
+}: TrainerTableProps) => {
     const { state } = useContext(AuthContext);
 
     const deleteActivity = (id: number) => {
@@ -81,7 +86,11 @@ const TrainerTable = ({ data, fetchActivities }: TrainerTableProps) => {
     ];
 
     return (
-        <Table columns={columns} data={data.content} pagination={{ ...data }} />
+        <Table
+            columns={columns}
+            data={data.content}
+            pagination={{ ...data, onPageChange }}
+        />
     );
 };
 

@@ -25,6 +25,10 @@ const TrainerDashboard = () => {
         fetchActivities(state.token, setActivitiesResponse);
     }, [state.token]);
 
+    const onPageChange = (pageNumber: number) => {
+        fetchActivities(state.token, setActivitiesResponse, pageNumber);
+    };
+
     return (
         <>
             <div className="flex flex-col items-center gap-4 pb-3 sm:w-[95%] lg:w-[60%]">
@@ -35,6 +39,7 @@ const TrainerDashboard = () => {
                         fetchActivities={() =>
                             fetchActivities(state.token, setActivitiesResponse)
                         }
+                        onPageChange={onPageChange}
                     />
                 </div>
                 <div className="flex flex-col w-full">

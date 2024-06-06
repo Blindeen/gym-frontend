@@ -59,13 +59,22 @@ const Table = ({ columns, data, pagination }: TableProps) => {
             </table>
             {pagination && data.length > 0 && (
                 <div className="flex justify-center items-center gap-5 text-lg">
-                    <Button onClick={prevPage}>
+                    <Button
+                        onClick={prevPage}
+                        disabled={pagination.pageable.pageNumber === 0}
+                    >
                         <MdKeyboardArrowLeft size={25} />
                     </Button>
                     {pagination.pageable.pageNumber + 1}
                     {' of '}
                     {pagination.totalPages}
-                    <Button onClick={nextPage}>
+                    <Button
+                        onClick={nextPage}
+                        disabled={
+                            pagination.pageable.pageNumber ===
+                            pagination.totalPages - 1
+                        }
+                    >
                         <MdKeyboardArrowRight size={25} />
                     </Button>
                 </div>
