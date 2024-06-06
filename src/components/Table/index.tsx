@@ -1,12 +1,6 @@
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
-import { Pagination } from '@/interfaces.ts';
-
-interface Column {
-    title: string;
-    dataIndex: string;
-    key: string;
-}
+import { Column, Pagination } from '@/interfaces.ts';
 
 interface TableProps {
     columns: Column[];
@@ -31,7 +25,7 @@ const Table = ({ columns, data, pagination }: TableProps) => {
                     className="border-[1px] border-solid border-gray-300 py-2"
                     key={column.key}
                 >
-                    {row[column.dataIndex]}
+                    {row[column.dataIndex] ?? column.render?.()}
                 </td>
             ))}
         </tr>
