@@ -1,4 +1,4 @@
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 interface Column {
     title: string;
@@ -56,9 +56,9 @@ const Table = ({ columns, data, pagination = false }: TableProps) => {
             </table>
             {pagination && (
                 <div className="flex justify-center items-center gap-5">
-                    <FaArrowLeft />
+                    <MdKeyboardArrowLeft />
                     {1}
-                    <FaArrowRight />
+                    <MdKeyboardArrowRight />
                 </div>
             )}
         </div>
