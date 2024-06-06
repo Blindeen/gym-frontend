@@ -50,7 +50,7 @@ const Table = ({ columns, data, pagination }: TableProps) => {
                 </thead>
                 <tbody>{data.length > 0 ? tableRows : noDataElement}</tbody>
             </table>
-            {pagination && (
+            {pagination && data.length > 0 && (
                 <div className="flex justify-center items-center gap-5 text-lg">
                     <MdKeyboardArrowLeft size={30} />
                     {pagination.pageable.pageNumber + 1}
