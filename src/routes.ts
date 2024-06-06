@@ -3,8 +3,7 @@ const routes = {
     login: '/login',
     register: '/register',
     activities: '/activities',
-    trainerDashboard: '/trainer-dashboard',
-    clientDashboard: '/client-dashboard',
+    dashboard: '/dashboard',
 };
 
 export default routes;
