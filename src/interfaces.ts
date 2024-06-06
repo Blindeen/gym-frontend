@@ -1,4 +1,5 @@
 import { User } from '@/AuthContext.tsx';
+import { ReactNode } from 'react';
 
 export interface MenuItem {
     name: string;
@@ -32,6 +33,13 @@ export interface AuthResponse {
 
 export interface ErrorResponse {
     error: string;
+}
+
+export interface Column {
+    title: string;
+    dataIndex: string;
+    key: string;
+    render?: (text?: string, record?: Record<string, never>) => ReactNode;
 }
 
 export interface Pagination {
