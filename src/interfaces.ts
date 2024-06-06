@@ -50,11 +50,13 @@ export interface Column {
     render?: (record: Record<string, never>) => ReactNode;
 }
 
+interface Pageable {
+    pageNumber: number;
+    pageSize: number;
+}
+
 export interface Pagination {
-    pageable: {
-        pageNumber: number;
-        pageSize: number;
-    };
+    pageable: Pageable;
     totalPages: number;
     totalElements: number;
 }
