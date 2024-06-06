@@ -15,7 +15,7 @@ const TrainerDashboard = () => {
             content: [],
             pageable: {
                 pageNumber: 0,
-                pageSize: 0,
+                pageSize: 5,
             },
             totalPages: 0,
             totalElements: 0,
