@@ -91,13 +91,11 @@ const TrainerTable = () => {
     ];
 
     return (
-        <div className="sm:w-[90%] md:w-[70%] lg:w-[60%]">
-            <Table
-                columns={columns}
-                data={activitiesResponse.content}
-                pagination={{ ...activitiesResponse }}
-            />
-        </div>
+        <Table
+            columns={columns}
+            data={activitiesResponse.content}
+            pagination={{ ...activitiesResponse }}
+        />
     );
 };
 
