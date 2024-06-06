@@ -59,6 +59,7 @@ export interface Pagination {
     pageable: Pageable;
     totalPages: number;
     totalElements: number;
+    onPageChange: (pageNumber: number) => void;
 }
 
 export interface ActivitiesResponse {

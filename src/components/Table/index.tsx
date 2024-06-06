@@ -44,6 +44,11 @@ const Table = ({ columns, data, pagination }: TableProps) => {
         </tr>
     );
 
+    const prevPage = () =>
+        pagination?.onPageChange(pagination?.pageable.pageNumber - 1);
+    const nextPage = () =>
+        pagination?.onPageChange(pagination?.pageable.pageNumber + 1);
+
     return (
         <div className="flex flex-col gap-5 justify-center w-full overflow-x-auto">
             <table className="border-collapse border-spacing-0 w-full">
@@ -54,13 +59,13 @@ const Table = ({ columns, data, pagination }: TableProps) => {
             </table>
             {pagination && data.length > 0 && (
                 <div className="flex justify-center items-center gap-5 text-lg">
-                    <Button>
+                    <Button onClick={prevPage}>
                         <MdKeyboardArrowLeft size={25} />
                     </Button>
                     {pagination.pageable.pageNumber + 1}
                     {' of '}
                     {pagination.totalPages}
-                    <Button>
+                    <Button onClick={nextPage}>
                         <MdKeyboardArrowRight size={25} />
                     </Button>
                 </div>
