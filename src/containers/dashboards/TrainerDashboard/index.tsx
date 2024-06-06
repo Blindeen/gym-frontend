@@ -22,7 +22,6 @@ const TrainerDashboard = () => {
         });
 
     useEffect(() => {
-        console.log('fetching activities');
         fetchActivities(state.token, setActivitiesResponse);
     }, [state.token]);
 

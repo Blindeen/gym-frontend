@@ -23,11 +23,11 @@ const TrainerTable = ({ data, fetchActivities }: TrainerTableProps) => {
                 Authorization: `Bearer ${state.token}`,
             },
         });
-        res.then(async () => {
+        res.then(() => {
             toast('Activity deleted', {
                 type: 'success',
             });
-            await fetchActivities();
+            fetchActivities();
         }).catch(() => {
             toast('Cannot delete activity', {
                 type: 'error',

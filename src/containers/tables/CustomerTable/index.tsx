@@ -1,12 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 
 import Button from '@/components/Button';
 import Table from '@/components/Table';
 
 import { AuthContext } from '@/AuthContext.tsx';
 import { ActivitiesResponse, Column } from '@/interfaces.ts';
-
-import { fetchActivities } from '@/containers/dashboards/functions.ts';
 
 const columns: Column[] = [
     {
@@ -46,29 +44,20 @@ const columns: Column[] = [
     },
 ];
 
-const CustomerTable = () => {
-    const { state } = useContext(AuthContext);
-    const [activitiesResponse, setActivitiesResponse] =
-        useState<ActivitiesResponse>({
-            content: [],
-            pageable: {
-                pageNumber: 0,
-                pageSize: 0,
-            },
-            totalPages: 0,
-            totalElements: 0,
-        });
+interface CustomerTableProps {
+    data: ActivitiesResponse;
+    fetchActivities: () => void;
+}
 
-    useEffect(() => {
-        fetchActivities(state.token, setActivitiesResponse);
-    }, [state.token]);
+const CustomerTable = ({ data, fetchActivities }: CustomerTableProps) => {
+    const { state } = useContext(AuthContext);
 
     return (
         <div className="sm:w-[90%] md:w-[70%] lg:w-[60%]">
             <Table
                 columns={columns}
-                data={activitiesResponse.content}
-                pagination={{ ...activitiesResponse }}
+                data={data.content}
+                pagination={{ ...data }}
             />
         </div>
     );
