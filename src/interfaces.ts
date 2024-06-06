@@ -39,7 +39,7 @@ export interface Column {
     title: string;
     dataIndex: string;
     key: string;
-    render?: (text?: string, record?: Record<string, never>) => ReactNode;
+    render?: (record: Record<string, never>) => ReactNode;
 }
 
 export interface Pagination {
