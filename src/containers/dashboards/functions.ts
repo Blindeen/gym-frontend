@@ -5,11 +5,17 @@ import { ActivitiesResponse } from '@/interfaces.ts';
 
 export const fetchActivities = (
     token: string,
-    setActivitiesResponse: (data: ActivitiesResponse) => void
+    setActivitiesResponse: (data: ActivitiesResponse) => void,
+    pageNumber = 0,
+    pageSize = 5
 ) => {
     const res = axios.get<ActivitiesResponse>('/member/activities', {
         headers: {
             Authorization: `Bearer ${token}`,
+        },
+        params: {
+            pageNumber,
+            pageSize,
         },
     });
     res.then((res) => {
