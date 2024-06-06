@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 
 import { toast } from 'react-toastify';
 
@@ -6,23 +6,16 @@ import Table from '@/components/Table';
 import Button from '@/components/Button';
 
 import { AuthContext } from '@/AuthContext.tsx';
-import { ActivitiesResponse } from '@/interfaces.ts';
 import axios from '@/api.ts';
+import { ActivitiesResponse } from '@/interfaces.ts';
 
-import { fetchActivities } from '@/containers/tables/functions.ts';
+interface TrainerTableProps {
+    data: ActivitiesResponse;
+    fetchActivities: () => void;
+}
 
-const TrainerTable = () => {
+const TrainerTable = ({ data, fetchActivities }: TrainerTableProps) => {
     const { state } = useContext(AuthContext);
-    const [activitiesResponse, setActivitiesResponse] =
-        useState<ActivitiesResponse>({
-            content: [],
-            pageable: {
-                pageNumber: 0,
-                pageSize: 0,
-            },
-            totalPages: 0,
-            totalElements: 0,
-        });
 
     const deleteActivity = async (id: number) => {
         const res = axios.delete(`/activity/${id}/delete`, {
@@ -34,17 +27,13 @@ const TrainerTable = () => {
             toast('Activity deleted', {
                 type: 'success',
             });
-            await fetchActivities(state.token, setActivitiesResponse);
+            await fetchActivities();
         }).catch(() => {
             toast('Cannot delete activity', {
                 type: 'error',
             });
         });
     };
-
-    useEffect(() => {
-        fetchActivities(state.token, setActivitiesResponse).then();
-    }, [state.token]);
 
     const columns = [
         {
@@ -91,11 +80,7 @@ const TrainerTable = () => {
     ];
 
     return (
-        <Table
-            columns={columns}
-            data={activitiesResponse.content}
-            pagination={{ ...activitiesResponse }}
-        />
+        <Table columns={columns} data={data.content} pagination={{ ...data }} />
     );
 };
 

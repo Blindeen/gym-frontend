@@ -6,7 +6,7 @@ import Table from '@/components/Table';
 import { AuthContext } from '@/AuthContext.tsx';
 import { ActivitiesResponse, Column } from '@/interfaces.ts';
 
-import { fetchActivities } from '@/containers/tables/functions.ts';
+import { fetchActivities } from '@/containers/dashboards/functions.ts';
 
 const columns: Column[] = [
     {
@@ -60,7 +60,7 @@ const CustomerTable = () => {
         });
 
     useEffect(() => {
-        fetchActivities(state.token, setActivitiesResponse).then();
+        fetchActivities(state.token, setActivitiesResponse);
     }, [state.token]);
 
     return (

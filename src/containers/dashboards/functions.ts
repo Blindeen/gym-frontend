@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import axios from '@/api.ts';
 import { ActivitiesResponse } from '@/interfaces.ts';
 
-export const fetchActivities = async (
+export const fetchActivities = (
     token: string,
     setActivitiesResponse: (data: ActivitiesResponse) => void
 ) => {
