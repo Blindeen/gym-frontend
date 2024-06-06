@@ -16,9 +16,14 @@ import axios from '@/api.ts';
 interface CustomerTableProps {
     data: ActivitiesResponse;
     fetchActivities: () => void;
+    onPageChange: (pageNumber: number) => void;
 }
 
-const CustomerTable = ({ data, fetchActivities }: CustomerTableProps) => {
+const CustomerTable = ({
+    data,
+    fetchActivities,
+    onPageChange,
+}: CustomerTableProps) => {
     const { state } = useContext(AuthContext);
 
     const leaveActivity = (id: number) => {
@@ -91,13 +96,11 @@ const CustomerTable = ({ data, fetchActivities }: CustomerTableProps) => {
     ];
 
     return (
-        <div className="sm:w-[90%] md:w-[70%] lg:w-[60%]">
-            <Table
-                columns={columns}
-                data={data.content}
-                pagination={{ ...data }}
-            />
-        </div>
+        <Table
+            columns={columns}
+            data={data.content}
+            pagination={{ ...data, onPageChange }}
+        />
     );
 };
 
