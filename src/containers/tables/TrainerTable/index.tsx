@@ -17,7 +17,7 @@ interface TrainerTableProps {
 const TrainerTable = ({ data, fetchActivities }: TrainerTableProps) => {
     const { state } = useContext(AuthContext);
 
-    const deleteActivity = async (id: number) => {
+    const deleteActivity = (id: number) => {
         const res = axios.delete(`/activity/${id}/delete`, {
             headers: {
                 Authorization: `Bearer ${state.token}`,
