@@ -39,7 +39,11 @@ const TrainerDashboard = () => {
                 </div>
                 <div className="flex flex-col w-full">
                     <h3 className="h3-primary mt-0">Add activity</h3>
-                    <ActivityForm />
+                    <ActivityForm
+                        fetchActivities={() =>
+                            fetchActivities(state.token, setActivitiesResponse)
+                        }
+                    />
                 </div>
             </div>
         </>

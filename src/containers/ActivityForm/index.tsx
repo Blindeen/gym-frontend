@@ -1,11 +1,15 @@
 import { Controller, useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 import Input from '@/components/Input';
 import Button from '@/components/Button';
-
-import type { ActivityForm } from '@/interfaces.ts';
 import FormError from '@/components/form/FormError';
 import Select from '@/components/Select';
+
+import type { ActivityForm, ErrorResponse } from '@/interfaces.ts';
+import axios from '@/api.ts';
+import { AuthContext } from '@/AuthContext.tsx';
+import { useContext } from 'react';
 
 const daysOfWeek = [
     { label: 'Monday', value: 'MONDAY' },
@@ -17,9 +21,21 @@ const daysOfWeek = [
     { label: 'Sunday', value: 'SUNDAY' },
 ];
 
-const ActivityForm = () => {
+const rooms = [
+    { label: 'A2', value: '1' },
+    { label: 'B5', value: '2' },
+    { label: 'G7', value: '3' },
+];
+
+interface ActivityFormProps {
+    fetchActivities: () => void;
+}
+
+const ActivityForm = ({ fetchActivities }: ActivityFormProps) => {
+    const { state } = useContext(AuthContext);
     const {
         control,
+        reset,
         handleSubmit,
         formState: { isLoading, errors },
     } = useForm<ActivityForm>({
@@ -33,7 +49,31 @@ const ActivityForm = () => {
     });
 
     const onSubmit = (data: ActivityForm) => {
-        console.log(data);
+        const res = axios.post('/activity/create', data, {
+            headers: {
+                Authorization: `Bearer ${state.token}`,
+            },
+        });
+
+        res.then(() => {
+            toast('Activity has been created', {
+                type: 'success',
+            });
+            fetchActivities();
+            reset();
+        }).catch((err) => {
+            console.log(err);
+            if (err.response) {
+                const { error } = err.response.data as ErrorResponse;
+                toast(error, {
+                    type: 'error',
+                });
+            } else {
+                toast('An error occurred', {
+                    type: 'error',
+                });
+            }
+        });
     };
 
     return (
@@ -106,13 +146,17 @@ const ActivityForm = () => {
                     }}
                     render={({ field }) => (
                         <div className="w-full">
-                            <Select options={[]} label="Room ID" {...field} />
+                            <Select
+                                options={rooms}
+                                label="Room ID"
+                                {...field}
+                            />
                             <FormError error={errors.roomId} />
                         </div>
                     )}
                 />
                 <Button type="submit" disabled={isLoading}>
-                    Add
+                    Save
                 </Button>
             </form>
         </>
