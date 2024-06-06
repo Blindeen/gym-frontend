@@ -2,6 +2,9 @@ import { useContext } from 'react';
 
 import Navbar from '@/components/Navbar';
 
+import CustomerDashboard from '@/containers/CustomerDashboard';
+import TrainerDashboard from '@/containers/TrainerDashboard';
+
 import { AuthContext } from '@/AuthContext.tsx';
 
 const Dashboard = () => {
@@ -9,14 +12,14 @@ const Dashboard = () => {
     const { user } = state;
 
     return (
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col gap-5">
             <Navbar bgColor="blue-500" />
             <div className="flex flex-col h-full justify-center items-center">
                 <h2 className="h2-primary mt-0">Dashboard</h2>
                 {user.role === 'CUSTOMER' ? (
-                    <p>Welcome, {user.email}! You are a customer.</p>
+                    <CustomerDashboard />
                 ) : user.role === 'TRAINER' ? (
-                    <p>Welcome, {user.email}! You are a trainer.</p>
+                    <TrainerDashboard />
                 ) : (
                     <></>
                 )}
