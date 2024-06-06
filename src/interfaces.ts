@@ -1,4 +1,5 @@
 import { User } from '@/AuthContext.tsx';
+import { ReactNode } from 'react';
 
 export interface MenuItem {
     name: string;
@@ -25,6 +26,14 @@ export interface LoginForm {
     password: string;
 }
 
+export interface ActivityForm {
+    name: string;
+    dayOfWeek: string;
+    startTime: string;
+    endTime: string;
+    roomId: string;
+}
+
 export interface AuthResponse {
     user: User;
     token: string;
@@ -32,4 +41,33 @@ export interface AuthResponse {
 
 export interface ErrorResponse {
     error: string;
+}
+
+export interface Column {
+    title: string;
+    dataIndex: string;
+    key: string;
+    render?: (record: Record<string, never>) => ReactNode;
+}
+
+interface Pageable {
+    pageNumber: number;
+    pageSize: number;
+}
+
+export interface Pagination {
+    pageable: Pageable;
+    totalPages: number;
+    totalElements: number;
+    onPageChange: (pageNumber: number) => void;
+}
+
+export interface ActivitiesResponse {
+    content: Record<string, never>[];
+    pageable: {
+        pageNumber: number;
+        pageSize: number;
+    };
+    totalPages: number;
+    totalElements: number;
 }

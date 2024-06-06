@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import LandingPage from '@/pages/LandingPage';
 import RegisterPage from '@/pages/Register';
 import LoginPage from '@/pages/LoginPage';
+import DashboardPage from '@/pages/DashboardPage';
 
 import routes from './routes.ts';
 
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
     },
     {
         path: routes.dashboard,
-        element: null,
+        element: <DashboardPage />,
     },
 ]);
 

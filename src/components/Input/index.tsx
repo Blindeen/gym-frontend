@@ -3,7 +3,7 @@ import { forwardRef, InputHTMLAttributes } from 'react';
 import ElementWrapper from '@/components/ElementWrapper';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-    type: 'text' | 'date' | 'password';
+    type: 'text' | 'date' | 'time' | 'password';
     label: string;
     isRequired?: boolean;
 }
