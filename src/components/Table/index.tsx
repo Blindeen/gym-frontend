@@ -34,7 +34,7 @@ const Table = ({ columns, data, pagination }: TableProps) => {
     const noDataElement = (
         <tr>
             <td
-                className="h-[50px] text-center border-b-[1px] border-solid border-gray-300"
+                className="h-[50px] text-center border-b-[1px] border-solid border-gray-300 py-8"
                 colSpan={columns.length}
             >
                 No data available
