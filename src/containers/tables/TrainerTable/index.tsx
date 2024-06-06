@@ -67,9 +67,10 @@ const TrainerTable = ({ data, fetchActivities }: TrainerTableProps) => {
             key: 'action',
             render: (record: Record<string, never>) => (
                 <div className="flex gap-2">
-                    <Button>Edit</Button>
+                    <Button size={20}>Edit</Button>
                     <Button
                         buttonType="danger"
+                        size={20}
                         onClick={() => deleteActivity(record['id'])}
                     >
                         Delete

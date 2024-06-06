@@ -1,5 +1,7 @@
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
+import Button from '@/components/Button';
+
 import { Column, Pagination } from '@/interfaces.ts';
 
 interface TableProps {
@@ -52,11 +54,15 @@ const Table = ({ columns, data, pagination }: TableProps) => {
             </table>
             {pagination && data.length > 0 && (
                 <div className="flex justify-center items-center gap-5 text-lg">
-                    <MdKeyboardArrowLeft size={30} />
+                    <Button>
+                        <MdKeyboardArrowLeft size={25} />
+                    </Button>
                     {pagination.pageable.pageNumber + 1}
                     {' of '}
                     {pagination.totalPages}
-                    <MdKeyboardArrowRight size={30} />
+                    <Button>
+                        <MdKeyboardArrowRight size={25} />
+                    </Button>
                 </div>
             )}
         </div>

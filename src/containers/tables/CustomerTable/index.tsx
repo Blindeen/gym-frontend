@@ -38,7 +38,7 @@ const columns: Column[] = [
         key: 'action',
         render: () => (
             <div className="flex gap-2">
-                <Button>Unsubscribe</Button>
+                <Button size={20}>Unsubscribe</Button>
             </div>
         ),
     },

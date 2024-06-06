@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 
 enum ButtonType {
     primary = 'bg-blue-500 text-white',
@@ -7,14 +7,16 @@ enum ButtonType {
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    children: string;
+    children: ReactNode;
     buttonType?: keyof typeof ButtonType;
+    size?: 'fit' | 20 | 40 | 'full';
     onClick?: () => void;
 }
 
 const Button = ({
     children,
     buttonType = 'primary',
+    size = 'fit',
     onClick,
     ...props
 }: ButtonProps) => {
@@ -22,7 +24,7 @@ const Button = ({
 
     return (
         <button
-            className={`min-w-28 p-2 rounded-large ${buttonStyle} font-bold`}
+            className={`w-${size} p-2 rounded-large ${buttonStyle} font-bold`}
             onClick={onClick}
             {...props}
         >
