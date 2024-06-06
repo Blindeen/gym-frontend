@@ -25,7 +25,7 @@ const Table = ({ columns, data, pagination }: TableProps) => {
                     className="border-b-[1px] border-b-solid border-b-gray-300 p-2"
                     key={column.key}
                 >
-                    {row[column.dataIndex] ?? column.render?.()}
+                    {row[column.dataIndex] ?? column.render?.(row)}
                 </td>
             ))}
         </tr>
