@@ -142,15 +142,11 @@ const ActivityForm = ({ fetchActivities }: ActivityFormProps) => {
                     name="roomId"
                     control={control}
                     rules={{
-                        required: 'Room ID is required',
+                        required: 'Room is required',
                     }}
                     render={({ field }) => (
                         <div className="w-full">
-                            <Select
-                                options={rooms}
-                                label="Room ID"
-                                {...field}
-                            />
+                            <Select options={rooms} label="Room" {...field} />
                             <FormError error={errors.roomId} />
                         </div>
                     )}
