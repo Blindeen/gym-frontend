@@ -26,6 +26,14 @@ export interface LoginForm {
     password: string;
 }
 
+export interface ActivityForm {
+    name: string;
+    dayOfWeek: string;
+    startTime: string;
+    endTime: string;
+    roomId: string;
+}
+
 export interface AuthResponse {
     user: User;
     token: string;
