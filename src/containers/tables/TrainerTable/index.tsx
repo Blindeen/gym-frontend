@@ -72,10 +72,10 @@ const TrainerTable = ({
             key: 'action',
             render: (record: Record<string, never>) => (
                 <div className="flex gap-2">
-                    <Button size={20}>Edit</Button>
+                    <Button size="full">Edit</Button>
                     <Button
                         buttonType="danger"
-                        size={20}
+                        size="full"
                         onClick={() => deleteActivity(record['id'])}
                     >
                         Delete
