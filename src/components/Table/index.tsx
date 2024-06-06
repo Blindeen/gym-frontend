@@ -1,5 +1,7 @@
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
+import { Pagination } from '@/interfaces.ts';
+
 interface Column {
     title: string;
     dataIndex: string;
@@ -9,10 +11,10 @@ interface Column {
 interface TableProps {
     columns: Column[];
     data: Record<string, never>[];
-    pagination?: boolean;
+    pagination?: Pagination;
 }
 
-const Table = ({ columns, data, pagination = false }: TableProps) => {
+const Table = ({ columns, data, pagination }: TableProps) => {
     const tableHeaders = columns.map((column) => (
         <th
             className="min-w-[90px] border-[1px] border-solid border-gray-300 p-2 text-center"
@@ -26,7 +28,7 @@ const Table = ({ columns, data, pagination = false }: TableProps) => {
         <tr key={index}>
             {columns.map((column) => (
                 <td
-                    className="border-[1px] border-solid border-gray-300"
+                    className="border-[1px] border-solid border-gray-300 py-2"
                     key={column.key}
                 >
                     {row[column.dataIndex]}
@@ -55,10 +57,12 @@ const Table = ({ columns, data, pagination = false }: TableProps) => {
                 <tbody>{data.length > 0 ? tableRows : noDataElement}</tbody>
             </table>
             {pagination && (
-                <div className="flex justify-center items-center gap-5">
-                    <MdKeyboardArrowLeft />
-                    {1}
-                    <MdKeyboardArrowRight />
+                <div className="flex justify-center items-center gap-5 text-lg">
+                    <MdKeyboardArrowLeft size={30} />
+                    {pagination.pageable.pageNumber + 1}
+                    {' of '}
+                    {pagination.totalPages}
+                    <MdKeyboardArrowRight size={30} />
                 </div>
             )}
         </div>

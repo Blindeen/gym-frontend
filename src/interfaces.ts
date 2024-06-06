@@ -34,6 +34,15 @@ export interface ErrorResponse {
     error: string;
 }
 
+export interface Pagination {
+    pageable: {
+        pageNumber: number;
+        pageSize: number;
+    };
+    totalPages: number;
+    totalElements: number;
+}
+
 export interface ActivitiesResponse {
     content: Record<string, never>[];
     pageable: {
