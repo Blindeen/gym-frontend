@@ -34,23 +34,12 @@ export interface ErrorResponse {
     error: string;
 }
 
-interface Activity {
-    id: number;
-    name: string;
-    dayOfWeek: string;
-    startTime: string;
-    endTime: string;
-    room: string;
-}
-
-interface Pagination {
-    pageNumber: number;
-    pageSize: number;
-}
-
 export interface ActivitiesResponse {
-    content: Activity[];
-    pageable: Pagination;
+    content: Record<string, never>[];
+    pageable: {
+        pageNumber: number;
+        pageSize: number;
+    };
     totalPages: number;
     totalElements: number;
 }
