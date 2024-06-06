@@ -25,14 +25,22 @@ const Table = ({ columns, data, pagination = false }: TableProps) => {
     const tableRows = data.map((row, index) => (
         <tr key={index}>
             {columns.map((column) => (
-                <td key={column.key}>{row[column.dataIndex]}</td>
+                <td
+                    className="border-[1px] border-solid border-gray-300"
+                    key={column.key}
+                >
+                    {row[column.dataIndex]}
+                </td>
             ))}
         </tr>
     ));
 
     const noDataElement = (
         <tr>
-            <td className={`h-[50px] text-center`} colSpan={columns.length}>
+            <td
+                className="h-[50px] text-center border-solid border-gray-300"
+                colSpan={columns.length}
+            >
                 No data available
             </td>
         </tr>
