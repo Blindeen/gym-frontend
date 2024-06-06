@@ -33,3 +33,24 @@ export interface AuthResponse {
 export interface ErrorResponse {
     error: string;
 }
+
+interface Activity {
+    id: number;
+    name: string;
+    dayOfWeek: string;
+    startTime: string;
+    endTime: string;
+    room: string;
+}
+
+interface Pagination {
+    pageNumber: number;
+    pageSize: number;
+}
+
+export interface ActivitiesResponse {
+    content: Activity[];
+    pageable: Pagination;
+    totalPages: number;
+    totalElements: number;
+}
