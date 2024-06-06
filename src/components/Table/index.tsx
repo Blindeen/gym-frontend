@@ -11,7 +11,7 @@ interface TableProps {
 const Table = ({ columns, data, pagination }: TableProps) => {
     const tableHeaders = columns.map((column) => (
         <th
-            className="min-w-[90px] border-[1px] border-solid border-gray-300 p-2 text-center"
+            className="min-w-[90px] border-r-[1px] border-solid border-gray-300 p-2"
             key={column.key}
         >
             {column.title}
@@ -19,10 +19,10 @@ const Table = ({ columns, data, pagination }: TableProps) => {
     ));
 
     const tableRows = data.map((row, index) => (
-        <tr key={index}>
+        <tr key={index} className="hover:bg-gray-100">
             {columns.map((column) => (
                 <td
-                    className="border-[1px] border-solid border-gray-300 py-2"
+                    className="border-b-[1px] border-b-solid border-b-gray-300 p-2"
                     key={column.key}
                 >
                     {row[column.dataIndex] ?? column.render?.()}
@@ -34,7 +34,7 @@ const Table = ({ columns, data, pagination }: TableProps) => {
     const noDataElement = (
         <tr>
             <td
-                className="h-[50px] text-center border-solid border-gray-300"
+                className="h-[50px] text-center border-b-[1px] border-solid border-gray-300"
                 colSpan={columns.length}
             >
                 No data available
