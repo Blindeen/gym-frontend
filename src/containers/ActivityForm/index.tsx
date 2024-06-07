@@ -43,7 +43,11 @@ const ActivityForm = ({
         handleSubmit,
         formState: { isLoading, errors },
     } = useForm<ActivityForm>({
-        defaultValues: defaultValues ?? {
+        defaultValues: (defaultValues && {
+            ...defaultValues,
+            roomId: rooms.find((room) => room.label === defaultValues.room)
+                ?.value,
+        }) ?? {
             name: '',
             dayOfWeek: '',
             startTime: '',
