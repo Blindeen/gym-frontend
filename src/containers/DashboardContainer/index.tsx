@@ -13,6 +13,8 @@ import { AuthContext } from '@/AuthContext.tsx';
 import { ActivitiesResponse, Column, ErrorResponse } from '@/interfaces.ts';
 import axios from '@/api.ts';
 
+import { commonColumns } from '@/containers/DashboardContainer/commonColumns.ts';
+
 const Dashboard = () => {
     const { state } = useContext(AuthContext);
     const { user } = state;
@@ -92,31 +94,7 @@ const Dashboard = () => {
     };
 
     const columns: Column[] = [
-        {
-            title: 'Name',
-            dataIndex: 'name',
-            key: 'name',
-        },
-        {
-            title: 'Day of week',
-            dataIndex: 'dayOfWeek',
-            key: 'dayOfWeek',
-        },
-        {
-            title: 'Start time',
-            dataIndex: 'startTime',
-            key: 'startTime',
-        },
-        {
-            title: 'End time',
-            dataIndex: 'endTime',
-            key: 'endTime',
-        },
-        {
-            title: 'Room',
-            dataIndex: 'room',
-            key: 'room',
-        },
+        ...commonColumns,
         user.role === 'CUSTOMER'
             ? {
                   title: 'Action',
