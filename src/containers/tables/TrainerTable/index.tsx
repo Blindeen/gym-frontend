@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 import { toast } from 'react-toastify';
 
@@ -8,6 +8,8 @@ import Button from '@/components/Button';
 import { AuthContext } from '@/AuthContext.tsx';
 import axios from '@/api.ts';
 import { ActivitiesResponse } from '@/interfaces.ts';
+import Modal from 'react-modal';
+import ActivityForm from '@/containers/ActivityForm';
 
 interface TrainerTableProps {
     data: ActivitiesResponse;
@@ -21,6 +23,10 @@ const TrainerTable = ({
     onPageChange,
 }: TrainerTableProps) => {
     const { state } = useContext(AuthContext);
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedActivity, setSelectedActivity] = useState(
+        {} as Record<string, never>
+    );
 
     const deleteActivity = (id: number) => {
         const res = axios.delete(`/activity/${id}/delete`, {
@@ -72,7 +78,15 @@ const TrainerTable = ({
             key: 'action',
             render: (record: Record<string, never>) => (
                 <div className="flex gap-2">
-                    <Button size="full">Edit</Button>
+                    <Button
+                        size="full"
+                        onClick={() => {
+                            setIsOpen(true);
+                            setSelectedActivity(record);
+                        }}
+                    >
+                        Edit
+                    </Button>
                     <Button
                         buttonType="danger"
                         size="full"
@@ -86,11 +100,21 @@ const TrainerTable = ({
     ];
 
     return (
-        <Table
-            columns={columns}
-            data={data.content}
-            pagination={{ ...data, onPageChange }}
-        />
+        <>
+            <Table
+                columns={columns}
+                data={data.content}
+                pagination={{ ...data, onPageChange }}
+            />
+            <Modal isOpen={isOpen} onRequestClose={() => setIsOpen(false)}>
+                <div className="flex w-full h-full justify-center items-center">
+                    <ActivityForm
+                        fetchActivities={() => fetchActivities()}
+                        defaultValues={selectedActivity}
+                    />
+                </div>
+            </Modal>
+        </>
     );
 };
 

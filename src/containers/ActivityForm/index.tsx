@@ -28,10 +28,14 @@ const rooms = [
 ];
 
 interface ActivityFormProps {
+    defaultValues?: Record<string, never>;
     fetchActivities: () => void;
 }
 
-const ActivityForm = ({ fetchActivities }: ActivityFormProps) => {
+const ActivityForm = ({
+    defaultValues,
+    fetchActivities,
+}: ActivityFormProps) => {
     const { state } = useContext(AuthContext);
     const {
         control,
@@ -39,7 +43,7 @@ const ActivityForm = ({ fetchActivities }: ActivityFormProps) => {
         handleSubmit,
         formState: { isLoading, errors },
     } = useForm<ActivityForm>({
-        defaultValues: {
+        defaultValues: defaultValues ?? {
             name: '',
             dayOfWeek: '',
             startTime: '',
@@ -48,21 +52,32 @@ const ActivityForm = ({ fetchActivities }: ActivityFormProps) => {
         },
     });
 
-    const onSubmit = (data: ActivityForm) => {
-        const res = axios.post('/activity/create', data, {
+    const createActivity = (data: ActivityForm) => {
+        return axios.post('/activity/create', data, {
             headers: {
                 Authorization: `Bearer ${state.token}`,
             },
         });
+    };
+
+    const updateActivity = (data: ActivityForm) => {
+        return axios.put(`/activity/${defaultValues?.id}/update`, data, {
+            headers: {
+                Authorization: `Bearer ${state.token}`,
+            },
+        });
+    };
+
+    const onSubmit = (data: ActivityForm) => {
+        const res = defaultValues ? updateActivity(data) : createActivity(data);
 
         res.then(() => {
-            toast('Activity has been created', {
+            toast('Activity has been saved', {
                 type: 'success',
             });
             fetchActivities();
             reset();
         }).catch((err) => {
-            console.log(err);
             if (err.response) {
                 const { error } = err.response.data as ErrorResponse;
                 toast(error, {
