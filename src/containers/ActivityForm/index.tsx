@@ -98,7 +98,7 @@ const ActivityForm = ({
     return (
         <>
             <form
-                className="flex flex-col gap-8 w-[40%]"
+                className="flex flex-col gap-8"
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <Controller

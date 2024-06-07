@@ -1,20 +1,17 @@
-import { useContext, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 
+import Modal from 'react-modal';
+import { toast } from 'react-toastify';
+
+import ActivityForm from '@/containers/ActivityForm';
 import EnrollActivityForm from '@/containers/EnrollActivityForm';
 
 import Table from '@/components/Table';
 import Button from '@/components/Button';
 
 import { AuthContext } from '@/AuthContext.tsx';
-import {
-    ActivitiesResponse,
-    Column,
-    type ErrorResponse,
-} from '@/interfaces.ts';
-import ActivityForm from '@/containers/ActivityForm';
+import { ActivitiesResponse, Column, ErrorResponse } from '@/interfaces.ts';
 import axios from '@/api.ts';
-import { toast } from 'react-toastify';
-import Modal from 'react-modal';
 
 const Dashboard = () => {
     const { state } = useContext(AuthContext);
@@ -34,11 +31,8 @@ const Dashboard = () => {
         {} as Record<string, never>
     );
 
-    const fetchActivities = (pageNumber = 0, pageSize = 5) => {
+    const fetchActivities = useCallback((pageNumber = 0, pageSize = 5) => {
         const res = axios.get<ActivitiesResponse>('/member/activities', {
-            headers: {
-                Authorization: `Bearer ${state.token}`,
-            },
             params: {
                 pageNumber,
                 pageSize,
@@ -52,14 +46,14 @@ const Dashboard = () => {
                 type: 'error',
             });
         });
-    };
+    }, []);
+
+    useEffect(() => {
+        fetchActivities();
+    }, [fetchActivities]);
 
     const deleteActivity = (id: number) => {
-        const res = axios.delete(`/activity/${id}/delete`, {
-            headers: {
-                Authorization: `Bearer ${state.token}`,
-            },
-        });
+        const res = axios.delete(`/activity/${id}/delete`);
         res.then(() => {
             toast('Activity deleted', {
                 type: 'success',
@@ -73,12 +67,7 @@ const Dashboard = () => {
     };
 
     const leaveActivity = (id: number) => {
-        const res = axios.delete(`/activity/${id}/leave`, {
-            headers: {
-                Authorization: `Bearer ${state.token}`,
-            },
-        });
-
+        const res = axios.delete(`/activity/${id}/leave`);
         res.then(() => {
             toast('You have left the activity', {
                 type: 'success',
@@ -97,10 +86,6 @@ const Dashboard = () => {
             }
         });
     };
-
-    useEffect(() => {
-        fetchActivities();
-    }, [state.token]);
 
     const onPageChange = (pageNumber: number) => {
         fetchActivities(pageNumber);
@@ -141,7 +126,7 @@ const Dashboard = () => {
                       <div className="flex gap-2">
                           <Button
                               size={20}
-                              onClick={() => leaveActivity(record['id'])}
+                              onClick={() => leaveActivity(record.id)}
                           >
                               Unsubscribe
                           </Button>
@@ -152,7 +137,7 @@ const Dashboard = () => {
                   title: 'Action',
                   dataIndex: 'action',
                   key: 'action',
-                  render: (record: Record<string, never>) => (
+                  render: (record) => (
                       <div className="flex gap-2">
                           <Button
                               size="full"
@@ -166,7 +151,7 @@ const Dashboard = () => {
                           <Button
                               buttonType="danger"
                               size="full"
-                              onClick={() => deleteActivity(record['id'])}
+                              onClick={() => deleteActivity(record.id)}
                           >
                               Delete
                           </Button>
