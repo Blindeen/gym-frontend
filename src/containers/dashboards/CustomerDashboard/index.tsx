@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 
 import CustomerTable from '@/containers/tables/CustomerTable';
+import EnrollActivityForm from '@/containers/EnrollActivityForm';
 import { fetchActivities } from '@/containers/dashboards/functions.ts';
 
 import { AuthContext } from '@/AuthContext.tsx';
@@ -38,6 +39,14 @@ const CustomerDashboard = () => {
                             fetchActivities(state.token, setActivitiesResponse)
                         }
                         onPageChange={onPageChange}
+                    />
+                </div>
+                <div className="sm:w-[95%] lg:w-[40%]">
+                    <EnrollActivityForm
+                        myActivities={activitiesResponse}
+                        fetchMyActivities={() =>
+                            fetchActivities(state.token, setActivitiesResponse)
+                        }
                     />
                 </div>
             </div>
