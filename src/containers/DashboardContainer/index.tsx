@@ -14,6 +14,7 @@ import { ActivitiesResponse, Column, ErrorResponse } from '@/interfaces.ts';
 import axios from '@/api.ts';
 
 import { commonColumns } from '@/containers/DashboardContainer/commonColumns.ts';
+import Input from '@/components/Input';
 
 const Dashboard = () => {
     const { state } = useContext(AuthContext);
@@ -32,23 +33,28 @@ const Dashboard = () => {
     const [selectedActivity, setSelectedActivity] = useState(
         {} as Record<string, never>
     );
+    const [searchInput, setSearchInput] = useState('');
 
-    const fetchActivities = useCallback((pageNumber = 0, pageSize = 5) => {
-        const res = axios.get<ActivitiesResponse>('/member/activities', {
-            params: {
-                pageNumber,
-                pageSize,
-            },
-        });
-        res.then((res) => {
-            const { data } = res;
-            setActivitiesResponse(data);
-        }).catch(() => {
-            toast('Cannot fetch activities', {
-                type: 'error',
+    const fetchActivities = useCallback(
+        (pageNumber = 0, pageSize = 5) => {
+            const res = axios.get<ActivitiesResponse>('/member/activities', {
+                params: {
+                    pageNumber: pageNumber,
+                    pageSize: pageSize,
+                    name: searchInput,
+                },
             });
-        });
-    }, []);
+            res.then((res) => {
+                const { data } = res;
+                setActivitiesResponse(data);
+            }).catch(() => {
+                toast('Cannot fetch activities', {
+                    type: 'error',
+                });
+            });
+        },
+        [searchInput]
+    );
 
     useEffect(() => {
         fetchActivities();
@@ -140,8 +146,15 @@ const Dashboard = () => {
 
     return (
         <div className="flex flex-col items-center gap-4 pb-3 sm:w-[95%] lg:w-[60%]">
-            <div className="w-full">
-                <h3 className="h3-primary mt-0">Activities</h3>
+            <div className="flex flex-col gap-[20px] w-full">
+                <h3 className="h3-primary m-0">Activities</h3>
+                <Input
+                    type="text"
+                    label="Search"
+                    onChange={(e) => {
+                        setSearchInput(e.target.value);
+                    }}
+                />
                 <Table
                     columns={columns}
                     data={activitiesResponse.content}
