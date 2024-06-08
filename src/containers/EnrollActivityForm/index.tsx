@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Controller, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
@@ -33,32 +33,25 @@ const EnrollActivityForm = ({
             activityId: '',
         },
     });
-    const [activities, setActivities] = useState<ActivitiesResponse['content']>(
-        []
-    );
+    const [activities, setActivities] = useState<Record<string, never>[]>([]);
 
-    const fetchAllActivities = useCallback(() => {
-        const res = axios.get<ActivitiesResponse>('/activity/list');
-
+    const fetchAvailableActivities = () => {
+        const res = axios.get<Record<string, never>[]>(
+            '/member/available-activities'
+        );
         res.then((res) => {
             const { data } = res;
-            const myActivityIds = myActivities.content.map(
-                (activity) => activity.id
-            );
-            const filteredActivities = data.content.filter(
-                (activity) => !myActivityIds.includes(activity.id)
-            );
-            setActivities(filteredActivities);
+            setActivities(data);
         }).catch(() => {
             toast('An error occurred', {
                 type: 'error',
             });
         });
-    }, [myActivities]);
+    };
 
     useEffect(() => {
-        fetchAllActivities();
-    }, [fetchAllActivities]);
+        fetchAvailableActivities();
+    }, [myActivities]);
 
     const onSubmit = (data: EnrollActivityForm) => {
         const { activityId } = data;
