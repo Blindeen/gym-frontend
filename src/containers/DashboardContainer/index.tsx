@@ -153,7 +153,6 @@ const Dashboard = () => {
                     label="Search"
                     onChange={(e) => {
                         setSearchInput(e.target.value);
-                        fetchActivities();
                     }}
                 />
                 <Table
