@@ -40,7 +40,7 @@ export interface AuthResponse {
 }
 
 export interface ErrorResponse {
-    error: string;
+    errors: Record<string, string[]>;
 }
 
 export interface Column {
