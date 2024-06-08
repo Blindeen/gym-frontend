@@ -1,15 +1,14 @@
-import { useCallback, useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Controller, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
 import Select from '@/components/Select';
 import Button from '@/components/Button';
-
-import { AuthContext } from '@/AuthContext.tsx';
-import axios from '@/api.ts';
 import FormError from '@/components/form/FormError';
-import { ActivitiesResponse } from '@/interfaces.ts';
+
+import axios from '@/api.ts';
+import { ActivitiesResponse, type ErrorResponse } from '@/interfaces.ts';
 
 interface EnrollActivityForm {
     activityId: string;
@@ -24,7 +23,6 @@ const EnrollActivityForm = ({
     myActivities,
     fetchMyActivities,
 }: EnrollActivityFormProps) => {
-    const { state } = useContext(AuthContext);
     const {
         control,
         reset,
@@ -35,51 +33,50 @@ const EnrollActivityForm = ({
             activityId: '',
         },
     });
-    const [activities, setActivities] = useState<ActivitiesResponse['content']>(
-        []
-    );
+    const [activities, setActivities] = useState<Record<string, never>[]>([]);
 
-    const fetchAllActivities = useCallback(() => {
-        const res = axios.get<ActivitiesResponse>('/activity/list');
-
+    const fetchAvailableActivities = () => {
+        const res = axios.get<Record<string, never>[]>(
+            '/member/available-activities'
+        );
         res.then((res) => {
             const { data } = res;
-            const myActivityIds = myActivities.content.map(
-                (activity) => activity.id
-            );
-            const filteredActivities = data.content.filter(
-                (activity) => !myActivityIds.includes(activity.id)
-            );
-            setActivities(filteredActivities);
+            setActivities(data);
         }).catch(() => {
             toast('An error occurred', {
                 type: 'error',
             });
         });
-    }, [myActivities]);
+    };
 
     useEffect(() => {
-        fetchAllActivities();
-    }, [fetchAllActivities]);
+        fetchAvailableActivities();
+    }, [myActivities]);
 
     const onSubmit = (data: EnrollActivityForm) => {
         const { activityId } = data;
-        const res = axios.post(`/activity/${activityId}/enroll`, null, {
-            headers: {
-                Authorization: `Bearer ${state.token}`,
-            },
-        });
-
+        const res = axios.post(`/activity/${activityId}/enroll`);
         res.then(() => {
             toast('Enrolled successfully', {
                 type: 'success',
             });
             fetchMyActivities();
             reset();
-        }).catch(() => {
-            toast('An error occurred', {
-                type: 'error',
-            });
+        }).catch((err) => {
+            if (err.response) {
+                const { errors }: ErrorResponse = err.response.data;
+                Object.entries(errors).map(([_, val]) => {
+                    val.map((mess) =>
+                        toast(mess, {
+                            type: 'error',
+                        })
+                    );
+                });
+            } else {
+                toast('An error occurred', {
+                    type: 'error',
+                });
+            }
         });
     };
 

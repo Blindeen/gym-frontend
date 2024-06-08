@@ -83,9 +83,13 @@ const ActivityForm = ({
             reset();
         }).catch((err) => {
             if (err.response) {
-                const { error } = err.response.data as ErrorResponse;
-                toast(error, {
-                    type: 'error',
+                const { errors }: ErrorResponse = err.response.data;
+                Object.entries(errors).map(([_, val]) => {
+                    val.map((mess) =>
+                        toast(mess, {
+                            type: 'error',
+                        })
+                    );
                 });
             } else {
                 toast('An error occurred', {
