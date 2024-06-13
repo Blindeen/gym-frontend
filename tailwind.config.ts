@@ -8,5 +8,22 @@ module.exports = {
         extend: {},
     },
     darkMode: 'class',
-    plugins: [nextui()],
+    plugins: [
+        nextui({
+            themes: {
+                light: {
+                    colors: {
+                        primary: '#008DDA',
+                        secondary: '#41C9E2',
+                    },
+                },
+                dark: {
+                    colors: {
+                        primary: '#3A1078',
+                        secondary: '#4E31AA',
+                    },
+                },
+            },
+        }),
+    ],
 } satisfies Config;
