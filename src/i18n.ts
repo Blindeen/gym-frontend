@@ -1,13 +1,15 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import enJSON from '@/locale/en.json';
-import plJSON from '@/locale/pl.json';
+import usTranslations from '@/locale/us.json';
+import plTranslations from '@/locale/pl.json';
 
-i18n.use(initReactI18next).init({
+import { getLocalStorageItem } from '@/utils';
+
+await i18n.use(initReactI18next).init({
     resources: {
-        en: { ...enJSON },
-        pl: { ...plJSON },
+        us: { ...usTranslations },
+        pl: { ...plTranslations },
     },
-    lng: 'en',
+    lng: getLocalStorageItem('language') || 'en',
 });
