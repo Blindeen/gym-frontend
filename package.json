@@ -14,6 +14,7 @@
     "@emotion/styled": "^11.11.5",
     "@nextui-org/react": "^2.4.1",
     "axios": "^1.7.2",
+    "flag-icons": "^7.2.3",
     "framer-motion": "^11.2.10",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
