@@ -9,5 +9,5 @@ i18n.use(initReactI18next).init({
         en: { ...enJSON },
         pl: { ...plJSON },
     },
-    lng: 'pl',
+    lng: 'en',
 });

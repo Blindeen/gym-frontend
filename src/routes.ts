@@ -5,7 +5,7 @@ const routes = {
     register: '/register',
     activities: '/activities',
     dashboard: '/dashboard',
-    stuff: '/stuff',
+    staff: '/staff',
     contact: '/contact',
 };
 
