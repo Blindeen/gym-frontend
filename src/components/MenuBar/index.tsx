@@ -15,6 +15,7 @@ import {
 } from '@nextui-org/react';
 
 import AvatarDropdown from '@/components/AvatarDropdown';
+import LanguageSelect from '@/components/LanguageSelect';
 
 import { AuthContext } from '@/AuthContext.tsx';
 import routes from '@/routes.ts';
@@ -94,16 +95,21 @@ const MenuBar = () => {
                 {isLogged ? (
                     <AvatarDropdown />
                 ) : (
-                    <NavbarItem>
-                        <Button
-                            as={Link}
-                            className="text-white"
-                            href={routes.login}
-                            color="primary"
-                        >
-                            {t('signIn')}
-                        </Button>
-                    </NavbarItem>
+                    <>
+                        <NavbarItem>
+                            <LanguageSelect />
+                        </NavbarItem>
+                        <NavbarItem>
+                            <Button
+                                as={Link}
+                                className="text-white"
+                                href={routes.login}
+                                color="primary"
+                            >
+                                {t('signIn')}
+                            </Button>
+                        </NavbarItem>
+                    </>
                 )}
             </NavbarContent>
 
