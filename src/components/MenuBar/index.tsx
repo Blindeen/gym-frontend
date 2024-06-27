@@ -1,45 +1,23 @@
 import { useContext, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
 
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
     Link,
     Navbar,
     Button,
-    NavbarBrand,
     NavbarContent,
     NavbarItem,
     NavbarMenu,
     NavbarMenuItem,
     NavbarMenuToggle,
+    NavbarBrand,
 } from '@nextui-org/react';
 
 import AvatarDropdown from '@/components/AvatarDropdown';
 
 import { AuthContext } from '@/AuthContext.tsx';
 import routes from '@/routes.ts';
-
-const menuItems = [
-    {
-        name: 'About club',
-        path: routes.about,
-    },
-    {
-        name: 'Dashboard',
-        path: routes.dashboard,
-    },
-    {
-        name: 'Activities',
-        path: routes.activities,
-    },
-    {
-        name: 'Staff',
-        path: routes.stuff,
-    },
-    {
-        name: 'Contact',
-        path: routes.contact,
-    },
-];
 
 const MenuBar = () => {
     const location = useLocation();
@@ -49,7 +27,32 @@ const MenuBar = () => {
     const { state } = useContext(AuthContext);
     const { isLogged } = state;
 
+    const { t } = useTranslation();
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const menuItems = [
+        {
+            name: t('aboutClub'),
+            path: routes.about,
+        },
+        {
+            name: t('dashboard'),
+            path: routes.dashboard,
+        },
+        {
+            name: t('activities'),
+            path: routes.activities,
+        },
+        {
+            name: t('staff'),
+            path: routes.staff,
+        },
+        {
+            name: t('contact'),
+            path: routes.contact,
+        },
+    ];
 
     return (
         <Navbar
@@ -91,33 +94,22 @@ const MenuBar = () => {
                 {isLogged ? (
                     <AvatarDropdown />
                 ) : (
-                    <>
-                        <NavbarItem>
-                            <Button
-                                as={Link}
-                                href={routes.register}
-                                color="danger"
-                            >
-                                Sign Up
-                            </Button>
-                        </NavbarItem>
-                        <NavbarItem>
-                            <Button
-                                as={Link}
-                                className="text-white"
-                                href={routes.login}
-                                color="primary"
-                            >
-                                Sign In
-                            </Button>
-                        </NavbarItem>
-                    </>
+                    <NavbarItem>
+                        <Button
+                            as={Link}
+                            className="text-white"
+                            href={routes.login}
+                            color="primary"
+                        >
+                            {t('signIn')}
+                        </Button>
+                    </NavbarItem>
                 )}
             </NavbarContent>
 
             <NavbarMenu>
-                {menuItems.map((item, index) => (
-                    <NavbarMenuItem key={`${item}-${index}`}>
+                {menuItems.map((item, idx) => (
+                    <NavbarMenuItem key={`${item}-${idx}`}>
                         <Link
                             className="w-full"
                             href={item.path}
