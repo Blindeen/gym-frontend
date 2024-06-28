@@ -58,6 +58,7 @@ const MenuBar = () => {
     return (
         <Navbar
             maxWidth="xl"
+            height="6rem"
             onMenuOpenChange={setIsMenuOpen}
             isBordered
             isMenuOpen={isMenuOpen}
@@ -81,6 +82,7 @@ const MenuBar = () => {
                 {menuItems.map((item, idx) => (
                     <NavbarItem key={idx} isActive={item.path === pathname}>
                         <Link
+                            className="font-medium"
                             href={item.path}
                             color="foreground"
                             underline="hover"
