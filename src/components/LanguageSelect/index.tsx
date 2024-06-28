@@ -1,12 +1,5 @@
 import { useTranslation } from 'react-i18next';
-
-import {
-    Button,
-    Dropdown,
-    DropdownItem,
-    DropdownMenu,
-    DropdownTrigger,
-} from '@nextui-org/react';
+import { Select, SelectItem } from '@nextui-org/react';
 import '/node_modules/flag-icons/css/flag-icons.min.css';
 
 import { setLocalStorageItem } from '@/utils';
@@ -35,32 +28,30 @@ const LanguageSelect = () => {
     };
 
     return (
-        <Dropdown>
-            <DropdownTrigger>
-                <Button
-                    variant="bordered"
-                    className="capitalize"
-                    startContent={<span className={`fi fi-${language}`} />}
-                >
-                    {language.toUpperCase()}
-                </Button>
-            </DropdownTrigger>
-            <DropdownMenu
-                aria-label="Language selection"
-                disallowEmptySelection
-                selectedKeys={[language]}
-            >
-                {languages.map(({ label, code }) => (
-                    <DropdownItem
-                        key={code}
-                        startContent={<span className={`fi fi-${code}`} />}
-                        onClick={() => handleLanguageChange(code)}
-                    >
+        <Select
+            items={languages}
+            aria-label="Select a language"
+            defaultSelectedKeys={[language]}
+            onChange={(e) => handleLanguageChange(e.target.value)}
+            renderValue={(languages) => {
+                return languages.map(({ data }) => (
+                    <div key={data?.code} className="flex justify-center gap-3">
+                        <span className={`fi fi-${data?.code} scale-110`} />
+                        {data?.label}
+                    </div>
+                ));
+            }}
+            disallowEmptySelection
+        >
+            {({ label, code }) => (
+                <SelectItem key={code} textValue={label} hideSelectedIcon>
+                    <div className="flex justify-center gap-3">
+                        <span className={`fi fi-${code} scale-110`} />
                         {label}
-                    </DropdownItem>
-                ))}
-            </DropdownMenu>
-        </Dropdown>
+                    </div>
+                </SelectItem>
+            )}
+        </Select>
     );
 };
 

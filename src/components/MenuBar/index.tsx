@@ -96,7 +96,7 @@ const MenuBar = () => {
                     <AvatarDropdown />
                 ) : (
                     <>
-                        <NavbarItem>
+                        <NavbarItem className="w-24">
                             <LanguageSelect />
                         </NavbarItem>
                         <NavbarItem>
