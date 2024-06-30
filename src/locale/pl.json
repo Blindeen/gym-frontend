@@ -5,6 +5,9 @@
     "activities": "Aktywności",
     "staff": "Kadra",
     "contact": "Kontakt",
-    "signIn": "Zaloguj się"
+    "signIn": "Zaloguj się",
+    "privacyPolicy": "Prywatność",
+    "legalStuff": "Warunki",
+    "cookiesPolicy": "Ciasteczka"
   }
 }

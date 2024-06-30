@@ -5,6 +5,9 @@
     "activities": "Activities",
     "staff": "Staff",
     "contact": "Contact",
-    "signIn": "Sign in"
+    "signIn": "Sign in",
+    "privacyPolicy": "Privacy policy",
+    "legalStuff": "Legal stuff",
+    "cookiesPolicy": "Cookies policy"
   }
 }
