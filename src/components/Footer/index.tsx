@@ -41,7 +41,7 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="flex justify-center items-center">
+        <footer className="flex justify-center">
             <div className="w-full max-w-[1280px] p-6">
                 <div className="md:flex md:justify-between">
                     <div className="flex mb-6 md:mb-0">
@@ -123,10 +123,10 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <hr className="my-6 border-gray-200 dark:border-gray-700" />
+                <hr className="w-full h-divider my-6 shrink-0 bg-divider border-none" />
                 <div className="sm:flex sm:items-center sm:justify-between">
-                    <p className="text-sm lg:text-center">{`Copyright © ${currentYear} FitSphere Inc.`}</p>
-                    <div className="flex gap-5 mt-4 sm:justify-center sm:mt-0">
+                    <p className="text-sm">{`Copyright © ${currentYear} FitSphere Inc.`}</p>
+                    <div className="flex gap-5 mt-4 sm:mt-0">
                         <FaInstagram size="1.5rem" />
                         <FaFacebook size="1.5rem" />
                         <FaXTwitter size="1.5rem" />
