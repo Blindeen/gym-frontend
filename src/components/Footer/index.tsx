@@ -2,11 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { Link, Image } from '@nextui-org/react';
+import { Divider } from '@nextui-org/divider';
 import { FaInstagram, FaFacebook } from 'react-icons/fa';
 import { FaXTwitter, FaYoutube, FaThreads } from 'react-icons/fa6';
 
 import routes from '@/routes.ts';
-import { Divider } from '@nextui-org/divider';
 
 const Footer = () => {
     const navigate = useNavigate();
