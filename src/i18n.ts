@@ -11,5 +11,5 @@ await i18n.use(initReactI18next).init({
         us: { ...usTranslations },
         pl: { ...plTranslations },
     },
-    lng: getLocalStorageItem('language') || 'en',
+    lng: getLocalStorageItem('language') || 'us',
 });

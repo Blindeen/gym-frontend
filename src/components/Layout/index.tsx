@@ -1,18 +1,19 @@
 import { Outlet } from 'react-router-dom';
+import { Divider } from '@nextui-org/divider';
 
 import MenuBar from '@/components/MenuBar';
+import Footer from '@/components/Footer';
 
 const Layout = () => {
     return (
-        <>
-            <nav>
-                <MenuBar />
-            </nav>
-            <main>
+        <div className="flex flex-col min-h-screen">
+            <MenuBar />
+            <main className="grow">
                 <Outlet />
             </main>
-            <footer></footer>
-        </>
+            <Divider />
+            <Footer />
+        </div>
     );
 };
 

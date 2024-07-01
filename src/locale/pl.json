@@ -5,6 +5,12 @@
     "activities": "Aktywności",
     "staff": "Kadra",
     "contact": "Kontakt",
-    "signIn": "Zaloguj się"
+    "signIn": "Zaloguj się",
+    "privacyPolicy": "Polityka prywatność",
+    "legalStuff": "Warunki użytkowania",
+    "cookiesPolicy": "Polityka ciasteczek",
+    "resources": "Zasoby",
+    "legal": "Prawne",
+    "club": "Klub"
   }
 }
