@@ -6,6 +6,7 @@ import { FaInstagram, FaFacebook } from 'react-icons/fa';
 import { FaXTwitter, FaYoutube, FaThreads } from 'react-icons/fa6';
 
 import routes from '@/routes.ts';
+import { Divider } from '@nextui-org/divider';
 
 const Footer = () => {
     const navigate = useNavigate();
@@ -42,7 +43,7 @@ const Footer = () => {
 
     return (
         <footer className="flex justify-center">
-            <div className="w-full max-w-[1280px] p-6">
+            <div className="w-full max-w-[1280px] p-6 text-sm">
                 <div className="md:flex md:justify-between">
                     <div className="flex mb-6 md:mb-0">
                         <span
@@ -54,13 +55,12 @@ const Footer = () => {
                     </div>
                     <div className="flex flex-wrap gap-8">
                         <div className="flex flex-col gap-6">
-                            <h2 className="text-sm font-bold uppercase">
+                            <h2 className="font-bold uppercase">
                                 {t('resources')}
                             </h2>
                             {resources.map(({ name, path }, idx) => (
                                 <Link
                                     key={idx}
-                                    className="text-center"
                                     href={path}
                                     color="foreground"
                                     size="sm"
@@ -71,13 +71,12 @@ const Footer = () => {
                             ))}
                         </div>
                         <div className="flex flex-col gap-6">
-                            <h2 className="text-sm font-bold uppercase">
+                            <h2 className="font-bold uppercase">
                                 {t('legal')}
                             </h2>
                             {legal.map((link, idx) => (
                                 <Link
                                     key={idx}
-                                    className="text-center"
                                     color="foreground"
                                     size="sm"
                                     underline="hover"
@@ -87,13 +86,12 @@ const Footer = () => {
                             ))}
                         </div>
                         <div className="flex flex-col gap-6">
-                            <h2 className="text-sm font-bold uppercase">
+                            <h2 className=" font-bold uppercase">
                                 {t('club')}
                             </h2>
                             {club.map(({ name, path }, idx) => (
                                 <Link
                                     key={idx}
-                                    className="text-center"
                                     href={path}
                                     color="foreground"
                                     size="sm"
@@ -114,7 +112,7 @@ const Footer = () => {
                             </a>
                             <a href="https://apps.apple.com/us/app/fitsphere/id1530190137">
                                 <Image
-                                    className="max-w-[125px] cursor-pointer"
+                                    className="max-w-[125px]"
                                     src={`/images/badges/app_store_${language}.png`}
                                     alt="App store badge"
                                     radius="none"
@@ -123,9 +121,9 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <hr className="w-full h-divider my-6 shrink-0 bg-divider border-none" />
+                <Divider className="my-6" />
                 <div className="sm:flex sm:items-center sm:justify-between">
-                    <p className="text-sm">{`Copyright © ${currentYear} FitSphere Inc.`}</p>
+                    <p>{`Copyright © ${currentYear} FitSphere Inc.`}</p>
                     <div className="flex gap-5 mt-4 sm:mt-0">
                         <FaInstagram size="1.5rem" />
                         <FaFacebook size="1.5rem" />
