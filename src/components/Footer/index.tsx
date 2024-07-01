@@ -108,6 +108,7 @@ const Footer = () => {
                                 <Image
                                     className="max-w-[125px]"
                                     src={`/images/badges/google_play_${language}.png`}
+                                    alt="Google play badge"
                                     radius="none"
                                 />
                             </a>
@@ -115,6 +116,7 @@ const Footer = () => {
                                 <Image
                                     className="max-w-[125px] cursor-pointer"
                                     src={`/images/badges/app_store_${language}.png`}
+                                    alt="App store badge"
                                     radius="none"
                                 />
                             </a>
