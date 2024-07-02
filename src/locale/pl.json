@@ -5,12 +5,17 @@
     "activities": "Aktywności",
     "staff": "Kadra",
     "contact": "Kontakt",
+    "signUp": "Zarejestruj się",
     "signIn": "Zaloguj się",
     "privacyPolicy": "Polityka prywatność",
     "legalStuff": "Warunki użytkowania",
     "cookiesPolicy": "Polityka ciasteczek",
     "resources": "Zasoby",
     "legal": "Prawne",
-    "club": "Klub"
+    "club": "Klub",
+    "unleashYour": "Uwolnij swoją",
+    "innerStrengthToday": "wewnętrzną siłę już dziś",
+    "landingPageDescription": "Doświadcz najnowocześniejszego sprzętu, doświadczonych trenerów i spersonalizowanych programów zaprojektowanych, aby pomóc Ci osiągnąć Twoje cele.",
+    "ourPartners": "Nasi partnerzy"
   }
 }

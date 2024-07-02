@@ -5,12 +5,17 @@
     "activities": "Activities",
     "staff": "Staff",
     "contact": "Contact",
+    "signUp": "Sign up",
     "signIn": "Sign in",
     "privacyPolicy": "Privacy policy",
     "legalStuff": "Legal stuff",
     "cookiesPolicy": "Cookies policy",
     "resources": "Resources",
     "legal": "Legal",
-    "club": "Club"
+    "club": "Club",
+    "unleashYour": "Unleash your",
+    "innerStrengthToday": "inner strength today",
+    "landingPageDescription": "Experience state-of-the-art equipment, expert trainers, and personalized programs designed to help you reach your goals.",
+    "ourPartners": "Our partners"
   }
 }
