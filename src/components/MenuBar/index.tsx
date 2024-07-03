@@ -94,24 +94,22 @@ const MenuBar = () => {
             </NavbarContent>
 
             <NavbarContent justify="end">
+                <NavbarItem className="w-24">
+                    <LanguageSelect />
+                </NavbarItem>
                 {isLogged ? (
                     <AvatarDropdown />
                 ) : (
-                    <>
-                        <NavbarItem className="w-24">
-                            <LanguageSelect />
-                        </NavbarItem>
-                        <NavbarItem>
-                            <Button
-                                as={Link}
-                                className="text-white"
-                                href={routes.login}
-                                color="primary"
-                            >
-                                {t('signIn')}
-                            </Button>
-                        </NavbarItem>
-                    </>
+                    <NavbarItem>
+                        <Button
+                            as={Link}
+                            className="text-white"
+                            href={routes.login}
+                            color="primary"
+                        >
+                            {t('signIn')}
+                        </Button>
+                    </NavbarItem>
                 )}
             </NavbarContent>
 
