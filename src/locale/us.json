@@ -13,9 +13,11 @@
     "resources": "Resources",
     "legal": "Legal",
     "club": "Club",
-    "unleashYour": "Unleash your",
+    "unleash": "Unleash",
+    "your": "your",
     "innerStrengthToday": "inner strength today",
     "landingPageDescription": "Experience state-of-the-art equipment, expert trainers, and personalized programs designed to help you reach your goals.",
-    "ourPartners": "Our partners"
+    "ourPartners": "Our partners",
+    "findOutMore": "Find out more"
   }
 }

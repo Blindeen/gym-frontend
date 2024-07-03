@@ -11,7 +11,7 @@ module.exports = {
         extend: {
             backgroundImage: {
                 'radial-gradient':
-                    'radial-gradient(circle farthest-side at 100%, #41C9E2 38%, #526FFF 65%)',
+                    'radial-gradient(circle farthest-side at 100%, #2e1067 38%, #1f094a 65%)',
             },
         },
     },

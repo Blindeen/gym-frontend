@@ -13,9 +13,11 @@
     "resources": "Zasoby",
     "legal": "Prawne",
     "club": "Klub",
-    "unleashYour": "Uwolnij swoją",
+    "unleash": "Uwolnij",
+    "your": "swoją",
     "innerStrengthToday": "wewnętrzną siłę już dziś",
     "landingPageDescription": "Doświadcz najnowocześniejszego sprzętu, doświadczonych trenerów i spersonalizowanych programów zaprojektowanych, aby pomóc Ci osiągnąć Twoje cele.",
-    "ourPartners": "Nasi partnerzy"
+    "ourPartners": "Nasi partnerzy",
+    "findOutMore": "Dowiedz się więcej"
   }
 }
