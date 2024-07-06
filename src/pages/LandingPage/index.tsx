@@ -98,20 +98,17 @@ const LandingPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-full max-w-[1280px] flex flex-col items-center gap-12 px-6 mx-auto font-bold">
+            <div className="w-full max-w-[1280px] flex flex-col gap-12 px-6 mx-auto font-bold">
                 <h1 className="w-full text-2xl text-center md:text-5xl">
                     {t('infoTabsHeader')}
                 </h1>
-                <div className="w-full flex flex-wrap justify-evenly gap-5 md:gap-0">
-                    <div className="bg-[url('/images/shapes/div-bg-shape.svg')] bg-[length:100%] bg-center bg-no-repeat">
-                        <Image
-                            className="mx-auto"
-                            src={PersonalTraining}
-                            width="350px"
-                            draggable={false}
-                        />
-                    </div>
-                    <div className="w-full flex flex-col items-center md:w-1/2">
+                <div className="w-full flex flex-wrap justify-evenly gap-y-5 lg:gap-y-0">
+                    <Image
+                        src={PersonalTraining}
+                        width="500px"
+                        draggable={false}
+                    />
+                    <div className="w-full flex flex-col items-center lg:w-[35%]">
                         <InfoTabs />
                     </div>
                 </div>
