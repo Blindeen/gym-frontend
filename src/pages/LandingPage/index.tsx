@@ -104,6 +104,10 @@ const LandingPage = () => {
                 </h1>
                 <div className="w-full flex flex-wrap justify-evenly gap-y-5 lg:gap-y-0">
                     <Image
+                        classNames={{
+                            wrapper:
+                                "bg-[url('/images/shapes/div-bg-shape.svg')] bg-cover bg-no-repeat bg-[center_25%]",
+                        }}
                         src={PersonalTraining}
                         width="500px"
                         draggable={false}
