@@ -7,6 +7,9 @@ import { motion } from 'framer-motion';
 import { Button, Image } from '@nextui-org/react';
 import { SiNike, SiPuma, SiReebok } from 'react-icons/si';
 import { CgAdidas } from 'react-icons/cg';
+import PersonalTraining from '@/../public/images/illustrations/personal_training.svg';
+
+import InfoTabs from '@/components/InfoTabs';
 
 import { AuthContext } from '@/AuthContext.tsx';
 import routes from '@/routes.ts';
@@ -19,7 +22,7 @@ const LandingPage = () => {
     const { t } = useTranslation();
 
     return (
-        <>
+        <div className="flex flex-col gap-12">
             <div className="bg-radial-gradient rounded-b-[4rem]">
                 <div className="w-full max-w-[1280px] px-6 py-10 mx-auto text-white font-bold">
                     <div className="flex flex-wrap justify-center items-center lg:justify-between">
@@ -95,7 +98,25 @@ const LandingPage = () => {
                     </div>
                 </div>
             </div>
-        </>
+            <div className="w-full max-w-[1280px] flex flex-col items-center gap-12 px-6 mx-auto font-bold">
+                <h1 className="w-full text-2xl text-center md:text-5xl">
+                    {t('infoTabsHeader')}
+                </h1>
+                <div className="w-full flex flex-wrap justify-evenly gap-5 md:gap-0">
+                    <div className="bg-[url('/images/shapes/div-bg-shape.svg')] bg-[length:100%] bg-center bg-no-repeat">
+                        <Image
+                            className="mx-auto"
+                            src={PersonalTraining}
+                            width="350px"
+                            draggable={false}
+                        />
+                    </div>
+                    <div className="w-full flex flex-col items-center md:w-1/2">
+                        <InfoTabs />
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 };
 

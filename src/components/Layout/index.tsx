@@ -11,7 +11,7 @@ const Layout = () => {
             <main className="grow">
                 <Outlet />
             </main>
-            <Divider />
+            <Divider className="mt-12" />
             <Footer />
         </div>
     );
