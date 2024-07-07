@@ -100,7 +100,7 @@ const MenuBar = () => {
                 {isLogged ? (
                     <AvatarDropdown />
                 ) : (
-                    <NavbarItem>
+                    <NavbarItem className="hidden md:inline">
                         <Button
                             as={Link}
                             className="text-white"
@@ -125,6 +125,15 @@ const MenuBar = () => {
                         </Link>
                     </NavbarMenuItem>
                 ))}
+                <NavbarMenuItem>
+                    <Link
+                        className="w-full"
+                        href={routes.login}
+                        color="foreground"
+                    >
+                        {t('signIn')}
+                    </Link>
+                </NavbarMenuItem>
             </NavbarMenu>
         </Navbar>
     );
