@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import { Button, Image } from '@nextui-org/react';
 import { SiNike, SiPuma, SiReebok } from 'react-icons/si';
 import { CgAdidas } from 'react-icons/cg';
-import PersonalTraining from '@/../public/images/illustrations/personal_training.svg';
+import PersonalTraining from '/images/illustrations/personal_training.svg?url';
 
 import InfoTabs from '@/components/InfoTabs';
 
@@ -87,7 +87,7 @@ const LandingPage = () => {
                             />
                         </motion.div>
                     </div>
-                    <div className="text-center text-xl mt-12 mb-6">
+                    <div className="text-center text-xl my-6">
                         {t('ourPartners')}
                     </div>
                     <div className="flex flex-col justify-between items-center gap-5 md:flex-row md:gap-0">

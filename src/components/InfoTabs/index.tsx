@@ -13,7 +13,7 @@ const InfoTabs = () => {
             key: 'Strength',
             label: (
                 <>
-                    <CgGym size="25px" />
+                    <CgGym className="hidden sm:inline" size="25px" />
                     {t('strength')}
                 </>
             ),
@@ -28,7 +28,7 @@ const InfoTabs = () => {
             key: 'Body shape',
             label: (
                 <>
-                    <IoIosBody size="25px" />
+                    <IoIosBody className="hidden sm:inline" size="25px" />
                     {t('bodyShape')}
                 </>
             ),
@@ -43,7 +43,7 @@ const InfoTabs = () => {
             key: 'Condition',
             label: (
                 <>
-                    <FaPersonRunning size="25px" />
+                    <FaPersonRunning className="hidden sm:inline" size="25px" />
                     {t('condition')}
                 </>
             ),
