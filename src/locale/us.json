@@ -5,12 +5,41 @@
     "activities": "Activities",
     "staff": "Staff",
     "contact": "Contact",
+    "signUp": "Sign up",
     "signIn": "Sign in",
     "privacyPolicy": "Privacy policy",
     "legalStuff": "Legal stuff",
     "cookiesPolicy": "Cookies policy",
     "resources": "Resources",
     "legal": "Legal",
-    "club": "Club"
+    "club": "Club",
+    "unleash": "Unleash",
+    "your": "your",
+    "innerStrengthToday": "inner strength today",
+    "landingPageDescription": "Experience state-of-the-art equipment, expert trainers, and personalized programs designed to help you reach your goals.",
+    "ourPartners": "Our partners",
+    "findOutMore": "Find out more",
+    "infoTabsHeader": "One brand multiple opportunities",
+    "strength": "Strength",
+    "bodyShape": "Body shape",
+    "condition": "Condition",
+    "strengthDescription": "Our gym focuses on building strength with a variety of free weights, resistance machines, and specialized classes. Our trainers guide you through proper techniques to ensure effective and safe workouts. Join our Powerlifting and Bodybuilding sessions to push your limits and achieve new personal bests in a supportive environment.",
+    "bodyShapeDescription": "We offer personalized training sessions and classes to help you achieve your desired body shape. Our equipment and expert trainers support your goals, whether it's slimming down, building muscle, or achieving a balanced physique. Get customized workout plans and nutrition tips to enhance your progress.",
+    "conditionDescription": "Improving your overall physical condition is a priority at our gym. We offer diverse classes like Yoga, Pilates, and HIIT to boost cardiovascular health, flexibility, and stamina. Our trainers help you maintain optimal health with balanced routines and proper recovery techniques for a healthier lifestyle. Additionally, we organize workshops on healthy living and proper nutrition.",
+    "strengthBulletPoints": {
+      "point1": "Free weights and machines",
+      "point2": "Experienced trainers",
+      "point3": "Powerlifting and Bodybuilding classes"
+    },
+    "bodyShapeBulletPoints": {
+      "point1": "Personalized training",
+      "point2": "Targeted equipment",
+      "point3": "Workout plans and nutrition"
+    },
+    "conditionBulletPoints": {
+      "point1": "Yoga, Pilates, HIIT",
+      "point2": "Balanced routines",
+      "point3": "Health and nutrition workshops"
+    }
   }
 }

@@ -8,7 +8,12 @@ module.exports = {
         './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
     ],
     theme: {
-        extend: {},
+        extend: {
+            backgroundImage: {
+                'radial-gradient':
+                    'radial-gradient(circle farthest-side at 100%, #2e1067 38%, #1f094a 65%)',
+            },
+        },
     },
     darkMode: 'class',
     plugins: [
