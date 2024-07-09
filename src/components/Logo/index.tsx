@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 import routes from '@/routes.ts';
 
-const Logo = ({ clickable }: { clickable: boolean }) => {
+const Logo = ({ clickable = true }: { clickable?: boolean }) => {
     const navigate = useNavigate();
 
     return (
