@@ -40,6 +40,10 @@
       "point1": "Yoga, Pilates, HIIT",
       "point2": "Balanced routines",
       "point3": "Health and nutrition workshops"
-    }
+    },
+    "password": "Password",
+    "forgotPassword": "Forgot password",
+    "doNotHaveAccount": "Doesn't have an account",
+    "signUpHere": "Sign up here"
   }
 }
