@@ -1,13 +1,26 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
 import { Controller, useForm } from 'react-hook-form';
+import { AxiosError } from 'axios';
+import toast from 'react-hot-toast';
+
 import { Button, Input } from '@nextui-org/react';
+import { LuEye, LuEyeOff } from 'react-icons/lu';
 
 import { SignInFormData } from '@/components/SignInForm/types.ts';
 
-import { LuEye, LuEyeOff } from 'react-icons/lu';
+import axios from '@/api.ts';
+import routes from '@/routes.ts';
+import { ResponseError, AuthorizationResponse } from '@/types.ts';
+import { AuthContext } from '@/AuthContext.tsx';
+import { useTranslation } from 'react-i18next';
 
 const SignInForm = () => {
+    const { setState } = useContext(AuthContext);
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+    const [loading, setLoading] = useState(false);
+
     const {
         control,
         handleSubmit,
@@ -18,33 +31,56 @@ const SignInForm = () => {
             password: '',
         },
     });
+    const navigate = useNavigate();
+    const { t } = useTranslation();
 
-    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const toggleVisibility = () => setIsPasswordVisible(!isPasswordVisible);
 
-    const login = (data: SignInFormData) => {
-        console.log(data);
+    const onSubmit = (data: SignInFormData) => {
+        setLoading(true);
+        axios
+            .post<AuthorizationResponse>('/member/login', data)
+            .then(({ data }) => {
+                setState({
+                    isLogged: true,
+                    ...data,
+                });
+                toast.success('Signed in successfully');
+                setTimeout(() => navigate(routes.home), 2000);
+            })
+            .catch((err: ResponseError | AxiosError<ResponseError>) =>
+                console.log(err)
+            )
+            .finally(() => setLoading(false));
     };
 
     return (
         <form
-            className="w-3/4 flex flex-col gap-y-10 md:w-3/4 lg:w-1/2"
-            onSubmit={handleSubmit(login)}
+            className="flex flex-col gap-y-2"
+            onSubmit={handleSubmit(onSubmit)}
         >
-            <div className="flex flex-col gap-y-7">
+            <div>
                 <Controller
                     control={control}
                     name="email"
                     rules={{
                         required: 'Email is required',
+                        pattern: {
+                            value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                            message: 'Email pattern is invalid',
+                        },
                     }}
-                    render={() => (
+                    render={({ field }) => (
                         <Input
+                            classNames={{
+                                base: 'h-[75px]',
+                            }}
                             type="text"
                             label="Email"
                             radius="lg"
                             size="sm"
                             errorMessage={errors.email?.message}
+                            {...field}
                             isInvalid={!!errors.email}
                         />
                     )}
@@ -55,10 +91,13 @@ const SignInForm = () => {
                     rules={{
                         required: 'Password is required',
                     }}
-                    render={() => (
+                    render={({ field }) => (
                         <Input
+                            classNames={{
+                                base: 'h-[75px]',
+                            }}
                             type={isPasswordVisible ? 'text' : 'password'}
-                            label="Password"
+                            label={t('password')}
                             radius="lg"
                             size="sm"
                             endContent={
@@ -75,6 +114,7 @@ const SignInForm = () => {
                                 </button>
                             }
                             errorMessage={errors.password?.message}
+                            {...field}
                             isInvalid={!!errors.password}
                         />
                     )}
@@ -86,8 +126,9 @@ const SignInForm = () => {
                 color="primary"
                 radius="lg"
                 fullWidth
+                isLoading={loading}
             >
-                Sign in
+                {t('signIn')}
             </Button>
         </form>
     );
