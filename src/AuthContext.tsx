@@ -1,6 +1,6 @@
-import { createContext, FC, ReactNode, useEffect, useState } from 'react';
+import { createContext, ReactNode, useEffect, useState } from 'react';
 
-export type Role = 'GUEST' | 'CUSTOMER' | 'TRAINER';
+import { Role } from '@/types.ts';
 
 export interface User {
     email: string;
@@ -32,7 +32,7 @@ export const AuthContext = createContext<AuthContextType>({
     setState: () => {},
 });
 
-const AuthSessionProvider: FC<{ children: ReactNode }> = ({ children }) => {
+const AuthSessionProvider = ({ children }: { children: ReactNode }) => {
     const [state, setState] = useState(() => {
         const savedState = localStorage.getItem('authState');
         return savedState ? JSON.parse(savedState) : defaultStateValue;
