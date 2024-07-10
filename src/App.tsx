@@ -15,7 +15,14 @@ const App = () => {
                     <AppRouter />
                 </NextUIProvider>
             </AuthSessionProvider>
-            <Toaster />
+            <Toaster
+                position="bottom-right"
+                toastOptions={{
+                    style: {
+                        padding: '18px',
+                    },
+                }}
+            />
         </>
     );
 };
