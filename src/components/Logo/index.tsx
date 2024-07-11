@@ -7,18 +7,18 @@ const Logo = ({ clickable = true, size = 'md' }: LogoProps) => {
     const navigate = useNavigate();
 
     const sizes = {
-        sm: 'xl',
-        md: '2xl',
-        lg: '3xl',
+        sm: 'text-xl',
+        md: 'text-2xl',
+        lg: 'text-3xl',
     };
 
     return (
-        <h1
-            className={`font-bold text-${sizes[size]} ${clickable ? 'cursor-pointer' : ''}`}
+        <span
+            className={`font-bold ${sizes[size]}${clickable ? ' cursor-pointer' : ''}`}
             onClick={clickable ? () => navigate(routes.home) : undefined}
         >
             FitSphere
-        </h1>
+        </span>
     );
 };
 
