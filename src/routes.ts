@@ -8,6 +8,7 @@ const routes = {
     staff: '/staff',
     contact: '/contact',
     accountRecovery: '/account-recovery',
+    profile: '/profile',
 };
 
 export default routes;
