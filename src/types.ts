@@ -1,9 +1,11 @@
-export type Role = 'GUEST' | 'CUSTOMER' | 'TRAINER';
+type Role = 'GUEST' | 'CUSTOMER' | 'TRAINER';
+
+export type User = {
+    email: string;
+    role: Role;
+};
 
 export type AuthorizationResponse = {
-    user: {
-        email: string;
-        role: Role;
-    };
+    user: User;
     token: string;
 };

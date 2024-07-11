@@ -1,17 +1,12 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
 
-import { Role } from '@/types.ts';
+import { User } from '@/types.ts';
 
-export interface User {
-    email: string;
-    role: Role;
-}
-
-interface State {
+type State = {
     isLogged: boolean;
     user: User;
     token: string;
-}
+};
 
 type AuthContextType = {
     state: State;
