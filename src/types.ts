@@ -1,8 +1,14 @@
 type Role = 'GUEST' | 'CUSTOMER' | 'TRAINER';
 
-export type User = {
+type User = {
     email: string;
     role: Role;
+};
+
+export type State = {
+    isLogged: boolean;
+    user: User;
+    token: string;
 };
 
 export type AuthorizationResponse = {

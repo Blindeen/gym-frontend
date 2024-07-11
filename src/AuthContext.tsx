@@ -1,25 +1,17 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
 
-import { User } from '@/types.ts';
+import { getLocalStorageItem, setLocalStorageItem } from '@/utils';
 
-type State = {
-    isLogged: boolean;
-    user: User;
-    token: string;
-};
+import { State } from '@/types.ts';
+import { defaultStateValue, localStorageStateKey } from '@/values.ts';
 
 type AuthContextType = {
     state: State;
     setState: (state: State) => void;
 };
 
-const defaultStateValue: State = {
-    isLogged: false,
-    user: {
-        email: '',
-        role: 'GUEST',
-    },
-    token: '',
+type AuthSessionProviderProps = {
+    children: ReactNode;
 };
 
 export const AuthContext = createContext<AuthContextType>({
@@ -27,14 +19,14 @@ export const AuthContext = createContext<AuthContextType>({
     setState: () => {},
 });
 
-const AuthSessionProvider = ({ children }: { children: ReactNode }) => {
+const AuthSessionProvider = ({ children }: AuthSessionProviderProps) => {
     const [state, setState] = useState(() => {
-        const savedState = localStorage.getItem('authState');
+        const savedState = getLocalStorageItem(localStorageStateKey);
         return savedState ? JSON.parse(savedState) : defaultStateValue;
     });
 
     useEffect(() => {
-        localStorage.setItem('authState', JSON.stringify(state));
+        setLocalStorageItem(localStorageStateKey, JSON.stringify(state));
     }, [state]);
 
     return (

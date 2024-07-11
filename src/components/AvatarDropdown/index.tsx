@@ -17,6 +17,7 @@ import { PiSignOutBold } from 'react-icons/pi';
 import routes from '@/routes.ts';
 import { removeLocalStorageItem } from '@/utils';
 import { AuthContext } from '@/AuthContext.tsx';
+import { localStorageStateKey } from '@/values.ts';
 
 const AvatarDropdown = () => {
     const {
@@ -37,7 +38,7 @@ const AvatarDropdown = () => {
             },
             token: '',
         });
-        removeLocalStorageItem('authState');
+        removeLocalStorageItem(localStorageStateKey);
         toast.success('Signed out successfully');
         pathname !== routes.home &&
             navigate(routes.home, {
