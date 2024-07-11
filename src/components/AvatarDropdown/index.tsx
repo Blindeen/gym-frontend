@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 
 import { useLocation, useNavigate } from 'react-router-dom';
-
 import toast from 'react-hot-toast';
 import {
     Avatar,
@@ -15,9 +14,8 @@ import { BsPersonFill } from 'react-icons/bs';
 import { PiSignOutBold } from 'react-icons/pi';
 
 import routes from '@/routes.ts';
-import { removeLocalStorageItem } from '@/utils';
 import { AuthContext } from '@/AuthContext.tsx';
-import { localStorageStateKey } from '@/values.ts';
+import { defaultStateValue } from '@/values.ts';
 
 const AvatarDropdown = () => {
     const {
@@ -30,15 +28,7 @@ const AvatarDropdown = () => {
     const navigate = useNavigate();
 
     const signOut = () => {
-        setState({
-            isLogged: false,
-            user: {
-                email: '',
-                role: 'GUEST',
-            },
-            token: '',
-        });
-        removeLocalStorageItem(localStorageStateKey);
+        setState(defaultStateValue);
         toast.success('Signed out successfully');
         pathname !== routes.home &&
             navigate(routes.home, {
