@@ -1,10 +1,12 @@
+import { useTranslation } from 'react-i18next';
 import { Image, Link } from '@nextui-org/react';
-import LoginImage from '/images/illustrations/login.svg';
+import { Divider } from '@nextui-org/divider';
 
 import Logo from '@/components/Logo';
 import SignInForm from '@/components/SignInForm';
-import { Divider } from '@nextui-org/divider';
-import { useTranslation } from 'react-i18next';
+
+import routes from '@/routes.ts';
+import LoginImage from '/images/illustrations/login.svg';
 
 const SignInPage = () => {
     const { t } = useTranslation();
@@ -13,7 +15,7 @@ const SignInPage = () => {
         <div className="min-h-screen flex flex-col justify-center gap-y-8 md:flex-row md:gap-y-0">
             <div className="w-full flex justify-center md:w-1/2 md:bg-secondary md:h-screen md:items-center">
                 <Image
-                    className="w-2/3"
+                    className="w-2/3 md:w-5/6 lg:w-7/12"
                     src={LoginImage}
                     alt="Sign in image"
                     radius="none"
@@ -28,7 +30,7 @@ const SignInPage = () => {
                     <div className="flex flex-col gap-y-5">
                         <Link
                             className="block text-right"
-                            href={undefined}
+                            href={routes.accountRecovery}
                             size="sm"
                         >
                             {t('forgotPassword')}
@@ -37,7 +39,9 @@ const SignInPage = () => {
                             <Divider className="w-11/12" />
                             <p className="text-sm">
                                 {t('doNotHaveAccount')}?{' '}
-                                <Link size="sm">{t('signUpHere')}</Link>
+                                <Link href={routes.register} size="sm">
+                                    {t('signUpHere')}
+                                </Link>
                             </p>
                         </div>
                     </div>

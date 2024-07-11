@@ -7,6 +7,7 @@ const routes = {
     dashboard: '/dashboard',
     staff: '/staff',
     contact: '/contact',
+    accountRecovery: '/account-recovery',
 };
 
 export default routes;
