@@ -80,7 +80,7 @@ const AvatarDropdown = () => {
                     startContent={<BsPersonFill size="20px" />}
                     onPress={() => navigate(routes.profile)}
                 >
-                    My profile
+                    {t('myProfile')}
                 </DropdownItem>
                 <DropdownItem
                     key="logout"
@@ -89,7 +89,7 @@ const AvatarDropdown = () => {
                     startContent={<PiSignOutBold size="20px" />}
                     onPress={signOut}
                 >
-                    Sign out
+                    {t('signOut')}
                 </DropdownItem>
             </DropdownMenu>
         </Dropdown>
