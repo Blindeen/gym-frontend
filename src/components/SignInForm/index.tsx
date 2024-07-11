@@ -1,20 +1,20 @@
 import { useContext, useState } from 'react';
 
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { Controller, useForm } from 'react-hook-form';
-import { AxiosError } from 'axios';
-import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 
 import { Button, Input } from '@nextui-org/react';
 import { LuEye, LuEyeOff } from 'react-icons/lu';
 
 import { SignInFormData } from '@/components/SignInForm/types.ts';
 
-import axios from '@/api.ts';
+import axiosClient from '@/axios';
 import routes from '@/routes.ts';
-import { ResponseError, AuthorizationResponse } from '@/types.ts';
+import { AuthorizationResponse } from '@/types.ts';
 import { AuthContext } from '@/AuthContext.tsx';
-import { useTranslation } from 'react-i18next';
+import { handleError } from '@/axios/functions.ts';
 
 const SignInForm = () => {
     const { setState } = useContext(AuthContext);
@@ -38,7 +38,7 @@ const SignInForm = () => {
 
     const onSubmit = (data: SignInFormData) => {
         setLoading(true);
-        axios
+        axiosClient
             .post<AuthorizationResponse>('/member/login', data)
             .then(({ data }) => {
                 setState({
@@ -46,11 +46,9 @@ const SignInForm = () => {
                     ...data,
                 });
                 toast.success('Signed in successfully');
-                setTimeout(() => navigate(routes.home), 2000);
+                navigate(routes.home);
             })
-            .catch((err: ResponseError | AxiosError<ResponseError>) =>
-                console.log(err)
-            )
+            .catch(handleError)
             .finally(() => setLoading(false));
     };
 
@@ -121,7 +119,7 @@ const SignInForm = () => {
                 />
             </div>
             <Button
-                className="text-white"
+                className="font-bold text-white"
                 type="submit"
                 color="primary"
                 radius="lg"
