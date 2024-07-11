@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 
-import { useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
     Avatar,
     Dropdown,
@@ -26,10 +27,11 @@ const AvatarDropdown = () => {
 
     const { pathname } = useLocation();
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     const signOut = () => {
         setState(defaultStateValue);
-        toast.success('Signed out successfully');
+        toast.success(t('signedOutSuccessfully'));
         pathname !== routes.home &&
             navigate(routes.home, {
                 replace: true,

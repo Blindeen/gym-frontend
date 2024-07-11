@@ -45,8 +45,8 @@ const SignInForm = () => {
                     isLogged: true,
                     ...data,
                 });
-                toast.success('Signed in successfully');
-                navigate(routes.home);
+                toast.success(t('signedInSuccessfully'));
+                navigate(routes.home, { replace: true });
             })
             .catch(handleError)
             .finally(() => setLoading(false));

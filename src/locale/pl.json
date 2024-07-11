@@ -44,6 +44,8 @@
     "password": "Hasło",
     "forgotPassword": "Zapomniałem hasła",
     "doNotHaveAccount": "Nie masz konta",
-    "signUpHere": "Zarejestruj się tutaj"
+    "signUpHere": "Zarejestruj się tutaj",
+    "signedInSuccessfully": "Zalogowano się pomyślnie",
+    "signedOutSuccessfully": "Wylogowano się pomyślnie"
   }
 }
