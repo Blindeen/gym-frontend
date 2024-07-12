@@ -48,6 +48,9 @@
     "signedInSuccessfully": "Zalogowano się pomyślnie",
     "signedOutSuccessfully": "Wylogowano się pomyślnie",
     "myProfile": "Mój profil",
-    "signOut": "Wyloguj się"
+    "signOut": "Wyloguj się",
+    "emailIsRequired": "Email jest wymagany",
+    "emailPatternIsInvalid": "Format adresu email jest nieprawidłowy",
+    "passwordIsRequired": "Hasło jest wymagane"
   }
 }

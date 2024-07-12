@@ -62,10 +62,10 @@ const SignInForm = () => {
                     control={control}
                     name="email"
                     rules={{
-                        required: 'Email is required',
+                        required: t('emailIsRequired'),
                         pattern: {
                             value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                            message: 'Email pattern is invalid',
+                            message: t('emailPatternIsInvalid'),
                         },
                     }}
                     render={({ field }) => (
@@ -87,7 +87,7 @@ const SignInForm = () => {
                     control={control}
                     name="password"
                     rules={{
-                        required: 'Password is required',
+                        required: t('passwordIsRequired'),
                     }}
                     render={({ field }) => (
                         <Input
