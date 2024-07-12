@@ -60,7 +60,7 @@ const Footer = () => {
                             </h2>
                             {resources.map(({ name, path }, idx) => (
                                 <Link
-                                    key={idx}
+                                    key={`${idx}-${name}`}
                                     href={path}
                                     color="foreground"
                                     size="sm"
@@ -76,7 +76,7 @@ const Footer = () => {
                             </h2>
                             {legal.map((link, idx) => (
                                 <Link
-                                    key={idx}
+                                    key={`${idx}-${link}`}
                                     color="foreground"
                                     size="sm"
                                     underline="hover"
@@ -89,7 +89,7 @@ const Footer = () => {
                             <h2 className="font-bold uppercase">{t('club')}</h2>
                             {club.map(({ name, path }, idx) => (
                                 <Link
-                                    key={idx}
+                                    key={`${idx}-${name}`}
                                     href={path}
                                     color="foreground"
                                     size="sm"
