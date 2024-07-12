@@ -8,6 +8,7 @@ import { Button, Image } from '@nextui-org/react';
 import { SiNike, SiPuma, SiReebok } from 'react-icons/si';
 import { CgAdidas } from 'react-icons/cg';
 import PersonalTraining from '/images/illustrations/personal_training.svg?url';
+import DumbellImage from '/images/dumbell.png';
 
 import InfoTabs from '@/components/InfoTabs';
 
@@ -81,7 +82,7 @@ const LandingPage = () => {
                             transition={{ repeat: Infinity, duration: 4 }}
                         >
                             <Image
-                                src="/images/dumbell.png"
+                                src={DumbellImage}
                                 radius="none"
                                 draggable={false}
                             />
@@ -110,6 +111,7 @@ const LandingPage = () => {
                         }}
                         src={PersonalTraining}
                         width="500px"
+                        radius="none"
                         draggable={false}
                     />
                     <div className="w-full flex flex-col items-center lg:w-[35%]">
