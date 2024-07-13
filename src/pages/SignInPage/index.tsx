@@ -5,7 +5,7 @@ import { Divider } from '@nextui-org/divider';
 import Logo from '@/components/Logo';
 import SignInForm from '@/components/SignInForm';
 
-import routes from '@/routes.ts';
+import routes from '@/router/routes.ts';
 import LoginImage from '/images/illustrations/login.svg';
 
 const SignInPage = () => {

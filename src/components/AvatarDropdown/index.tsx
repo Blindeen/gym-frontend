@@ -14,7 +14,7 @@ import {
 import { BsPersonFill } from 'react-icons/bs';
 import { PiSignOutBold } from 'react-icons/pi';
 
-import routes from '@/routes.ts';
+import routes from '@/router/routes.ts';
 import { AuthContext } from '@/AuthContext.tsx';
 import { defaultStateValue } from '@/values.ts';
 

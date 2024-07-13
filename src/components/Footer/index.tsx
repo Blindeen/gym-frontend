@@ -6,7 +6,7 @@ import { Divider } from '@nextui-org/divider';
 import { FaInstagram, FaFacebook } from 'react-icons/fa';
 import { FaXTwitter, FaYoutube, FaThreads } from 'react-icons/fa6';
 
-import routes from '@/routes.ts';
+import routes from '@/router/routes.ts';
 
 const Footer = () => {
     const navigate = useNavigate();

@@ -11,7 +11,7 @@ import { LuEye, LuEyeOff } from 'react-icons/lu';
 import { SignInFormData } from '@/components/SignInForm/types.ts';
 
 import axiosClient from '@/axios';
-import routes from '@/routes.ts';
+import routes from '@/router/routes.ts';
 import { AuthorizationResponse } from '@/types.ts';
 import { AuthContext } from '@/AuthContext.tsx';
 import { handleError } from '@/axios/functions.ts';

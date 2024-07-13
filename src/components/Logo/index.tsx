@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import routes from '@/routes.ts';
+import routes from '@/router/routes.ts';
 import { LogoProps } from '@/components/Logo/types.ts';
 
 const Logo = ({ clickable = true, size = 'md' }: LogoProps) => {

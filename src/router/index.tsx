@@ -5,9 +5,9 @@ import LandingPage from '@/pages/LandingPage';
 
 import Layout from '@/components/Layout';
 
-import routes from './routes.ts';
+import routes from '@/router/routes.ts';
 
-const AppRouter = () => {
+const Router = () => {
     return (
         <Routes>
             <Route path={routes.home} element={<Layout />}>
@@ -18,4 +18,4 @@ const AppRouter = () => {
     );
 };
 
-export default AppRouter;
+export default Router;

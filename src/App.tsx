@@ -3,7 +3,7 @@ import { NextUIProvider } from '@nextui-org/react';
 import { Toaster } from 'react-hot-toast';
 
 import AuthSessionProvider from '@/AuthContext.tsx';
-import AppRouter from '@/AppRouter.tsx';
+import Router from '@/router';
 
 const App = () => {
     const navigate = useNavigate();
@@ -12,7 +12,7 @@ const App = () => {
         <>
             <AuthSessionProvider>
                 <NextUIProvider navigate={navigate}>
-                    <AppRouter />
+                    <Router />
                 </NextUIProvider>
             </AuthSessionProvider>
             <Toaster

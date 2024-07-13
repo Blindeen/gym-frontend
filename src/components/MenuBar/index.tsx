@@ -18,7 +18,7 @@ import AvatarDropdown from '@/components/AvatarDropdown';
 import LanguageSelect from '@/components/LanguageSelect';
 
 import { AuthContext } from '@/AuthContext.tsx';
-import routes from '@/routes.ts';
+import routes from '@/router/routes.ts';
 
 const MenuBar = () => {
     const location = useLocation();
