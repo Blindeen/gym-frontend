@@ -10,3 +10,7 @@ export const defaultStateValue: State = {
 };
 
 export const localStorageStateKey = 'authState';
+
+export const localStorageDarkModeKey = 'darkMode';
+
+export const defaultDarkModeValue = false;

@@ -4,16 +4,17 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import App from '@/App.tsx';
+import ThemeProvider from '@/providers/ThemeProvider';
 
 import '@/index.css';
 import '@/i18n.ts';
 
-window.global = globalThis;
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <Router>
-            <App />
+            <ThemeProvider>
+                <App />
+            </ThemeProvider>
         </Router>
     </React.StrictMode>
 );

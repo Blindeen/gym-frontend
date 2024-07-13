@@ -1,15 +1,17 @@
 import { useNavigate } from 'react-router-dom';
 import { NextUIProvider } from '@nextui-org/react';
 import { Toaster } from 'react-hot-toast';
-import useDarkMode from 'use-dark-mode';
 
 import AuthSessionProvider from '@/context';
+import { ThemeContext } from '@/providers/ThemeProvider';
+
 import Router from '@/router';
 import colors from '@/colors.ts';
+import { useContext } from 'react';
 
 const App = () => {
+    const { value } = useContext(ThemeContext);
     const navigate = useNavigate();
-    const { value } = useDarkMode(true);
 
     const { twitterDim, white, black } = colors;
 
