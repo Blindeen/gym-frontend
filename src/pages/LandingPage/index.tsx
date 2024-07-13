@@ -53,7 +53,7 @@ const LandingPage = () => {
                                 ) : (
                                     <>
                                         <Button
-                                            className="w-full bg-white lg:w-fit"
+                                            className="w-full text-black bg-white lg:w-fit"
                                             radius="full"
                                             size="lg"
                                             onPress={() =>
