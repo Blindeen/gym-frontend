@@ -3,10 +3,11 @@ import axios, { AxiosError } from 'axios';
 import i18n from 'i18next';
 
 import { ResponseError } from '@/axios/types.ts';
+import { error } from '@/logs.ts';
 
 export const handleError = (err: any) => {
     if (axios.isAxiosError(err)) {
-        const { response } = err as AxiosError<ResponseError>;
+        const { response, request } = err as AxiosError<ResponseError>;
         if (response) {
             const {
                 data: { errors },
@@ -14,10 +15,10 @@ export const handleError = (err: any) => {
             Object.entries(errors).forEach(([_, info]) =>
                 info.forEach((desc) => toast.error(desc))
             );
-        } else {
+        } else if (request) {
             toast.error(err.message);
+        } else {
+            error(i18n.t('unexpectedError'));
         }
-    } else {
-        toast.error(i18n.t('unexpectedError'));
     }
 };
