@@ -15,7 +15,7 @@ import { BsPersonFill } from 'react-icons/bs';
 import { PiSignOutBold } from 'react-icons/pi';
 
 import routes from '@/router/routes.ts';
-import { AuthContext } from '@/AuthContext.tsx';
+import { AuthContext } from '@/context';
 import { defaultStateValue } from '@/values.ts';
 
 const AvatarDropdown = () => {

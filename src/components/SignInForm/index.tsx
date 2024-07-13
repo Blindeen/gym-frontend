@@ -13,7 +13,7 @@ import { SignInFormData } from '@/components/SignInForm/types.ts';
 import axiosClient from '@/axios';
 import routes from '@/router/routes.ts';
 import { AuthorizationResponse } from '@/types.ts';
-import { AuthContext } from '@/AuthContext.tsx';
+import { AuthContext } from '@/context';
 import { handleError } from '@/axios/functions.ts';
 
 const SignInForm = () => {

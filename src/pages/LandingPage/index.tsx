@@ -12,7 +12,7 @@ import DumbellImage from '/images/dumbell.png';
 
 import InfoTabs from '@/components/InfoTabs';
 
-import { AuthContext } from '@/AuthContext.tsx';
+import { AuthContext } from '@/context';
 import routes from '@/router/routes.ts';
 
 const LandingPage = () => {

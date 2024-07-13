@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { NextUIProvider } from '@nextui-org/react';
 import { Toaster } from 'react-hot-toast';
 
-import AuthSessionProvider from '@/AuthContext.tsx';
+import AuthSessionProvider from '@/context';
 import Router from '@/router';
 
 const App = () => {

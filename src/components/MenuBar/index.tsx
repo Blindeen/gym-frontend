@@ -17,7 +17,7 @@ import {
 import AvatarDropdown from '@/components/AvatarDropdown';
 import LanguageSelect from '@/components/LanguageSelect';
 
-import { AuthContext } from '@/AuthContext.tsx';
+import { AuthContext } from '@/context';
 import routes from '@/router/routes.ts';
 
 const MenuBar = () => {

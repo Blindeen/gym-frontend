@@ -1,18 +1,9 @@
-import { createContext, ReactNode, useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 import { getLocalStorageItem, setLocalStorageItem } from '@/utils';
-
-import { State } from '@/types.ts';
 import { defaultStateValue, localStorageStateKey } from '@/values.ts';
 
-type AuthContextType = {
-    state: State;
-    setState: (state: State) => void;
-};
-
-type AuthSessionProviderProps = {
-    children: ReactNode;
-};
+import { AuthContextType, AuthSessionProviderProps } from '@/context/types.ts';
 
 export const AuthContext = createContext<AuthContextType>({
     state: defaultStateValue,
