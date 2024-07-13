@@ -3,7 +3,7 @@ import axios, { AxiosError } from 'axios';
 import i18n from 'i18next';
 
 import { ResponseError } from '@/axios/types.ts';
-import { error } from '@/logs.ts';
+import { log } from '@/logs.ts';
 
 export const handleError = (err: any) => {
     if (axios.isAxiosError(err)) {
@@ -16,9 +16,12 @@ export const handleError = (err: any) => {
                 info.forEach((desc) => toast.error(desc))
             );
         } else if (request) {
+            log('error', err.message);
             toast.error(err.message);
         } else {
-            error(i18n.t('unexpectedError'));
+            const message = i18n.t('unexpectedError');
+            log('error', message);
+            toast.error(message);
         }
     }
 };

@@ -1,7 +1,24 @@
-const log = console.log;
+const styles = 'font-weight: bold;';
 
-export const success = (...data: any[]) => log('Success ✅️', ...data);
+const info = (...data: any[]) => console.info('%cINFO', styles, ...data);
 
-export const warning = (...data: any[]) => log('Warning ⚠️', ...data);
+const warning = (...data: any[]) => console.warn('%cWARNING', styles, ...data);
 
-export const error = (...data: any[]) => log('Error ❌', ...data);
+const error = (...data: any[]) => console.error('%cERROR', styles, ...data);
+
+export const log = (
+    type: 'info' | 'warning' | 'error' = 'info',
+    ...data: any[]
+) => {
+    switch (type) {
+        case 'info':
+            info(...data);
+            break;
+        case 'warning':
+            warning(...data);
+            break;
+        case 'error':
+            error(...data);
+            break;
+    }
+};
