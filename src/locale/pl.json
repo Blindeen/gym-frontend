@@ -51,6 +51,7 @@
     "signOut": "Wyloguj się",
     "emailIsRequired": "Email jest wymagany",
     "emailPatternIsInvalid": "Format adresu email jest nieprawidłowy",
-    "passwordIsRequired": "Hasło jest wymagane"
+    "passwordIsRequired": "Hasło jest wymagane",
+    "unexpectedError": "Wystąpił nieoczekiwany błąd"
   }
 }

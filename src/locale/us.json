@@ -51,6 +51,7 @@
     "signOut": "Sign out",
     "emailIsRequired": "Email is required",
     "emailPatternIsInvalid": "Email pattern is invalid",
-    "passwordIsRequired": "Password is required"
+    "passwordIsRequired": "Password is required",
+    "unexpectedError": "An unexpected error occurred"
   }
 }
