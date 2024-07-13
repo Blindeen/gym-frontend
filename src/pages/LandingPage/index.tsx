@@ -24,7 +24,7 @@ const LandingPage = () => {
 
     return (
         <div className="flex flex-col gap-12">
-            <div className="bg-radial-gradient rounded-b-[4rem]">
+            <div className="min-h-dvh bg-radial-gradient rounded-b-[4rem]">
                 <div className="w-full max-w-[1280px] px-6 py-10 mx-auto text-white font-bold">
                     <div className="flex flex-wrap justify-center items-center lg:justify-between">
                         <div className="flex flex-col gap-7">
@@ -78,6 +78,7 @@ const LandingPage = () => {
                             </div>
                         </div>
                         <motion.div
+                            className="min-h-[327px] md:min-h-[400px]"
                             animate={{ y: [15, -15, 15] }}
                             transition={{ repeat: Infinity, duration: 4 }}
                         >
@@ -85,6 +86,7 @@ const LandingPage = () => {
                                 src={DumbbellImage}
                                 radius="none"
                                 draggable={false}
+                                removeWrapper
                             />
                         </motion.div>
                     </div>
