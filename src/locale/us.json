@@ -40,6 +40,18 @@
       "point1": "Yoga, Pilates, HIIT",
       "point2": "Balanced routines",
       "point3": "Health and nutrition workshops"
-    }
+    },
+    "password": "Password",
+    "forgotPassword": "Forgot password",
+    "doNotHaveAccount": "Doesn't have an account",
+    "signUpHere": "Sign up here",
+    "signedInSuccessfully": "Signed in successfully",
+    "signedOutSuccessfully": "Signed out successfully",
+    "myProfile": "My profile",
+    "signOut": "Sign out",
+    "emailIsRequired": "Email is required",
+    "emailPatternIsInvalid": "Email pattern is invalid",
+    "passwordIsRequired": "Password is required",
+    "unexpectedError": "An unexpected error occurred"
   }
 }

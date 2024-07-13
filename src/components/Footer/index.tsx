@@ -60,7 +60,7 @@ const Footer = () => {
                             </h2>
                             {resources.map(({ name, path }, idx) => (
                                 <Link
-                                    key={idx}
+                                    key={`${idx}-${name}`}
                                     href={path}
                                     color="foreground"
                                     size="sm"
@@ -76,7 +76,7 @@ const Footer = () => {
                             </h2>
                             {legal.map((link, idx) => (
                                 <Link
-                                    key={idx}
+                                    key={`${idx}-${link}`}
                                     color="foreground"
                                     size="sm"
                                     underline="hover"
@@ -86,12 +86,10 @@ const Footer = () => {
                             ))}
                         </div>
                         <div className="flex flex-col gap-6">
-                            <h2 className=" font-bold uppercase">
-                                {t('club')}
-                            </h2>
+                            <h2 className="font-bold uppercase">{t('club')}</h2>
                             {club.map(({ name, path }, idx) => (
                                 <Link
-                                    key={idx}
+                                    key={`${idx}-${name}`}
                                     href={path}
                                     color="foreground"
                                     size="sm"
@@ -108,6 +106,7 @@ const Footer = () => {
                                     src={`/images/badges/google_play_${language}.png`}
                                     alt="Google play badge"
                                     radius="none"
+                                    loading="lazy"
                                 />
                             </a>
                             <a href="https://apps.apple.com/us/app/fitsphere/id1530190137">
@@ -116,6 +115,7 @@ const Footer = () => {
                                     src={`/images/badges/app_store_${language}.png`}
                                     alt="App store badge"
                                     radius="none"
+                                    loading="lazy"
                                 />
                             </a>
                         </div>

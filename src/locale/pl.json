@@ -40,6 +40,18 @@
       "point1": "Yoga, Pilates, HIIT",
       "point2": "Zrównoważone rutyny",
       "point3": "Warsztaty zdrowotne i żywieniowe"
-    }
+    },
+    "password": "Hasło",
+    "forgotPassword": "Zapomniałem hasła",
+    "doNotHaveAccount": "Nie masz konta",
+    "signUpHere": "Zarejestruj się tutaj",
+    "signedInSuccessfully": "Zalogowano się pomyślnie",
+    "signedOutSuccessfully": "Wylogowano się pomyślnie",
+    "myProfile": "Mój profil",
+    "signOut": "Wyloguj się",
+    "emailIsRequired": "Email jest wymagany",
+    "emailPatternIsInvalid": "Format adresu email jest nieprawidłowy",
+    "passwordIsRequired": "Hasło jest wymagane",
+    "unexpectedError": "Wystąpił nieoczekiwany błąd"
   }
 }
