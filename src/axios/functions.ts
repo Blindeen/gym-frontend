@@ -7,7 +7,7 @@ import { log } from '@/logs.ts';
 
 export const handleError = (err: any) => {
     if (axios.isAxiosError(err)) {
-        const { response, request } = err as AxiosError<ResponseError>;
+        const { response, request, message } = err as AxiosError<ResponseError>;
         if (response) {
             const {
                 data: { errors },
@@ -16,8 +16,8 @@ export const handleError = (err: any) => {
                 info.forEach((desc) => toast.error(desc))
             );
         } else if (request) {
-            log('error', err.message);
-            toast.error(err.message);
+            log('error', message);
+            toast.error(message);
         } else {
             const message = i18n.t('unexpectedError');
             log('error', message);
