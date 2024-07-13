@@ -5,6 +5,7 @@ const colors = {
     pictonBlue: '#41C9E2',
     white: '#FFFFFF',
     twitterDim: '#15202B',
+    black: '#000000',
 };
 
 export default colors;

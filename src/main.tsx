@@ -8,6 +8,8 @@ import App from '@/App.tsx';
 import '@/index.css';
 import '@/i18n.ts';
 
+window.global = globalThis;
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <Router>
