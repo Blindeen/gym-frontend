@@ -14,3 +14,5 @@ export const localStorageStateKey = 'authState';
 export const localStorageDarkModeKey = 'darkMode';
 
 export const defaultDarkModeValue = false;
+
+export const darkModeClassName = 'dark';
