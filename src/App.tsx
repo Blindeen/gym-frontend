@@ -27,7 +27,9 @@ const App = () => {
         <>
             <AuthSessionProvider>
                 <NextUIProvider navigate={navigate}>
-                    <Router />
+                    <div className="text-foreground bg-background">
+                        <Router />
+                    </div>
                 </NextUIProvider>
             </AuthSessionProvider>
             <Toaster

@@ -38,6 +38,7 @@ module.exports = {
                     colors: {
                         foreground: white,
                         background: twitterDim,
+                        content1: twitterDim,
                     },
                 },
             },
