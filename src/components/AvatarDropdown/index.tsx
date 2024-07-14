@@ -23,7 +23,7 @@ const AvatarDropdown = () => {
         state: { user },
         setState,
     } = useContext(AuthContext);
-    const { email } = user;
+    const { firstName, lastName, email } = user;
 
     const { pathname } = useLocation();
     const navigate = useNavigate();
@@ -45,9 +45,9 @@ const AvatarDropdown = () => {
                     as="button"
                     className="transition-transform"
                     classNames={{
-                        name: 'font-bold text-medium',
+                        name: 'font-bold',
                     }}
-                    name={email[0]}
+                    name={`${firstName[0]}${lastName[0]}`}
                     size="md"
                     isBordered
                 />
@@ -65,7 +65,7 @@ const AvatarDropdown = () => {
                                 classNames={{
                                     name: 'font-bold',
                                 }}
-                                name={email[0]}
+                                name={`${firstName[0]}${lastName[0]}`}
                                 size="sm"
                                 isBordered
                             />

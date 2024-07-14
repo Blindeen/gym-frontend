@@ -3,6 +3,8 @@ import { State } from '@/types.ts';
 export const defaultStateValue: State = {
     isLogged: false,
     user: {
+        firstName: '',
+        lastName: '',
         email: '',
         role: 'GUEST',
     },
