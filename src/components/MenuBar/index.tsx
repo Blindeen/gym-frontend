@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
     Link,
@@ -14,6 +14,7 @@ import {
     NavbarBrand,
 } from '@nextui-org/react';
 
+import Logo from '@/components/Logo';
 import AvatarDropdown from '@/components/AvatarDropdown';
 import LanguageSelect from '@/components/LanguageSelect';
 
@@ -22,14 +23,12 @@ import routes from '@/router/routes.ts';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
 
 const MenuBar = () => {
-    const location = useLocation();
-    const navigate = useNavigate();
-    const { pathname } = location;
-
-    const { state } = useContext(AuthContext);
-    const { isLogged } = state;
-
+    const { pathname } = useLocation();
     const { t } = useTranslation();
+
+    const {
+        state: { isLogged },
+    } = useContext(AuthContext);
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -70,12 +69,7 @@ const MenuBar = () => {
                     aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
                 />
                 <NavbarBrand>
-                    <p
-                        className="font-bold text-2xl cursor-pointer"
-                        onClick={() => navigate(routes.home)}
-                    >
-                        FitSphere
-                    </p>
+                    <Logo size="lg" />
                 </NavbarBrand>
             </NavbarContent>
 
@@ -104,7 +98,7 @@ const MenuBar = () => {
                 {isLogged ? (
                     <AvatarDropdown />
                 ) : (
-                    <NavbarItem className="hidden md:inline">
+                    <NavbarItem className="hidden lg:inline">
                         <Button
                             as={Link}
                             className="text-white"

@@ -13,7 +13,7 @@ const ThemeSwitcher = () => {
             size="lg"
             startContent={<TbSunFilled />}
             endContent={<TbMoonFilled />}
-            onValueChange={() => toggle()}
+            onValueChange={toggle}
             isSelected={value}
         />
     );
