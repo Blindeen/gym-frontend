@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { Link, Image } from '@nextui-org/react';
@@ -6,10 +5,11 @@ import { Divider } from '@nextui-org/divider';
 import { FaInstagram, FaFacebook } from 'react-icons/fa';
 import { FaXTwitter, FaYoutube, FaThreads } from 'react-icons/fa6';
 
+import Logo from '@/components/Logo';
+
 import routes from '@/router/routes.ts';
 
 const Footer = () => {
-    const navigate = useNavigate();
     const {
         t,
         i18n: { language },
@@ -46,12 +46,7 @@ const Footer = () => {
             <div className="w-full max-w-[1280px] p-6 text-sm">
                 <div className="md:flex md:justify-between">
                     <div className="flex mb-6 md:mb-0">
-                        <span
-                            className="font-bold text-2xl cursor-pointer"
-                            onClick={() => navigate(routes.home)}
-                        >
-                            FitSphere
-                        </span>
+                        <Logo />
                     </div>
                     <div className="flex flex-wrap gap-8">
                         <div className="flex flex-col gap-6">
