@@ -19,6 +19,7 @@ import LanguageSelect from '@/components/LanguageSelect';
 
 import { AuthContext } from '@/context';
 import routes from '@/router/routes.ts';
+import ThemeSwitcher from '@/components/ThemeSwitcher';
 
 const MenuBar = () => {
     const location = useLocation();
@@ -94,6 +95,9 @@ const MenuBar = () => {
             </NavbarContent>
 
             <NavbarContent justify="end">
+                <NavbarItem>
+                    <ThemeSwitcher />
+                </NavbarItem>
                 <NavbarItem className="w-24">
                     <LanguageSelect />
                 </NavbarItem>
