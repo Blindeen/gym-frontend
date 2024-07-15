@@ -55,6 +55,10 @@
     "unexpectedError": "Wystąpił nieoczekiwany błąd",
     "somethingWentWrong": "Oops, coś poszło nie tak!",
     "pageNotFoundDesc": "Wygląda na to, że ta strona zrobiła sobie przerwę na siłownię.",
-    "backToHome": "Powrót do strony głównej"
+    "backToHome": "Powrót do strony głównej",
+    "settings": "Ustawienia",
+    "theme": "Motyw",
+    "language": "Język",
+    "close": "Zamknij"
   }
 }

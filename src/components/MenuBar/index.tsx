@@ -17,10 +17,11 @@ import {
 import Logo from '@/components/Logo';
 import AvatarDropdown from '@/components/AvatarDropdown';
 import LanguageSelect from '@/components/LanguageSelect';
+import ThemeSwitcher from '@/components/ThemeSwitcher';
 
 import { AuthContext } from '@/context';
 import routes from '@/router/routes.ts';
-import ThemeSwitcher from '@/components/ThemeSwitcher';
+import SettingsModal from '@/components/SettingsModal';
 
 const MenuBar = () => {
     const { pathname } = useLocation();
@@ -73,7 +74,7 @@ const MenuBar = () => {
                 </NavbarBrand>
             </NavbarContent>
 
-            <NavbarContent className="hidden md:flex gap-7" justify="center">
+            <NavbarContent className="hidden gap-7 md:flex" justify="center">
                 {menuItems.map((item, idx) => (
                     <NavbarItem key={idx} isActive={item.path === pathname}>
                         <Link
@@ -89,11 +90,16 @@ const MenuBar = () => {
             </NavbarContent>
 
             <NavbarContent justify="end">
-                <NavbarItem>
-                    <ThemeSwitcher />
-                </NavbarItem>
-                <NavbarItem className="w-24">
-                    <LanguageSelect />
+                <div className="hidden items-center gap-4 lg:flex">
+                    <NavbarItem>
+                        <ThemeSwitcher />
+                    </NavbarItem>
+                    <NavbarItem>
+                        <LanguageSelect />
+                    </NavbarItem>
+                </div>
+                <NavbarItem className="lg:hidden">
+                    <SettingsModal />
                 </NavbarItem>
                 {isLogged ? (
                     <AvatarDropdown />

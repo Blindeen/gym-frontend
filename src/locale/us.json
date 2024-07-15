@@ -55,6 +55,10 @@
     "unexpectedError": "An unexpected error occurred",
     "somethingWentWrong": "Oops, something went wrong!",
     "pageNotFoundDesc": "It looks like this site has taken a gym break.",
-    "backToHome": "Back to home"
+    "backToHome": "Back to home",
+    "settings": "Settings",
+    "theme": "Theme",
+    "language": "Language",
+    "close": "Close"
   }
 }
