@@ -72,6 +72,9 @@ const AvatarDropdown = () => {
                         }
                     >
                         <p className="font-bold">{email}</p>
+                        <p className="font-bold">
+                            {firstName} {lastName}
+                        </p>
                     </DropdownItem>
                 </DropdownSection>
                 <DropdownItem
