@@ -16,7 +16,8 @@ export const ThemeContext = createContext<ThemeContextType>({
 const ThemeProvider = ({ children }: ThemeProviderProps) => {
     const [value, setValue] = useState<boolean>(() => {
         const value = getLocalStorageItem(localStorageDarkModeKey);
-        return value ? JSON.parse(value) : defaultDarkModeValue;
+        const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
+        return value ? JSON.parse(value) : darkThemeMq.matches;
     });
 
     const toggle = () => {
