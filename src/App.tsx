@@ -15,7 +15,7 @@ const App = () => {
     const { value } = useContext(ThemeContext);
     const navigate = useNavigate();
 
-    const { twitterDim, white, black } = colors;
+    const { oldBlueEyesIrises, white } = colors;
 
     useEffect(() => {
         value
@@ -27,7 +27,7 @@ const App = () => {
         <>
             <AuthSessionProvider>
                 <NextUIProvider navigate={navigate}>
-                    <div className="text-foreground bg-background">
+                    <div className="bg-background text-foreground">
                         <Router />
                     </div>
                 </NextUIProvider>
@@ -37,8 +37,8 @@ const App = () => {
                 toastOptions={{
                     style: {
                         padding: '18px',
-                        backgroundColor: value ? twitterDim : white,
-                        color: value ? white : black,
+                        backgroundColor: oldBlueEyesIrises,
+                        color: white,
                     },
                 }}
             />
