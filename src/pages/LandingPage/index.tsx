@@ -57,7 +57,7 @@ const LandingPage = () => {
                                             radius="full"
                                             size="lg"
                                             onPress={() =>
-                                                navigate(routes.login)
+                                                navigate(routes.signIn)
                                             }
                                         >
                                             {t('signIn')}
@@ -68,7 +68,7 @@ const LandingPage = () => {
                                             size="lg"
                                             color="primary"
                                             onPress={() =>
-                                                navigate(routes.register)
+                                                navigate(routes.signUp)
                                             }
                                         >
                                             {t('signUp')}

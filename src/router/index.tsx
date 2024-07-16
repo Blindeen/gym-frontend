@@ -15,7 +15,7 @@ const Router = () => {
             <Route path={routes.home} element={<Layout />}>
                 <Route index element={<LandingPage />} />
             </Route>
-            <Route path={routes.login} element={<SignInPage />} />
+            <Route path={routes.signIn} element={<SignInPage />} />
         </Routes>
     );
 };

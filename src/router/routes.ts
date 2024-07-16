@@ -1,8 +1,8 @@
 const routes = {
     home: '/',
     about: '/about',
-    login: '/login',
-    register: '/register',
+    signIn: '/sign-in',
+    signUp: '/sign-up',
     activities: '/activities',
     dashboard: '/dashboard',
     staff: '/staff',

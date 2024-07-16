@@ -108,7 +108,7 @@ const MenuBar = () => {
                         <Button
                             as={Link}
                             className="text-white"
-                            href={routes.login}
+                            href={routes.signIn}
                             color="primary"
                         >
                             {t('signIn')}
@@ -132,7 +132,7 @@ const MenuBar = () => {
                 <NavbarMenuItem>
                     <Link
                         className="w-full"
-                        href={routes.login}
+                        href={routes.signIn}
                         color="foreground"
                     >
                         {t('signIn')}
