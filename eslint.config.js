@@ -11,7 +11,7 @@ export default {
         sourceType: 'module',
         parser: tsParser,
         globals: {
-            ...globals.browser,,
+            ...globals.browser,
         },
     },
     rules: {
