@@ -14,7 +14,7 @@ const Logo = ({ clickable = true, size = 'md' }: LogoProps) => {
 
     return (
         <span
-            className={`font-bold ${sizes[size]}${clickable ? ' cursor-pointer' : ''}`}
+            className={`font-bold ${sizes[size]} ${clickable ? 'cursor-pointer' : ''}`}
             onClick={clickable ? () => navigate(routes.home) : undefined}
         >
             FitSphere

@@ -3,6 +3,8 @@ import { State } from '@/types.ts';
 export const defaultStateValue: State = {
     isLogged: false,
     user: {
+        firstName: '',
+        lastName: '',
         email: '',
         role: 'GUEST',
     },
@@ -10,3 +12,9 @@ export const defaultStateValue: State = {
 };
 
 export const localStorageStateKey = 'authState';
+
+export const localStorageDarkModeKey = 'darkMode';
+
+export const defaultDarkModeValue = false;
+
+export const darkModeClassName = 'dark';

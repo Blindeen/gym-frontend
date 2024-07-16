@@ -1,6 +1,16 @@
 import type { Config } from 'tailwindcss';
-
 import { nextui } from '@nextui-org/react';
+
+import colors from './src/colors';
+
+const {
+    violentViolet,
+    violet,
+    oldBlueEyesIrises,
+    pictonBlue,
+    white,
+    twitterDim,
+} = colors;
 
 module.exports = {
     content: [
@@ -10,8 +20,7 @@ module.exports = {
     theme: {
         extend: {
             backgroundImage: {
-                'radial-gradient':
-                    'radial-gradient(circle farthest-side at 100%, #2e1067 38%, #1f094a 65%)',
+                'radial-gradient': `radial-gradient(circle farthest-side at 100%, ${violentViolet} 38%, ${violet} 65%)`,
             },
         },
     },
@@ -21,14 +30,15 @@ module.exports = {
             themes: {
                 light: {
                     colors: {
-                        primary: '#526FFF',
-                        secondary: '#41C9E2',
+                        primary: oldBlueEyesIrises,
+                        secondary: pictonBlue,
                     },
                 },
                 dark: {
                     colors: {
-                        primary: '#A0B6FA',
-                        secondary: '#0B3A56',
+                        foreground: white,
+                        background: twitterDim,
+                        content1: twitterDim,
                     },
                 },
             },

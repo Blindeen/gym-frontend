@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
     Link,
@@ -14,21 +14,22 @@ import {
     NavbarBrand,
 } from '@nextui-org/react';
 
+import Logo from '@/components/Logo';
 import AvatarDropdown from '@/components/AvatarDropdown';
 import LanguageSelect from '@/components/LanguageSelect';
+import ThemeSwitcher from '@/components/ThemeSwitcher';
 
 import { AuthContext } from '@/context';
 import routes from '@/router/routes.ts';
+import SettingsModal from '@/components/SettingsModal';
 
 const MenuBar = () => {
-    const location = useLocation();
-    const navigate = useNavigate();
-    const { pathname } = location;
-
-    const { state } = useContext(AuthContext);
-    const { isLogged } = state;
-
+    const { pathname } = useLocation();
     const { t } = useTranslation();
+
+    const {
+        state: { isLogged },
+    } = useContext(AuthContext);
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -69,16 +70,11 @@ const MenuBar = () => {
                     aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
                 />
                 <NavbarBrand>
-                    <p
-                        className="font-bold text-2xl cursor-pointer"
-                        onClick={() => navigate(routes.home)}
-                    >
-                        FitSphere
-                    </p>
+                    <Logo size="lg" />
                 </NavbarBrand>
             </NavbarContent>
 
-            <NavbarContent className="hidden md:flex gap-7" justify="center">
+            <NavbarContent className="hidden gap-7 md:flex" justify="center">
                 {menuItems.map((item, idx) => (
                     <NavbarItem key={idx} isActive={item.path === pathname}>
                         <Link
@@ -94,13 +90,21 @@ const MenuBar = () => {
             </NavbarContent>
 
             <NavbarContent justify="end">
-                <NavbarItem className="w-24">
-                    <LanguageSelect />
+                <div className="hidden items-center gap-4 lg:flex">
+                    <NavbarItem>
+                        <ThemeSwitcher />
+                    </NavbarItem>
+                    <NavbarItem>
+                        <LanguageSelect />
+                    </NavbarItem>
+                </div>
+                <NavbarItem className="lg:hidden">
+                    <SettingsModal />
                 </NavbarItem>
                 {isLogged ? (
                     <AvatarDropdown />
                 ) : (
-                    <NavbarItem className="hidden md:inline">
+                    <NavbarItem className="hidden lg:inline">
                         <Button
                             as={Link}
                             className="text-white"

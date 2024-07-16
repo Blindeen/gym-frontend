@@ -1,6 +1,8 @@
 type Role = 'GUEST' | 'CUSTOMER' | 'TRAINER';
 
 type User = {
+    firstName: string;
+    lastName: string;
     email: string;
     role: Role;
 };

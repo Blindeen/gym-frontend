@@ -23,7 +23,7 @@ const AvatarDropdown = () => {
         state: { user },
         setState,
     } = useContext(AuthContext);
-    const { email } = user;
+    const { firstName, lastName, email } = user;
 
     const { pathname } = useLocation();
     const navigate = useNavigate();
@@ -45,9 +45,9 @@ const AvatarDropdown = () => {
                     as="button"
                     className="transition-transform"
                     classNames={{
-                        name: 'font-bold text-medium',
+                        name: 'font-bold',
                     }}
-                    name={email[0]}
+                    name={`${firstName[0]}${lastName[0]}`}
                     size="md"
                     isBordered
                 />
@@ -56,7 +56,10 @@ const AvatarDropdown = () => {
                 <DropdownSection showDivider>
                     <DropdownItem
                         key="profile"
-                        className="gap-x-3"
+                        classNames={{
+                            base: 'gap-x-3',
+                            title: 'font-bold',
+                        }}
                         textValue="profile menu"
                         startContent={
                             <Avatar
@@ -65,20 +68,23 @@ const AvatarDropdown = () => {
                                 classNames={{
                                     name: 'font-bold',
                                 }}
-                                name={email[0]}
+                                name={`${firstName[0]}${lastName[0]}`}
                                 size="sm"
                                 isBordered
                             />
                         }
                     >
-                        <p className="font-bold">{email}</p>
+                        <p>{email}</p>
+                        <p>
+                            {firstName} {lastName}
+                        </p>
                     </DropdownItem>
                 </DropdownSection>
                 <DropdownItem
                     key="my-profile"
                     textValue="my profile"
                     startContent={<BsPersonFill size="20px" />}
-                    onPress={() => navigate(routes.profile)}
+                    href={routes.profile}
                 >
                     {t('myProfile')}
                 </DropdownItem>
