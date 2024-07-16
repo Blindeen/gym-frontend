@@ -40,7 +40,7 @@ const SignInForm = () => {
         setLoading(true);
         try {
             const { data } = await axiosClient.post<AuthorizationResponse>(
-                '/member/login',
+                '/member/sign-in',
                 formData
             );
 
