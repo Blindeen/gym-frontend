@@ -12,7 +12,7 @@ export const handleError = (err: any) => {
             const {
                 data: { errors },
             } = response;
-            Object.entries(errors).forEach(([_, info]) =>
+            Object.entries(errors).forEach(([, info]) =>
                 info.forEach((desc) => toast.error(desc))
             );
         } else if (request) {

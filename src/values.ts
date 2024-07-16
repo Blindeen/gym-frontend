@@ -18,3 +18,7 @@ export const localStorageDarkModeKey = 'darkMode';
 export const defaultDarkModeValue = false;
 
 export const darkModeClassName = 'dark';
+
+export const localStorageLanguageKey = 'language';
+
+export const defaultLanguage = 'us';
