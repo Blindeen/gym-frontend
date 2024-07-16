@@ -84,7 +84,7 @@ const AvatarDropdown = () => {
                     key="my-profile"
                     textValue="my profile"
                     startContent={<BsPersonFill size="20px" />}
-                    href={routes.profile}
+                    onPress={() => navigate(routes.profile)}
                 >
                     {t('myProfile')}
                 </DropdownItem>

@@ -24,11 +24,11 @@ const LandingPage = () => {
 
     return (
         <div className="flex flex-col gap-12">
-            <div className="min-h-dvh bg-radial-gradient rounded-b-[4rem]">
-                <div className="w-full max-w-[1280px] px-6 py-10 mx-auto text-white font-bold">
-                    <div className="flex flex-wrap justify-center items-center lg:justify-between">
+            <div className="min-h-dvh rounded-b-[4rem] bg-radial-gradient">
+                <div className="mx-auto w-full max-w-[1280px] px-6 py-10 font-bold text-white">
+                    <div className="flex flex-wrap items-center justify-center lg:justify-between">
                         <div className="flex flex-col gap-7">
-                            <div className="flex flex-col gap-4 text-4xl text-center lg:text-left md:text-6xl">
+                            <div className="flex flex-col gap-4 text-center text-4xl md:text-6xl lg:text-left">
                                 <h1>
                                     {t('unleash')}
                                     <span className="bg-gradient-to-br from-secondary to-primary bg-clip-text text-transparent">
@@ -37,7 +37,7 @@ const LandingPage = () => {
                                 </h1>
                                 <h1>{t('innerStrengthToday')}</h1>
                             </div>
-                            <p className="text-xl text-center lg:max-w-md lg:text-justify">
+                            <p className="text-center text-xl lg:max-w-md lg:text-justify">
                                 {t('landingPageDescription')}
                             </p>
                             <div className="flex flex-wrap gap-5">
@@ -53,7 +53,7 @@ const LandingPage = () => {
                                 ) : (
                                     <>
                                         <Button
-                                            className="w-full text-black bg-white lg:w-fit"
+                                            className="w-full bg-white text-black lg:w-fit"
                                             radius="full"
                                             size="lg"
                                             onPress={() =>
@@ -90,10 +90,10 @@ const LandingPage = () => {
                             />
                         </motion.div>
                     </div>
-                    <div className="text-center text-xl my-6">
+                    <div className="my-6 text-center text-xl">
                         {t('ourPartners')}
                     </div>
-                    <div className="flex flex-col justify-between items-center gap-5 md:flex-row md:gap-0">
+                    <div className="flex flex-col items-center justify-between gap-5 md:flex-row md:gap-0">
                         <SiNike size="120px" />
                         <SiReebok size="120px" />
                         <CgAdidas size="120px" />
@@ -101,11 +101,11 @@ const LandingPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-full max-w-[1280px] flex flex-col gap-12 px-6 mx-auto font-bold">
-                <h1 className="w-full text-2xl text-center md:text-5xl">
+            <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-12 px-6 font-bold">
+                <h1 className="w-full text-center text-2xl md:text-5xl">
                     {t('infoTabsHeader')}
                 </h1>
-                <div className="w-full flex flex-wrap justify-evenly gap-y-5 lg:gap-y-0">
+                <div className="flex w-full flex-wrap justify-evenly gap-y-5 lg:gap-y-0">
                     <Image
                         classNames={{
                             wrapper:
@@ -116,7 +116,7 @@ const LandingPage = () => {
                         radius="none"
                         draggable={false}
                     />
-                    <div className="w-full flex flex-col items-center lg:w-[35%]">
+                    <div className="flex w-full flex-col items-center lg:w-[35%]">
                         <InfoTabs />
                     </div>
                 </div>
