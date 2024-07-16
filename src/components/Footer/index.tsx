@@ -41,11 +41,34 @@ const Footer = () => {
         },
     ];
 
+    const socialIcons = [
+        {
+            Icon: FaInstagram,
+            href: 'https://www.instagram.com/fitsphere/',
+        },
+        {
+            Icon: FaFacebook,
+            href: 'https://www.facebook.com/fitsphere/',
+        },
+        {
+            Icon: FaXTwitter,
+            href: 'https://x.com/fitsphere',
+        },
+        {
+            Icon: FaYoutube,
+            href: 'https://www.youtube.com/@fitsphere',
+        },
+        {
+            Icon: FaThreads,
+            href: 'https://www.threads.net/@fitsphere',
+        },
+    ];
+
     return (
         <footer className="flex justify-center">
             <div className="w-full max-w-[1280px] p-6 text-sm">
                 <div className="md:flex md:justify-between">
-                    <div className="flex mb-6 md:mb-0">
+                    <div className="mb-6 flex md:mb-0">
                         <Logo />
                     </div>
                     <div className="flex flex-wrap gap-8">
@@ -119,12 +142,17 @@ const Footer = () => {
                 <Divider className="my-6" />
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <p>{`Copyright © ${currentYear} FitSphere Inc.`}</p>
-                    <div className="flex gap-5 mt-4 sm:mt-0">
-                        <FaInstagram size="1.5rem" />
-                        <FaFacebook size="1.5rem" />
-                        <FaXTwitter size="1.5rem" />
-                        <FaYoutube size="1.5rem" />
-                        <FaThreads size="1.5rem" />
+                    <div className="mt-4 flex gap-5 sm:mt-0">
+                        {socialIcons.map(({ Icon, href }, idx) => (
+                            <a
+                                key={idx}
+                                href={href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Icon size="1.5rem" />
+                            </a>
+                        ))}
                     </div>
                 </div>
             </div>

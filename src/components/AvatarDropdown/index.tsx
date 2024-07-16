@@ -56,7 +56,10 @@ const AvatarDropdown = () => {
                 <DropdownSection showDivider>
                     <DropdownItem
                         key="profile"
-                        className="gap-x-3"
+                        classNames={{
+                            base: 'gap-x-3',
+                            title: 'font-bold',
+                        }}
                         textValue="profile menu"
                         startContent={
                             <Avatar
@@ -71,8 +74,8 @@ const AvatarDropdown = () => {
                             />
                         }
                     >
-                        <p className="font-bold">{email}</p>
-                        <p className="font-bold">
+                        <p>{email}</p>
+                        <p>
                             {firstName} {lastName}
                         </p>
                     </DropdownItem>
@@ -81,7 +84,7 @@ const AvatarDropdown = () => {
                     key="my-profile"
                     textValue="my profile"
                     startContent={<BsPersonFill size="20px" />}
-                    onPress={() => navigate(routes.profile)}
+                    href={routes.profile}
                 >
                     {t('myProfile')}
                 </DropdownItem>
