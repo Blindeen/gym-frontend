@@ -36,20 +36,25 @@ const SignInForm = () => {
 
     const toggleVisibility = () => setIsPasswordVisible(!isPasswordVisible);
 
-    const onSubmit = (data: SignInFormData) => {
+    const onSubmit = async (formData: SignInFormData) => {
         setLoading(true);
-        axiosClient
-            .post<AuthorizationResponse>('/member/login', data)
-            .then(({ data }) => {
-                setState({
-                    isLogged: true,
-                    ...data,
-                });
-                toast.success(t('signedInSuccessfully'));
-                navigate(routes.home, { replace: true });
-            })
-            .catch(handleError)
-            .finally(() => setLoading(false));
+        try {
+            const { data } = await axiosClient.post<AuthorizationResponse>(
+                '/member/login',
+                formData
+            );
+
+            setState({
+                isLogged: true,
+                ...data,
+            });
+            toast.success(t('signedInSuccessfully'));
+            navigate(routes.home, { replace: true });
+        } catch (err) {
+            handleError(err);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -105,9 +110,9 @@ const SignInForm = () => {
                                     onClick={toggleVisibility}
                                 >
                                     {isPasswordVisible ? (
-                                        <LuEyeOff className="text-2xl text-default-400 pointer-events-none" />
+                                        <LuEyeOff className="pointer-events-none text-2xl text-default-400" />
                                     ) : (
-                                        <LuEye className="text-2xl text-default-400 pointer-events-none" />
+                                        <LuEye className="pointer-events-none text-2xl text-default-400" />
                                     )}
                                 </button>
                             }
