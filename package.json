@@ -17,6 +17,7 @@
     "axios": "^1.7.2",
     "flag-icons": "^7.2.3",
     "framer-motion": "^11.2.10",
+    "globals": "^15.8.0",
     "i18next": "^23.11.5",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
