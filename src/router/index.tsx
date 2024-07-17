@@ -7,6 +7,7 @@ import NotFoundPage from '@/pages/NotFoundPage';
 import Layout from '@/components/Layout';
 
 import routes from '@/router/routes.ts';
+import ActivitiesPage from '@/pages/ActivitiesPage';
 
 const Router = () => {
     return (
@@ -14,6 +15,7 @@ const Router = () => {
             <Route path="*" element={<NotFoundPage />} />
             <Route path={routes.home} element={<Layout />}>
                 <Route index element={<LandingPage />} />
+                <Route path={routes.activities} element={<ActivitiesPage />} />
             </Route>
             <Route path={routes.signIn} element={<SignInPage />} />
         </Routes>
