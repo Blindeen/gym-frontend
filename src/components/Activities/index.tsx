@@ -19,20 +19,21 @@ const Activities = ({ url }: ActivitiesProps) => {
 
     return (
         <>
-            <div className="grid grid-cols-4 justify-between">
-                {data?.content.map(({ id, name, startTime, dayOfWeek }) => (
-                    <CustomCard
-                        key={id}
-                        title={name}
-                        description={`${dayOfWeek} ${startTime}`}
-                    />
-                ))}
+            <div className="grid grid-cols-4">
+                {data?.content.map(
+                    ({ id, name, startTime, dayOfWeek }, idx) => (
+                        <CustomCard
+                            key={`${id}-${idx}`}
+                            title={name}
+                            description={`${dayOfWeek} ${startTime}`}
+                        />
+                    )
+                )}
             </div>
-            {data && data.totalPages > 1 && (
+            {data && data?.totalPages > 1 && (
                 <Pagination
                     className="mt-2"
-                    total={data?.totalPages}
-                    initialPage={1}
+                    total={data.totalPages}
                     onChange={(page) =>
                         setSearchParams({
                             ...searchParams,
