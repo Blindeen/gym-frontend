@@ -30,7 +30,7 @@ const Activities = ({ url }: ActivitiesProps) => {
                     )
                 )}
             </div>
-            {data && data?.totalPages > 1 && (
+            {data && data.totalPages > 1 && (
                 <Pagination
                     className="mt-2"
                     total={data.totalPages}
