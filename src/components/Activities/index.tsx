@@ -31,19 +31,25 @@ const Activities = ({ url }: ActivitiesProps) => {
                 )}
             </div>
             {data && data.totalPages > 1 && (
-                <Pagination
-                    className="mt-2"
-                    total={data.totalPages}
-                    onChange={(page) =>
-                        setSearchParams({
-                            ...searchParams,
-                            pageNumber: page,
-                        })
-                    }
-                    showControls
-                    loop
-                    disableAnimation={false}
-                />
+                <div className="mt-4 flex items-center justify-between">
+                    <div>
+                        {data.pageable.offset + 1} -{' '}
+                        {data.pageable.offset + data.numberOfElements} of{' '}
+                        {data.totalElements} items
+                    </div>
+                    <Pagination
+                        total={data.totalPages}
+                        onChange={(page) =>
+                            setSearchParams({
+                                ...searchParams,
+                                pageNumber: page,
+                            })
+                        }
+                        showControls
+                        loop
+                        disableAnimation={false}
+                    />
+                </div>
             )}
         </>
     );

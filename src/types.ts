@@ -42,7 +42,7 @@ export type Page<T> = {
     size: number;
     number: number;
     sort: Sort;
-    numberOfElements: 5;
+    numberOfElements: number;
     first: boolean;
     empty: boolean;
 };
