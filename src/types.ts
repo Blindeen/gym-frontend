@@ -46,3 +46,17 @@ export type Page<T> = {
     first: boolean;
     empty: boolean;
 };
+
+export type DayOfWeek =
+    | 'MONDAY'
+    | 'TUESDAY'
+    | 'WEDNESDAY'
+    | 'THURSDAY'
+    | 'FRIDAY'
+    | 'SATURDAY'
+    | 'SUNDAY';
+
+export type TrainerInfo = {
+    firstName: string;
+    lastName: string;
+};
