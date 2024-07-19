@@ -1,16 +1,21 @@
+import { Pagination } from '@nextui-org/react';
+
 import CustomCard from '@/components/CustomCard';
 
 import useFetch from '@/hooks/useFetch';
+import useSearchParams from '@/hooks/useSearchParams';
+
 import {
     ActivitiesProps,
     ActivitiesPage,
 } from '@/components/Activities/types.ts';
-import { Pagination } from '@nextui-org/react';
-import { useState } from 'react';
 
 const Activities = ({ url }: ActivitiesProps) => {
-    const [fetchUrl, setFetchUrl] = useState(`${url}?pageNumber=0&pageSize=4`);
-    const { data } = useFetch<ActivitiesPage>(fetchUrl);
+    const { searchParams, setSearchParams } = useSearchParams({
+        pageNumber: 1,
+        pageSize: 5,
+    });
+    const { data } = useFetch<ActivitiesPage>(url, searchParams);
 
     return (
         <>
@@ -29,7 +34,10 @@ const Activities = ({ url }: ActivitiesProps) => {
                     total={data?.totalPages}
                     initialPage={1}
                     onChange={(page) =>
-                        setFetchUrl(`${url}?pageNumber=${page - 1}&pageSize=4`)
+                        setSearchParams({
+                            ...searchParams,
+                            pageNumber: page,
+                        })
                     }
                     showControls
                     loop
