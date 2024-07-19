@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-import { SearchParams } from '@/hooks/useSearchParams/types.ts';
+import { SearchParams } from '@/hooks/types.ts';
 
-const useSearchParams = (searchParams: SearchParams) => {
-    const [params, setParams] = useState<SearchParams>(searchParams);
+const useSearchParams = (params: SearchParams) => {
+    const [searchParams, setSearchParams] = useState<SearchParams>(params);
 
-    return { params, setParams };
+    return { searchParams, setSearchParams };
 };
 
 export default useSearchParams;
