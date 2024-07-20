@@ -60,6 +60,10 @@
     "theme": "Motyw",
     "language": "Język",
     "close": "Zamknij",
-    "home": "Strona główna"
+    "home": "Strona główna",
+    "pagination": {
+      "of": "z",
+      "items": "elementów"
+    }
   }
 }

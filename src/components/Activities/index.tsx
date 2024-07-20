@@ -1,6 +1,5 @@
-import { Pagination } from '@nextui-org/react';
-
 import CustomCard from '@/components/CustomCard';
+import CustomPagination from '@/components/CustomPagination';
 
 import useFetch from '@/hooks/useFetch';
 import useSearchParams from '@/hooks/useSearchParams';
@@ -17,40 +16,41 @@ const Activities = ({ url }: ActivitiesProps) => {
     });
     const { data } = useFetch<ActivitiesPage>(url, searchParams);
 
+    if (data === undefined) {
+        return null;
+    }
+
+    const {
+        content,
+        pageable: { offset },
+        numberOfElements,
+        totalElements,
+        totalPages,
+    } = data;
+
     return (
         <>
-            <div className="grid grid-cols-4">
-                {data?.content.map(
-                    ({ id, name, startTime, dayOfWeek }, idx) => (
-                        <CustomCard
-                            key={`${id}-${idx}`}
-                            title={name}
-                            description={`${dayOfWeek} ${startTime}`}
-                        />
-                    )
-                )}
-            </div>
-            {data && data.totalPages > 1 && (
-                <div className="mt-4 flex items-center justify-between">
-                    <div>
-                        {data.pageable.offset + 1} -{' '}
-                        {data.pageable.offset + data.numberOfElements} of{' '}
-                        {data.totalElements} items
-                    </div>
-                    <Pagination
-                        total={data.totalPages}
-                        onChange={(page) =>
-                            setSearchParams({
-                                ...searchParams,
-                                pageNumber: page,
-                            })
-                        }
-                        showControls
-                        loop
-                        disableAnimation={false}
+            <div className="mb-4 grid grid-cols-4">
+                {content.map(({ id, name, startTime, dayOfWeek }, idx) => (
+                    <CustomCard
+                        key={`${id}-${idx}`}
+                        title={name}
+                        description={`${dayOfWeek} ${startTime}`}
                     />
-                </div>
-            )}
+                ))}
+            </div>
+            <CustomPagination
+                offset={offset}
+                numberOfElements={numberOfElements}
+                totalElements={totalElements}
+                totalPages={totalPages}
+                onChange={(page) =>
+                    setSearchParams({
+                        ...searchParams,
+                        pageNumber: page,
+                    })
+                }
+            />
         </>
     );
 };

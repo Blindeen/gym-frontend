@@ -60,6 +60,10 @@
     "theme": "Theme",
     "language": "Language",
     "close": "Close",
-    "home": "Home"
+    "home": "Home",
+    "pagination": {
+      "of": "of",
+      "items": "items"
+    }
   }
 }
