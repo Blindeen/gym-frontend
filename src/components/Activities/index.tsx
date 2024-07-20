@@ -1,5 +1,6 @@
 import CustomCard from '@/components/CustomCard';
 import CustomPagination from '@/components/CustomPagination';
+import LoadingSpinner from '@/components/LoadingSpinner';
 
 import useFetch from '@/hooks/useFetch';
 import useSearchParams from '@/hooks/useSearchParams';
@@ -17,7 +18,7 @@ const Activities = ({ url }: ActivitiesProps) => {
     const { data } = useFetch<ActivitiesPage>(url, searchParams);
 
     if (data === undefined) {
-        return null;
+        return <LoadingSpinner />;
     }
 
     const {
