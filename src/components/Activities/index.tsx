@@ -17,7 +17,7 @@ const Activities = ({ url }: ActivitiesProps) => {
     });
     const { data } = useFetch<ActivitiesPage>(url, searchParams);
 
-    if (data === undefined) {
+    if (!data) {
         return <LoadingSpinner />;
     }
 
@@ -46,10 +46,10 @@ const Activities = ({ url }: ActivitiesProps) => {
                 totalElements={totalElements}
                 totalPages={totalPages}
                 onChange={(page) =>
-                    setSearchParams({
-                        ...searchParams,
+                    setSearchParams((prevState) => ({
+                        ...prevState,
                         pageNumber: page,
-                    })
+                    }))
                 }
             />
         </>
