@@ -9,8 +9,10 @@ const useFetch = <T>(
     searchParams: SearchParams | undefined = undefined
 ) => {
     const [data, setData] = useState<T>();
+    const [isLoading, setIsLoading] = useState(true);
 
     const fetchData = useCallback(async () => {
+        setIsLoading(true);
         try {
             const { data } = await axios.get<T>(url, {
                 params: searchParams,
@@ -18,6 +20,8 @@ const useFetch = <T>(
             setData(data);
         } catch (err) {
             handleError(err);
+        } finally {
+            setIsLoading(false);
         }
     }, [searchParams]);
 
@@ -25,7 +29,7 @@ const useFetch = <T>(
         fetchData().then();
     }, [fetchData]);
 
-    return { data };
+    return { data, isLoading };
 };
 
 export default useFetch;

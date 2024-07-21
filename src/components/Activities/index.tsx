@@ -15,43 +15,40 @@ const Activities = ({ url }: ActivitiesProps) => {
         pageNumber: 1,
         pageSize: 5,
     });
-    const { data } = useFetch<ActivitiesPage>(url, searchParams);
+    const { data, isLoading } = useFetch<ActivitiesPage>(url, searchParams);
 
-    if (!data) {
-        return <LoadingSpinner />;
-    }
-
-    const {
-        content,
-        pageable: { offset },
-        numberOfElements,
-        totalElements,
-        totalPages,
-    } = data;
+    const handlePageChange = (page: number) => {
+        setSearchParams((prevState) => ({
+            ...prevState,
+            pageNumber: page,
+        }));
+    };
 
     return (
         <>
-            <div className="mb-4 grid grid-cols-4">
-                {content.map(({ id, name, startTime, dayOfWeek }, idx) => (
-                    <CustomCard
-                        key={`${id}-${idx}`}
-                        title={name}
-                        description={`${dayOfWeek} ${startTime}`}
-                    />
-                ))}
-            </div>
-            <CustomPagination
-                offset={offset}
-                numberOfElements={numberOfElements}
-                totalElements={totalElements}
-                totalPages={totalPages}
-                onChange={(page) =>
-                    setSearchParams((prevState) => ({
-                        ...prevState,
-                        pageNumber: page,
-                    }))
-                }
-            />
+            {isLoading && <LoadingSpinner />}
+            {!isLoading && data && (
+                <div className="mb-4 grid grid-cols-4">
+                    {data.content.map(
+                        ({ id, name, startTime, dayOfWeek }, idx) => (
+                            <CustomCard
+                                key={`${id}-${idx}`}
+                                title={name}
+                                description={`${dayOfWeek} ${startTime}`}
+                            />
+                        )
+                    )}
+                </div>
+            )}
+            {data && (
+                <CustomPagination
+                    offset={data.pageable.offset}
+                    numberOfElements={data.numberOfElements}
+                    totalElements={data.totalElements}
+                    totalPages={data.totalPages}
+                    onChange={handlePageChange}
+                />
+            )}
         </>
     );
 };
