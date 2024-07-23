@@ -56,6 +56,8 @@ const MenuBar = () => {
         },
     ];
 
+    const closeMenu = () => setIsMenuOpen(false);
+
     return (
         <Navbar
             maxWidth="xl"
@@ -66,15 +68,15 @@ const MenuBar = () => {
         >
             <NavbarContent justify="start">
                 <NavbarMenuToggle
-                    className="md:hidden"
+                    className="lg:hidden"
                     aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
                 />
                 <NavbarBrand>
-                    <Logo size="lg" />
+                    <Logo size="lg" onPress={closeMenu} />
                 </NavbarBrand>
             </NavbarContent>
 
-            <NavbarContent className="hidden gap-7 md:flex" justify="center">
+            <NavbarContent className="hidden gap-7 lg:flex" justify="center">
                 {menuItems.map((item, idx) => (
                     <NavbarItem key={idx} isActive={item.path === pathname}>
                         <Link
@@ -124,6 +126,7 @@ const MenuBar = () => {
                             className="w-full"
                             href={item.path}
                             color="foreground"
+                            onPress={closeMenu}
                         >
                             {item.name}
                         </Link>
