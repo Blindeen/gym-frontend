@@ -59,6 +59,11 @@
     "settings": "Settings",
     "theme": "Theme",
     "language": "Language",
-    "close": "Close"
+    "close": "Close",
+    "home": "Home",
+    "pagination": {
+      "of": "of",
+      "items": "items"
+    }
   }
 }

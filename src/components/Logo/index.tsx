@@ -1,10 +1,13 @@
-import { useNavigate } from 'react-router-dom';
+import { useCallback } from 'react';
 
-import routes from '@/router/routes.ts';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 import { LogoProps } from '@/components/Logo/types.ts';
+import routes from '@/router/routes.ts';
 
-const Logo = ({ clickable = true, size = 'md' }: LogoProps) => {
+const Logo = ({ clickable = true, size = 'md', onPress }: LogoProps) => {
     const navigate = useNavigate();
+    const { pathname } = useLocation();
 
     const sizes = {
         sm: 'text-xl',
@@ -12,10 +15,15 @@ const Logo = ({ clickable = true, size = 'md' }: LogoProps) => {
         lg: 'text-3xl',
     };
 
+    const onPressEvent = useCallback(() => {
+        onPress && onPress();
+        pathname !== '/' && navigate(routes.home);
+    }, [pathname]);
+
     return (
         <span
             className={`font-bold ${sizes[size]} ${clickable ? 'cursor-pointer' : ''}`}
-            onClick={clickable ? () => navigate(routes.home) : undefined}
+            onClick={clickable ? onPressEvent : undefined}
         >
             FitSphere
         </span>

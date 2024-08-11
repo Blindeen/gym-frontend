@@ -59,6 +59,11 @@
     "settings": "Ustawienia",
     "theme": "Motyw",
     "language": "Język",
-    "close": "Zamknij"
+    "close": "Zamknij",
+    "home": "Strona główna",
+    "pagination": {
+      "of": "z",
+      "items": "elementów"
+    }
   }
 }
