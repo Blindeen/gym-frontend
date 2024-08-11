@@ -10,7 +10,7 @@ const CustomCard = ({
     isPressable = false,
 }: CustomCardProps) => {
     return (
-        <Card className="px-4 py-8" shadow="sm" isPressable={isPressable}>
+        <Card className="px-4 py-8 justify-center" shadow="sm" isPressable={isPressable}>
             <CardHeader className="flex-col items-start px-4">
                 <h4 className="text-large font-bold">{title}</h4>
                 <small className="text-default-500">{subtitle}</small>
