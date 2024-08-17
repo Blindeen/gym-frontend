@@ -64,6 +64,15 @@
     "pagination": {
       "of": "of",
       "items": "items"
+    },
+    "alreadyHaveAccount": "Already have an account",
+    "signUpForm": {
+      "firstName": "First name",
+      "firstNameIsRequired": "First name is required",
+      "lastName": "Last name",
+      "lastNameIsRequired": "Last name is required",
+      "confirmPassword": "Confirm password",
+      "passwordsAreNotIdentical": "Passwords are not identical"
     }
   }
 }

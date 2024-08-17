@@ -64,6 +64,15 @@
     "pagination": {
       "of": "z",
       "items": "elementów"
+    },
+    "alreadyHaveAccount": "Masz już konto",
+    "signUpForm": {
+      "firstName": "Imię",
+      "firstNameIsRequired": "Imię jest wymagane",
+      "lastName": "Nazwisko",
+      "lastNameIsRequired": "Nazwisko jest wymagane",
+      "confirmPassword": "Potwierdź hasło",
+      "passwordsAreNotIdentical": "Hasła nie są takie same"
     }
   }
 }
