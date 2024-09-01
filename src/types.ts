@@ -48,15 +48,27 @@ export type Page<T> = {
 };
 
 export type DayOfWeek =
-    | 'MONDAY'
-    | 'TUESDAY'
-    | 'WEDNESDAY'
-    | 'THURSDAY'
-    | 'FRIDAY'
-    | 'SATURDAY'
-    | 'SUNDAY';
+    | 'Monday'
+    | 'Tuesday'
+    | 'Wednesday'
+    | 'Thursday'
+    | 'Friday'
+    | 'Saturday'
+    | 'Sunday';
 
 export type TrainerInfo = {
     firstName: string;
     lastName: string;
+};
+
+export type Pass = {
+    id: number;
+    name: string;
+    monthlyPrice: number;
+    length: number;
+};
+
+export type PaymentMethod = {
+    id: number;
+    name: string;
 };
