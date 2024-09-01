@@ -49,6 +49,7 @@
     "signedOutSuccessfully": "Wylogowano się pomyślnie",
     "myProfile": "Mój profil",
     "signOut": "Wyloguj się",
+    "thisFieldIsRequired": "To pole jest wymagane",
     "emailIsRequired": "Email jest wymagany",
     "emailPatternIsInvalid": "Format adresu email jest nieprawidłowy",
     "passwordIsRequired": "Hasło jest wymagane",
@@ -68,11 +69,20 @@
     "alreadyHaveAccount": "Masz już konto",
     "signUpForm": {
       "firstName": "Imię",
-      "firstNameIsRequired": "Imię jest wymagane",
       "lastName": "Nazwisko",
-      "lastNameIsRequired": "Nazwisko jest wymagane",
+      "birthdate": "Data urodzenia",
+      "userIsNotAdult": "Musisz mieć co najmniej 18 lat",
       "confirmPassword": "Potwierdź hasło",
-      "passwordsAreNotIdentical": "Hasła nie są takie same"
+      "passwordsAreNotIdentical": "Hasła nie są takie same",
+      "addressLine": "Adres",
+      "city": "Miasto",
+      "postalCode": "Kod pocztowy",
+      "phoneNumber": "Numer telefonu",
+      "paymentMethod": "Metoda płatności",
+      "passType": "Typ karnetu",
+      "agreement": "Tworząc konto na naszym portalu internetowym siłowni, zgadzasz się na następujące",
+      "termsAndConditions": "warunki użytkowania",
+      "signedUpSuccessfully": "Zarejestrowano się pomyślnie"
     }
   }
 }

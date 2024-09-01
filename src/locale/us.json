@@ -49,6 +49,7 @@
     "signedOutSuccessfully": "Signed out successfully",
     "myProfile": "My profile",
     "signOut": "Sign out",
+    "thisFieldIsRequired": "This field is required",
     "emailIsRequired": "Email is required",
     "emailPatternIsInvalid": "Email pattern is invalid",
     "passwordIsRequired": "Password is required",
@@ -68,11 +69,20 @@
     "alreadyHaveAccount": "Already have an account",
     "signUpForm": {
       "firstName": "First name",
-      "firstNameIsRequired": "First name is required",
       "lastName": "Last name",
-      "lastNameIsRequired": "Last name is required",
+      "birthdate": "Birthdate",
+      "userIsNotAdult": "You have to be 18 years old at least",
       "confirmPassword": "Confirm password",
-      "passwordsAreNotIdentical": "Passwords are not identical"
+      "passwordsAreNotIdentical": "Passwords are not identical",
+      "addressLine": "Address line",
+      "city": "City",
+      "postalCode": "Postal code",
+      "phoneNumber": "Phone number",
+      "paymentMethod": "Payment method",
+      "passType": "Pass type",
+      "agreement": "By creating an account on our gym web portal, you agree to the following",
+      "termsAndConditions": "terms and conditions",
+      "signedUpSuccessfully": "Signed up successfully"
     }
   }
 }
