@@ -53,6 +53,7 @@
     "emailIsRequired": "Email is required",
     "emailPatternIsInvalid": "Email pattern is invalid",
     "passwordIsRequired": "Password is required",
+    "passwordPatternIsInvalid": "Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one digit  and one special character",
     "unexpectedError": "An unexpected error occurred",
     "somethingWentWrong": "Oops, something went wrong!",
     "pageNotFoundDesc": "It looks like this site has taken a gym break.",
@@ -67,22 +68,21 @@
       "items": "items"
     },
     "alreadyHaveAccount": "Already have an account",
-    "signUpForm": {
-      "firstName": "First name",
-      "lastName": "Last name",
-      "birthdate": "Birthdate",
-      "userIsNotAdult": "You have to be 18 years old at least",
-      "confirmPassword": "Confirm password",
-      "passwordsAreNotIdentical": "Passwords are not identical",
-      "addressLine": "Address line",
-      "city": "City",
-      "postalCode": "Postal code",
-      "phoneNumber": "Phone number",
-      "paymentMethod": "Payment method",
-      "passType": "Pass type",
-      "agreement": "By creating an account on our gym web portal, you agree to the following",
-      "termsAndConditions": "terms and conditions",
-      "signedUpSuccessfully": "Signed up successfully"
-    }
+    "firstName": "First name",
+    "lastName": "Last name",
+    "birthdate": "Birthdate",
+    "userIsNotAdult": "You have to be 18 years old at least",
+    "confirmPassword": "Confirm password",
+    "passwordsAreNotIdentical": "Passwords are not identical",
+    "addressLine": "Address line",
+    "city": "City",
+    "postalCode": "Postal code",
+    "postalCodePatternIsInvalid": "Postal code pattern is invalid",
+    "phoneNumber": "Phone number",
+    "paymentMethod": "Payment method",
+    "passType": "Pass type",
+    "agreement": "By creating an account on our gym web portal, you agree to the following",
+    "termsAndConditions": "terms and conditions",
+    "signedUpSuccessfully": "Signed up successfully"
   }
 }
