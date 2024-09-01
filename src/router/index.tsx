@@ -3,11 +3,12 @@ import { Routes, Route } from 'react-router-dom';
 import SignInPage from '@/pages/SignInPage';
 import LandingPage from '@/pages/LandingPage';
 import NotFoundPage from '@/pages/NotFoundPage';
+import ActivitiesPage from '@/pages/ActivitiesPage';
+import SignUpPage from '@/pages/SignUpPage';
 
 import Layout from '@/components/Layout';
 
 import routes from '@/router/routes.ts';
-import ActivitiesPage from '@/pages/ActivitiesPage';
 
 const Router = () => {
     return (
@@ -18,6 +19,7 @@ const Router = () => {
                 <Route path={routes.activities} element={<ActivitiesPage />} />
             </Route>
             <Route path={routes.signIn} element={<SignInPage />} />
+            <Route path={routes.signUp} element={<SignUpPage />} />
         </Routes>
     );
 };
