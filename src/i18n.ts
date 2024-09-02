@@ -9,7 +9,7 @@ import { defaultLanguage, localStorageLanguageKey } from '@/values.ts';
 
 await i18n.use(initReactI18next).init({
     resources: {
-        us: { ...usTranslations },
+        en: { ...usTranslations },
         pl: { ...plTranslations },
     },
     lng: getLocalStorageItem(localStorageLanguageKey) || defaultLanguage,

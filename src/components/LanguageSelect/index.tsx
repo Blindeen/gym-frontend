@@ -14,13 +14,15 @@ import { setLocalStorageItem } from '@/utils';
 const languages = [
     {
         name: 'English',
-        label: 'US',
-        code: 'us',
+        label: 'EN',
+        code: 'en',
+        icon: 'us',
     },
     {
         name: 'Polish',
         label: 'PL',
         code: 'pl',
+        icon: 'pl',
     },
 ];
 
@@ -49,7 +51,7 @@ const LanguageSelect = () => {
             <DropdownTrigger>
                 <Button className="data-[hover]:opacity-100" variant="bordered">
                     <span
-                        className={`fi fi-${language} scale-110 outline outline-1 outline-default`}
+                        className={`fi fi-${language === 'en' ? 'us' : language} scale-110 outline outline-1 outline-default`}
                     />
                     {language.toUpperCase()}
                 </Button>
@@ -60,14 +62,14 @@ const LanguageSelect = () => {
                 selectedKeys={[language]}
                 onSelectionChange={handleLanguageChange}
             >
-                {languages.map(({ label, code }) => (
+                {languages.map(({ label, code, icon }) => (
                     <DropdownItem
                         className="px-5"
                         key={code}
                         textValue={code}
                         startContent={
                             <span
-                                className={`fi fi-${code} scale-110 outline outline-1 outline-default`}
+                                className={`fi fi-${icon} scale-110 outline outline-1 outline-default`}
                             />
                         }
                         hideSelectedIcon

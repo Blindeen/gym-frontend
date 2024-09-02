@@ -21,7 +21,7 @@ export const darkModeClassName = 'dark';
 
 export const localStorageLanguageKey = 'language';
 
-export const defaultLanguage = 'us';
+export const defaultLanguage = 'en';
 
 export const fieldClassNames = {
     base: 'h-[75px]',
@@ -29,8 +29,8 @@ export const fieldClassNames = {
 
 export const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-export const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/;
+export const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-export const postalCodeRegex = /^(\\d{5})|(\\d{5}-\\d{4})|(\\d{2}-\\d{3})$/;
+export const postalCodeRegex = /^(\d{5})|(\d{5}-\d{4})|(\d{2}-\d{3})$/;
 
-export const phoneNumberRegex = /^(\\+\\d{1,4})((\\(\\d{3}\\)\\d{3}\\-\\d{4})|(\\d{9}))$/;
+export const phoneNumberRegex = /^(\+\d{1,4})((\(\d{3}\)\d{3}-\d{4})|(\d{9}))$/;
