@@ -46,7 +46,10 @@ const SignUpForm = () => {
         formState: { errors },
     } = useForm<SignUpFormData>({ defaultValues: defaultFormValues });
     const navigate = useNavigate();
-    const { t } = useTranslation();
+    const {
+        i18n: { language },
+        t,
+    } = useTranslation();
 
     const onValid = async (formData: SignUpFormData) => {
         setLoading(true);
@@ -409,7 +412,11 @@ const SignUpForm = () => {
                         isInvalid={!!errors.agreement}
                     >
                         {t('agreement')}
-                        <Link className="text-sm" isExternal href="">
+                        <Link
+                            className="text-sm"
+                            href={`/pdfs/terms-and-conditions-${language}.pdf`}
+                            isExternal
+                        >
                             {t('termsAndConditions')}
                         </Link>
                     </Checkbox>
