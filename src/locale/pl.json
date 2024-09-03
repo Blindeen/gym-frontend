@@ -53,7 +53,7 @@
     "emailIsRequired": "Email jest wymagany",
     "emailPatternIsInvalid": "Format adresu email jest nieprawidłowy",
     "passwordIsRequired": "Hasło jest wymagane",
-    "passwordPatternIsInvalid": "Hasło musi zawierać co najmniej 8 znaków, jedną wielką literę, jedną małą literę, jedną cyfrę i znak specjalny",
+    "passwordPatternIsInvalid": "8+ znaków, duża, mała litera, cyfra, znak specjalny",
     "unexpectedError": "Wystąpił nieoczekiwany błąd",
     "somethingWentWrong": "Oops, coś poszło nie tak!",
     "pageNotFoundDesc": "Wygląda na to, że ta strona zrobiła sobie przerwę na siłownię.",

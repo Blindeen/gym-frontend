@@ -15,7 +15,7 @@ const SignUpPage = () => {
         <div className="flex min-h-screen flex-col-reverse justify-center gap-y-8 md:flex-row md:gap-y-0">
             <div className="flex w-full flex-col items-center gap-y-7 pb-5 md:w-1/2 md:justify-center md:pt-5 lg:pb-0 lg:pt-0">
                 <Logo size="lg" clickable={false} />
-                <div className="flex w-3/4 flex-col gap-y-8 lg:w-4/5 xl:w-8/12">
+                <div className="flex w-3/4 flex-col gap-y-8 lg:w-4/5 xl:w-3/4">
                     <SignUpForm />
                     <div className="flex flex-col items-center gap-y-5">
                         <Divider className="w-11/12" />

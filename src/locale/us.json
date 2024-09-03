@@ -53,7 +53,7 @@
     "emailIsRequired": "Email is required",
     "emailPatternIsInvalid": "Email pattern is invalid",
     "passwordIsRequired": "Password is required",
-    "passwordPatternIsInvalid": "Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one digit  and one special character",
+    "passwordPatternIsInvalid": "8+ chars, lowercase, uppercase, digit, special char",
     "unexpectedError": "An unexpected error occurred",
     "somethingWentWrong": "Oops, something went wrong!",
     "pageNotFoundDesc": "It looks like this site has taken a gym break.",
