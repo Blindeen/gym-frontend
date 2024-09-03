@@ -2,7 +2,7 @@ import axios from 'axios';
 import i18n from 'i18next';
 
 const instance = axios.create({
-    baseURL: `http://localhost:8082/api/v1`,
+    baseURL: import.meta.env.VITE_API_URL,
     headers: {
         'Content-Type': 'application/json',
     },
