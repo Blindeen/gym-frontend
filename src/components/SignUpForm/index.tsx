@@ -17,12 +17,11 @@ import { DatePicker } from '@nextui-org/date-picker';
 import { Link } from '@nextui-org/link';
 import { LuEye, LuEyeOff } from 'react-icons/lu';
 
-import axiosClient from '@/axios';
 import routes from '@/router/routes.ts';
-import useFetch from '@/hooks/useFetch/index.ts';
+import useFetch from '@/hooks/useFetch';
+import useRequest from '@/hooks/useRequest';
 import { AuthorizationResponse } from '@/types.ts';
 import { AuthContext } from '@/context';
-import { handleError } from '@/axios/functions.ts';
 import { areStringsEqual, isUserAdult } from '@/utils';
 import {
     emailRegex,
@@ -37,13 +36,8 @@ import { defaultFormValues } from './values.ts';
 
 const SignUpForm = () => {
     const { setState } = useContext(AuthContext);
-    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-    const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
-        useState(false);
-    const [loading, setLoading] = useState(false);
-    const { data, isLoading } = useFetch<PrepareSignUpFormData>(
-        '/form/sign-up/prepare'
-    );
+    const [passwordVisible, setPasswordVisible] = useState(false);
+    const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
     const {
         control,
@@ -56,30 +50,28 @@ const SignUpForm = () => {
         t,
     } = useTranslation();
 
-    const onValid = async (formData: SignUpFormData) => {
-        setLoading(true);
-
-        const { confirmPassword, birthdate, ...rest } = formData;
-        try {
-            const { data } = await axiosClient.post<AuthorizationResponse>(
-                '/member/sign-up',
-                {
-                    birthdate: birthdate.toString(),
-                    ...rest,
-                }
-            );
-
+    const { data, isLoading } = useFetch<PrepareSignUpFormData>(
+        '/form/sign-up/prepare'
+    );
+    const { sendRequest, loadingRequest } = useRequest<AuthorizationResponse>(
+        '/member/sign-up',
+        'POST',
+        (data) => {
             setState({
                 isLogged: true,
                 ...data,
             });
             toast.success(t('signedUpSuccessfully'));
             navigate(routes.home, { replace: true });
-        } catch (err) {
-            handleError(err);
-        } finally {
-            setLoading(false);
         }
+    );
+
+    const onValid = async (formData: SignUpFormData) => {
+        const { confirmPassword, birthdate, ...rest } = formData;
+        await sendRequest({
+            birthdate: birthdate.toString(),
+            ...rest,
+        });
     };
 
     const fieldBasicRules = {
@@ -188,9 +180,7 @@ const SignUpForm = () => {
                             render={({ field }) => (
                                 <Input
                                     classNames={fieldClassNames}
-                                    type={
-                                        isPasswordVisible ? 'text' : 'password'
-                                    }
+                                    type={passwordVisible ? 'text' : 'password'}
                                     label={t('password')}
                                     radius="lg"
                                     size="sm"
@@ -199,12 +189,12 @@ const SignUpForm = () => {
                                             className="focus:outline-none"
                                             type="button"
                                             onClick={() =>
-                                                setIsPasswordVisible(
+                                                setPasswordVisible(
                                                     (prevValue) => !prevValue
                                                 )
                                             }
                                         >
-                                            {isPasswordVisible ? (
+                                            {passwordVisible ? (
                                                 <LuEyeOff className="pointer-events-none text-2xl text-default-400" />
                                             ) : (
                                                 <LuEye className="pointer-events-none text-2xl text-default-400" />
@@ -235,7 +225,7 @@ const SignUpForm = () => {
                                 <Input
                                     classNames={fieldClassNames}
                                     type={
-                                        isConfirmPasswordVisible
+                                        confirmPasswordVisible
                                             ? 'text'
                                             : 'password'
                                     }
@@ -247,12 +237,12 @@ const SignUpForm = () => {
                                             className="focus:outline-none"
                                             type="button"
                                             onClick={() =>
-                                                setIsConfirmPasswordVisible(
+                                                setConfirmPasswordVisible(
                                                     (prevValue) => !prevValue
                                                 )
                                             }
                                         >
-                                            {isConfirmPasswordVisible ? (
+                                            {confirmPasswordVisible ? (
                                                 <LuEyeOff className="pointer-events-none text-2xl text-default-400" />
                                             ) : (
                                                 <LuEye className="pointer-events-none text-2xl text-default-400" />
@@ -436,7 +426,7 @@ const SignUpForm = () => {
                     color="primary"
                     radius="lg"
                     fullWidth
-                    isLoading={loading}
+                    isLoading={loadingRequest}
                 >
                     {t('signUp')}
                 </Button>
