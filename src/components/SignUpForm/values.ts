@@ -13,7 +13,7 @@ export const defaultFormValues: DeepPartial<SignUpFormData> = {
     city: '',
     postalCode: '',
     phoneNumber: '',
-    paymentMethod: undefined,
-    passType: undefined,
+    paymentMethod: 0,
+    passType: 0,
     agreement: false,
 };

@@ -70,10 +70,10 @@ const SignUpForm = () => {
     });
 
     const onValid = async (formData: SignUpFormData) => {
-        const { confirmPassword, birthdate, ...rest } = formData;
+        const { confirmPassword, birthdate, agreement, ...rest } = formData;
         await sendRequest({
-            birthdate: birthdate.toString(),
             ...rest,
+            birthdate: birthdate.toString(),
         });
     };
 

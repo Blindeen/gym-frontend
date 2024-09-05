@@ -1,6 +1,6 @@
-import { DateValue } from "@nextui-org/react";
+import { DateValue } from '@nextui-org/react';
 
-import { Pass, PaymentMethod } from "@/types";
+import { Pass, PaymentMethod, MergeAndOverride } from '@/types';
 
 export type SignUpRequestData = {
     firstName: string;
@@ -14,13 +14,16 @@ export type SignUpRequestData = {
     phoneNumber: string;
     paymentMethod: number;
     passType: number;
-}
-
-export type SignUpFormData = SignUpRequestData & {
-    birthdate: DateValue;
-    confirmPassword: string;
-    agreement: boolean;
 };
+
+export type SignUpFormData = MergeAndOverride<
+    SignUpRequestData,
+    {
+        birthdate: DateValue;
+        confirmPassword: string;
+        agreement: boolean;
+    }
+>;
 
 export type PrepareSignUpFormData = {
     passes: Pass[];

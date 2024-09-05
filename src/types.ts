@@ -72,3 +72,5 @@ export type PaymentMethod = {
     id: number;
     name: string;
 };
+
+export type MergeAndOverride<T, K> = Omit<T, keyof K> & K;
