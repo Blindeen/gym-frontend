@@ -31,7 +31,11 @@ import {
     postalCodeRegex,
 } from '@/values.ts';
 
-import { SignUpFormData, PrepareSignUpFormData } from './types.ts';
+import {
+    SignUpFormData,
+    PrepareSignUpFormData,
+    SignUpRequestData,
+} from './types.ts';
 import { defaultFormValues } from './values.ts';
 
 const SignUpForm = () => {
@@ -53,18 +57,17 @@ const SignUpForm = () => {
     const { data, isLoading } = useFetch<PrepareSignUpFormData>(
         '/form/sign-up/prepare'
     );
-    const { sendRequest, loadingRequest } = useRequest<AuthorizationResponse>(
-        '/member/sign-up',
-        'POST',
-        (data) => {
-            setState({
-                isLogged: true,
-                ...data,
-            });
-            toast.success(t('signedUpSuccessfully'));
-            navigate(routes.home, { replace: true });
-        }
-    );
+    const { sendRequest, loadingRequest } = useRequest<
+        SignUpRequestData,
+        AuthorizationResponse
+    >('/member/sign-up', 'POST', (data) => {
+        setState({
+            isLogged: true,
+            ...data,
+        });
+        toast.success(t('signedUpSuccessfully'));
+        navigate(routes.home, { replace: true });
+    });
 
     const onValid = async (formData: SignUpFormData) => {
         const { confirmPassword, birthdate, ...rest } = formData;

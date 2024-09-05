@@ -3,14 +3,14 @@ import { useState, useCallback } from 'react';
 import axiosClient from '@/axios';
 import { handleError } from '@/axios/functions';
 
-const useRequest = <K>(
+const useRequest = <T, K>(
     url: string,
     method: 'POST' | 'PUT' | 'DELETE' = 'POST',
     onSuccess?: (data: K) => void
 ) => {
     const [loadingRequest, setLoadingRequest] = useState(false);
 
-    const sendRequest = useCallback(async (data: any) => {
+    const sendRequest = useCallback(async (data: T) => {
         setLoadingRequest(true);
         try {
             const { data: responseData } = await axiosClient<K>({
