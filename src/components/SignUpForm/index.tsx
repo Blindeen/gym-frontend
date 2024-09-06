@@ -5,14 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import {
-    Button,
-    Input,
-    Select,
-    SelectItem,
-    Checkbox,
-    Skeleton,
-} from '@nextui-org/react';
+import { Button, Input, Select, SelectItem, Checkbox, Skeleton } from '@nextui-org/react';
 import { DatePicker } from '@nextui-org/date-picker';
 import { Link } from '@nextui-org/link';
 import { LuEye, LuEyeOff } from 'react-icons/lu';
@@ -23,19 +16,9 @@ import useRequest from '@/hooks/useRequest';
 import { AuthorizationResponse } from '@/types.ts';
 import { AuthContext } from '@/context';
 import { areStringsEqual, isUserAdult } from '@/utils';
-import {
-    emailRegex,
-    fieldClassNames,
-    passwordRegex,
-    phoneNumberRegex,
-    postalCodeRegex,
-} from '@/values.ts';
+import { emailRegex, fieldClassNames, passwordRegex, phoneNumberRegex, postalCodeRegex } from '@/values.ts';
 
-import {
-    SignUpFormData,
-    PrepareSignUpFormData,
-    SignUpRequestData,
-} from './types.ts';
+import { SignUpFormData, PrepareSignUpFormData, SignUpRequestData } from './types.ts';
 import { defaultFormValues } from './values.ts';
 
 const SignUpForm = () => {
@@ -54,20 +37,19 @@ const SignUpForm = () => {
         t,
     } = useTranslation();
 
-    const { data, isLoading } = useFetch<PrepareSignUpFormData>(
-        '/form/sign-up/prepare'
+    const { data, isLoading } = useFetch<PrepareSignUpFormData>('/form/sign-up/prepare');
+    const { sendRequest, loadingRequest } = useRequest<SignUpRequestData, AuthorizationResponse>(
+        '/member/sign-up',
+        'POST',
+        (data) => {
+            setState({
+                isLogged: true,
+                ...data,
+            });
+            toast.success(t('signedUpSuccessfully'));
+            navigate(routes.home, { replace: true });
+        }
     );
-    const { sendRequest, loadingRequest } = useRequest<
-        SignUpRequestData,
-        AuthorizationResponse
-    >('/member/sign-up', 'POST', (data) => {
-        setState({
-            isLogged: true,
-            ...data,
-        });
-        toast.success(t('signedUpSuccessfully'));
-        navigate(routes.home, { replace: true });
-    });
 
     const onValid = async (formData: SignUpFormData) => {
         const { confirmPassword, birthdate, agreement, ...rest } = formData;
@@ -83,10 +65,7 @@ const SignUpForm = () => {
 
     return (
         <Skeleton className="rounded-lg" isLoaded={!isLoading}>
-            <form
-                className="flex flex-col gap-y-2"
-                onSubmit={handleSubmit(onValid)}
-            >
+            <form className="flex flex-col gap-y-2" onSubmit={handleSubmit(onValid)}>
                 <div className="flex flex-col lg:flex-row lg:gap-5">
                     <div className="w-full">
                         <Controller
@@ -130,9 +109,7 @@ const SignUpForm = () => {
                             name="birthdate"
                             rules={{
                                 ...fieldBasicRules,
-                                validate: (birthdate) =>
-                                    isUserAdult(birthdate) ||
-                                    t('userIsNotAdult'),
+                                validate: (birthdate) => isUserAdult(birthdate) || t('userIsNotAdult'),
                             }}
                             render={({ field }) => (
                                 <DatePicker
@@ -191,11 +168,7 @@ const SignUpForm = () => {
                                         <button
                                             className="focus:outline-none"
                                             type="button"
-                                            onClick={() =>
-                                                setPasswordVisible(
-                                                    (prevValue) => !prevValue
-                                                )
-                                            }
+                                            onClick={() => setPasswordVisible((prevValue) => !prevValue)}
                                         >
                                             {passwordVisible ? (
                                                 <LuEyeOff className="pointer-events-none text-2xl text-default-400" />
@@ -218,20 +191,13 @@ const SignUpForm = () => {
                                 ...fieldBasicRules,
                                 validate: (value, formValues) => {
                                     const { password } = formValues;
-                                    return (
-                                        areStringsEqual(value, password) ||
-                                        t('passwordsAreNotIdentical')
-                                    );
+                                    return areStringsEqual(value, password) || t('passwordsAreNotIdentical');
                                 },
                             }}
                             render={({ field }) => (
                                 <Input
                                     classNames={fieldClassNames}
-                                    type={
-                                        confirmPasswordVisible
-                                            ? 'text'
-                                            : 'password'
-                                    }
+                                    type={confirmPasswordVisible ? 'text' : 'password'}
                                     label={t('confirmPassword')}
                                     radius="lg"
                                     size="sm"
@@ -239,11 +205,7 @@ const SignUpForm = () => {
                                         <button
                                             className="focus:outline-none"
                                             type="button"
-                                            onClick={() =>
-                                                setConfirmPasswordVisible(
-                                                    (prevValue) => !prevValue
-                                                )
-                                            }
+                                            onClick={() => setConfirmPasswordVisible((prevValue) => !prevValue)}
                                         >
                                             {confirmPasswordVisible ? (
                                                 <LuEyeOff className="pointer-events-none text-2xl text-default-400" />
@@ -252,9 +214,7 @@ const SignUpForm = () => {
                                             )}
                                         </button>
                                     }
-                                    errorMessage={
-                                        errors.confirmPassword?.message
-                                    }
+                                    errorMessage={errors.confirmPassword?.message}
                                     {...field}
                                     isInvalid={!!errors.confirmPassword}
                                 />
@@ -363,9 +323,7 @@ const SignUpForm = () => {
                                     isInvalid={!!errors.paymentMethod}
                                 >
                                     {(paymentMethod) => (
-                                        <SelectItem key={paymentMethod.id}>
-                                            {paymentMethod.name}
-                                        </SelectItem>
+                                        <SelectItem key={paymentMethod.id}>{paymentMethod.name}</SelectItem>
                                     )}
                                 </Select>
                             )}
@@ -386,11 +344,7 @@ const SignUpForm = () => {
                                     {...field}
                                     isInvalid={!!errors.passType}
                                 >
-                                    {(pass) => (
-                                        <SelectItem key={pass.id}>
-                                            {pass.name}
-                                        </SelectItem>
-                                    )}
+                                    {(pass) => <SelectItem key={pass.id}>{pass.name}</SelectItem>}
                                 </Select>
                             )}
                         />
@@ -412,11 +366,7 @@ const SignUpForm = () => {
                             isInvalid={!!errors.agreement}
                         >
                             {t('agreement')}
-                            <Link
-                                className="text-sm"
-                                href={`/pdfs/terms-and-conditions-${language}.pdf`}
-                                isExternal
-                            >
+                            <Link className="text-sm" href={`/pdfs/terms-and-conditions-${language}.pdf`} isExternal>
                                 {t('termsAndConditions')}
                             </Link>
                         </Checkbox>
