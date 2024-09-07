@@ -23,7 +23,7 @@ const ConfirmAccountPage = () => {
         }
     );
 
-    const onClick = async () =>
+    const onPress = async () =>
         await sendRequest({
             token: searchParams.get('token') ?? '',
         });
@@ -43,7 +43,7 @@ const ConfirmAccountPage = () => {
                 size="lg"
                 color="primary"
                 radius="lg"
-                onPress={onClick}
+                onPress={onPress}
                 isLoading={loadingRequest}
             >
                 {t('confirm')}
