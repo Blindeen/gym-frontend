@@ -1,4 +1,4 @@
-import js from '@eslint/js';
+import tseslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import globals from 'globals';
 
@@ -14,7 +14,10 @@ export default {
             ...globals.browser,
         },
     },
+    plugins: {
+        '@typescript-eslint': tseslint,
+    },
     rules: {
-        ...js.configs.recommended.rules,
+        ...tseslint.configs.recommended.rules,
     },
 };

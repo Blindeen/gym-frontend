@@ -9,6 +9,7 @@ const useFetch = <T>(
     searchParams: SearchParams | undefined = undefined
 ) => {
     const [data, setData] = useState<T>();
+    const [error, setError] = useState<unknown>();
     const [isLoading, setIsLoading] = useState(true);
 
     const fetchData = useCallback(async () => {
@@ -19,6 +20,7 @@ const useFetch = <T>(
             });
             setData(data);
         } catch (err) {
+            setError(err);
             handleError(err);
         } finally {
             setIsLoading(false);
@@ -29,7 +31,7 @@ const useFetch = <T>(
         fetchData().then();
     }, [fetchData]);
 
-    return { data, isLoading };
+    return { data, error, isLoading };
 };
 
 export default useFetch;

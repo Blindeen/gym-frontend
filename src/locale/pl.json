@@ -49,9 +49,11 @@
     "signedOutSuccessfully": "Wylogowano się pomyślnie",
     "myProfile": "Mój profil",
     "signOut": "Wyloguj się",
+    "thisFieldIsRequired": "To pole jest wymagane",
     "emailIsRequired": "Email jest wymagany",
     "emailPatternIsInvalid": "Format adresu email jest nieprawidłowy",
     "passwordIsRequired": "Hasło jest wymagane",
+    "passwordPatternIsInvalid": "8+ znaków, duża, mała litera, cyfra, znak specjalny",
     "unexpectedError": "Wystąpił nieoczekiwany błąd",
     "somethingWentWrong": "Oops, coś poszło nie tak!",
     "pageNotFoundDesc": "Wygląda na to, że ta strona zrobiła sobie przerwę na siłownię.",
@@ -64,6 +66,23 @@
     "pagination": {
       "of": "z",
       "items": "elementów"
-    }
+    },
+    "alreadyHaveAccount": "Masz już konto",
+    "firstName": "Imię",
+    "lastName": "Nazwisko",
+    "birthdate": "Data urodzenia",
+    "userIsNotAdult": "Musisz mieć co najmniej 18 lat",
+    "confirmPassword": "Potwierdź hasło",
+    "passwordsAreNotIdentical": "Hasła nie są takie same",
+    "addressLine": "Adres",
+    "city": "Miasto",
+    "postalCode": "Kod pocztowy",
+    "postalCodePatternIsInvalid": "Nieprawidłowy kod pocztowy",
+    "phoneNumber": "Numer telefonu",
+    "paymentMethod": "Metoda płatności",
+    "passType": "Typ karnetu",
+    "agreement": "Tworząc konto na naszym portalu internetowym siłowni, zgadzasz się na następujące ",
+    "termsAndConditions": "warunki użytkowania",
+    "signedUpSuccessfully": "Zarejestrowano się pomyślnie"
   }
 }
