@@ -3,7 +3,7 @@ import { useState, useCallback } from 'react';
 import axiosClient from '@/axios';
 import { handleError } from '@/axios/functions';
 
-const useRequest = <T, K>(
+const useRequest = <T = never, K = never>(
     url: string,
     method: 'POST' | 'PUT' | 'DELETE' = 'POST',
     onSuccess?: (data: K) => void

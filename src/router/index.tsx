@@ -5,6 +5,7 @@ import LandingPage from '@/pages/LandingPage';
 import NotFoundPage from '@/pages/NotFoundPage';
 import ActivitiesPage from '@/pages/ActivitiesPage';
 import SignUpPage from '@/pages/SignUpPage';
+import ConfirmAccountPage from '@/pages/ConfirmAccountPage';
 
 import Layout from '@/components/Layout';
 
@@ -20,6 +21,7 @@ const Router = () => {
             </Route>
             <Route path={routes.signIn} element={<SignInPage />} />
             <Route path={routes.signUp} element={<SignUpPage />} />
+            <Route path={routes.confirmAccount} element={<ConfirmAccountPage />} />
         </Routes>
     );
 };

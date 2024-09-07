@@ -9,6 +9,7 @@ const routes = {
     contact: '/contact',
     accountRecovery: '/account-recovery',
     profile: '/profile',
+    confirmAccount: '/confirm-account',
 };
 
 export default routes;

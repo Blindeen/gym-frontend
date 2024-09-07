@@ -83,6 +83,9 @@
     "passType": "Pass type",
     "agreement": "By creating an account on our gym web portal, you agree to the following ",
     "termsAndConditions": "terms and conditions",
-    "signedUpSuccessfully": "Signed up successfully"
+    "signedUpSuccessfully": "Signed up successfully",
+    "confirmAccount": "Confirm account",
+    "confirm": "Confirm",
+    "accountConfirmed": "Account has been confirmed"
   }
 }

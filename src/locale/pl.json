@@ -83,6 +83,9 @@
     "passType": "Typ karnetu",
     "agreement": "Tworząc konto na naszym portalu internetowym siłowni, zgadzasz się na następujące ",
     "termsAndConditions": "warunki użytkowania",
-    "signedUpSuccessfully": "Zarejestrowano się pomyślnie"
+    "signedUpSuccessfully": "Zarejestrowano się pomyślnie",
+    "confirmAccount": "Potwierdź konto",
+    "confirm": "Potwierdź",
+    "accountConfirmed": "Konto zostało potwierdzone"
   }
 }
