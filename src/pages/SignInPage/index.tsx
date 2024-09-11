@@ -30,7 +30,7 @@ const SignInPage = () => {
                     <div className="flex flex-col gap-y-5">
                         <Link
                             className="block text-right"
-                            href={routes.accountRecovery}
+                            href={routes.resetPassword}
                             size="sm"
                         >
                             {t('forgotPassword')}

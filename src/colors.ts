@@ -6,6 +6,7 @@ const colors = {
     white: '#FFFFFF',
     twitterDim: '#15202B',
     black: '#000000',
+    grassGreen: '#7CFC00',
 };
 
 export default colors;

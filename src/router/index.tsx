@@ -6,6 +6,7 @@ import NotFoundPage from '@/pages/NotFoundPage';
 import ActivitiesPage from '@/pages/ActivitiesPage';
 import SignUpPage from '@/pages/SignUpPage';
 import ConfirmAccountPage from '@/pages/ConfirmAccountPage';
+import ResetPasswordPage from '@/pages/ResetPasswordPage';
 
 import Layout from '@/components/Layout';
 
@@ -22,6 +23,7 @@ const Router = () => {
             <Route path={routes.signIn} element={<SignInPage />} />
             <Route path={routes.signUp} element={<SignUpPage />} />
             <Route path={routes.confirmAccount} element={<ConfirmAccountPage />} />
+            <Route path={routes.resetPassword} element={<ResetPasswordPage />} />
         </Routes>
     );
 };

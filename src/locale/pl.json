@@ -87,6 +87,10 @@
     "confirmAccount": "Potwierdź konto",
     "confirm": "Potwierdź",
     "accountConfirmed": "Konto zostało potwierdzone",
-    "loading": "Ładowanie"
+    "loading": "Ładowanie",
+    "forgotPasswordInfo": "Wprowadź adres email, a wyślemy Ci link, aby zresetować hasło.",
+    "submit": "Prześlij",
+    "backToLogin": "Wróć do logowania",
+    "passwordResetRequestHasBeenSent": "Prośba o zresetowanie hasła została wysłana. Sprawdź swoją skrzynkę pocztową."
   }
 }

@@ -7,9 +7,9 @@ const routes = {
     dashboard: '/dashboard',
     staff: '/staff',
     contact: '/contact',
-    accountRecovery: '/account-recovery',
     profile: '/profile',
     confirmAccount: '/confirm-account',
+    resetPassword: '/reset-password',
 };
 
 export default routes;
