@@ -86,6 +86,7 @@
     "signedUpSuccessfully": "Signed up successfully",
     "confirmAccount": "Confirm account",
     "confirm": "Confirm",
-    "accountConfirmed": "Account has been confirmed"
+    "accountConfirmed": "Account has been confirmed",
+    "loading": "Loading"
   }
 }
