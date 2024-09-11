@@ -121,7 +121,7 @@ const Footer = () => {
                             <a href="https://play.google.com/store/apps/details?id=com.fitsphere.app">
                                 <Image
                                     className="max-w-[125px]"
-                                    src={`/images/badges/google_play_${language}.png`}
+                                    src={`/images/badges/google-play-${language}.png`}
                                     alt="Google play badge"
                                     radius="none"
                                     loading="lazy"
@@ -130,7 +130,7 @@ const Footer = () => {
                             <a href="https://apps.apple.com/us/app/fitsphere/id1530190137">
                                 <Image
                                     className="max-w-[125px]"
-                                    src={`/images/badges/app_store_${language}.png`}
+                                    src={`/images/badges/app-store-${language}.png`}
                                     alt="App store badge"
                                     radius="none"
                                     loading="lazy"
