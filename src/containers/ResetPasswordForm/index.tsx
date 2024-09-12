@@ -1,10 +1,8 @@
-import { useState } from 'react';
-
+import { Button, Input } from '@nextui-org/react';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { Button, Input } from '@nextui-org/react';
 
-import useRequest from '@/hooks/useRequest';
+import useRequest from '@hooks/useRequest';
 import { emailRegex, fieldClassNames } from '@/values';
 
 import { ResetPasswordFormData, ResetPasswordFormProps } from './types';
@@ -21,8 +19,10 @@ const ResetPasswordForm = ({ setPasswordResetSuccessful }: ResetPasswordFormProp
     });
     const { t } = useTranslation();
 
-    const { sendRequest, loadingRequest } = useRequest<ResetPasswordFormData>('/member/reset-password', 'POST', () =>
-        setPasswordResetSuccessful(true)
+    const { sendRequest, loadingRequest } = useRequest<ResetPasswordFormData>(
+        '/member/reset-password',
+        'POST',
+        () => setPasswordResetSuccessful(true)
     );
 
     const onValid = async (formData: ResetPasswordFormData) => await sendRequest(formData);

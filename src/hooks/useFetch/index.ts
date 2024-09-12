@@ -4,10 +4,7 @@ import axios from '@/axios';
 import { handleError } from '@/axios/functions.ts';
 import { SearchParams } from '@/hooks/types.ts';
 
-const useFetch = <T>(
-    url: string,
-    searchParams: SearchParams | undefined = undefined
-) => {
+const useFetch = <T>(url: string, searchParams: SearchParams | undefined = undefined) => {
     const [data, setData] = useState<T>();
     const [error, setError] = useState<unknown>();
     const [isLoading, setIsLoading] = useState(true);

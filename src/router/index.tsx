@@ -1,15 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
 
-import SignInPage from '@/pages/SignInPage';
-import LandingPage from '@/pages/LandingPage';
-import NotFoundPage from '@/pages/NotFoundPage';
-import ActivitiesPage from '@/pages/ActivitiesPage';
-import SignUpPage from '@/pages/SignUpPage';
-import ConfirmAccountPage from '@/pages/ConfirmAccountPage';
-import ResetPasswordPage from '@/pages/ResetPasswordPage';
+import SignInPage from '@pages/SignInPage';
+import LandingPage from '@pages/LandingPage';
+import NotFoundPage from '@pages/NotFoundPage';
+import ActivitiesPage from '@pages/ActivitiesPage';
+import SignUpPage from '@pages/SignUpPage';
+import ConfirmAccountPage from '@pages/ConfirmAccountPage';
+import ResetPasswordPage from '@pages/ResetPasswordPage';
 
-import Layout from '@/components/Layout';
-import PageRoute from '@/components/PageRoute';
+import Layout from '@containers/Layout';
+import PageRoute from '@components/PageRoute';
 
 import routes from '@/router/routes.ts';
 

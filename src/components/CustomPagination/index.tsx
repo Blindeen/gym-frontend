@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Pagination } from '@nextui-org/react';
 
-import { CustomPaginationProps } from '@/components/CustomPagination/types.ts';
+import { CustomPaginationProps } from './types';
 
 const CustomPagination = ({
     offset,
@@ -19,8 +19,10 @@ const CustomPagination = ({
     return (
         <div className="flex items-center justify-between">
             <div>
-                {offset + 1} - {offset + numberOfElements} {t('pagination.of')}{' '}
-                {totalElements} {t('pagination.items')}
+                {offset + 1} - {offset + numberOfElements}
+                {t('pagination.of')}
+                {totalElements}
+                {t('pagination.items')}
             </div>
             <Pagination
                 total={totalPages}

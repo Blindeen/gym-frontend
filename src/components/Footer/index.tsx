@@ -5,7 +5,7 @@ import { Divider } from '@nextui-org/divider';
 import { FaInstagram, FaFacebook } from 'react-icons/fa';
 import { FaXTwitter, FaYoutube, FaThreads } from 'react-icons/fa6';
 
-import Logo from '@/components/Logo';
+import Logo from '@components/Logo';
 
 import routes from '@/router/routes.ts';
 
@@ -73,9 +73,7 @@ const Footer = () => {
                     </div>
                     <div className="flex flex-wrap gap-8">
                         <div className="flex flex-col gap-6">
-                            <h2 className="font-bold uppercase">
-                                {t('resources')}
-                            </h2>
+                            <h2 className="font-bold uppercase">{t('resources')}</h2>
                             {resources.map(({ name, path }, idx) => (
                                 <Link
                                     key={`${idx}-${name}`}
@@ -89,9 +87,7 @@ const Footer = () => {
                             ))}
                         </div>
                         <div className="flex flex-col gap-6">
-                            <h2 className="font-bold uppercase">
-                                {t('legal')}
-                            </h2>
+                            <h2 className="font-bold uppercase">{t('legal')}</h2>
                             {legal.map((link, idx) => (
                                 <Link
                                     key={`${idx}-${link}`}
@@ -144,12 +140,7 @@ const Footer = () => {
                     <p>{`Copyright © ${currentYear} FitSphere Inc.`}</p>
                     <div className="mt-4 flex gap-5 sm:mt-0">
                         {socialIcons.map(({ Icon, href }, idx) => (
-                            <a
-                                key={idx}
-                                href={href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
+                            <a key={idx} href={href} target="_blank" rel="noopener noreferrer">
                                 <Icon size="1.5rem" />
                             </a>
                         ))}

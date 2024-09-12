@@ -11,12 +11,18 @@ import { Link } from '@nextui-org/link';
 import { LuEye, LuEyeOff } from 'react-icons/lu';
 
 import routes from '@/router/routes.ts';
-import useFetch from '@/hooks/useFetch';
-import useRequest from '@/hooks/useRequest';
+import useFetch from '@hooks/useFetch';
+import useRequest from '@hooks/useRequest';
 import { AuthorizationResponse } from '@/types.ts';
 import { AuthContext } from '@/context';
 import { areStringsEqual, isUserAdult } from '@/utils';
-import { emailRegex, fieldClassNames, passwordRegex, phoneNumberRegex, postalCodeRegex } from '@/values.ts';
+import {
+    emailRegex,
+    fieldClassNames,
+    passwordRegex,
+    phoneNumberRegex,
+    postalCodeRegex,
+} from '@/values.ts';
 
 import { SignUpFormData, PrepareSignUpFormData, SignUpRequestData } from './types.ts';
 import { defaultFormValues } from './values.ts';
@@ -109,7 +115,8 @@ const SignUpForm = () => {
                             name="birthdate"
                             rules={{
                                 ...fieldBasicRules,
-                                validate: (birthdate) => isUserAdult(birthdate) || t('userIsNotAdult'),
+                                validate: (birthdate) =>
+                                    isUserAdult(birthdate) || t('userIsNotAdult'),
                             }}
                             render={({ field }) => (
                                 <DatePicker
@@ -168,7 +175,9 @@ const SignUpForm = () => {
                                         <button
                                             className="focus:outline-none"
                                             type="button"
-                                            onClick={() => setPasswordVisible((prevValue) => !prevValue)}
+                                            onClick={() =>
+                                                setPasswordVisible((prevValue) => !prevValue)
+                                            }
                                         >
                                             {passwordVisible ? (
                                                 <LuEyeOff className="pointer-events-none text-2xl text-default-400" />
@@ -191,7 +200,10 @@ const SignUpForm = () => {
                                 ...fieldBasicRules,
                                 validate: (value, formValues) => {
                                     const { password } = formValues;
-                                    return areStringsEqual(value, password) || t('passwordsAreNotIdentical');
+                                    return (
+                                        areStringsEqual(value, password) ||
+                                        t('passwordsAreNotIdentical')
+                                    );
                                 },
                             }}
                             render={({ field }) => (
@@ -205,7 +217,9 @@ const SignUpForm = () => {
                                         <button
                                             className="focus:outline-none"
                                             type="button"
-                                            onClick={() => setConfirmPasswordVisible((prevValue) => !prevValue)}
+                                            onClick={() =>
+                                                setConfirmPasswordVisible((prevValue) => !prevValue)
+                                            }
                                         >
                                             {confirmPasswordVisible ? (
                                                 <LuEyeOff className="pointer-events-none text-2xl text-default-400" />
@@ -323,7 +337,9 @@ const SignUpForm = () => {
                                     isInvalid={!!errors.paymentMethod}
                                 >
                                     {(paymentMethod) => (
-                                        <SelectItem key={paymentMethod.id}>{paymentMethod.name}</SelectItem>
+                                        <SelectItem key={paymentMethod.id}>
+                                            {paymentMethod.name}
+                                        </SelectItem>
                                     )}
                                 </Select>
                             )}
@@ -366,7 +382,11 @@ const SignUpForm = () => {
                             isInvalid={!!errors.agreement}
                         >
                             {t('agreement')}
-                            <Link className="text-sm" href={`/pdfs/terms-and-conditions-${language}.pdf`} isExternal>
+                            <Link
+                                className="text-sm"
+                                href={`/pdfs/terms-and-conditions-${language}.pdf`}
+                                isExternal
+                            >
                                 {t('termsAndConditions')}
                             </Link>
                         </Checkbox>

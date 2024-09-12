@@ -11,8 +11,8 @@ import {
 import { Divider } from '@nextui-org/divider';
 import { IoSettingsSharp } from 'react-icons/io5';
 
-import LanguageSelect from '@/components/LanguageSelect';
-import ThemeSwitcher from '@/components/ThemeSwitcher';
+import LanguageSelect from '@components/LanguageSelect';
+import ThemeSwitcher from '@components/ThemeSwitcher';
 
 const SettingsModal = () => {
     const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
@@ -24,12 +24,7 @@ const SettingsModal = () => {
                 <IoSettingsSharp />
             </Button>
 
-            <Modal
-                size="sm"
-                placement="center"
-                isOpen={isOpen}
-                onOpenChange={onOpenChange}
-            >
+            <Modal size="sm" placement="center" isOpen={isOpen} onOpenChange={onOpenChange}>
                 <ModalContent>
                     <ModalHeader className="flex flex-col gap-1 text-xl font-bold">
                         {t('settings')}

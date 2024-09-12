@@ -20,11 +20,7 @@ const AuthSessionProvider = ({ children }: AuthSessionProviderProps) => {
         setLocalStorageItem(localStorageStateKey, JSON.stringify(state));
     }, [state]);
 
-    return (
-        <AuthContext.Provider value={{ state, setState }}>
-            {children}
-        </AuthContext.Provider>
-    );
+    return <AuthContext.Provider value={{ state, setState }}>{children}</AuthContext.Provider>;
 };
 
 export default AuthSessionProvider;

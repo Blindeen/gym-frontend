@@ -7,10 +7,10 @@ import { useTranslation } from 'react-i18next';
 import { Button, Input } from '@nextui-org/react';
 import { LuEye, LuEyeOff } from 'react-icons/lu';
 
-import { SignInFormData } from '@/components/SignInForm/types.ts';
+import { SignInFormData } from './types';
 
 import routes from '@/router/routes.ts';
-import useRequest from '@/hooks/useRequest';
+import useRequest from '@hooks/useRequest';
 import { AuthorizationResponse } from '@/types.ts';
 import { AuthContext } from '@/context';
 import { fieldClassNames, emailRegex } from '@/values';
@@ -88,7 +88,11 @@ const SignInForm = () => {
                             radius="lg"
                             size="sm"
                             endContent={
-                                <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
+                                <button
+                                    className="focus:outline-none"
+                                    type="button"
+                                    onClick={toggleVisibility}
+                                >
                                     {isPasswordVisible ? (
                                         <LuEyeOff className="pointer-events-none text-2xl text-default-400" />
                                     ) : (

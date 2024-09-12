@@ -2,7 +2,7 @@ import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
 import { useTranslation } from 'react-i18next';
 
 import routes from '@/router/routes.ts';
-import Activities from '@/components/Activities';
+import Activities from '@containers/Activities';
 
 const ActivitiesPage = () => {
     const { t } = useTranslation();

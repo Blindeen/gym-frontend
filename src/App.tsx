@@ -6,7 +6,7 @@ import { Toaster } from 'react-hot-toast';
 
 import AuthSessionProvider from '@/context';
 import Router from '@/router';
-import { ThemeContext } from '@/providers/ThemeProvider';
+import { ThemeContext } from '@providers/ThemeProvider';
 
 import colors from '@/colors.ts';
 import { darkModeClassName } from '@/values.ts';

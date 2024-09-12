@@ -3,7 +3,7 @@ import { Image, Link } from '@nextui-org/react';
 import { Divider } from '@nextui-org/divider';
 
 import Logo from '@/components/Logo';
-import SignInForm from '@/components/SignInForm';
+import SignInForm from '@containers/SignInForm';
 
 import routes from '@/router/routes.ts';
 import LoginImage from '/images/illustrations/login.svg';
@@ -28,11 +28,7 @@ const SignInPage = () => {
                 <div className="flex w-3/4 flex-col gap-y-2 lg:w-1/2 xl:w-2/5">
                     <SignInForm />
                     <div className="flex flex-col gap-y-5">
-                        <Link
-                            className="block text-right"
-                            href={routes.resetPassword}
-                            size="sm"
-                        >
+                        <Link className="block text-right" href={routes.resetPassword} size="sm">
                             {t('forgotPassword')}
                         </Link>
                         <div className="flex flex-col items-center gap-y-5">

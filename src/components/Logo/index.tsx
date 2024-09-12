@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 
 import { useNavigate, useLocation } from 'react-router-dom';
 
-import { LogoProps } from '@/components/Logo/types.ts';
+import { LogoProps } from './types';
 import routes from '@/router/routes.ts';
 
 const Logo = ({ clickable = true, size = 'md', onPress }: LogoProps) => {

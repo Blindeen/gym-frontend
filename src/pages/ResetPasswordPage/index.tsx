@@ -6,7 +6,7 @@ import { FaArrowLeft } from 'react-icons/fa';
 import { SiTicktick } from 'react-icons/si';
 import { useNavigate } from 'react-router-dom';
 
-import ResetPasswordForm from '@/components/ResetPasswordForm';
+import ResetPasswordForm from '@containers/ResetPasswordForm';
 
 import colors from '@/colors';
 import routes from '@/router/routes';

@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Image, Link } from '@nextui-org/react';
 import { Divider } from '@nextui-org/divider';
 
-import SignUpForm from '@/components/SignUpForm';
+import SignUpForm from '@/containers/SignUpForm';
 import Logo from '@/components/Logo';
 
 import routes from '@/router/routes.ts';

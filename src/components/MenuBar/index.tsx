@@ -14,14 +14,14 @@ import {
     NavbarBrand,
 } from '@nextui-org/react';
 
-import Logo from '@/components/Logo';
-import AvatarDropdown from '@/components/AvatarDropdown';
-import LanguageSelect from '@/components/LanguageSelect';
-import ThemeSwitcher from '@/components/ThemeSwitcher';
+import Logo from '@components/Logo';
+import AvatarDropdown from '@components/AvatarDropdown';
+import LanguageSelect from '@components/LanguageSelect';
+import ThemeSwitcher from '@components/ThemeSwitcher';
+import SettingsModal from '@components/SettingsModal';
 
 import { AuthContext } from '@/context';
 import routes from '@/router/routes.ts';
-import SettingsModal from '@/components/SettingsModal';
 
 const MenuBar = () => {
     const { pathname } = useLocation();
@@ -133,11 +133,7 @@ const MenuBar = () => {
                     </NavbarMenuItem>
                 ))}
                 <NavbarMenuItem>
-                    <Link
-                        className="w-full"
-                        href={routes.signIn}
-                        color="foreground"
-                    >
+                    <Link className="w-full" href={routes.signIn} color="foreground">
                         {t('signIn')}
                     </Link>
                 </NavbarMenuItem>

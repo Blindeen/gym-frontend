@@ -6,10 +6,7 @@ const warning = (...data: any[]) => console.warn('%cWARNING', styles, ...data);
 
 const error = (...data: any[]) => console.error('%cERROR', styles, ...data);
 
-export const log = (
-    type: 'info' | 'warning' | 'error' = 'info',
-    ...data: any[]
-) => {
+export const log = (type: 'info' | 'warning' | 'error' = 'info', ...data: any[]) => {
     switch (type) {
         case 'info':
             info(...data);
