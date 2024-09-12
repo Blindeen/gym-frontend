@@ -91,6 +91,15 @@
     "forgotPasswordInfo": "Wprowadź adres email, a wyślemy Ci link, aby zresetować hasło.",
     "submit": "Prześlij",
     "backToLogin": "Wróć do logowania",
-    "passwordResetRequestHasBeenSent": "Prośba o zresetowanie hasła została wysłana. Sprawdź swoją skrzynkę pocztową."
+    "passwordResetRequestHasBeenSent": "Prośba o zresetowanie hasła została wysłana. Sprawdź swoją skrzynkę pocztową.",
+    "tabTitles": {
+      "pageNotFound": "404",
+      "homePage": "Strona główna",
+      "activities": "Aktywności",
+      "signIn": "Zaloguj się",
+      "signUp": "Zarejestruj się",
+      "confirmAccount": "Potwierdź konto",
+      "resetPassword": "Zresetuj hasło"
+    }
   }
 }

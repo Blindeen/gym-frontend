@@ -9,21 +9,71 @@ import ConfirmAccountPage from '@/pages/ConfirmAccountPage';
 import ResetPasswordPage from '@/pages/ResetPasswordPage';
 
 import Layout from '@/components/Layout';
+import PageRoute from '@/components/PageRoute';
 
 import routes from '@/router/routes.ts';
 
 const Router = () => {
     return (
         <Routes>
-            <Route path="*" element={<NotFoundPage />} />
+            <Route
+                path="*"
+                element={
+                    <PageRoute tabTranslationCode="pageNotFound">
+                        <NotFoundPage />
+                    </PageRoute>
+                }
+            />
             <Route path={routes.home} element={<Layout />}>
-                <Route index element={<LandingPage />} />
-                <Route path={routes.activities} element={<ActivitiesPage />} />
+                <Route
+                    index
+                    element={
+                        <PageRoute tabTranslationCode="homePage">
+                            <LandingPage />
+                        </PageRoute>
+                    }
+                />
+                <Route
+                    path={routes.activities}
+                    element={
+                        <PageRoute tabTranslationCode="activities">
+                            <ActivitiesPage />
+                        </PageRoute>
+                    }
+                />
             </Route>
-            <Route path={routes.signIn} element={<SignInPage />} />
-            <Route path={routes.signUp} element={<SignUpPage />} />
-            <Route path={routes.confirmAccount} element={<ConfirmAccountPage />} />
-            <Route path={routes.resetPassword} element={<ResetPasswordPage />} />
+            <Route
+                path={routes.signIn}
+                element={
+                    <PageRoute tabTranslationCode="signIn">
+                        <SignInPage />
+                    </PageRoute>
+                }
+            />
+            <Route
+                path={routes.signUp}
+                element={
+                    <PageRoute tabTranslationCode="signUp">
+                        <SignUpPage />
+                    </PageRoute>
+                }
+            />
+            <Route
+                path={routes.confirmAccount}
+                element={
+                    <PageRoute tabTranslationCode="confirmAccount">
+                        <ConfirmAccountPage />
+                    </PageRoute>
+                }
+            />
+            <Route
+                path={routes.resetPassword}
+                element={
+                    <PageRoute tabTranslationCode="resetPassword">
+                        <ResetPasswordPage />
+                    </PageRoute>
+                }
+            />
         </Routes>
     );
 };
