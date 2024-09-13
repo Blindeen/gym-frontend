@@ -10,6 +10,7 @@ const routes = {
     profile: '/profile',
     confirmAccount: '/confirm-account',
     resetPassword: '/reset-password',
+    changePassword: '/change-password'
 };
 
 export default routes;

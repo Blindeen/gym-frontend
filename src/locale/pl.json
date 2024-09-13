@@ -99,7 +99,12 @@
       "signIn": "Zaloguj się",
       "signUp": "Zarejestruj się",
       "confirmAccount": "Potwierdź konto",
-      "resetPassword": "Zresetuj hasło"
-    }
+      "resetPassword": "Zresetuj hasło",
+      "passwordChange": "Zmiana hasła"
+    },
+    "confirmPasswordIsRequired": "Potwierdzenie hasła jest wymagane",
+    "enterNewPassword": "Wprowadź nowe hasło",
+    "passwordHasBeenChanged": "Hasło zostało zmienione. Za chwilę przekierujemy Cię do strony z logowaniem.",
+    "passwordChangedSuccessfully": "Hasło zmienione pomyślnie"
   }
 }

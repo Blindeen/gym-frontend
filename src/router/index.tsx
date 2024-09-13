@@ -7,6 +7,7 @@ import ActivitiesPage from '@pages/ActivitiesPage';
 import SignUpPage from '@pages/SignUpPage';
 import ConfirmAccountPage from '@pages/ConfirmAccountPage';
 import ResetPasswordPage from '@pages/ResetPasswordPage';
+import ChangePasswordPage from '@pages/ChangePasswordPage';
 
 import Layout from '@containers/Layout';
 import PageRoute from '@components/PageRoute';
@@ -71,6 +72,14 @@ const Router = () => {
                 element={
                     <PageRoute tabTranslationCode="resetPassword">
                         <ResetPasswordPage />
+                    </PageRoute>
+                }
+            />
+            <Route
+                path={routes.changePassword}
+                element={
+                    <PageRoute tabTranslationCode="passwordChange">
+                        <ChangePasswordPage />
                     </PageRoute>
                 }
             />

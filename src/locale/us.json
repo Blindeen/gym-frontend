@@ -99,7 +99,12 @@
       "signIn": "Sign in",
       "signUp": "Sign up",
       "confirmAccount": "Confirm account",
-      "resetPassword": "Reset password"
-    }
+      "resetPassword": "Reset password",
+      "passwordChange": "Password change"
+    },
+    "confirmPasswordIsRequired": "Confirm password is required",
+    "enterNewPassword": "Enter a new password",
+    "passwordHasBeenChanged": "Password has been changed. We'll redirect you to the sign-in page in a moment.",
+    "passwordChangedSuccessfully": "Password changed successfully"
   }
 }
