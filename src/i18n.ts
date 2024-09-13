@@ -7,10 +7,19 @@ import plTranslations from '@/locale/pl.json';
 import { getLocalStorageItem } from '@/utils';
 import { defaultLanguage, localStorageLanguageKey } from '@/values.ts';
 
-await i18n.use(initReactI18next).init({
-    resources: {
-        en: { ...usTranslations },
-        pl: { ...plTranslations },
+const lng = getLocalStorageItem(localStorageLanguageKey) || defaultLanguage;
+
+await i18n.use(initReactI18next).init(
+    {
+        resources: {
+            en: { ...usTranslations },
+            pl: { ...plTranslations },
+        },
+        lng,
     },
-    lng: getLocalStorageItem(localStorageLanguageKey) || defaultLanguage,
-});
+    (error) => {
+        if (!error) {
+            document.documentElement.lang = lng;
+        }
+    }
+);

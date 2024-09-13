@@ -38,7 +38,11 @@ const LanguageSelect = () => {
             const lang = key as string;
 
             setLocalStorageItem('language', lang);
-            await changeLanguage(lang);
+            await changeLanguage(lang, (error) => {
+                if (!error) {
+                    document.documentElement.lang = lang;
+                }
+            });
         }
     };
 
