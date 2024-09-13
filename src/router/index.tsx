@@ -46,7 +46,7 @@ const Router = () => {
             <Route
                 path={routes.signIn}
                 element={
-                    <PageRoute tabTranslationCode="signIn">
+                    <PageRoute tabTranslationCode="signingIn">
                         <SignInPage />
                     </PageRoute>
                 }
@@ -54,7 +54,7 @@ const Router = () => {
             <Route
                 path={routes.signUp}
                 element={
-                    <PageRoute tabTranslationCode="signUp">
+                    <PageRoute tabTranslationCode="signingUp">
                         <SignUpPage />
                     </PageRoute>
                 }
@@ -62,7 +62,7 @@ const Router = () => {
             <Route
                 path={routes.confirmAccount}
                 element={
-                    <PageRoute tabTranslationCode="confirmAccount">
+                    <PageRoute tabTranslationCode="accountConfirmation">
                         <ConfirmAccountPage />
                     </PageRoute>
                 }
@@ -70,7 +70,7 @@ const Router = () => {
             <Route
                 path={routes.resetPassword}
                 element={
-                    <PageRoute tabTranslationCode="resetPassword">
+                    <PageRoute tabTranslationCode="passwordReset">
                         <ResetPasswordPage />
                     </PageRoute>
                 }
