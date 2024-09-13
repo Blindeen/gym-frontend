@@ -1,23 +1,19 @@
-import { useState } from 'react';
-
-import toast from 'react-hot-toast';
+import { Button } from '@nextui-org/react';
 import { Controller, useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { Button, Input } from '@nextui-org/react';
-import { LuEye, LuEyeOff } from 'react-icons/lu';
 
-import useRequest from '@hooks/useRequest';
-import { fieldClassNames, passwordRegex } from '@/values';
+import PasswordInput from '@components/PasswordInput';
+
+import routes from '@/router/routes';
 import { areStringsEqual } from '@/utils';
+import { fieldClassNames, passwordRegex } from '@/values';
+import useRequest from '@hooks/useRequest';
 
 import { ChangePasswordData, ChangePasswordFormData, ChangePasswordFormProps } from './types';
-import routes from '@/router/routes';
 
 const ChangePasswordForm = ({ token, setChangePasswordSuccessful }: ChangePasswordFormProps) => {
-    const [passwordVisible, setPasswordVisible] = useState(false);
-    const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
-
     const {
         control,
         handleSubmit,
@@ -63,25 +59,11 @@ const ChangePasswordForm = ({ token, setChangePasswordSuccessful }: ChangePasswo
                     },
                 }}
                 render={({ field }) => (
-                    <Input
+                    <PasswordInput
                         classNames={fieldClassNames}
-                        type={passwordVisible ? 'text' : 'password'}
                         label={t('password')}
                         radius="lg"
                         size="sm"
-                        endContent={
-                            <button
-                                className="focus:outline-none"
-                                type="button"
-                                onClick={() => setPasswordVisible((prevValue) => !prevValue)}
-                            >
-                                {passwordVisible ? (
-                                    <LuEyeOff className="pointer-events-none text-2xl text-default-400" />
-                                ) : (
-                                    <LuEye className="pointer-events-none text-2xl text-default-400" />
-                                )}
-                            </button>
-                        }
                         errorMessage={errors.password?.message}
                         {...field}
                         isInvalid={!!errors.password}
@@ -100,25 +82,11 @@ const ChangePasswordForm = ({ token, setChangePasswordSuccessful }: ChangePasswo
                     },
                 }}
                 render={({ field }) => (
-                    <Input
+                    <PasswordInput
                         classNames={fieldClassNames}
-                        type={confirmPasswordVisible ? 'text' : 'password'}
                         label={t('confirmPassword')}
                         radius="lg"
                         size="sm"
-                        endContent={
-                            <button
-                                className="focus:outline-none"
-                                type="button"
-                                onClick={() => setConfirmPasswordVisible((prevValue) => !prevValue)}
-                            >
-                                {confirmPasswordVisible ? (
-                                    <LuEyeOff className="pointer-events-none text-2xl text-default-400" />
-                                ) : (
-                                    <LuEye className="pointer-events-none text-2xl text-default-400" />
-                                )}
-                            </button>
-                        }
                         errorMessage={errors.confirmPassword?.message}
                         {...field}
                         isInvalid={!!errors.confirmPassword}

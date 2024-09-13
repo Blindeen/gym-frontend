@@ -1,13 +1,12 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Button, Input } from '@nextui-org/react';
-import { LuEye, LuEyeOff } from 'react-icons/lu';
 
-import { SignInFormData } from './types';
+import PasswordInput from '@components/PasswordInput';
 
 import routes from '@/router/routes.ts';
 import useRequest from '@hooks/useRequest';
@@ -15,9 +14,10 @@ import { AuthorizationResponse } from '@/types.ts';
 import { AuthContext } from '@/context';
 import { fieldClassNames, emailRegex } from '@/values';
 
+import { SignInFormData } from './types';
+
 const SignInForm = () => {
     const { setState } = useContext(AuthContext);
-    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
     const {
         control,
@@ -45,11 +45,10 @@ const SignInForm = () => {
         }
     );
 
-    const toggleVisibility = () => setIsPasswordVisible(!isPasswordVisible);
-    const onSubmit = async (formData: SignInFormData) => await sendRequest(formData);
+    const onValid = async (formData: SignInFormData) => await sendRequest(formData);
 
     return (
-        <form className="flex flex-col gap-y-2" onSubmit={handleSubmit(onSubmit)}>
+        <form className="flex flex-col gap-y-2" onSubmit={handleSubmit(onValid)}>
             <div>
                 <Controller
                     control={control}
@@ -81,25 +80,11 @@ const SignInForm = () => {
                         required: t('passwordIsRequired'),
                     }}
                     render={({ field }) => (
-                        <Input
+                        <PasswordInput
                             classNames={fieldClassNames}
-                            type={isPasswordVisible ? 'text' : 'password'}
                             label={t('password')}
                             radius="lg"
                             size="sm"
-                            endContent={
-                                <button
-                                    className="focus:outline-none"
-                                    type="button"
-                                    onClick={toggleVisibility}
-                                >
-                                    {isPasswordVisible ? (
-                                        <LuEyeOff className="pointer-events-none text-2xl text-default-400" />
-                                    ) : (
-                                        <LuEye className="pointer-events-none text-2xl text-default-400" />
-                                    )}
-                                </button>
-                            }
                             errorMessage={errors.password?.message}
                             {...field}
                             isInvalid={!!errors.password}

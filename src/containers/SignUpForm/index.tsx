@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +8,8 @@ import { useTranslation } from 'react-i18next';
 import { Button, Input, Select, SelectItem, Checkbox, Skeleton } from '@nextui-org/react';
 import { DatePicker } from '@nextui-org/date-picker';
 import { Link } from '@nextui-org/link';
-import { LuEye, LuEyeOff } from 'react-icons/lu';
+
+import PasswordInput from '@components/PasswordInput';
 
 import routes from '@/router/routes.ts';
 import useFetch from '@hooks/useFetch';
@@ -29,8 +30,6 @@ import { defaultFormValues } from './values.ts';
 
 const SignUpForm = () => {
     const { setState } = useContext(AuthContext);
-    const [passwordVisible, setPasswordVisible] = useState(false);
-    const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
     const {
         control,
@@ -165,27 +164,11 @@ const SignUpForm = () => {
                                 },
                             }}
                             render={({ field }) => (
-                                <Input
+                                <PasswordInput
                                     classNames={fieldClassNames}
-                                    type={passwordVisible ? 'text' : 'password'}
                                     label={t('password')}
                                     radius="lg"
                                     size="sm"
-                                    endContent={
-                                        <button
-                                            className="focus:outline-none"
-                                            type="button"
-                                            onClick={() =>
-                                                setPasswordVisible((prevValue) => !prevValue)
-                                            }
-                                        >
-                                            {passwordVisible ? (
-                                                <LuEyeOff className="pointer-events-none text-2xl text-default-400" />
-                                            ) : (
-                                                <LuEye className="pointer-events-none text-2xl text-default-400" />
-                                            )}
-                                        </button>
-                                    }
                                     errorMessage={errors.password?.message}
                                     {...field}
                                     isInvalid={!!errors.password}
@@ -207,27 +190,11 @@ const SignUpForm = () => {
                                 },
                             }}
                             render={({ field }) => (
-                                <Input
+                                <PasswordInput
                                     classNames={fieldClassNames}
-                                    type={confirmPasswordVisible ? 'text' : 'password'}
                                     label={t('confirmPassword')}
                                     radius="lg"
                                     size="sm"
-                                    endContent={
-                                        <button
-                                            className="focus:outline-none"
-                                            type="button"
-                                            onClick={() =>
-                                                setConfirmPasswordVisible((prevValue) => !prevValue)
-                                            }
-                                        >
-                                            {confirmPasswordVisible ? (
-                                                <LuEyeOff className="pointer-events-none text-2xl text-default-400" />
-                                            ) : (
-                                                <LuEye className="pointer-events-none text-2xl text-default-400" />
-                                            )}
-                                        </button>
-                                    }
                                     errorMessage={errors.confirmPassword?.message}
                                     {...field}
                                     isInvalid={!!errors.confirmPassword}
