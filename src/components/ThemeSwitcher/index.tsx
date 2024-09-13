@@ -11,8 +11,8 @@ const ThemeSwitcher = () => {
     return (
         <Switch
             size="lg"
-            startContent={<TbSunFilled />}
-            endContent={<TbMoonFilled />}
+            startContent={<TbSunFilled title="Sun icon" />}
+            endContent={<TbMoonFilled title="Moon icon" />}
             onValueChange={toggle}
             isSelected={value}
         />

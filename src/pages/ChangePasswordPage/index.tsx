@@ -21,7 +21,11 @@ const ChangePasswordPage = () => {
         <div className="flex min-h-dvh flex-col items-center justify-center gap-y-8">
             {changePasswordSuccessful ? (
                 <>
-                    <MdOutlinePublishedWithChanges size="120px" color={colors.grassGreen} />
+                    <MdOutlinePublishedWithChanges
+                        title="Changed with tick icon"
+                        size="120px"
+                        color={colors.grassGreen}
+                    />
                     <p>{t('passwordHasBeenChanged')}</p>
                 </>
             ) : (

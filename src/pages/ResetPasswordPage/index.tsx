@@ -22,13 +22,13 @@ const ResetPasswordPage = () => {
         <div className="flex min-h-dvh flex-col items-center justify-center gap-10 lg:flex-row lg:gap-20">
             {passwordResetSuccessful ? (
                 <div className="flex flex-col items-center gap-y-8">
-                    <SiTicktick size="100px" color={colors.grassGreen} />
-                    <p className="text-lg text-justify">{t('passwordResetRequestHasBeenSent')}</p>
+                    <SiTicktick title="Tick icon" size="100px" color={colors.grassGreen} />
+                    <p className="text-justify text-lg">{t('passwordResetRequestHasBeenSent')}</p>
                     <Button
                         className="text-white"
                         color="primary"
                         radius="lg"
-                        startContent={<FaArrowLeft size="20px" />}
+                        startContent={<FaArrowLeft title="Arrow left icon" size="20px" />}
                         onPress={() => navigate(routes.home, { replace: true })}
                     >
                         {t('backToHome')}
@@ -49,10 +49,12 @@ const ResetPasswordPage = () => {
                             <h2 className="text-2xl">{t('forgotPassword')}</h2>
                             <h3 className="text-l">{t('forgotPasswordInfo')}</h3>
                         </div>
-                        <ResetPasswordForm setPasswordResetSuccessful={setPasswordResetSuccessful} />
+                        <ResetPasswordForm
+                            setPasswordResetSuccessful={setPasswordResetSuccessful}
+                        />
                         <div className="flex w-full justify-center md:w-3/4">
                             <Link className="flex w-fit gap-x-2" href={routes.signIn}>
-                                <FaArrowLeft />
+                                <FaArrowLeft title="Arrow left icon" />
                                 {t('backToLogin')}
                             </Link>
                         </div>

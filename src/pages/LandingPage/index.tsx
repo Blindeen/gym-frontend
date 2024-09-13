@@ -56,9 +56,7 @@ const LandingPage = () => {
                                             className="w-full bg-white text-black lg:w-fit"
                                             radius="full"
                                             size="lg"
-                                            onPress={() =>
-                                                navigate(routes.signIn)
-                                            }
+                                            onPress={() => navigate(routes.signIn)}
                                         >
                                             {t('signIn')}
                                         </Button>
@@ -67,9 +65,7 @@ const LandingPage = () => {
                                             radius="full"
                                             size="lg"
                                             color="primary"
-                                            onPress={() =>
-                                                navigate(routes.signUp)
-                                            }
+                                            onPress={() => navigate(routes.signUp)}
                                         >
                                             {t('signUp')}
                                         </Button>
@@ -84,27 +80,24 @@ const LandingPage = () => {
                         >
                             <Image
                                 src={DumbbellImage}
+                                alt="Dumbbell image"
                                 radius="none"
                                 draggable={false}
                                 removeWrapper
                             />
                         </motion.div>
                     </div>
-                    <div className="my-6 text-center text-xl">
-                        {t('ourPartners')}
-                    </div>
+                    <div className="my-6 text-center text-xl">{t('ourPartners')}</div>
                     <div className="flex flex-col items-center justify-between gap-5 md:flex-row md:gap-0">
-                        <SiNike size="120px" />
-                        <SiReebok size="120px" />
-                        <CgAdidas size="120px" />
-                        <SiPuma size="120px" />
+                        <SiNike title="Nike logo" size="120px" />
+                        <SiReebok title="Reebok logo" size="120px" />
+                        <CgAdidas title="Adidas logo" size="120px" />
+                        <SiPuma title="Puma logo" size="120px" />
                     </div>
                 </div>
             </div>
             <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-12 px-6 font-bold">
-                <h1 className="w-full text-center text-2xl md:text-5xl">
-                    {t('infoTabsHeader')}
-                </h1>
+                <h1 className="w-full text-center text-2xl md:text-5xl">{t('infoTabsHeader')}</h1>
                 <div className="flex w-full flex-wrap justify-evenly gap-y-5 lg:gap-y-0">
                     <Image
                         classNames={{
@@ -112,6 +105,7 @@ const LandingPage = () => {
                                 "bg-[url('/images/shapes/div-bg-shape.svg')] bg-cover bg-no-repeat bg-[center_25%]",
                         }}
                         src={PersonalTraining}
+                        alt="Personal training image"
                         width="500px"
                         radius="none"
                         draggable={false}

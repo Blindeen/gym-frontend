@@ -32,7 +32,7 @@ const SignUpPage = () => {
                 <Image
                     className="w-3/4 pt-5 md:w-5/6 lg:w-2/3"
                     src={SignUpImage}
-                    alt="Sign in image"
+                    alt="Sign up image"
                     radius="none"
                     removeWrapper
                     draggable={false}

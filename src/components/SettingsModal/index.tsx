@@ -21,7 +21,7 @@ const SettingsModal = () => {
     return (
         <>
             <Button onPress={onOpen} isIconOnly>
-                <IoSettingsSharp />
+                <IoSettingsSharp title="Settings icon" />
             </Button>
 
             <Modal size="sm" placement="center" isOpen={isOpen} onOpenChange={onOpenChange}>

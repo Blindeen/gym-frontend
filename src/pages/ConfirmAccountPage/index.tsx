@@ -33,6 +33,7 @@ const ConfirmAccountPage = () => {
             <h1 className="text-5xl font-bold">{t('confirmAccount')}</h1>
             <Image
                 className="w-2/3 md:w-1/3 lg:w-1/5"
+                alt="Confirm account image"
                 src={ConfirmAccountImage}
                 radius="none"
                 draggable={false}

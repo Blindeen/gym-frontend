@@ -20,9 +20,15 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>((props, r
                     onClick={() => setPasswordVisible((prevValue) => !prevValue)}
                 >
                     {passwordVisible ? (
-                        <LuEyeOff className="pointer-events-none text-2xl text-default-400" />
+                        <LuEyeOff
+                            className="pointer-events-none text-2xl text-default-400"
+                            title="Hide password icon"
+                        />
                     ) : (
-                        <LuEye className="pointer-events-none text-2xl text-default-400" />
+                        <LuEye
+                            className="pointer-events-none text-2xl text-default-400"
+                            title="Show password icon"
+                        />
                     )}
                 </button>
             }
