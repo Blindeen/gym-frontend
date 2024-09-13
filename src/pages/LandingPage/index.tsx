@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import { Button, Image } from '@nextui-org/react';
 import { SiNike, SiPuma, SiReebok } from 'react-icons/si';
 import { CgAdidas } from 'react-icons/cg';
-import PersonalTraining from '/images/illustrations/personal_training.svg?url';
+import PersonalTraining from '/images/illustrations/personal-training.svg?url';
 import DumbbellImage from '/images/dumbbell.png';
 
 import InfoTabs from '@/components/InfoTabs';
