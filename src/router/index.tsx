@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import SignInPage from '@pages/SignInPage';
@@ -10,11 +11,20 @@ import ResetPasswordPage from '@pages/ResetPasswordPage';
 import ChangePasswordPage from '@pages/ChangePasswordPage';
 
 import Layout from '@containers/Layout';
-import PageRoute from '@components/PageRoute';
 
-import routes from '@/router/routes.ts';
+import PageRoute from './PageRoute';
+import PrivatePageRoute from './PrivatePageRoute';
+import routes from './routes';
+import { equals } from './functions';
+import { AuthContext } from '@/context';
 
 const Router = () => {
+    const {
+        state: {
+            user: { role },
+        },
+    } = useContext(AuthContext);
+
     return (
         <Routes>
             <Route
@@ -25,14 +35,15 @@ const Router = () => {
                     </PageRoute>
                 }
             />
+
             <Route path={routes.home} element={<Layout />}>
                 <Route
-                    index
                     element={
                         <PageRoute tabTranslationCode="homePage">
                             <LandingPage />
                         </PageRoute>
                     }
+                    index
                 />
                 <Route
                     path={routes.activities}
@@ -43,22 +54,31 @@ const Router = () => {
                     }
                 />
             </Route>
+
             <Route
                 path={routes.signIn}
                 element={
-                    <PageRoute tabTranslationCode="signingIn">
+                    <PrivatePageRoute
+                        tabTranslationCode="signingIn"
+                        authorized={equals(role, 'GUEST')}
+                    >
                         <SignInPage />
-                    </PageRoute>
+                    </PrivatePageRoute>
                 }
             />
+
             <Route
                 path={routes.signUp}
                 element={
-                    <PageRoute tabTranslationCode="signingUp">
+                    <PrivatePageRoute
+                        tabTranslationCode="signingUp"
+                        authorized={equals(role, 'GUEST')}
+                    >
                         <SignUpPage />
-                    </PageRoute>
+                    </PrivatePageRoute>
                 }
             />
+
             <Route
                 path={routes.confirmAccount}
                 element={
@@ -67,20 +87,28 @@ const Router = () => {
                     </PageRoute>
                 }
             />
+
             <Route
                 path={routes.resetPassword}
                 element={
-                    <PageRoute tabTranslationCode="passwordReset">
+                    <PrivatePageRoute
+                        tabTranslationCode="passwordReset"
+                        authorized={equals(role, 'GUEST')}
+                    >
                         <ResetPasswordPage />
-                    </PageRoute>
+                    </PrivatePageRoute>
                 }
             />
+
             <Route
                 path={routes.changePassword}
                 element={
-                    <PageRoute tabTranslationCode="passwordChange">
+                    <PrivatePageRoute
+                        tabTranslationCode="passwordChange"
+                        authorized={equals(role, 'GUEST')}
+                    >
                         <ChangePasswordPage />
-                    </PageRoute>
+                    </PrivatePageRoute>
                 }
             />
         </Routes>

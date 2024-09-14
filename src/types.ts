@@ -1,4 +1,4 @@
-type Role = 'GUEST' | 'CUSTOMER' | 'TRAINER';
+export type Role = 'GUEST' | 'CUSTOMER' | 'TRAINER';
 
 type User = {
     firstName: string;
