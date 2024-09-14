@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { Button, Image } from '@nextui-org/react';
-import { FaArrowRight } from 'react-icons/fa6';
+import { FaArrowLeft } from 'react-icons/fa6';
 
 import routes from '@/router/routes.ts';
 import WorkoutImage from '/images/illustrations/workout.svg';
@@ -35,7 +35,7 @@ const NotFoundPage = () => {
                 size="lg"
                 color="primary"
                 radius="lg"
-                endContent={<FaArrowRight title="Arrow right icon" size="20px" />}
+                startContent={<FaArrowLeft title="Arrow right icon" size="20px" />}
                 onPress={() => navigate(routes.home, { replace: true })}
             >
                 {t('backToHome')}
