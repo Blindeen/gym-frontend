@@ -3,14 +3,7 @@ import { nextui } from '@nextui-org/react';
 
 import colors from './src/colors';
 
-const {
-    violentViolet,
-    violet,
-    oldBlueEyesIrises,
-    pictonBlue,
-    white,
-    twitterDim,
-} = colors;
+const { violentViolet, violet, oldBlueEyesIrises, pictonBlue, white, twitterDim } = colors;
 
 module.exports = {
     content: [
@@ -38,7 +31,6 @@ module.exports = {
                     colors: {
                         foreground: white,
                         background: twitterDim,
-                        content1: twitterDim,
                     },
                 },
             },
