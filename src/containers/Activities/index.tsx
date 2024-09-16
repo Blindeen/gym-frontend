@@ -1,5 +1,3 @@
-import dayjs from 'dayjs';
-
 import CustomCard from '@components/CustomCard';
 import CustomPagination from '@components/CustomPagination';
 import LoadingSpinner from '@components/LoadingSpinner';
@@ -38,7 +36,7 @@ const Activities = ({ url }: ActivitiesProps) => {
                                 key={`${id}-${idx}`}
                                 title={name}
                                 subtitle={dayOfWeek}
-                                description={dayjs(startTime, 'HH:mm:ss').format('HH:mm')}
+                                description={startTime}
                             />
                         ))}
                     </div>

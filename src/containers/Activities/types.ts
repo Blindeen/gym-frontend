@@ -1,4 +1,4 @@
-import { Page, DayOfWeek, TrainerInfo } from '@/types.ts';
+import { Page, TrainerInfo } from '@/types.ts';
 
 export type ActivitiesProps = {
     url: string;
@@ -7,9 +7,9 @@ export type ActivitiesProps = {
 type Activity = {
     id: number;
     name: string;
-    dayOfWeek: DayOfWeek;
-    startTime: Date;
-    endTime: Date;
+    dayOfWeek: string;
+    startTime: string;
+    durationMin: number;
     room: string;
     trainer: TrainerInfo;
 };
