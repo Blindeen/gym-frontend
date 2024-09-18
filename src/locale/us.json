@@ -100,7 +100,8 @@
       "signingUp": "Signing up",
       "accountConfirmation": "Account confirmation",
       "passwordReset": "Password reset",
-      "passwordChange": "Password change"
+      "passwordChange": "Password change",
+      "contact": "Contact"
     },
     "confirmPasswordIsRequired": "Confirm password is required",
     "enterNewPassword": "Enter a new password",

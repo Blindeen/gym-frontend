@@ -100,7 +100,8 @@
       "signingUp": "Rejestracja",
       "accountConfirmation": "Potwierdzenie konta",
       "passwordReset": "Reset hasła",
-      "passwordChange": "Zmiana hasła"
+      "passwordChange": "Zmiana hasła",
+      "contact": "Kontakt"
     },
     "confirmPasswordIsRequired": "Potwierdzenie hasła jest wymagane",
     "enterNewPassword": "Wprowadź nowe hasło",
