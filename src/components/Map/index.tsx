@@ -5,7 +5,7 @@ import { MapProps } from './types';
 const Map = ({ location }: MapProps) => {
     return (
         <MapContainer
-            style={{ height: '100%', borderRadius: '7px' }}
+            style={{ height: '100%', zIndex: 0, borderRadius: '7px' }}
             center={location}
             zoom={17}
             zoomControl={false}
