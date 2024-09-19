@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
 
+import ContactContainer from '@containers/ContactContainer';
+
 import routes from '@/router/routes';
 
 const ContactPage = () => {
@@ -13,6 +15,7 @@ const ContactPage = () => {
                 <BreadcrumbItem>{t('contact')}</BreadcrumbItem>
             </Breadcrumbs>
             <h2 className="mb-6 mt-2 text-2xl font-bold">{t('contact')}</h2>
+            <ContactContainer />
         </div>
     );
 };

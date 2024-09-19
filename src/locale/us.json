@@ -106,6 +106,20 @@
     "confirmPasswordIsRequired": "Confirm password is required",
     "enterNewPassword": "Enter a new password",
     "passwordHasBeenChanged": "Password has been changed. We'll redirect you to the sign-in page in a moment.",
-    "passwordChangedSuccessfully": "Password changed successfully"
+    "passwordChangedSuccessfully": "Password changed successfully",
+    "workingHours": "Working hours",
+    "dayOfWeek": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "contactDetails": "Contact details",
+    "gymAddress": "48 Nowogrodzka St.",
+    "warsaw": "Warsaw",
+    "location": "Location"
   }
 }
