@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { Card, CardBody, CardHeader, Divider } from '@nextui-org/react';
-
 import { MdOutlineEmail, MdCall, MdMap } from 'react-icons/md';
+
+import Map from '@components/Map';
 
 import { workingHours } from './values';
 
@@ -60,7 +61,9 @@ const ContactContainer = () => {
                     <h4 className="text-xl font-bold">{t('location')}</h4>
                 </CardHeader>
                 <Divider />
-                <CardBody className="py-2"></CardBody>
+                <CardBody className="py-2">
+                    <Map location={[52.228167281245064, 21.008461439937395]} />
+                </CardBody>
             </Card>
         </div>
     );
