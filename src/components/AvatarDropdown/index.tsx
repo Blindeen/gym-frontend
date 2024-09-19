@@ -13,6 +13,7 @@ import {
 } from '@nextui-org/react';
 import { BsPersonFill } from 'react-icons/bs';
 import { PiSignOutBold } from 'react-icons/pi';
+import { MdSpaceDashboard } from 'react-icons/md';
 
 import routes from '@/router/routes.ts';
 import { AuthContext } from '@/context';
@@ -74,10 +75,10 @@ const AvatarDropdown = () => {
                             />
                         }
                     >
-                        <p>{email}</p>
                         <p>
                             {firstName} {lastName}
                         </p>
+                        <p>{email}</p>
                     </DropdownItem>
                 </DropdownSection>
                 <DropdownItem
@@ -87,6 +88,14 @@ const AvatarDropdown = () => {
                     onPress={() => navigate(routes.profile)}
                 >
                     {t('myProfile')}
+                </DropdownItem>
+                <DropdownItem
+                    key="dashboard"
+                    textValue="dashboard"
+                    startContent={<MdSpaceDashboard size="20px" />}
+                    onPress={() => navigate(routes.dashboard)}
+                >
+                    {t('dashboard')}
                 </DropdownItem>
                 <DropdownItem
                     key="logout"
