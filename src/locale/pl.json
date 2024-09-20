@@ -100,11 +100,26 @@
       "signingUp": "Rejestracja",
       "accountConfirmation": "Potwierdzenie konta",
       "passwordReset": "Reset hasła",
-      "passwordChange": "Zmiana hasła"
+      "passwordChange": "Zmiana hasła",
+      "contact": "Kontakt"
     },
     "confirmPasswordIsRequired": "Potwierdzenie hasła jest wymagane",
     "enterNewPassword": "Wprowadź nowe hasło",
     "passwordHasBeenChanged": "Hasło zostało zmienione. Za chwilę przekierujemy Cię do strony z logowaniem.",
-    "passwordChangedSuccessfully": "Hasło zmienione pomyślnie"
+    "passwordChangedSuccessfully": "Hasło zmienione pomyślnie",
+    "workingHours": "Godziny pracy",
+    "dayOfWeek": {
+      "monday": "Poniedziałek",
+      "tuesday": "Wtorek",
+      "wednesday": "Środa",
+      "thursday": "Czwartek",
+      "friday": "Piątek",
+      "saturday": "Sobota",
+      "sunday": "Niedziela"
+    },
+    "contactDetails": "Dane kontaktowe",
+    "gymAddress": "ul. Nowogrodzka 48",
+    "warsaw": "Warszawa",
+    "location": "Lokalizacja"
   }
 }

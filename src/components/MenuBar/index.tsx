@@ -39,10 +39,6 @@ const MenuBar = () => {
             path: routes.about,
         },
         {
-            name: t('dashboard'),
-            path: routes.dashboard,
-        },
-        {
             name: t('activities'),
             path: routes.activities,
         },
@@ -77,15 +73,15 @@ const MenuBar = () => {
             </NavbarContent>
 
             <NavbarContent className="hidden gap-7 lg:flex" justify="center">
-                {menuItems.map((item, idx) => (
-                    <NavbarItem key={idx} isActive={item.path === pathname}>
+                {menuItems.map(({ name, path }, idx) => (
+                    <NavbarItem key={idx} isActive={path === pathname}>
                         <Link
                             className="font-medium"
-                            href={item.path}
+                            href={path}
                             color="foreground"
                             underline="hover"
                         >
-                            {item.name}
+                            {name}
                         </Link>
                     </NavbarItem>
                 ))}
@@ -120,15 +116,10 @@ const MenuBar = () => {
             </NavbarContent>
 
             <NavbarMenu>
-                {menuItems.map((item, idx) => (
-                    <NavbarMenuItem key={`${item}-${idx}`}>
-                        <Link
-                            className="w-full"
-                            href={item.path}
-                            color="foreground"
-                            onPress={closeMenu}
-                        >
-                            {item.name}
+                {menuItems.map(({ name, path }, idx) => (
+                    <NavbarMenuItem key={`${name}-${idx}`}>
+                        <Link className="w-full" href={path} color="foreground" onPress={closeMenu}>
+                            {name}
                         </Link>
                     </NavbarMenuItem>
                 ))}

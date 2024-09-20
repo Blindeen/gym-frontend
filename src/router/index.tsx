@@ -17,6 +17,7 @@ import PrivatePageRoute from './PrivatePageRoute';
 import routes from './routes';
 import { equals } from './functions';
 import { AuthContext } from '@/context';
+import ContactPage from '@pages/ContactPage';
 
 const Router = () => {
     const {
@@ -50,6 +51,14 @@ const Router = () => {
                     element={
                         <PageRoute tabTranslationCode="activities">
                             <ActivitiesPage />
+                        </PageRoute>
+                    }
+                />
+                <Route
+                    path={routes.contact}
+                    element={
+                        <PageRoute tabTranslationCode="contact">
+                            <ContactPage />
                         </PageRoute>
                     }
                 />

@@ -73,7 +73,7 @@ const Footer = () => {
                     </div>
                     <div className="flex flex-wrap gap-8">
                         <div className="flex flex-col gap-6">
-                            <h2 className="font-bold uppercase">{t('resources')}</h2>
+                            <p className="font-bold uppercase">{t('resources')}</p>
                             {resources.map(({ name, path }, idx) => (
                                 <Link
                                     key={`${idx}-${name}`}
@@ -87,7 +87,7 @@ const Footer = () => {
                             ))}
                         </div>
                         <div className="flex flex-col gap-6">
-                            <h2 className="font-bold uppercase">{t('legal')}</h2>
+                            <p className="font-bold uppercase">{t('legal')}</p>
                             {legal.map((link, idx) => (
                                 <Link
                                     key={`${idx}-${link}`}
@@ -100,7 +100,7 @@ const Footer = () => {
                             ))}
                         </div>
                         <div className="flex flex-col gap-6">
-                            <h2 className="font-bold uppercase">{t('club')}</h2>
+                            <p className="font-bold uppercase">{t('club')}</p>
                             {club.map(({ name, path }, idx) => (
                                 <Link
                                     key={`${idx}-${name}`}
