@@ -46,8 +46,8 @@ const ResetPasswordPage = () => {
                     />
                     <div className="flex w-10/12 flex-col gap-y-8 md:w-fit">
                         <div>
-                            <h2 className="text-2xl">{t('forgotPassword')}</h2>
-                            <h3 className="text-l">{t('forgotPasswordInfo')}</h3>
+                            <h2>{t('forgotPassword')}</h2>
+                            <p>{t('forgotPasswordInfo')}</p>
                         </div>
                         <ResetPasswordForm
                             setPasswordResetSuccessful={setPasswordResetSuccessful}

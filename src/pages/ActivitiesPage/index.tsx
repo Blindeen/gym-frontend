@@ -13,7 +13,7 @@ const ActivitiesPage = () => {
                 <BreadcrumbItem href={routes.home}>{t('home')}</BreadcrumbItem>
                 <BreadcrumbItem>{t('activities')}</BreadcrumbItem>
             </Breadcrumbs>
-            <h2 className="mb-6 mt-2 text-2xl font-bold">{t('activities')}</h2>
+            <h2 className="mb-6 mt-2">{t('activities')}</h2>
             <Activities url="/activity/list" />
         </div>
     );

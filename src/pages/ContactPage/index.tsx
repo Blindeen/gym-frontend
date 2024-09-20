@@ -14,7 +14,7 @@ const ContactPage = () => {
                 <BreadcrumbItem href={routes.home}>{t('home')}</BreadcrumbItem>
                 <BreadcrumbItem>{t('contact')}</BreadcrumbItem>
             </Breadcrumbs>
-            <h2 className="mb-6 mt-2 text-2xl font-bold">{t('contact')}</h2>
+            <h2 className="mb-6 mt-2">{t('contact')}</h2>
             <ContactContainer />
         </div>
     );
