@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
 
+import EditProfileForm from '@containers/EditProfileForm';
+
 import routes from '@/router/routes';
 
 const ProfilePage = () => {
@@ -13,6 +15,7 @@ const ProfilePage = () => {
                 <BreadcrumbItem>{t('profile')}</BreadcrumbItem>
             </Breadcrumbs>
             <h2 className="mb-6 mt-2">{t('profile')}</h2>
+            <EditProfileForm />
         </div>
     );
 };

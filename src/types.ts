@@ -74,3 +74,17 @@ export type PaymentMethod = {
 };
 
 export type MergeAndOverride<T, K> = Omit<T, keyof K> & K;
+
+export type UserData = {
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+    birthdate: string;
+    addressLine: string;
+    city: string;
+    postalCode: string;
+    phoneNumber: string;
+    paymentMethod: number;
+    passType: number;
+};

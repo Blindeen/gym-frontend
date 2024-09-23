@@ -122,6 +122,9 @@
     "gymAddress": "ul. Nowogrodzka 48",
     "warsaw": "Warszawa",
     "location": "Lokalizacja",
-    "profile": "Profil"
+    "profile": "Profil",
+    "basicData": "Dane podstawowe",
+    "edit": "Edytuj",
+    "newPassword": "Nowe hasło"
   }
 }

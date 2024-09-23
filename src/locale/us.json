@@ -122,6 +122,9 @@
     "gymAddress": "48 Nowogrodzka St.",
     "warsaw": "Warsaw",
     "location": "Location",
-    "profile": "Profile"
+    "profile": "Profile",
+    "basicData": "Basic data",
+    "edit": "Edit",
+    "newPassword": "New password"
   }
 }
