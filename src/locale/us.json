@@ -101,7 +101,8 @@
       "accountConfirmation": "Account confirmation",
       "passwordReset": "Password reset",
       "passwordChange": "Password change",
-      "contact": "Contact"
+      "contact": "Contact",
+      "profile": "Profile"
     },
     "confirmPasswordIsRequired": "Confirm password is required",
     "enterNewPassword": "Enter a new password",
@@ -120,6 +121,7 @@
     "contactDetails": "Contact details",
     "gymAddress": "48 Nowogrodzka St.",
     "warsaw": "Warsaw",
-    "location": "Location"
+    "location": "Location",
+    "profile": "Profile"
   }
 }
