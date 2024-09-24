@@ -114,11 +114,9 @@ const EditProfileForm = () => {
                             <DatePicker
                                 classNames={fieldClassNames}
                                 label={t('birthdate')}
-                                errorMessage={errors.birthdate?.message}
                                 {...field}
                                 showMonthAndYearPickers
                                 isDisabled
-                                isInvalid={!!errors.birthdate}
                             />
                         )}
                     />
@@ -133,10 +131,8 @@ const EditProfileForm = () => {
                                 label="Email"
                                 radius="lg"
                                 size="sm"
-                                errorMessage={errors.email?.message}
                                 {...field}
                                 isDisabled
-                                isInvalid={!!errors.email}
                             />
                         )}
                     />
