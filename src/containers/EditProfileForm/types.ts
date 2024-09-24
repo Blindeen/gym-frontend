@@ -17,4 +17,7 @@ export type EditProfileData = {
 
 export type EditProfileFormData = MergeAndOverride<EditProfileData, { birthdate: DateValue }>;
 
-export type PrepareEditProfileFormData = EditProfileData;
+export type EditProfileRequestData = Omit<
+    EditProfileFormData,
+    keyof { email: string; birthdate: DateValue }
+>;

@@ -14,7 +14,7 @@ import useRequest from '@hooks/useRequest';
 import { fieldClassNames, passwordRegex, phoneNumberRegex, postalCodeRegex } from '@/values';
 import { AuthContext } from '@/context';
 
-import { EditProfileFormData, EditProfileData, PrepareEditProfileFormData } from './types';
+import { EditProfileFormData, EditProfileData, EditProfileRequestData } from './types';
 import { defaultValues } from './values';
 
 const EditProfileForm = () => {
@@ -28,7 +28,7 @@ const EditProfileForm = () => {
     } = useForm<EditProfileFormData>({ defaultValues });
     const { t } = useTranslation();
 
-    const { isLoading } = useFetch<PrepareEditProfileFormData>(
+    const { isLoading } = useFetch<EditProfileData>(
         '/form/edit-profile/prepare',
         undefined,
         (data) => {
@@ -41,7 +41,7 @@ const EditProfileForm = () => {
             });
         }
     );
-    const { sendRequest, loadingRequest } = useRequest<EditProfileData, EditProfileData>(
+    const { sendRequest, loadingRequest } = useRequest<EditProfileRequestData, EditProfileData>(
         '/member/update',
         'PUT',
         (data) => {
@@ -56,11 +56,8 @@ const EditProfileForm = () => {
     }
 
     const onValid = async (formData: EditProfileFormData) => {
-        const { birthdate } = formData;
-        await sendRequest({
-            ...formData,
-            birthdate: birthdate.toString(),
-        });
+        const { email, birthdate, ...rest } = formData;
+        await sendRequest({ ...rest });
     };
 
     const fieldBasicRules = {
