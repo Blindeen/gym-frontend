@@ -147,12 +147,6 @@ const EditProfileForm = () => {
                     <Controller
                         control={control}
                         name="password"
-                        rules={{
-                            pattern: {
-                                value: passwordRegex,
-                                message: t('passwordPatternIsInvalid'),
-                            },
-                        }}
                         render={({ field }) => (
                             <PasswordInput
                                 classNames={fieldClassNames}
@@ -169,6 +163,12 @@ const EditProfileForm = () => {
                     <Controller
                         control={control}
                         name="newPassword"
+                        rules={{
+                            pattern: {
+                                value: passwordRegex,
+                                message: t('passwordPatternIsInvalid'),
+                            },
+                        }}
                         render={({ field }) => (
                             <PasswordInput
                                 classNames={fieldClassNames}
