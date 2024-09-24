@@ -125,6 +125,7 @@
     "profile": "Profile",
     "basicData": "Basic data",
     "edit": "Edit",
-    "newPassword": "New password"
+    "newPassword": "New password",
+    "profileHasBeenEdited": "Profile has been edited"
   }
 }

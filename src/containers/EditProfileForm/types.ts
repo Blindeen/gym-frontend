@@ -1,13 +1,20 @@
 import { DateValue } from '@nextui-org/react';
 
-import { UserData, MergeAndOverride, Pass, PaymentMethod } from '@/types';
+import { MergeAndOverride } from '@/types';
 
-export type EditProfileRequestData = MergeAndOverride<UserData, { newPassword: string }>;
+export type EditProfileData = {
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+    newPassword: string;
+    birthdate: string;
+    addressLine: string;
+    city: string;
+    postalCode: string;
+    phoneNumber: string;
+};
 
-export type EditProfileFormData = MergeAndOverride<EditProfileRequestData, { birthdate: DateValue }>;
+export type EditProfileFormData = MergeAndOverride<EditProfileData, { birthdate: DateValue }>;
 
-export type PrepareEditProfileFormData = {
-    userData: EditProfileFormData;
-    passes: Pass[];
-    paymentMethods: PaymentMethod[];
-}
+export type PrepareEditProfileFormData = EditProfileData;

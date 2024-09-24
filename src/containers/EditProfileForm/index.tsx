@@ -1,8 +1,10 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 
+import toast from 'react-hot-toast';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { Button, DatePicker, Divider, Input, Select, SelectItem } from '@nextui-org/react';
+import { Button, DatePicker, Divider, Input } from '@nextui-org/react';
+import { parseDate } from '@internationalized/date';
 
 import PasswordInput from '@components/PasswordInput';
 import LoadingSpinner from '@components/LoadingSpinner';
@@ -16,36 +18,47 @@ import {
     phoneNumberRegex,
     postalCodeRegex,
 } from '@/values';
-import { areStringsEqual, isUserAdult } from '@/utils';
+import { isUserAdult } from '@/utils';
+import { AuthContext } from '@/context';
 
-import { EditProfileFormData, EditProfileRequestData, PrepareEditProfileFormData } from './types';
+import { EditProfileFormData, EditProfileData, PrepareEditProfileFormData } from './types';
 import { defaultValues } from './values';
 
 const EditProfileForm = () => {
+    const { state, setState } = useContext(AuthContext);
+
     const {
         control,
         handleSubmit,
         formState: { errors },
         reset,
-    } = useForm<EditProfileFormData>({ defaultValues: defaultValues });
+    } = useForm<EditProfileFormData>({ defaultValues });
     const { t } = useTranslation();
 
     const { data, isLoading } = useFetch<PrepareEditProfileFormData>('/form/edit-profile/prepare');
-    const { sendRequest, loadingRequest } = useRequest<EditProfileRequestData>(
+    const { sendRequest, loadingRequest } = useRequest<EditProfileData, EditProfileData>(
         '/member/update',
-        'PUT'
+        'PUT',
+        (data) => {
+            const { firstName, lastName } = data;
+            setState({ ...state, user: { ...state.user, firstName, lastName } });
+            toast.success(t('profileHasBeenEdited'));
+        }
     );
 
     useEffect(() => {
         if (data) {
-            const { userData } = data;
-            reset(userData);
+            const { birthdate, ...rest } = data;
+            reset({
+                ...rest,
+                birthdate: parseDate(birthdate),
+            });
         }
     }, [data]);
 
-    // if (isLoading) {
-    //     return <LoadingSpinner />;
-    // }
+    if (isLoading) {
+        return <LoadingSpinner />;
+    }
 
     const onValid = async (formData: EditProfileFormData) => {
         const { birthdate } = formData;
@@ -140,6 +153,7 @@ const EditProfileForm = () => {
                                 size="sm"
                                 errorMessage={errors.email?.message}
                                 {...field}
+                                isDisabled
                                 isInvalid={!!errors.email}
                             />
                         )}
@@ -149,7 +163,6 @@ const EditProfileForm = () => {
                         control={control}
                         name="password"
                         rules={{
-                            ...fieldBasicRules,
                             pattern: {
                                 value: passwordRegex,
                                 message: t('passwordPatternIsInvalid'),
@@ -171,16 +184,6 @@ const EditProfileForm = () => {
                     <Controller
                         control={control}
                         name="newPassword"
-                        rules={{
-                            ...fieldBasicRules,
-                            validate: (value, formValues) => {
-                                const { password } = formValues;
-                                return (
-                                    areStringsEqual(value, password) ||
-                                    t('passwordsAreNotIdentical')
-                                );
-                            },
-                        }}
                         render={({ field }) => (
                             <PasswordInput
                                 classNames={fieldClassNames}
@@ -282,59 +285,14 @@ const EditProfileForm = () => {
                             />
                         )}
                     />
-
-                    <Controller
-                        control={control}
-                        name="paymentMethod"
-                        rules={fieldBasicRules}
-                        render={({ field }) => (
-                            <Select
-                                classNames={fieldClassNames}
-                                label={t('paymentMethod')}
-                                radius="lg"
-                                size="sm"
-                                items={data?.paymentMethods ?? []}
-                                errorMessage={errors.paymentMethod?.message}
-                                {...field}
-                                isInvalid={!!errors.paymentMethod}
-                            >
-                                {(paymentMethod) => (
-                                    <SelectItem key={paymentMethod.id}>
-                                        {paymentMethod.name}
-                                    </SelectItem>
-                                )}
-                            </Select>
-                        )}
-                    />
-
-                    <Controller
-                        control={control}
-                        name="passType"
-                        rules={fieldBasicRules}
-                        render={({ field }) => (
-                            <Select
-                                classNames={fieldClassNames}
-                                label={t('passType')}
-                                radius="lg"
-                                size="sm"
-                                items={data?.passes ?? []}
-                                errorMessage={errors.passType?.message}
-                                {...field}
-                                isInvalid={!!errors.passType}
-                            >
-                                {(pass) => <SelectItem key={pass.id}>{pass.name}</SelectItem>}
-                            </Select>
-                        )}
-                    />
                 </div>
-            </div>
 
-            <div className="flex w-full justify-center md:w-1/2 lg:w-1/2">
                 <Button
                     className="font-bold text-white"
                     type="submit"
                     color="primary"
                     radius="lg"
+                    fullWidth
                     isLoading={loadingRequest}
                 >
                     {t('edit')}

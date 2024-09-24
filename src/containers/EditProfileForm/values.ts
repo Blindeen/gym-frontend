@@ -1,4 +1,5 @@
 import { DeepPartial } from 'react-hook-form';
+import { CalendarDate } from '@internationalized/date';
 
 import { EditProfileFormData } from './types';
 
@@ -8,11 +9,9 @@ export const defaultValues: DeepPartial<EditProfileFormData> = {
     email: '',
     password: '',
     newPassword: '',
-    birthdate: undefined,
+    birthdate: new CalendarDate(0, 0, 0),
     addressLine: '',
     city: '',
     postalCode: '',
     phoneNumber: '',
-    paymentMethod: 0,
-    passType: 0,
 };
