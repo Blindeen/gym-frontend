@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 
 import toast from 'react-hot-toast';
 import { Controller, useForm } from 'react-hook-form';
@@ -11,14 +11,7 @@ import LoadingSpinner from '@components/LoadingSpinner';
 
 import useFetch from '@hooks/useFetch';
 import useRequest from '@hooks/useRequest';
-import {
-    emailRegex,
-    fieldClassNames,
-    passwordRegex,
-    phoneNumberRegex,
-    postalCodeRegex,
-} from '@/values';
-import { isUserAdult } from '@/utils';
+import { fieldClassNames, passwordRegex, phoneNumberRegex, postalCodeRegex } from '@/values';
 import { AuthContext } from '@/context';
 
 import { EditProfileFormData, EditProfileData, PrepareEditProfileFormData } from './types';
@@ -35,7 +28,19 @@ const EditProfileForm = () => {
     } = useForm<EditProfileFormData>({ defaultValues });
     const { t } = useTranslation();
 
-    const { data, isLoading } = useFetch<PrepareEditProfileFormData>('/form/edit-profile/prepare');
+    const { isLoading } = useFetch<PrepareEditProfileFormData>(
+        '/form/edit-profile/prepare',
+        undefined,
+        (data) => {
+            const { birthdate, ...rest } = data;
+            reset({
+                ...rest,
+                password: '',
+                newPassword: '',
+                birthdate: parseDate(birthdate),
+            });
+        }
+    );
     const { sendRequest, loadingRequest } = useRequest<EditProfileData, EditProfileData>(
         '/member/update',
         'PUT',
@@ -45,16 +50,6 @@ const EditProfileForm = () => {
             toast.success(t('profileHasBeenEdited'));
         }
     );
-
-    useEffect(() => {
-        if (data) {
-            const { birthdate, ...rest } = data;
-            reset({
-                ...rest,
-                birthdate: parseDate(birthdate),
-            });
-        }
-    }, [data]);
 
     if (isLoading) {
         return <LoadingSpinner />;
@@ -118,18 +113,15 @@ const EditProfileForm = () => {
                     <Controller
                         control={control}
                         name="birthdate"
-                        rules={{
-                            ...fieldBasicRules,
-                            validate: (birthdate) => isUserAdult(birthdate) || t('userIsNotAdult'),
-                        }}
                         render={({ field }) => (
                             <DatePicker
                                 classNames={fieldClassNames}
                                 label={t('birthdate')}
                                 errorMessage={errors.birthdate?.message}
                                 {...field}
-                                isInvalid={!!errors.birthdate}
                                 showMonthAndYearPickers
+                                isDisabled
+                                isInvalid={!!errors.birthdate}
                             />
                         )}
                     />
@@ -137,13 +129,6 @@ const EditProfileForm = () => {
                     <Controller
                         control={control}
                         name="email"
-                        rules={{
-                            ...fieldBasicRules,
-                            pattern: {
-                                value: emailRegex,
-                                message: t('emailPatternIsInvalid'),
-                            },
-                        }}
                         render={({ field }) => (
                             <Input
                                 classNames={fieldClassNames}
