@@ -46,6 +46,7 @@ const SignUpForm = () => {
     const { sendRequest, loadingRequest } = useRequest<SignUpRequestData, AuthorizationResponse>(
         '/member/sign-up',
         'POST',
+        undefined,
         (data) => {
             setState({
                 isLogged: true,
