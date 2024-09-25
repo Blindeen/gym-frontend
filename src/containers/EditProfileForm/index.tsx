@@ -14,7 +14,7 @@ import useRequest from '@hooks/useRequest';
 import { fieldClassNames, passwordRegex, phoneNumberRegex, postalCodeRegex } from '@/values';
 import { AuthContext } from '@/context';
 
-import { EditProfileFormData, EditProfileData, EditProfileRequestData } from './types';
+import { EditProfileFormData, EditProfileData } from './types';
 import { defaultValues } from './values';
 
 const EditProfileForm = () => {
@@ -41,9 +41,10 @@ const EditProfileForm = () => {
             });
         }
     );
-    const { sendRequest, loadingRequest } = useRequest<EditProfileRequestData, EditProfileData>(
+    const { sendRequest, loadingRequest } = useRequest<FormData, EditProfileData>(
         '/member/update',
         'PUT',
+        { 'Content-Type': 'multipart/form-data' },
         (data) => {
             const { firstName, lastName } = data;
             setState({ ...state, user: { ...state.user, firstName, lastName } });
@@ -57,7 +58,12 @@ const EditProfileForm = () => {
 
     const onValid = async (formData: EditProfileFormData) => {
         const { email, birthdate, ...rest } = formData;
-        await sendRequest({ ...rest });
+        const requestData = new FormData();
+        requestData.append(
+            'requestBody',
+            new Blob([JSON.stringify(rest)], { type: 'application/json' })
+        );
+        await sendRequest(requestData);
     };
 
     const fieldBasicRules = {
