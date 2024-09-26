@@ -7,6 +7,11 @@ export const defaultStateValue: State = {
         lastName: '',
         email: '',
         role: 'GUEST',
+        profilePicture: {
+            name: '',
+            type: '',
+            data: '',
+        },
     },
     token: '',
 };
