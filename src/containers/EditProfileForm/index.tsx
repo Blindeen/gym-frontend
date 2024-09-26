@@ -8,6 +8,7 @@ import { parseDate } from '@internationalized/date';
 
 import PasswordInput from '@components/PasswordInput';
 import LoadingSpinner from '@components/LoadingSpinner';
+import ImageInput from '@components/ImageInput';
 
 import useFetch from '@hooks/useFetch';
 import useRequest from '@hooks/useRequest';
@@ -73,6 +74,10 @@ const EditProfileForm = () => {
     return (
         <form className="flex flex-col items-center" onSubmit={handleSubmit(onValid)}>
             <div className="flex w-full flex-col gap-y-5 md:w-1/2">
+                <div className="flex justify-center">
+                    <ImageInput />
+                </div>
+
                 <Divider />
 
                 <div>
