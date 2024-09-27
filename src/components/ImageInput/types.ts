@@ -1,3 +1,8 @@
+import { ChangeEventHandler } from 'react';
+
 export type ImageInputProps = {
-    src?: string;
+    name?: string;
+    src: File | null;
+    fallback?: string;
+    onChange?: ChangeEventHandler<HTMLInputElement>;
 };

@@ -14,6 +14,7 @@ import useFetch from '@hooks/useFetch';
 import useRequest from '@hooks/useRequest';
 import { fieldClassNames, passwordRegex, phoneNumberRegex, postalCodeRegex } from '@/values';
 import { AuthContext } from '@/context';
+import { base64ToFile } from '@/utils';
 
 import { EditProfileFormData, EditProfileData } from './types';
 import { defaultValues } from './values';
@@ -26,6 +27,8 @@ const EditProfileForm = () => {
         handleSubmit,
         formState: { errors },
         reset,
+        setValue,
+        getValues,
     } = useForm<EditProfileFormData>({ defaultValues });
     const { t } = useTranslation();
 
@@ -33,12 +36,13 @@ const EditProfileForm = () => {
         '/form/edit-profile/prepare',
         undefined,
         (data) => {
-            const { birthdate, ...rest } = data;
+            const { birthdate, profilePicture, ...rest } = data;
             reset({
                 ...rest,
                 password: '',
                 newPassword: '',
                 birthdate: parseDate(birthdate),
+                profilePicture: base64ToFile(profilePicture),
             });
         }
     );
@@ -47,8 +51,8 @@ const EditProfileForm = () => {
         'PUT',
         { 'Content-Type': 'multipart/form-data' },
         (data) => {
-            const { firstName, lastName } = data;
-            setState({ ...state, user: { ...state.user, firstName, lastName } });
+            const { firstName, lastName, profilePicture } = data;
+            setState({ ...state, user: { ...state.user, firstName, lastName, profilePicture } });
             toast.success(t('profileHasBeenEdited'));
         }
     );
@@ -58,12 +62,15 @@ const EditProfileForm = () => {
     }
 
     const onValid = async (formData: EditProfileFormData) => {
-        const { email, birthdate, ...rest } = formData;
+        const { email, birthdate, profilePicture, ...rest } = formData;
+
         const requestData = new FormData();
         requestData.append(
             'requestBody',
             new Blob([JSON.stringify(rest)], { type: 'application/json' })
         );
+        profilePicture && requestData.append('profilePicture', profilePicture);
+
         await sendRequest(requestData);
     };
 
@@ -75,7 +82,24 @@ const EditProfileForm = () => {
         <form className="flex flex-col items-center" onSubmit={handleSubmit(onValid)}>
             <div className="flex w-full flex-col gap-y-5 md:w-1/2">
                 <div className="flex justify-center">
-                    <ImageInput />
+                    <Controller
+                        control={control}
+                        name="profilePicture"
+                        render={({ field: { name, ref } }) => (
+                            <ImageInput
+                                name={name}
+                                ref={ref}
+                                src={getValues('profilePicture')}
+                                fallback={`${getValues('firstName')[0]}${getValues('lastName')[0]}`}
+                                onChange={(e) => {
+                                    const fileList = e.target.files;
+                                    if (fileList) {
+                                        setValue('profilePicture', fileList[0]);
+                                    }
+                                }}
+                            />
+                        )}
+                    />
                 </div>
 
                 <Divider />

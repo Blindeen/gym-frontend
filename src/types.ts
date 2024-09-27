@@ -1,6 +1,6 @@
 export type Role = 'GUEST' | 'CUSTOMER' | 'TRAINER';
 
-type ProfilePicture = {
+export type Image = {
     name: string;
     type: string;
     data: string;
@@ -11,7 +11,7 @@ type User = {
     lastName: string;
     email: string;
     role: Role;
-    profilePicture: ProfilePicture | null;
+    profilePicture: Image | null;
 };
 
 export type State = {

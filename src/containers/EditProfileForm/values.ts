@@ -14,4 +14,5 @@ export const defaultValues: DeepPartial<EditProfileFormData> = {
     city: '',
     postalCode: '',
     phoneNumber: '',
+    profilePicture: null,
 };
