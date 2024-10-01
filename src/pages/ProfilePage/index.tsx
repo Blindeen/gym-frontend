@@ -9,7 +9,7 @@ const ProfilePage = () => {
     const { t } = useTranslation();
 
     return (
-        <div className="mx-auto w-full max-w-[1280px] p-6">
+        <div className="mx-auto w-full p-6 lg:w-10/12">
             <Breadcrumbs size="lg">
                 <BreadcrumbItem href={routes.home}>{t('home')}</BreadcrumbItem>
                 <BreadcrumbItem>{t('profile')}</BreadcrumbItem>
