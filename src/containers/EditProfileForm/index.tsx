@@ -53,6 +53,8 @@ const EditProfileForm = () => {
         (data) => {
             const { firstName, lastName, profilePicture } = data;
             setState({ ...state, user: { ...state.user, firstName, lastName, profilePicture } });
+            setValue('password', '');
+            setValue('newPassword', '');
             toast.success(t('profileHasBeenEdited'));
         }
     );
