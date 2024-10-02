@@ -56,7 +56,8 @@ const MenuBar = () => {
 
     return (
         <Navbar
-            maxWidth="xl"
+            classNames={{ wrapper: 'lg:w-10/12' }}
+            maxWidth="full"
             height="6rem"
             onMenuOpenChange={setIsMenuOpen}
             isBordered
@@ -123,11 +124,13 @@ const MenuBar = () => {
                         </Link>
                     </NavbarMenuItem>
                 ))}
-                <NavbarMenuItem>
-                    <Link className="w-full" href={routes.signIn} color="foreground">
-                        {t('signIn')}
-                    </Link>
-                </NavbarMenuItem>
+                {!isLogged && (
+                    <NavbarMenuItem>
+                        <Link className="w-full" href={routes.signIn} color="foreground">
+                            {t('signIn')}
+                        </Link>
+                    </NavbarMenuItem>
+                )}
             </NavbarMenu>
         </Navbar>
     );

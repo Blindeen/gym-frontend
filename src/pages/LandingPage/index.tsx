@@ -24,8 +24,8 @@ const LandingPage = () => {
 
     return (
         <div className="flex flex-col gap-12">
-            <div className="min-h-dvh rounded-b-[4rem] bg-radial-gradient">
-                <div className="mx-auto w-full max-w-[1280px] px-6 py-10 font-bold text-white">
+            <div className="rounded-b-[4rem] bg-radial-gradient">
+                <div className="mx-auto w-full px-6 py-10 font-bold text-white lg:w-10/12">
                     <div className="flex flex-wrap items-center justify-center lg:justify-between">
                         <div className="flex flex-col gap-7">
                             <div className="flex flex-col gap-4 text-center text-4xl md:text-6xl lg:text-left">
@@ -87,12 +87,14 @@ const LandingPage = () => {
                             />
                         </motion.div>
                     </div>
+                    <div>
                     <div className="my-6 text-center text-xl">{t('ourPartners')}</div>
                     <div className="flex flex-col items-center justify-between gap-5 md:flex-row md:gap-0">
                         <SiNike title="Nike logo" size="120px" />
                         <SiReebok title="Reebok logo" size="120px" />
                         <CgAdidas title="Adidas logo" size="120px" />
                         <SiPuma title="Puma logo" size="120px" />
+                        </div>
                     </div>
                 </div>
             </div>

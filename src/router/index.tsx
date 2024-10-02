@@ -15,9 +15,10 @@ import Layout from '@containers/Layout';
 import PageRoute from './PageRoute';
 import PrivatePageRoute from './PrivatePageRoute';
 import routes from './routes';
-import { equals } from './functions';
+import { equals, notEquals } from './functions';
 import { AuthContext } from '@/context';
 import ContactPage from '@pages/ContactPage';
+import ProfilePage from '@pages/ProfilePage';
 
 const Router = () => {
     const {
@@ -60,6 +61,17 @@ const Router = () => {
                         <PageRoute tabTranslationCode="contact">
                             <ContactPage />
                         </PageRoute>
+                    }
+                />
+                <Route
+                    path={routes.profile}
+                    element={
+                        <PrivatePageRoute
+                            tabTranslationCode="profile"
+                            authorized={notEquals(role, 'GUEST')}
+                        >
+                            <ProfilePage />
+                        </PrivatePageRoute>
                     }
                 />
             </Route>

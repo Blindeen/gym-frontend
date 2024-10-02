@@ -18,13 +18,14 @@ import { MdSpaceDashboard } from 'react-icons/md';
 import routes from '@/router/routes.ts';
 import { AuthContext } from '@/context';
 import { defaultStateValue } from '@/values.ts';
+import { base64ToSrc } from '@/utils';
 
 const AvatarDropdown = () => {
     const {
         state: { user },
         setState,
     } = useContext(AuthContext);
-    const { firstName, lastName, email } = user;
+    const { firstName, lastName, email, profilePicture } = user;
 
     const { pathname } = useLocation();
     const navigate = useNavigate();
@@ -39,6 +40,10 @@ const AvatarDropdown = () => {
             });
     };
 
+    const profilePictureSrc = profilePicture
+        ? base64ToSrc(profilePicture.data, profilePicture.type)
+        : undefined;
+
     return (
         <Dropdown placement="bottom-end">
             <DropdownTrigger>
@@ -48,6 +53,7 @@ const AvatarDropdown = () => {
                     classNames={{
                         name: 'font-bold',
                     }}
+                    src={profilePictureSrc}
                     name={`${firstName[0]}${lastName[0]}`}
                     size="md"
                     isBordered
@@ -69,9 +75,11 @@ const AvatarDropdown = () => {
                                 classNames={{
                                     name: 'font-bold',
                                 }}
+                                src={profilePictureSrc}
                                 name={`${firstName[0]}${lastName[0]}`}
                                 size="sm"
                                 isBordered
+                                disableAnimation
                             />
                         }
                     >

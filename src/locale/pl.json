@@ -101,7 +101,8 @@
       "accountConfirmation": "Potwierdzenie konta",
       "passwordReset": "Reset hasła",
       "passwordChange": "Zmiana hasła",
-      "contact": "Kontakt"
+      "contact": "Kontakt",
+      "profile": "Profil"
     },
     "confirmPasswordIsRequired": "Potwierdzenie hasła jest wymagane",
     "enterNewPassword": "Wprowadź nowe hasło",
@@ -120,6 +121,11 @@
     "contactDetails": "Dane kontaktowe",
     "gymAddress": "ul. Nowogrodzka 48",
     "warsaw": "Warszawa",
-    "location": "Lokalizacja"
+    "location": "Lokalizacja",
+    "profile": "Profil",
+    "basicData": "Dane podstawowe",
+    "edit": "Edytuj",
+    "newPassword": "Nowe hasło",
+    "profileHasBeenEdited": "Profil został edytowany"
   }
 }
