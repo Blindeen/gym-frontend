@@ -102,7 +102,8 @@
       "passwordReset": "Reset hasła",
       "passwordChange": "Zmiana hasła",
       "contact": "Kontakt",
-      "profile": "Profil"
+      "profile": "Profil",
+      "pass": "Karnet"
     },
     "confirmPasswordIsRequired": "Potwierdzenie hasła jest wymagane",
     "enterNewPassword": "Wprowadź nowe hasło",
@@ -126,6 +127,7 @@
     "basicData": "Dane podstawowe",
     "edit": "Edytuj",
     "newPassword": "Nowe hasło",
-    "profileHasBeenEdited": "Profil został edytowany"
+    "profileHasBeenEdited": "Profil został edytowany",
+    "pass": "Karnet"
   }
 }

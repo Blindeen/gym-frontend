@@ -102,7 +102,8 @@
       "passwordReset": "Password reset",
       "passwordChange": "Password change",
       "contact": "Contact",
-      "profile": "Profile"
+      "profile": "Profile",
+      "pass": "Pass"
     },
     "confirmPasswordIsRequired": "Confirm password is required",
     "enterNewPassword": "Enter a new password",
@@ -126,6 +127,7 @@
     "basicData": "Basic data",
     "edit": "Edit",
     "newPassword": "New password",
-    "profileHasBeenEdited": "Profile has been edited"
+    "profileHasBeenEdited": "Profile has been edited",
+    "pass": "Pass"
   }
 }
