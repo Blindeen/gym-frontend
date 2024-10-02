@@ -124,11 +124,13 @@ const MenuBar = () => {
                         </Link>
                     </NavbarMenuItem>
                 ))}
-                <NavbarMenuItem>
-                    <Link className="w-full" href={routes.signIn} color="foreground">
-                        {t('signIn')}
-                    </Link>
-                </NavbarMenuItem>
+                {!isLogged && (
+                    <NavbarMenuItem>
+                        <Link className="w-full" href={routes.signIn} color="foreground">
+                            {t('signIn')}
+                        </Link>
+                    </NavbarMenuItem>
+                )}
             </NavbarMenu>
         </Navbar>
     );
