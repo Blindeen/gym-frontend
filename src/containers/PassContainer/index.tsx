@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 
 import { PDFDownloadLink } from '@react-pdf/renderer';
-import { Button, Image } from '@nextui-org/react';
+import { Button, Image, Link } from '@nextui-org/react';
 import { BsFillFileEarmarkPdfFill } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
 
@@ -23,7 +23,10 @@ const PassContainer = () => {
         },
     } = useContext(AuthContext);
 
-    const { t } = useTranslation();
+    const {
+        i18n: { language },
+        t,
+    } = useTranslation();
     const { data, isLoading } = useFetch<PassBasics>('/member/pass-basics');
 
     const passName = data?.name;
@@ -58,15 +61,31 @@ const PassContainer = () => {
                     </div>
                 </div>
             </div>
-            <PDFDownloadLink document={<Pass qrCodeDataURL={qrCodeDataURL} />} fileName={t('pass')}>
-                <Button
-                    size="lg"
-                    startContent={<BsFillFileEarmarkPdfFill size="30px" />}
-                    color="danger"
+            <div className="flex items-center gap-x-10">
+                <PDFDownloadLink
+                    document={<Pass qrCodeDataURL={qrCodeDataURL} />}
+                    fileName={t('pass')}
                 >
-                    {t('download')}
-                </Button>
-            </PDFDownloadLink>
+                    <Button
+                        className="h-[55px]"
+                        radius="full"
+                        size="lg"
+                        startContent={<BsFillFileEarmarkPdfFill size="30px" />}
+                        color="danger"
+                    >
+                        {t('download')}
+                    </Button>
+                </PDFDownloadLink>
+
+                <Link
+                    className="hover:opacity-100"
+                    href="https://pay.google.com/gp/v/save/<signed_jwt>"
+                    disableAnimation
+                    isExternal
+                >
+                    <Image src={`/images/badges/add-to-google-wallet-${language}.svg`} />
+                </Link>
+            </div>
         </div>
     );
 };
