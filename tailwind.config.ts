@@ -32,6 +32,8 @@ module.exports = {
                 },
                 dark: {
                     colors: {
+                        primary: oldBlueEyesIrises,
+                        secondary: pictonBlue,
                         foreground: white,
                         background: twitterDim,
                     },
