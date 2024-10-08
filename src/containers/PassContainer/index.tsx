@@ -31,6 +31,7 @@ const PassContainer = () => {
 
     const passName = data?.name;
     const passUuid = data?.uuid;
+    const googleWalletPassToken = data?.googleWalletPassToken;
 
     useEffect(() => {
         if (passUuid) {
@@ -79,7 +80,7 @@ const PassContainer = () => {
 
                 <Link
                     className="hover:opacity-100"
-                    href="https://pay.google.com/gp/v/save/<signed_jwt>"
+                    href={`https://pay.google.com/gp/v/save/${googleWalletPassToken}`}
                     disableAnimation
                     isExternal
                 >
