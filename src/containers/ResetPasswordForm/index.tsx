@@ -22,6 +22,7 @@ const ResetPasswordForm = ({ setPasswordResetSuccessful }: ResetPasswordFormProp
     const { sendRequest, loadingRequest } = useRequest<ResetPasswordFormData>(
         '/member/reset-password',
         'POST',
+        undefined,
         () => setPasswordResetSuccessful(true)
     );
 

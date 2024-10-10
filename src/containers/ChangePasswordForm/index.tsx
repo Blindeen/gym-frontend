@@ -31,6 +31,7 @@ const ChangePasswordForm = ({ token, setChangePasswordSuccessful }: ChangePasswo
     const { sendRequest, loadingRequest } = useRequest<ChangePasswordData>(
         '/member/change-password',
         'PUT',
+        undefined,
         () => {
             setChangePasswordSuccessful(true);
             toast.success(t('passwordChangedSuccessfully'));
