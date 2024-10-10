@@ -45,7 +45,7 @@ const PassContainer = () => {
 
     return (
         <div className="flex flex-col items-center gap-y-16">
-            <div className="flip-card h-[250px] w-full rounded-lg md:w-[512px]">
+            <div className="flip-card h-[200px] w-full rounded-lg md:h-[250px] md:w-[512px]">
                 <div className="flip-card-inner rounded-lg shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
                     <div className="flip-card-front flex items-center justify-evenly rounded-lg bg-gradient-to-t from-primary to-secondary text-white">
                         <Image src={qrCodeDataURL} height="148px" width="148px" alt="Pass QRCode" />
@@ -62,8 +62,9 @@ const PassContainer = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex items-center gap-x-10">
+            <div className="flex flex-col items-center gap-10 md:flex-row">
                 <PDFDownloadLink
+                    className="w-full md:w-fit"
                     document={<Pass qrCodeDataURL={qrCodeDataURL} />}
                     fileName={t('pass')}
                 >
@@ -73,15 +74,15 @@ const PassContainer = () => {
                         size="lg"
                         startContent={<BsFillFileEarmarkPdfFill size="30px" />}
                         color="danger"
+                        fullWidth
                     >
                         {t('download')}
                     </Button>
                 </PDFDownloadLink>
 
                 <Link
-                    className="hover:opacity-100"
+                    className="h-[55px]"
                     href={`https://pay.google.com/gp/v/save/${googleWalletPassToken}`}
-                    disableAnimation
                     isExternal
                 >
                     <Image src={`/images/badges/add-to-google-wallet-${language}.svg`} />
