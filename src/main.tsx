@@ -6,7 +6,7 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 import App from '@/App.tsx';
-import ThemeProvider from '@providers/ThemeProvider';
+import ThemeProvider from '@/contexts/Theme';
 
 import '@/index.css';
 import '@/i18n.ts';

@@ -11,7 +11,7 @@ import PasswordInput from '@components/PasswordInput';
 import routes from '@/router/routes.ts';
 import useRequest from '@hooks/useRequest';
 import { AuthorizationResponse } from '@/types.ts';
-import { AuthContext } from '@/context';
+import { AuthContext } from '@/contexts/Auth';
 import { fieldClassNames, emailRegex } from '@/values';
 
 import { SignInFormData } from './types';

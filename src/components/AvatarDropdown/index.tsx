@@ -16,7 +16,7 @@ import { PiSignOutBold } from 'react-icons/pi';
 import { MdSpaceDashboard } from 'react-icons/md';
 
 import routes from '@/router/routes.ts';
-import { AuthContext } from '@/context';
+import { AuthContext } from '@/contexts/Auth';
 import { defaultStateValue } from '@/values.ts';
 import { base64ToSrc } from '@/utils';
 

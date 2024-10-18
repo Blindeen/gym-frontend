@@ -17,7 +17,7 @@ import PageRoute from './PageRoute';
 import PrivatePageRoute from './PrivatePageRoute';
 import routes from './routes';
 import { equals, notEquals } from './functions';
-import { AuthContext } from '@/context';
+import { AuthContext } from '@/contexts/Auth';
 import ContactPage from '@pages/ContactPage';
 import ProfilePage from '@pages/ProfilePage';
 

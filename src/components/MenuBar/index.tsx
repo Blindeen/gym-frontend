@@ -20,7 +20,7 @@ import LanguageSelect from '@components/LanguageSelect';
 import ThemeSwitcher from '@components/ThemeSwitcher';
 import SettingsModal from '@components/SettingsModal';
 
-import { AuthContext } from '@/context';
+import { AuthContext } from '@/contexts/Auth';
 import routes from '@/router/routes.ts';
 
 const MenuBar = () => {

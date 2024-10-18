@@ -15,7 +15,7 @@ import routes from '@/router/routes.ts';
 import useFetch from '@hooks/useFetch';
 import useRequest from '@hooks/useRequest';
 import { AuthorizationResponse } from '@/types.ts';
-import { AuthContext } from '@/context';
+import { AuthContext } from '@/contexts/Auth/index.tsx';
 import { areStringsEqual, isUserAdult } from '@/utils';
 import {
     emailRegex,

@@ -12,7 +12,7 @@ import DumbbellImage from '/images/dumbbell.png';
 
 import InfoTabs from '@/components/InfoTabs';
 
-import { AuthContext } from '@/context';
+import { AuthContext } from '@/contexts/Auth';
 import routes from '@/router/routes.ts';
 
 const LandingPage = () => {
@@ -88,12 +88,12 @@ const LandingPage = () => {
                         </motion.div>
                     </div>
                     <div>
-                    <div className="my-6 text-center text-xl">{t('ourPartners')}</div>
-                    <div className="flex flex-col items-center justify-between gap-5 md:flex-row md:gap-0">
-                        <SiNike title="Nike logo" size="120px" />
-                        <SiReebok title="Reebok logo" size="120px" />
-                        <CgAdidas title="Adidas logo" size="120px" />
-                        <SiPuma title="Puma logo" size="120px" />
+                        <div className="my-6 text-center text-xl">{t('ourPartners')}</div>
+                        <div className="flex flex-col items-center justify-between gap-5 md:flex-row md:gap-0">
+                            <SiNike title="Nike logo" size="120px" />
+                            <SiReebok title="Reebok logo" size="120px" />
+                            <CgAdidas title="Adidas logo" size="120px" />
+                            <SiPuma title="Puma logo" size="120px" />
                         </div>
                     </div>
                 </div>
