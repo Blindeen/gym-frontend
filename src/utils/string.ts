@@ -1,3 +1,5 @@
+import QRCode from 'qrcode';
+
 import { Image } from '@/types';
 
 export const areStringsEqual = (string1: string, string2: string) => string1 === string2;
@@ -19,4 +21,15 @@ export const base64ToFile = (image: Image | null) => {
     const byteArray = new Uint8Array(byteNumbers);
     const blob = new Blob([byteArray], { type: type });
     return new File([blob], name);
+};
+
+export const valueToPngQRCodeDataURL = async (value: string, size: number) => {
+    try {
+        const qrCodeDataURL = await QRCode.toDataURL(value, {
+            width: size,
+        });
+        return qrCodeDataURL;
+    } catch {
+        return '';
+    }
 };

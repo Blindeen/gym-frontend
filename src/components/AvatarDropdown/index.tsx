@@ -11,7 +11,7 @@ import {
     DropdownSection,
     DropdownTrigger,
 } from '@nextui-org/react';
-import { BsPersonFill } from 'react-icons/bs';
+import { BsPersonFill, BsPassFill } from 'react-icons/bs';
 import { PiSignOutBold } from 'react-icons/pi';
 import { MdSpaceDashboard } from 'react-icons/md';
 
@@ -104,6 +104,14 @@ const AvatarDropdown = () => {
                     onPress={() => navigate(routes.dashboard)}
                 >
                     {t('dashboard')}
+                </DropdownItem>
+                <DropdownItem
+                    key="pass"
+                    textValue="pass"
+                    startContent={<BsPassFill size="20px" />}
+                    onPress={() => navigate(routes.pass)}
+                >
+                    {t('pass')}
                 </DropdownItem>
                 <DropdownItem
                     key="logout"

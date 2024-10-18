@@ -9,6 +9,7 @@ import SignUpPage from '@pages/SignUpPage';
 import ConfirmAccountPage from '@pages/ConfirmAccountPage';
 import ResetPasswordPage from '@pages/ResetPasswordPage';
 import ChangePasswordPage from '@pages/ChangePasswordPage';
+import PassPage from '@pages/PassPage';
 
 import Layout from '@containers/Layout';
 
@@ -71,6 +72,17 @@ const Router = () => {
                             authorized={notEquals(role, 'GUEST')}
                         >
                             <ProfilePage />
+                        </PrivatePageRoute>
+                    }
+                />
+                <Route
+                    path={routes.pass}
+                    element={
+                        <PrivatePageRoute
+                            tabTranslationCode="pass"
+                            authorized={notEquals(role, 'GUEST')}
+                        >
+                            <PassPage />
                         </PrivatePageRoute>
                     }
                 />

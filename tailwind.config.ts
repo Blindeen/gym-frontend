@@ -15,6 +15,9 @@ module.exports = {
             backgroundImage: {
                 'radial-gradient': `radial-gradient(circle farthest-side at 100%, ${violentViolet} 38%, ${violet} 65%)`,
             },
+            fontFamily: {
+                handwriting: ['"Dancing Script"', 'cursive'],
+            },
         },
     },
     darkMode: 'class',
@@ -29,6 +32,8 @@ module.exports = {
                 },
                 dark: {
                     colors: {
+                        primary: oldBlueEyesIrises,
+                        secondary: pictonBlue,
                         foreground: white,
                         background: twitterDim,
                     },

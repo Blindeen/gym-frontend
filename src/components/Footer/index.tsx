@@ -66,7 +66,7 @@ const Footer = () => {
 
     return (
         <footer className="flex justify-center">
-            <div className="w-full max-w-[1280px] p-6 text-sm">
+            <div className="w-full p-6 text-sm lg:w-10/12">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 flex md:mb-0">
                         <Logo />
