@@ -13,7 +13,7 @@ import ImageInput from '@components/ImageInput';
 import useFetch from '@hooks/useFetch';
 import useRequest from '@hooks/useRequest';
 import { fieldClassNames, passwordRegex, phoneNumberRegex, postalCodeRegex } from '@/values';
-import { AuthContext } from '@/contexts/Auth';
+import { AuthContext } from '@/context/Auth';
 import { base64ToFile } from '@/utils';
 
 import { EditProfileFormData, EditProfileData } from './types';

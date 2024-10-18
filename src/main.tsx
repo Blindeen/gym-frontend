@@ -6,10 +6,10 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 import App from '@/App.tsx';
-import ThemeProvider from '@/contexts/Theme';
+import ThemeProvider from '@/context/Theme';
 
 import '@/index.css';
-import '@/i18n.ts';
+import '@/locale';
 
 dayjs.extend(customParseFormat);
 

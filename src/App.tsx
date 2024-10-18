@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { NextUIProvider } from '@nextui-org/react';
 import { Toaster } from 'react-hot-toast';
 
-import AuthSessionProvider from '@/contexts/Auth';
+import AuthSessionProvider from '@/context/Auth';
 import Router from '@/router';
-import { ThemeContext } from '@/contexts/Theme';
+import { ThemeContext } from '@/context/Theme';
 
 import colors from '@/colors.ts';
 import { darkModeClassName } from '@/values.ts';
