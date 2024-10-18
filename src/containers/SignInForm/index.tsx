@@ -33,7 +33,7 @@ const SignInForm = () => {
     const { t } = useTranslation();
 
     const { sendRequest, loadingRequest } = useRequest<SignInFormData, AuthorizationResponse>(
-        '/member/sign-in',
+        '/auth/sign-in',
         'POST',
         undefined,
         (data) => {

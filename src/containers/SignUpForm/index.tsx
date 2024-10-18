@@ -44,7 +44,7 @@ const SignUpForm = () => {
 
     const { data, isLoading } = useFetch<PrepareSignUpFormData>('/form/sign-up/prepare');
     const { sendRequest, loadingRequest } = useRequest<SignUpRequestData, AuthorizationResponse>(
-        '/member/sign-up',
+        '/auth/sign-up',
         'POST',
         undefined,
         (data) => {

@@ -17,12 +17,14 @@ type User = {
 export type State = {
     isLogged: boolean;
     user: User;
-    token: string;
+    accessToken: string;
+    refreshToken: string;
 };
 
 export type AuthorizationResponse = {
     user: User;
-    token: string;
+    accessToken: string;
+    refreshToken: string;
 };
 
 type Sort = {
