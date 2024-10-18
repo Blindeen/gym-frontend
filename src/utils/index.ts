@@ -12,3 +12,5 @@ export {
 } from '@/utils/string.ts';
 
 export { isUserAdult } from '@/utils/validators.ts';
+
+export { log } from '@/utils/logs.ts';

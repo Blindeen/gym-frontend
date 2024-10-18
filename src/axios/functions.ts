@@ -3,7 +3,7 @@ import axios, { AxiosError } from 'axios';
 import i18n from 'i18next';
 
 import { ResponseError } from '@/axios/types.ts';
-import { log } from '@/logs.ts';
+import { log } from '@/utils';
 
 export const handleError = (err: any) => {
     if (axios.isAxiosError(err)) {
