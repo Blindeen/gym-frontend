@@ -103,7 +103,8 @@
       "passwordChange": "Zmiana hasła",
       "contact": "Kontakt",
       "profile": "Profil",
-      "pass": "Karnet"
+      "pass": "Karnet",
+      "dashboard": "Panel"
     },
     "confirmPasswordIsRequired": "Potwierdzenie hasła jest wymagane",
     "enterNewPassword": "Wprowadź nowe hasło",

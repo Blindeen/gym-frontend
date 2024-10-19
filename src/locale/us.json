@@ -103,7 +103,8 @@
       "passwordChange": "Password change",
       "contact": "Contact",
       "profile": "Profile",
-      "pass": "Pass"
+      "pass": "Pass",
+      "dashboard": "Dashboard"
     },
     "confirmPasswordIsRequired": "Confirm password is required",
     "enterNewPassword": "Enter a new password",

@@ -10,16 +10,17 @@ import ConfirmAccountPage from '@pages/ConfirmAccountPage';
 import ResetPasswordPage from '@pages/ResetPasswordPage';
 import ChangePasswordPage from '@pages/ChangePasswordPage';
 import PassPage from '@pages/PassPage';
+import ContactPage from '@pages/ContactPage';
+import ProfilePage from '@pages/ProfilePage';
+import DashboardPage from '@pages/DashboardPage';
 
 import Layout from '@containers/Layout';
+import { AuthContext } from '@/context/Auth';
 
 import PageRoute from './PageRoute';
 import PrivatePageRoute from './PrivatePageRoute';
 import routes from './routes';
 import { equals, notEquals } from './functions';
-import { AuthContext } from '@/context/Auth';
-import ContactPage from '@pages/ContactPage';
-import ProfilePage from '@pages/ProfilePage';
 
 const Router = () => {
     const {
@@ -83,6 +84,17 @@ const Router = () => {
                             authorized={notEquals(role, 'GUEST')}
                         >
                             <PassPage />
+                        </PrivatePageRoute>
+                    }
+                />
+                <Route
+                    path={routes.dashboard}
+                    element={
+                        <PrivatePageRoute
+                            tabTranslationCode="dashboard"
+                            authorized={notEquals(role, 'GUEST')}
+                        >
+                            <DashboardPage />
                         </PrivatePageRoute>
                     }
                 />
