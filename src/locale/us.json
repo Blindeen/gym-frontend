@@ -130,6 +130,8 @@
     "newPassword": "New password",
     "profileHasBeenEdited": "Profile has been edited",
     "pass": "Pass",
-    "download": "Download"
+    "download": "Download",
+    "add": "Add",
+    "delete": "Delete"
   }
 }

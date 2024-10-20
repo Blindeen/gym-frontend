@@ -130,6 +130,8 @@
     "newPassword": "Nowe hasło",
     "profileHasBeenEdited": "Profil został edytowany",
     "pass": "Karnet",
-    "download": "Pobierz"
+    "download": "Pobierz",
+    "add": "Dodaj",
+    "delete": "Usuń"
   }
 }
