@@ -65,11 +65,6 @@ export type DayOfWeek =
     | 'Saturday'
     | 'Sunday';
 
-export type TrainerInfo = {
-    firstName: string;
-    lastName: string;
-};
-
 export type Pass = {
     id: number;
     name: string;
