@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { MergeAndOverride } from '@/types';
+import { MergeAndOverride, Pagination } from '@/types';
 
 type Column = {
     key: string;
@@ -21,11 +21,5 @@ export type CustomTableProps<T> = {
     columns: Column[];
     rows: Row<T>[];
     actionButtons?: ActionButton[];
-    pagination?: {
-        offset: number;
-        numberOfElements: number;
-        totalElements: number;
-        totalPages: number;
-        onChange: (page: number) => void;
-    };
+    pagination?: Pagination;
 };
