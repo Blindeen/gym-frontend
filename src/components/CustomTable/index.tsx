@@ -12,8 +12,9 @@ import {
     Button,
     Selection,
 } from '@nextui-org/react';
-import CustomPagination from '@components/CustomPagination';
+import { ImFilesEmpty } from 'react-icons/im';
 
+import CustomPagination from '@components/CustomPagination';
 import { CustomTableProps } from './types';
 
 const CustomTable = <T,>({ columns, rows, actionButtons, pagination }: CustomTableProps<T>) => {
@@ -42,7 +43,14 @@ const CustomTable = <T,>({ columns, rows, actionButtons, pagination }: CustomTab
                 <TableHeader columns={columns}>
                     {({ key, label }) => <TableColumn key={key}>{label}</TableColumn>}
                 </TableHeader>
-                <TableBody items={rows} emptyContent={t('noData')}>
+                <TableBody
+                    items={rows}
+                    emptyContent={
+                        <div className="flex items-center justify-center gap-x-3">
+                            {t('noData')} <ImFilesEmpty size="20px" />
+                        </div>
+                    }
+                >
                     {(item) => (
                         <TableRow key={item.id}>
                             {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
