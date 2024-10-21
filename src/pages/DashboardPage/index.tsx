@@ -1,10 +1,27 @@
+import { useContext } from 'react';
+
 import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
 import { useTranslation } from 'react-i18next';
 
+import TrainerDashboard from '@containers/dashboard/TrainerDashboard';
+
 import routes from '@/router/routes';
+import { AuthContext } from '@/context/Auth';
 
 const DashboardPage = () => {
+    const {
+        state: {
+            user: { role },
+        },
+    } = useContext(AuthContext);
     const { t } = useTranslation();
+
+    let dashboardContainer: JSX.Element | null = null;
+    if (role === 'CUSTOMER') {
+        dashboardContainer = null;
+    } else if (role === 'TRAINER') {
+        dashboardContainer = <TrainerDashboard />;
+    }
 
     return (
         <div className="mx-auto w-full p-6 lg:w-10/12">
@@ -13,6 +30,7 @@ const DashboardPage = () => {
                 <BreadcrumbItem>{t('dashboard')}</BreadcrumbItem>
             </Breadcrumbs>
             <h2 className="mb-6 mt-2">{t('dashboard')}</h2>
+            {dashboardContainer}
         </div>
     );
 };
