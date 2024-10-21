@@ -44,35 +44,35 @@ const rows = [
     },
 ];
 
-const columns = [
-    {
-        key: 'name',
-        label: 'NAME',
-    },
-    {
-        key: 'dayOfWeek',
-        label: 'DAY OF WEEK',
-    },
-    {
-        key: 'startTime',
-        label: 'START TIME',
-    },
-    {
-        key: 'durationMin',
-        label: 'DURATION',
-    },
-    {
-        key: 'room',
-        label: 'ROOM',
-    },
-    {
-        key: 'trainer',
-        label: 'TRAINER',
-    },
-];
-
 const TrainerDashboard = () => {
     const { t } = useTranslation();
+
+    const columns = [
+        {
+            key: 'name',
+            label: t('activityTableColumns.name'),
+        },
+        {
+            key: 'dayOfWeek',
+            label: t('activityTableColumns.dayOfWeek'),
+        },
+        {
+            key: 'startTime',
+            label: t('activityTableColumns.startTime'),
+        },
+        {
+            key: 'durationMin',
+            label: t('activityTableColumns.duration'),
+        },
+        {
+            key: 'room',
+            label: t('activityTableColumns.room'),
+        },
+        {
+            key: 'trainer',
+            label: t('activityTableColumns.trainer'),
+        },
+    ];
 
     const buttons: ActionButton[] = [
         {
