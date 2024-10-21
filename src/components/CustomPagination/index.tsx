@@ -19,9 +19,7 @@ const CustomPagination = ({
     return (
         <div className="flex items-center justify-between">
             <div>
-                {offset + 1} - {offset + numberOfElements}
-                {t('pagination.of')}
-                {totalElements}
+                {offset + 1} - {offset + numberOfElements} {t('pagination.of')} {totalElements}{' '}
                 {t('pagination.items')}
             </div>
             <Pagination
