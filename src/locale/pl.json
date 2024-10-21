@@ -141,6 +141,7 @@
       "duration": "CZAS TRWANIA",
       "room": "SALA",
       "trainer": "TRENER"
-    }
+    },
+    "name": "Nazwa"
   }
 }

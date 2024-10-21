@@ -1,48 +1,10 @@
 import { useTranslation } from 'react-i18next';
-import { FaPlus, FaPen, FaTrash } from 'react-icons/fa6';
+import { FaPen, FaPlus, FaTrash } from 'react-icons/fa6';
 
-import { Activity } from '@containers/types';
 import CustomTable from '@components/CustomTable';
 import { ActionButton } from '@components/CustomTable/types';
 
-const rows = [
-    {
-        id: 1,
-        name: 'Football',
-        dayOfWeek: 'Monday',
-        startTime: '08:30',
-        durationMin: 60,
-        room: 'A5',
-        trainer: 'Jakub Szmajda',
-    },
-    {
-        id: 2,
-        name: 'Basketball',
-        dayOfWeek: 'Tuesday',
-        startTime: '10:20',
-        durationMin: 60,
-        room: 'A5',
-        trainer: 'Jakub Szmajda',
-    },
-    {
-        id: 3,
-        name: 'Voleyball',
-        dayOfWeek: 'Wednesday',
-        startTime: '07:15',
-        durationMin: 60,
-        room: 'A5',
-        trainer: 'Jakub Szmajda',
-    },
-    {
-        id: 4,
-        name: 'Tennis',
-        dayOfWeek: 'Friday',
-        startTime: '15:25',
-        durationMin: 60,
-        room: 'A5',
-        trainer: 'Jakub Szmajda',
-    },
-];
+import { Activity } from '@containers/types';
 
 const TrainerDashboard = () => {
     const { t } = useTranslation();
@@ -98,7 +60,17 @@ const TrainerDashboard = () => {
         },
     ];
 
-    return <CustomTable<Activity> columns={columns} rows={rows} actionButtons={buttons} />;
+    return (
+        <div className="flex justify-center">
+            <div className="w-full md:w-3/4">
+                <CustomTable<Activity>
+                    columns={columns}
+                    url="/member/activities"
+                    actionButtons={buttons}
+                />
+            </div>
+        </div>
+    );
 };
 
 export default TrainerDashboard;

@@ -141,6 +141,7 @@
       "duration": "DURATION",
       "room": "ROOM",
       "trainer": "TRAINER"
-    }
+    },
+    "name": "Name"
   }
 }

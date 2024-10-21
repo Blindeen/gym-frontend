@@ -1,13 +1,11 @@
-import { ReactNode } from 'react';
+import { Key, ReactNode } from 'react';
 
-import { MergeAndOverride, Pagination } from '@/types';
+import { MergeAndOverride } from '@/types';
 
 type Column = {
     key: string;
     label: string;
 };
-
-type Row<T> = MergeAndOverride<T, { id: number }>;
 
 export type ActionButton = {
     children: string;
@@ -16,10 +14,9 @@ export type ActionButton = {
     onPress: () => void;
     alwaysEnabled: boolean;
 };
-
-export type CustomTableProps<T> = {
+export type IdentifiedItem<T> = MergeAndOverride<T, { id: Key }>;
+export type CustomTableProps = {
     columns: Column[];
-    rows: Row<T>[];
+    url: string;
     actionButtons?: ActionButton[];
-    pagination?: Pagination;
 };

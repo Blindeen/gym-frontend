@@ -1,28 +1,66 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { useTranslation } from 'react-i18next';
 import {
-    Table,
-    TableHeader,
-    TableColumn,
-    TableBody,
-    TableRow,
-    TableCell,
-    getKeyValue,
     Button,
+    Input,
     Selection,
+    Table,
+    TableBody,
+    TableCell,
+    TableColumn,
+    TableHeader,
+    TableRow,
+    getKeyValue,
 } from '@nextui-org/react';
+import { FaSearch } from 'react-icons/fa';
 import { ImFilesEmpty } from 'react-icons/im';
 
-import CustomPagination from '@components/CustomPagination';
-import { CustomTableProps } from './types';
+import { useTranslation } from 'react-i18next';
+import { useDebounce } from '@uidotdev/usehooks';
 
-const CustomTable = <T,>({ columns, rows, actionButtons, pagination }: CustomTableProps<T>) => {
+import { Page, Pagination } from '@/types';
+import CustomPagination from '@components/CustomPagination';
+import LoadingSpinner from '@components/LoadingSpinner';
+
+import useFetch from '@hooks/useFetch';
+import useSearchParams from '@hooks/useSearchParams';
+
+import { CustomTableProps, IdentifiedItem } from './types';
+
+const CustomTable = <T,>({ columns, url, actionButtons }: CustomTableProps) => {
     const [selectedKey, setSelectedKey] = useState<Selection>(new Set());
+    const [name, setName] = useState('');
 
     const { t } = useTranslation();
+    const debouncedName = useDebounce(name, 300);
+
+    const { searchParams, setSearchParams } = useSearchParams({
+        pageNumber: 1,
+        pageSize: 5,
+        name: '',
+    });
+    const { data, isLoading } = useFetch<Page<IdentifiedItem<T>>>(url, searchParams);
+
+    useEffect(() => {
+        setSearchParams((prevState) => ({ ...prevState, name: debouncedName }));
+    }, [debouncedName]);
 
     const buttonDisabled = selectedKey instanceof Set && selectedKey.size === 0;
+
+    let pagination: Pagination | undefined;
+    if (data) {
+        pagination = {
+            offset: data.pageable.offset,
+            numberOfElements: data.numberOfElements,
+            totalElements: data.totalElements,
+            totalPages: data.totalPages,
+            onChange: (page: number) =>
+                setSearchParams((prevState) => ({
+                    ...prevState,
+                    pageNumber: page,
+                })),
+        };
+    }
 
     return (
         <div className="flex flex-col gap-y-5">
@@ -33,23 +71,27 @@ const CustomTable = <T,>({ columns, rows, actionButtons, pagination }: CustomTab
                     </Button>
                 ))}
             </div>
+            <Input startContent={<FaSearch />} placeholder={t('name')} onChange={(e) => setName(e.target.value)} />
             <Table
                 aria-label="Custom table"
                 selectionMode="single"
                 selectedKeys={selectedKey}
-                onSelectionChange={(key) => setSelectedKey(key)}
+                onSelectionChange={setSelectedKey}
+                layout="fixed"
                 isStriped
             >
                 <TableHeader columns={columns}>
                     {({ key, label }) => <TableColumn key={key}>{label}</TableColumn>}
                 </TableHeader>
                 <TableBody
-                    items={rows}
+                    items={data?.content ?? []}
                     emptyContent={
                         <div className="flex items-center justify-center gap-x-3">
                             {t('noData')} <ImFilesEmpty size="20px" />
                         </div>
                     }
+                    loadingContent={<LoadingSpinner />}
+                    isLoading={isLoading}
                 >
                     {(item) => (
                         <TableRow key={item.id}>
