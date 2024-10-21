@@ -132,6 +132,15 @@
     "pass": "Karnet",
     "download": "Pobierz",
     "add": "Dodaj",
-    "delete": "Usuń"
+    "delete": "Usuń",
+    "noData": "Brak danych",
+    "activityTableColumns": {
+      "name": "NAZWA",
+      "dayOfWeek": "DZIEŃ TYGODNIA",
+      "startTime": "GODZINA ROZPOCZĘCIA",
+      "duration": "CZAS TRWANIA",
+      "room": "SALA",
+      "trainer": "TRENER"
+    }
   }
 }
