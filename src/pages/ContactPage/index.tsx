@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
 
-import ContactContainer from '@containers/ContactContainer';
+import ContactContainer from './components/ContactContainer';
 
 import routes from '@/router/routes';
 

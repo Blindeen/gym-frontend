@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
 
-import EditProfileForm from '@containers/EditProfileForm';
+import EditProfileForm from '@/features/profile/components/EditProfileForm';
 
 import routes from '@/router/routes';
 

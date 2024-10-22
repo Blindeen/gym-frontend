@@ -1,5 +1,5 @@
 import { Page } from '@/types.ts';
-import { Activity } from '@containers/types';
+import { Activity } from '@/features/types';
 
 export type ActivitiesProps = {
     url: string;

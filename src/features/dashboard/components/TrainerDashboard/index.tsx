@@ -4,7 +4,7 @@ import { FaPen, FaPlus, FaTrash } from 'react-icons/fa6';
 import CustomTable from '@components/CustomTable';
 import { ActionButton } from '@components/CustomTable/types';
 
-import { Activity } from '@containers/types';
+import { Activity } from '@/features/types';
 
 const TrainerDashboard = () => {
     const { t } = useTranslation();
