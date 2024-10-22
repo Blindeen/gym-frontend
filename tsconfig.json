@@ -26,17 +26,11 @@
       "@components/*": [
         "./src/components/*"
       ],
-      "@containers/*": [
-        "./src/containers/*"
-      ],
       "@pages/*": [
         "./src/pages/*"
       ],
       "@hooks/*": [
         "./src/hooks/*"
-      ],
-      "@providers/*": [
-        "./src/providers/*"
       ],
       "@/*": [
         "./src/*"
