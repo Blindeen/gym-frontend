@@ -5,7 +5,10 @@ import LoadingSpinner from '@components/LoadingSpinner';
 import useFetch from '@hooks/useFetch';
 import useSearchParams from '@hooks/useSearchParams';
 
-import { ActivitiesProps, ActivitiesPage } from '@containers/ActivitiesGrid/types';
+import {
+    ActivitiesProps,
+    ActivitiesPage,
+} from '@/features/activities/components/ActivitiesGrid/types';
 
 const Activities = ({ url }: ActivitiesProps) => {
     const { searchParams, setSearchParams } = useSearchParams({
