@@ -2,7 +2,7 @@ import toast from 'react-hot-toast';
 import axios, { AxiosError } from 'axios';
 import i18n from 'i18next';
 
-import { ResponseError } from '@/axios/types.ts';
+import { ResponseError } from '@/api/types';
 import { log } from '@/utils';
 
 export const handleError = (err: any) => {
@@ -12,9 +12,7 @@ export const handleError = (err: any) => {
             const {
                 data: { errors },
             } = response;
-            Object.entries(errors).forEach(([, info]) =>
-                info.forEach((desc) => toast.error(desc))
-            );
+            Object.entries(errors).forEach(([, info]) => info.forEach((desc) => toast.error(desc)));
         } else if (request) {
             log('error', message);
             toast.error(message);

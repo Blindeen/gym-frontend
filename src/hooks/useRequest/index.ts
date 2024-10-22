@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 
-import axiosClient from '@/axios';
-import { handleError } from '@/axios/functions';
+import axiosClient from '@/api';
+import { handleError } from '@/api/functions';
 import { RawAxiosRequestHeaders } from 'axios';
 
 const useRequest = <T = never, K = never>(

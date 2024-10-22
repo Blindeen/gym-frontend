@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import axios from '@/axios';
-import { handleError } from '@/axios/functions.ts';
+import axios from '@/api';
+import { handleError } from '@/api/functions';
 import { SearchParams } from '@/hooks/types.ts';
 
 const useFetch = <T>(
