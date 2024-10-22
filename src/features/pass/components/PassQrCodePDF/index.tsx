@@ -1,9 +1,11 @@
 import { Page, View, Document, Image } from '@react-pdf/renderer';
+import { styles } from './styles';
 
-import { PassProps } from './types';
-import { styles } from './values';
+type PassQrCodePdfProps = {
+    qrCodeDataURL: string;
+};
 
-const PassQrCodePDF = ({ qrCodeDataURL }: PassProps) => {
+const PassQrCodePDF = ({ qrCodeDataURL }: PassQrCodePdfProps) => {
     const { page, qrCodeImage } = styles;
 
     return (

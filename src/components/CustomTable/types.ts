@@ -14,7 +14,9 @@ export type ActionButton = {
     onPress: () => void;
     alwaysEnabled: boolean;
 };
+
 export type IdentifiedItem<T> = MergeAndOverride<T, { id: Key }>;
+
 export type CustomTableProps = {
     columns: Column[];
     url: string;

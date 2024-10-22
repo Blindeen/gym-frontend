@@ -4,7 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import PageRoute from '../PageRoute';
 import routes from '../Router/routes';
 
-import { PrivatePageRouteProps } from './types';
+import { MergeAndOverride } from '@/types';
+import { PageRouteProps } from '../types';
+
+type PrivatePageRouteProps = MergeAndOverride<
+    PageRouteProps,
+    { authorized: boolean; redirectTo?: string }
+>;
 
 const PrivatePageRoute = ({
     children,

@@ -1,9 +1,16 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, ReactNode, useEffect, useState } from 'react';
 
 import { getLocalStorageItem, setLocalStorageItem } from '@/utils';
 import { localStorageDarkModeKey, defaultDarkModeValue } from '@/values.ts';
 
-import { ThemeContextType, ThemeProviderProps } from '@/contexts/ThemeContext/types';
+type ThemeContextType = {
+    value: boolean;
+    toggle: () => void;
+};
+
+type ThemeProviderProps = {
+    children: ReactNode;
+};
 
 export const ThemeContext = createContext<ThemeContextType>({
     value: defaultDarkModeValue,

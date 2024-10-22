@@ -1,6 +1,9 @@
 import { AttributionControl, MapContainer, Marker, TileLayer } from 'react-leaflet';
+import { LatLngExpression } from 'leaflet';
 
-import { MapProps } from './types';
+type MapProps = {
+    location: LatLngExpression;
+}
 
 const Map = ({ location }: MapProps) => {
     return (

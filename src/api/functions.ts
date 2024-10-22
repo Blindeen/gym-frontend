@@ -2,8 +2,11 @@ import toast from 'react-hot-toast';
 import axios, { AxiosError } from 'axios';
 import i18n from 'i18next';
 
-import { ResponseError } from '@/api/types';
 import { log } from '@/utils';
+
+type ResponseError = {
+    errors: Record<string, string[]>;
+};
 
 export const handleError = (err: unknown) => {
     if (axios.isAxiosError(err)) {

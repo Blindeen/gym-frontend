@@ -1,6 +1,12 @@
 import { Card, CardBody, CardHeader, Image } from '@nextui-org/react';
 
-import { CustomCardProps } from './types';
+type CustomCardProps = {
+    title: string;
+    subtitle: string;
+    description: string;
+    imageSrc?: string;
+    isPressable?: boolean;
+};
 
 const CustomCard = ({
     title,
