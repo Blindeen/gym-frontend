@@ -11,7 +11,7 @@ import { Link } from '@nextui-org/link';
 
 import PasswordInput from '@components/PasswordInput';
 
-import routes from '@/router/routes.ts';
+import { routes } from '@/router';
 import useFetch from '@hooks/useFetch';
 import useRequest from '@hooks/useRequest';
 import { AuthorizationResponse } from '@/types.ts';

@@ -3,7 +3,7 @@ import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
 
 import ContactContainer from './components/ContactContainer';
 
-import routes from '@/router/routes';
+import { routes } from '@/router';
 
 const ContactPage = () => {
     const { t } = useTranslation();

@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import PageRoute from '../PageRoute';
-import routes from '../../routes';
+import routes from '../Router/routes';
+
 import { PrivatePageRouteProps } from './types';
 
 const PrivatePageRoute = ({

@@ -15,7 +15,7 @@ import { BsPersonFill, BsPassFill } from 'react-icons/bs';
 import { PiSignOutBold } from 'react-icons/pi';
 import { MdSpaceDashboard } from 'react-icons/md';
 
-import routes from '@/router/routes.ts';
+import { routes } from '@/router';
 import { AuthContext } from '@/contexts/AuthContext';
 import { defaultStateValue } from '@/values.ts';
 import { base64ToSrc } from '@/utils';

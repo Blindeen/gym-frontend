@@ -3,7 +3,7 @@ import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
 
 import { EditProfileForm } from '@/features/profile';
 
-import routes from '@/router/routes';
+import { routes } from '@/router';
 
 const ProfilePage = () => {
     const { t } = useTranslation();

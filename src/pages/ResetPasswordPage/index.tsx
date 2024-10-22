@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { ResetPasswordForm } from '@/features/authentication';
 
 import colors from '@/colors';
-import routes from '@/router/routes';
+import { routes } from '@/router';
 import ForgotPasswordImage from '/images/illustrations/forgot-password.svg';
 
 const ResetPasswordPage = () => {

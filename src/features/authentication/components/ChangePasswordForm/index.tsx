@@ -7,7 +7,7 @@ import { Button } from '@nextui-org/react';
 import PasswordInput from '@components/PasswordInput';
 import useRequest from '@hooks/useRequest';
 
-import routes from '@/router/routes';
+import { routes } from '@/router';
 import { areStringsEqual } from '@/utils';
 import { fieldClassNames, passwordRegex } from '@/values';
 

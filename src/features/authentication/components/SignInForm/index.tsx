@@ -8,7 +8,7 @@ import { Button, Input } from '@nextui-org/react';
 
 import PasswordInput from '@components/PasswordInput';
 
-import routes from '@/router/routes.ts';
+import { routes } from '@/router';
 import useRequest from '@hooks/useRequest';
 import { AuthorizationResponse } from '@/types.ts';
 import { AuthContext } from '@/contexts/AuthContext';

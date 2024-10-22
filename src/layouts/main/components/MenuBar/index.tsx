@@ -22,7 +22,7 @@ import ThemeSwitcher from '../ThemeSwitcher';
 import SettingsModal from '../SettingsModal';
 
 import { AuthContext } from '@/contexts/AuthContext';
-import routes from '@/router/routes.ts';
+import { routes } from '@/router';
 
 const MenuBar = () => {
     const { pathname } = useLocation();

@@ -7,7 +7,7 @@ import { FaXTwitter, FaYoutube, FaThreads } from 'react-icons/fa6';
 
 import Logo from '@components/Logo';
 
-import routes from '@/router/routes.ts';
+import { routes } from '@/router';
 
 const Footer = () => {
     const {

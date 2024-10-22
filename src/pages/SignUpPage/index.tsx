@@ -5,7 +5,7 @@ import { Divider } from '@nextui-org/divider';
 import { SignUpForm } from '@/features/authentication';
 import Logo from '@/components/Logo';
 
-import routes from '@/router/routes.ts';
+import { routes } from '@/router';
 import SignUpImage from '/images/illustrations/sign-up.svg';
 
 const SignUpPage = () => {

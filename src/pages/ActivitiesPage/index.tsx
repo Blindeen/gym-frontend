@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ActivitiesGrid } from '@/features/activities';
 
-import routes from '@/router/routes.ts';
+import { routes } from '@/router';
 
 const ActivitiesPage = () => {
     const { t } = useTranslation();

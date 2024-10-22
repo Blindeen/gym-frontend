@@ -3,7 +3,7 @@ import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
 
 import { PassContainer } from '@/features/pass';
 
-import routes from '@/router/routes';
+import { routes } from '@/router';
 
 const PassPage = () => {
     const { t } = useTranslation();
