@@ -5,7 +5,7 @@ import i18n from 'i18next';
 import { ResponseError } from '@/api/types';
 import { log } from '@/utils';
 
-export const handleError = (err: any) => {
+export const handleError = (err: unknown) => {
     if (axios.isAxiosError(err)) {
         const { response, request, message } = err as AxiosError<ResponseError>;
         if (response) {
