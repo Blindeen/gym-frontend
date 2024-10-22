@@ -15,10 +15,11 @@ import {
 } from '@nextui-org/react';
 
 import Logo from '@components/Logo';
-import AvatarDropdown from '@components/AvatarDropdown';
-import LanguageSelect from '@components/LanguageSelect';
-import ThemeSwitcher from '@components/ThemeSwitcher';
-import SettingsModal from '@components/SettingsModal';
+
+import AvatarDropdown from '../AvatarDropdown';
+import LanguageSelect from '../LanguageSelect';
+import ThemeSwitcher from '../ThemeSwitcher';
+import SettingsModal from '../SettingsModal';
 
 import { AuthContext } from '@/contexts/AuthContext';
 import routes from '@/router/routes.ts';

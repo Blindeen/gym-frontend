@@ -16,7 +16,7 @@ import DashboardPage from '@pages/DashboardPage';
 
 import { AuthContext } from '@/contexts/AuthContext';
 
-import Layout from './components/Layout';
+import { Layout } from '@/layouts/main';
 import PageRoute from './components/PageRoute';
 import PrivatePageRoute from './components/PrivatePageRoute';
 

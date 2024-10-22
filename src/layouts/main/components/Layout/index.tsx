@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
 import { Divider } from '@nextui-org/divider';
 
-import MenuBar from '@components/MenuBar';
-import Footer from '@components/Footer';
+import MenuBar from '@/layouts/main/components/MenuBar';
+import Footer from '@/layouts/main/components/Footer';
 
 const Layout = () => {
     return (

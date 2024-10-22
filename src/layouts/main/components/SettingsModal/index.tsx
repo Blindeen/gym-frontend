@@ -11,8 +11,8 @@ import {
 import { Divider } from '@nextui-org/divider';
 import { IoSettingsSharp } from 'react-icons/io5';
 
-import LanguageSelect from '@components/LanguageSelect';
-import ThemeSwitcher from '@components/ThemeSwitcher';
+import LanguageSelect from '../LanguageSelect';
+import ThemeSwitcher from '../ThemeSwitcher';
 
 const SettingsModal = () => {
     const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
