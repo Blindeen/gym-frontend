@@ -25,7 +25,7 @@ export const DEFAULT_DARK_MODE_VALUE = false;
 
 export const DARK_MODE_CLASS_NAME = 'dark';
 
-export const localStorageLanguageKey = 'language';
+export const LOCAL_STORAGE_LANGUAGE_KEY = 'language';
 
 export const DEFAULT_LANGUAGE = 'en';
 

@@ -5,9 +5,9 @@ import usTranslations from './us.json';
 import plTranslations from './pl.json';
 
 import { getLocalStorageItem } from '@/utils';
-import { DEFAULT_LANGUAGE, localStorageLanguageKey } from '@/constants';
+import { DEFAULT_LANGUAGE, LOCAL_STORAGE_LANGUAGE_KEY } from '@/constants';
 
-const lng = getLocalStorageItem(localStorageLanguageKey) || DEFAULT_LANGUAGE;
+const lng = getLocalStorageItem(LOCAL_STORAGE_LANGUAGE_KEY) || DEFAULT_LANGUAGE;
 
 await i18n.use(initReactI18next).init(
     {
