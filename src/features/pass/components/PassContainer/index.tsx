@@ -10,7 +10,7 @@ import Pass from '@components/pdf/Pass';
 import LoadingSpinner from '@components/LoadingSpinner';
 
 import useFetch from '@hooks/useFetch';
-import { AuthContext } from '@/context/Auth';
+import { AuthContext } from '@/contexts/AuthContext';
 import { valueToQRCodeDataURL } from '@/utils';
 
 import { PassBasics } from './types';

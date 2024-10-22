@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import TrainerDashboard from '@/features/dashboard/components/TrainerDashboard';
 
 import routes from '@/router/routes';
-import { AuthContext } from '@/context/Auth';
+import { AuthContext } from '@/contexts/AuthContext';
 
 const DashboardPage = () => {
     const {

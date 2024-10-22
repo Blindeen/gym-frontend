@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from 'react';
 import { getLocalStorageItem, setLocalStorageItem } from '@/utils';
 import { localStorageDarkModeKey, defaultDarkModeValue } from '@/values.ts';
 
-import { ThemeContextType, ThemeProviderProps } from '@/context/Theme/types';
+import { ThemeContextType, ThemeProviderProps } from '@/contexts/ThemeContext/types';
 
 export const ThemeContext = createContext<ThemeContextType>({
     value: defaultDarkModeValue,

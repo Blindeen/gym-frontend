@@ -14,7 +14,7 @@ import ContactPage from '@pages/ContactPage';
 import ProfilePage from '@pages/ProfilePage';
 import DashboardPage from '@pages/DashboardPage';
 
-import { AuthContext } from '@/context/Auth';
+import { AuthContext } from '@/contexts/AuthContext';
 
 import Layout from './components/Layout';
 import PageRoute from './components/PageRoute';

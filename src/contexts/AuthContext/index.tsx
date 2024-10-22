@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from 'react';
 import { getLocalStorageItem, setLocalStorageItem } from '@/utils';
 import { defaultStateValue, localStorageStateKey } from '@/values.ts';
 
-import { AuthContextType, AuthSessionProviderProps } from '@/context/Auth/types';
+import { AuthContextType, AuthSessionProviderProps } from '@/contexts/AuthContext/types';
 
 export const AuthContext = createContext<AuthContextType>({
     state: defaultStateValue,
