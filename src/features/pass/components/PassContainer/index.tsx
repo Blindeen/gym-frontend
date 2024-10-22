@@ -6,7 +6,7 @@ import { BsFillFileEarmarkPdfFill } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
 
 import Logo from '@components/Logo';
-import Pass from '@/features/pass/components/PassQrCodePDF';
+import PassQrCodePDF from '@/features/pass/components/PassQrCodePDF';
 import LoadingSpinner from '@components/LoadingSpinner';
 
 import useFetch from '@hooks/useFetch';
@@ -65,7 +65,7 @@ const PassContainer = () => {
             <div className="flex flex-col items-center gap-10 md:flex-row">
                 <PDFDownloadLink
                     className="w-full md:w-fit"
-                    document={<Pass qrCodeDataURL={qrCodeDataURL} />}
+                    document={<PassQrCodePDF qrCodeDataURL={qrCodeDataURL} />}
                     fileName={t('pass')}
                 >
                     <Button

@@ -1,7 +1,7 @@
 import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
 import { useTranslation } from 'react-i18next';
 
-import Activities from '@/features/activities/components/ActivitiesGrid';
+import ActivitiesGrid from '@/features/activities/components/ActivitiesGrid';
 
 import routes from '@/router/routes.ts';
 
@@ -15,7 +15,7 @@ const ActivitiesPage = () => {
                 <BreadcrumbItem>{t('activities')}</BreadcrumbItem>
             </Breadcrumbs>
             <h2 className="mb-6 mt-2">{t('activities')}</h2>
-            <Activities url="/activity/list" />
+            <ActivitiesGrid url="/activity/list" />
         </div>
     );
 };

@@ -3,7 +3,7 @@ import { Page, View, Document, Image } from '@react-pdf/renderer';
 import { PassProps } from './types';
 import { styles } from './values';
 
-const Pass = ({ qrCodeDataURL }: PassProps) => {
+const PassQrCodePDF = ({ qrCodeDataURL }: PassProps) => {
     const { page, qrCodeImage } = styles;
 
     return (
@@ -19,4 +19,4 @@ const Pass = ({ qrCodeDataURL }: PassProps) => {
     );
 };
 
-export default Pass;
+export default PassQrCodePDF;

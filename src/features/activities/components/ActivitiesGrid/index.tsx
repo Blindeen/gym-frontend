@@ -7,7 +7,7 @@ import useSearchParams from '@hooks/useSearchParams';
 
 import { ActivitiesProps, ActivitiesPage } from './types';
 
-const Activities = ({ url }: ActivitiesProps) => {
+const ActivitiesGrid = ({ url }: ActivitiesProps) => {
     const { searchParams, setSearchParams } = useSearchParams({
         pageNumber: 1,
         pageSize: 8,
@@ -55,4 +55,4 @@ const Activities = ({ url }: ActivitiesProps) => {
     );
 };
 
-export default Activities;
+export default ActivitiesGrid;
