@@ -13,7 +13,8 @@ export const defaultStateValue: State = {
             data: '',
         },
     },
-    token: '',
+    accessToken: '',
+    refreshToken: '',
 };
 
 export const localStorageStateKey = 'authState';

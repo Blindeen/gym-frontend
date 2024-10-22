@@ -56,15 +56,6 @@ export type Page<T> = {
     empty: boolean;
 };
 
-export type DayOfWeek =
-    | 'Monday'
-    | 'Tuesday'
-    | 'Wednesday'
-    | 'Thursday'
-    | 'Friday'
-    | 'Saturday'
-    | 'Sunday';
-
 export type Pass = {
     id: number;
     name: string;
