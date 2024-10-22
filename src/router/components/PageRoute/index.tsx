@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { PageRouteProps } from '../types';
+import { PageRouteProps } from './types';
 
 const PageRoute = ({ children, tabTranslationCode }: PageRouteProps) => {
     const {

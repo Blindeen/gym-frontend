@@ -1,6 +1,6 @@
 import { MergeAndOverride } from '@/types';
 
-import { PageRouteProps } from '../../types';
+import { PageRouteProps } from '../PageRoute/types';
 
 export type PrivatePageRouteProps = MergeAndOverride<
     PageRouteProps,

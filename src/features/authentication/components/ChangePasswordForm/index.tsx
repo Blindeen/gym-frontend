@@ -1,15 +1,15 @@
-import { Button } from '@nextui-org/react';
-import { Controller, useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '@nextui-org/react';
 
 import PasswordInput from '@components/PasswordInput';
+import useRequest from '@hooks/useRequest';
 
 import routes from '@/router/routes';
 import { areStringsEqual } from '@/utils';
 import { fieldClassNames, passwordRegex } from '@/values';
-import useRequest from '@hooks/useRequest';
 
 import { ChangePasswordData, ChangePasswordFormData, ChangePasswordFormProps } from './types';
 

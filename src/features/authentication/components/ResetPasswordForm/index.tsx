@@ -1,6 +1,6 @@
-import { Button, Input } from '@nextui-org/react';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { Button, Input } from '@nextui-org/react';
 
 import useRequest from '@hooks/useRequest';
 import { emailRegex, fieldClassNames } from '@/values';

@@ -14,11 +14,12 @@ import ContactPage from '@pages/ContactPage';
 import ProfilePage from '@pages/ProfilePage';
 import DashboardPage from '@pages/DashboardPage';
 
-import Layout from '@/router/components/Layout';
 import { AuthContext } from '@/context/Auth';
 
+import Layout from './components/Layout';
 import PageRoute from './components/PageRoute';
 import PrivatePageRoute from './components/PrivatePageRoute';
+
 import routes from './routes';
 import { equals, notEquals } from './functions';
 

@@ -1,4 +1,4 @@
-import { Page } from '@/types.ts';
+import { Page } from '@/types';
 import { Activity } from '@/features/types';
 
 export type ActivitiesProps = {
