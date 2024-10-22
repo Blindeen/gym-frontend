@@ -1,7 +1,7 @@
 import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
 import { useTranslation } from 'react-i18next';
 
-import ActivitiesGrid from '@/features/activities/components/ActivitiesGrid';
+import { ActivitiesGrid } from '@/features/activities';
 
 import routes from '@/router/routes.ts';
 

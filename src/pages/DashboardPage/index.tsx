@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
 import { useTranslation } from 'react-i18next';
 
-import TrainerDashboard from '@/features/dashboard/components/TrainerDashboard';
+import { TrainerDashboard } from '@/features/dashboard';
 
 import routes from '@/router/routes';
 import { AuthContext } from '@/contexts/AuthContext';
