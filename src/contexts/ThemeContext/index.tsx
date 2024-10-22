@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
 
 import { getLocalStorageItem, setLocalStorageItem } from '@/utils';
-import { localStorageDarkModeKey, defaultDarkModeValue } from '@/values.ts';
+import { LOCAL_STORAGE_DARK_MODE_KEY, DEFAULT_DARK_MODE_VALUE } from '@/constants';
 
 type ThemeContextType = {
     value: boolean;
@@ -13,13 +13,13 @@ type ThemeProviderProps = {
 };
 
 export const ThemeContext = createContext<ThemeContextType>({
-    value: defaultDarkModeValue,
+    value: DEFAULT_DARK_MODE_VALUE,
     toggle: () => {},
 });
 
 const ThemeProvider = ({ children }: ThemeProviderProps) => {
     const [value, setValue] = useState<boolean>(() => {
-        const value = getLocalStorageItem(localStorageDarkModeKey);
+        const value = getLocalStorageItem(LOCAL_STORAGE_DARK_MODE_KEY);
         const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
         return value ? JSON.parse(value) : darkThemeMq.matches;
     });
@@ -29,7 +29,7 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
     };
 
     useEffect(() => {
-        setLocalStorageItem(localStorageDarkModeKey, JSON.stringify(value));
+        setLocalStorageItem(LOCAL_STORAGE_DARK_MODE_KEY, JSON.stringify(value));
     }, [value]);
 
     return (

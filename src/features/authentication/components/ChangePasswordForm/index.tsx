@@ -9,7 +9,7 @@ import useRequest from '@hooks/useRequest';
 
 import { routes } from '@/router';
 import { areStringsEqual } from '@/utils';
-import { fieldClassNames, passwordRegex } from '@/values';
+import { FIELD_CLASS_NAMES, PASSWORD_REGEX } from '@/constants';
 
 import { ChangePasswordData, ChangePasswordFormData, ChangePasswordFormProps } from './types';
 
@@ -55,13 +55,13 @@ const ChangePasswordForm = ({ token, setChangePasswordSuccessful }: ChangePasswo
                 rules={{
                     required: t('passwordIsRequired'),
                     pattern: {
-                        value: passwordRegex,
+                        value: PASSWORD_REGEX,
                         message: t('passwordPatternIsInvalid'),
                     },
                 }}
                 render={({ field }) => (
                     <PasswordInput
-                        classNames={fieldClassNames}
+                        classNames={FIELD_CLASS_NAMES}
                         label={t('password')}
                         radius="lg"
                         size="sm"
@@ -84,7 +84,7 @@ const ChangePasswordForm = ({ token, setChangePasswordSuccessful }: ChangePasswo
                 }}
                 render={({ field }) => (
                     <PasswordInput
-                        classNames={fieldClassNames}
+                        classNames={FIELD_CLASS_NAMES}
                         label={t('confirmPassword')}
                         radius="lg"
                         size="sm"

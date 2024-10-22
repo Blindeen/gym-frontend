@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
 
 import { getLocalStorageItem, setLocalStorageItem } from '@/utils';
-import { defaultStateValue, localStorageStateKey } from '@/values.ts';
+import { DEFAULT_STATE_VALUE, LOCAL_STORAGE_STATE_KEY } from '@/constants';
 
 import { State } from '@/types';
 
@@ -15,18 +15,18 @@ type AuthSessionProviderProps = {
 };
 
 export const AuthContext = createContext<AuthContextType>({
-    state: defaultStateValue,
+    state: DEFAULT_STATE_VALUE,
     setState: () => {},
 });
 
 const AuthSessionProvider = ({ children }: AuthSessionProviderProps) => {
     const [state, setState] = useState(() => {
-        const savedState = getLocalStorageItem(localStorageStateKey);
-        return savedState ? JSON.parse(savedState) : defaultStateValue;
+        const savedState = getLocalStorageItem(LOCAL_STORAGE_STATE_KEY);
+        return savedState ? JSON.parse(savedState) : DEFAULT_STATE_VALUE;
     });
 
     useEffect(() => {
-        setLocalStorageItem(localStorageStateKey, JSON.stringify(state));
+        setLocalStorageItem(LOCAL_STORAGE_STATE_KEY, JSON.stringify(state));
     }, [state]);
 
     return <AuthContext.Provider value={{ state, setState }}>{children}</AuthContext.Provider>;

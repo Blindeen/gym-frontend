@@ -17,7 +17,7 @@ import { MdSpaceDashboard } from 'react-icons/md';
 
 import { routes } from '@/router';
 import { AuthContext } from '@/contexts/AuthContext';
-import { defaultStateValue } from '@/values.ts';
+import { DEFAULT_STATE_VALUE } from '@/constants';
 import { base64ToSrc } from '@/utils';
 
 const AvatarDropdown = () => {
@@ -32,7 +32,7 @@ const AvatarDropdown = () => {
     const { t } = useTranslation();
 
     const signOut = () => {
-        setState(defaultStateValue);
+        setState(DEFAULT_STATE_VALUE);
         toast.success(t('signedOutSuccessfully'));
         pathname !== routes.home &&
             navigate(routes.home, {

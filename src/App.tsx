@@ -10,7 +10,7 @@ import AuthSessionProvider from '@/contexts/AuthContext';
 import { ThemeContext } from '@/contexts/ThemeContext';
 
 import colors from '@/colors.ts';
-import { darkModeClassName } from '@/values.ts';
+import { DARK_MODE_CLASS_NAME } from '@/constants';
 
 const App = () => {
     const { value } = useContext(ThemeContext);
@@ -20,8 +20,8 @@ const App = () => {
 
     useEffect(() => {
         value
-            ? document.body.classList.add(darkModeClassName)
-            : document.body.classList.remove(darkModeClassName);
+            ? document.body.classList.add(DARK_MODE_CLASS_NAME)
+            : document.body.classList.remove(DARK_MODE_CLASS_NAME);
     }, [value]);
 
     return (

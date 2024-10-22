@@ -18,12 +18,12 @@ import { AuthorizationResponse } from '@/types.ts';
 import { AuthContext } from '@/contexts/AuthContext/index.tsx';
 import { areStringsEqual, isUserAdult } from '@/utils';
 import {
-    emailRegex,
-    fieldClassNames,
-    passwordRegex,
-    phoneNumberRegex,
-    postalCodeRegex,
-} from '@/values.ts';
+    EMAIL_REGEX,
+    FIELD_CLASS_NAMES,
+    PASSWORD_REGEX,
+    PHONE_NUMBER_REGEX,
+    POSTAL_CODE_REGEX,
+} from '@/constants.ts';
 
 import { SignUpFormData, PrepareSignUpFormData, SignUpRequestData } from './types.ts';
 import { defaultFormValues } from './values.ts';
@@ -80,7 +80,7 @@ const SignUpForm = () => {
                             rules={fieldBasicRules}
                             render={({ field }) => (
                                 <Input
-                                    classNames={fieldClassNames}
+                                    classNames={FIELD_CLASS_NAMES}
                                     type="text"
                                     label={t('firstName')}
                                     radius="lg"
@@ -98,7 +98,7 @@ const SignUpForm = () => {
                             rules={fieldBasicRules}
                             render={({ field }) => (
                                 <Input
-                                    classNames={fieldClassNames}
+                                    classNames={FIELD_CLASS_NAMES}
                                     type="text"
                                     label={t('lastName')}
                                     radius="lg"
@@ -120,7 +120,7 @@ const SignUpForm = () => {
                             }}
                             render={({ field }) => (
                                 <DatePicker
-                                    classNames={fieldClassNames}
+                                    classNames={FIELD_CLASS_NAMES}
                                     label={t('birthdate')}
                                     errorMessage={errors.birthdate?.message}
                                     {...field}
@@ -136,13 +136,13 @@ const SignUpForm = () => {
                             rules={{
                                 ...fieldBasicRules,
                                 pattern: {
-                                    value: emailRegex,
+                                    value: EMAIL_REGEX,
                                     message: t('emailPatternIsInvalid'),
                                 },
                             }}
                             render={({ field }) => (
                                 <Input
-                                    classNames={fieldClassNames}
+                                    classNames={FIELD_CLASS_NAMES}
                                     type="text"
                                     label="Email"
                                     radius="lg"
@@ -160,13 +160,13 @@ const SignUpForm = () => {
                             rules={{
                                 ...fieldBasicRules,
                                 pattern: {
-                                    value: passwordRegex,
+                                    value: PASSWORD_REGEX,
                                     message: t('passwordPatternIsInvalid'),
                                 },
                             }}
                             render={({ field }) => (
                                 <PasswordInput
-                                    classNames={fieldClassNames}
+                                    classNames={FIELD_CLASS_NAMES}
                                     label={t('password')}
                                     radius="lg"
                                     size="sm"
@@ -192,7 +192,7 @@ const SignUpForm = () => {
                             }}
                             render={({ field }) => (
                                 <PasswordInput
-                                    classNames={fieldClassNames}
+                                    classNames={FIELD_CLASS_NAMES}
                                     label={t('confirmPassword')}
                                     radius="lg"
                                     size="sm"
@@ -211,7 +211,7 @@ const SignUpForm = () => {
                             rules={fieldBasicRules}
                             render={({ field }) => (
                                 <Input
-                                    classNames={fieldClassNames}
+                                    classNames={FIELD_CLASS_NAMES}
                                     type="text"
                                     label={t('addressLine')}
                                     radius="lg"
@@ -229,7 +229,7 @@ const SignUpForm = () => {
                             rules={fieldBasicRules}
                             render={({ field }) => (
                                 <Input
-                                    classNames={fieldClassNames}
+                                    classNames={FIELD_CLASS_NAMES}
                                     type="text"
                                     label={t('city')}
                                     radius="lg"
@@ -247,13 +247,13 @@ const SignUpForm = () => {
                             rules={{
                                 ...fieldBasicRules,
                                 pattern: {
-                                    value: postalCodeRegex,
+                                    value: POSTAL_CODE_REGEX,
                                     message: t('postalCodePatternIsInvalid'),
                                 },
                             }}
                             render={({ field }) => (
                                 <Input
-                                    classNames={fieldClassNames}
+                                    classNames={FIELD_CLASS_NAMES}
                                     type="text"
                                     label={t('postalCode')}
                                     radius="lg"
@@ -271,13 +271,13 @@ const SignUpForm = () => {
                             rules={{
                                 ...fieldBasicRules,
                                 pattern: {
-                                    value: phoneNumberRegex,
+                                    value: PHONE_NUMBER_REGEX,
                                     message: t('phoneNumberPatternIsInvalid'),
                                 },
                             }}
                             render={({ field }) => (
                                 <Input
-                                    classNames={fieldClassNames}
+                                    classNames={FIELD_CLASS_NAMES}
                                     type="tel"
                                     label={t('phoneNumber')}
                                     radius="lg"
@@ -295,7 +295,7 @@ const SignUpForm = () => {
                             rules={fieldBasicRules}
                             render={({ field }) => (
                                 <Select
-                                    classNames={fieldClassNames}
+                                    classNames={FIELD_CLASS_NAMES}
                                     label={t('paymentMethod')}
                                     radius="lg"
                                     size="sm"
@@ -319,7 +319,7 @@ const SignUpForm = () => {
                             rules={fieldBasicRules}
                             render={({ field }) => (
                                 <Select
-                                    classNames={fieldClassNames}
+                                    classNames={FIELD_CLASS_NAMES}
                                     label={t('passType')}
                                     radius="lg"
                                     size="sm"

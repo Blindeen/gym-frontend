@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, Input } from '@nextui-org/react';
 
 import useRequest from '@hooks/useRequest';
-import { emailRegex, fieldClassNames } from '@/values';
+import { EMAIL_REGEX, FIELD_CLASS_NAMES } from '@/constants';
 
 import { ResetPasswordFormData, ResetPasswordFormProps } from './types';
 
@@ -36,13 +36,13 @@ const ResetPasswordForm = ({ setPasswordResetSuccessful }: ResetPasswordFormProp
                 rules={{
                     required: t('emailIsRequired'),
                     pattern: {
-                        value: emailRegex,
+                        value: EMAIL_REGEX,
                         message: t('emailPatternIsInvalid'),
                     },
                 }}
                 render={({ field }) => (
                     <Input
-                        classNames={fieldClassNames}
+                        classNames={FIELD_CLASS_NAMES}
                         type="text"
                         label="Email"
                         radius="lg"

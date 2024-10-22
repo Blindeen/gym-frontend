@@ -12,7 +12,12 @@ import ImageInput from '@components/ImageInput';
 
 import useFetch from '@hooks/useFetch';
 import useRequest from '@hooks/useRequest';
-import { fieldClassNames, passwordRegex, phoneNumberRegex, postalCodeRegex } from '@/values';
+import {
+    FIELD_CLASS_NAMES,
+    PASSWORD_REGEX,
+    PHONE_NUMBER_REGEX,
+    POSTAL_CODE_REGEX,
+} from '@/constants';
 import { AuthContext } from '@/contexts/AuthContext';
 import { base64ToFile } from '@/utils';
 
@@ -114,7 +119,7 @@ const EditProfileForm = () => {
                         rules={fieldBasicRules}
                         render={({ field }) => (
                             <Input
-                                classNames={fieldClassNames}
+                                classNames={FIELD_CLASS_NAMES}
                                 type="text"
                                 label={t('firstName')}
                                 radius="lg"
@@ -132,7 +137,7 @@ const EditProfileForm = () => {
                         rules={fieldBasicRules}
                         render={({ field }) => (
                             <Input
-                                classNames={fieldClassNames}
+                                classNames={FIELD_CLASS_NAMES}
                                 type="text"
                                 label={t('lastName')}
                                 radius="lg"
@@ -149,7 +154,7 @@ const EditProfileForm = () => {
                         name="birthdate"
                         render={({ field }) => (
                             <DatePicker
-                                classNames={fieldClassNames}
+                                classNames={FIELD_CLASS_NAMES}
                                 label={t('birthdate')}
                                 {...field}
                                 showMonthAndYearPickers
@@ -163,7 +168,7 @@ const EditProfileForm = () => {
                         name="email"
                         render={({ field }) => (
                             <Input
-                                classNames={fieldClassNames}
+                                classNames={FIELD_CLASS_NAMES}
                                 type="text"
                                 label="Email"
                                 radius="lg"
@@ -179,7 +184,7 @@ const EditProfileForm = () => {
                         name="password"
                         render={({ field }) => (
                             <PasswordInput
-                                classNames={fieldClassNames}
+                                classNames={FIELD_CLASS_NAMES}
                                 label={t('password')}
                                 radius="lg"
                                 size="sm"
@@ -195,13 +200,13 @@ const EditProfileForm = () => {
                         name="newPassword"
                         rules={{
                             pattern: {
-                                value: passwordRegex,
+                                value: PASSWORD_REGEX,
                                 message: t('passwordPatternIsInvalid'),
                             },
                         }}
                         render={({ field }) => (
                             <PasswordInput
-                                classNames={fieldClassNames}
+                                classNames={FIELD_CLASS_NAMES}
                                 label={t('newPassword')}
                                 radius="lg"
                                 size="sm"
@@ -223,7 +228,7 @@ const EditProfileForm = () => {
                         rules={fieldBasicRules}
                         render={({ field }) => (
                             <Input
-                                classNames={fieldClassNames}
+                                classNames={FIELD_CLASS_NAMES}
                                 type="text"
                                 label={t('addressLine')}
                                 radius="lg"
@@ -241,7 +246,7 @@ const EditProfileForm = () => {
                         rules={fieldBasicRules}
                         render={({ field }) => (
                             <Input
-                                classNames={fieldClassNames}
+                                classNames={FIELD_CLASS_NAMES}
                                 type="text"
                                 label={t('city')}
                                 radius="lg"
@@ -259,13 +264,13 @@ const EditProfileForm = () => {
                         rules={{
                             ...fieldBasicRules,
                             pattern: {
-                                value: postalCodeRegex,
+                                value: POSTAL_CODE_REGEX,
                                 message: t('postalCodePatternIsInvalid'),
                             },
                         }}
                         render={({ field }) => (
                             <Input
-                                classNames={fieldClassNames}
+                                classNames={FIELD_CLASS_NAMES}
                                 type="text"
                                 label={t('postalCode')}
                                 radius="lg"
@@ -283,13 +288,13 @@ const EditProfileForm = () => {
                         rules={{
                             ...fieldBasicRules,
                             pattern: {
-                                value: phoneNumberRegex,
+                                value: PHONE_NUMBER_REGEX,
                                 message: t('phoneNumberPatternIsInvalid'),
                             },
                         }}
                         render={({ field }) => (
                             <Input
-                                classNames={fieldClassNames}
+                                classNames={FIELD_CLASS_NAMES}
                                 type="tel"
                                 label={t('phoneNumber')}
                                 radius="lg"

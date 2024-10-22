@@ -12,7 +12,7 @@ import { routes } from '@/router';
 import useRequest from '@hooks/useRequest';
 import { AuthorizationResponse } from '@/types.ts';
 import { AuthContext } from '@/contexts/AuthContext';
-import { fieldClassNames, emailRegex } from '@/values';
+import { FIELD_CLASS_NAMES, EMAIL_REGEX } from '@/constants';
 
 import { SignInFormData } from './types';
 
@@ -57,13 +57,13 @@ const SignInForm = () => {
                     rules={{
                         required: t('emailIsRequired'),
                         pattern: {
-                            value: emailRegex,
+                            value: EMAIL_REGEX,
                             message: t('emailPatternIsInvalid'),
                         },
                     }}
                     render={({ field }) => (
                         <Input
-                            classNames={fieldClassNames}
+                            classNames={FIELD_CLASS_NAMES}
                             type="text"
                             label="Email"
                             radius="lg"
@@ -82,7 +82,7 @@ const SignInForm = () => {
                     }}
                     render={({ field }) => (
                         <PasswordInput
-                            classNames={fieldClassNames}
+                            classNames={FIELD_CLASS_NAMES}
                             label={t('password')}
                             radius="lg"
                             size="sm"
