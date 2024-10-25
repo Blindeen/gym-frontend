@@ -11,6 +11,9 @@ import DeleteActivityModal from '@/features/activities/components/DeleteActivity
 import { Activity } from '@/features/types';
 
 import useSearchParams from '@hooks/useSearchParams';
+import useFetch from '@hooks/useFetch';
+
+import { Page } from '@/types';
 
 const TrainerDashboard = () => {
     const [selectedActivityId, setSelectedActivityId] = useState<Key>();
@@ -27,6 +30,7 @@ const TrainerDashboard = () => {
         pageSize: 5,
         name: '',
     });
+    const { data, isLoading } = useFetch<Page<Activity>>('/member/activities', searchParams);
 
     const columns = [
         {
@@ -85,17 +89,21 @@ const TrainerDashboard = () => {
                 <div className="w-full md:w-3/4">
                     <CustomTable<Activity>
                         columns={columns}
-                        url="/member/activities"
-                        searchParams={searchParams}
+                        data={data}
                         actionButtons={buttons}
                         selectedKey={selectedActivityId}
-                        onRowSelection={(rowId) => setSelectedActivityId(rowId)}
+                        onRowSelection={setSelectedActivityId}
                         onPageChange={(page) =>
                             setSearchParams((prevState) => ({ ...prevState, pageNumber: page }))
                         }
                         onSearch={(search) =>
-                            setSearchParams((prevState) => ({ ...prevState, name: search }))
+                            setSearchParams((prevState) => ({
+                                ...prevState,
+                                name: search,
+                                pageNumber: 1,
+                            }))
                         }
+                        isLoading={isLoading}
                     />
                 </div>
             </div>

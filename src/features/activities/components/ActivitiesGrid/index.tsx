@@ -48,7 +48,7 @@ const ActivitiesGrid = ({ url }: ActivitiesProps) => {
                     numberOfElements={data.numberOfElements}
                     totalElements={data.totalElements}
                     totalPages={data.totalPages}
-                    onChange={handlePageChange}
+                    onPageChange={handlePageChange}
                 />
             )}
         </>

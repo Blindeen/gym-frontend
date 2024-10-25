@@ -17,49 +17,45 @@ import { ImFilesEmpty } from 'react-icons/im';
 import { useTranslation } from 'react-i18next';
 import { useDebounce } from '@uidotdev/usehooks';
 
-import { Page } from '@/types';
 import CustomPagination from '@components/CustomPagination';
 import LoadingSpinner from '@components/LoadingSpinner';
 
-import useFetch from '@hooks/useFetch';
-
-import { CustomTableProps, IdentifiedItem } from './types';
+import { CustomTableProps } from './types';
 
 const CustomTable = <T,>({
     columns,
-    url,
-    searchParams,
+    data,
     actionButtons,
     selectedKey,
     onRowSelection,
     onPageChange,
     onSearch,
-}: CustomTableProps) => {
+    isLoading,
+}: CustomTableProps<T>) => {
     const [name, setName] = useState('');
 
-    const { t } = useTranslation();
     const debouncedName = useDebounce(name, 300);
+    const { t } = useTranslation();
 
-    const { data, isLoading } = useFetch<Page<IdentifiedItem<T>>>(url, searchParams);
-
-    useEffect(() => onSearch(debouncedName), [debouncedName]);
+    useEffect(() => onSearch?.(debouncedName), [debouncedName]);
 
     const buttonDisabled = selectedKey === undefined;
 
     const pagination = useMemo(() => {
         if (data) {
             const {
-                pageable: { offset },
+                pageable: { pageNumber, offset },
                 numberOfElements,
                 totalElements,
                 totalPages,
             } = data;
             return {
+                pageNumber,
                 offset,
                 numberOfElements,
                 totalElements,
                 totalPages,
-                onChange: onPageChange,
+                onPageChange,
             };
         }
 
@@ -75,11 +71,13 @@ const CustomTable = <T,>({
                     </Button>
                 ))}
             </div>
-            <Input
-                startContent={<FaSearch />}
-                placeholder={t('name')}
-                onChange={(e) => setName(e.target.value)}
-            />
+            {onSearch && (
+                <Input
+                    startContent={<FaSearch />}
+                    placeholder={t('name')}
+                    onChange={(e) => setName(e.target.value)}
+                />
+            )}
             <Table
                 aria-label="Custom table"
                 selectionMode="single"

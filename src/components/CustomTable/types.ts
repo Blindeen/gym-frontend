@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { MergeAndOverride } from '@/types';
+import { MergeAndOverride, Page } from '@/types';
 
 type Column = {
     key: string;
@@ -17,15 +17,15 @@ export type ActionButton = {
 
 export type Key = string | number;
 
-export type IdentifiedItem<T> = MergeAndOverride<T, { id: Key }>;
+type Row<T> = MergeAndOverride<T, { id: Key }>;
 
-export type CustomTableProps = {
+export type CustomTableProps<T> = {
     columns: Column[];
-    url: string;
-    searchParams: Record<string, string | number>;
+    data?: Page<Row<T>>;
     actionButtons?: ActionButton[];
-    selectedKey?: number | string;
+    selectedKey?: Key;
     onRowSelection?: (rowId?: Key) => void;
     onPageChange: (page: number) => void;
-    onSearch: (search: string) => void;
+    onSearch?: (search: string) => void;
+    isLoading: boolean;
 };

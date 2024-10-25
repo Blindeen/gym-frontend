@@ -69,11 +69,3 @@ export type PaymentMethod = {
 };
 
 export type MergeAndOverride<T, K> = Omit<T, keyof K> & K;
-
-export type Pagination = {
-    offset: number;
-    numberOfElements: number;
-    totalElements: number;
-    totalPages: number;
-    onChange: (page: number) => void;
-};
