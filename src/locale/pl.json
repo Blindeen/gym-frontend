@@ -136,9 +136,9 @@
     "noData": "Brak danych",
     "activityTableColumns": {
       "name": "NAZWA",
-      "dayOfWeek": "DZIEŃ TYGODNIA",
-      "startTime": "GODZINA ROZPOCZĘCIA",
-      "duration": "CZAS TRWANIA",
+      "dayOfWeek": "DZIEŃ",
+      "startTime": "GODZINA",
+      "duration": "CZAS",
       "room": "SALA",
       "trainer": "TRENER"
     },

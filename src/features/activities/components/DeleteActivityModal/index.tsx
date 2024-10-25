@@ -15,8 +15,8 @@ import useRequest from '@hooks/useRequest';
 
 type DeleteActivityModalProps = {
     activityId?: Key;
-    onClose?: () => void;
-    isOpen?: boolean;
+    onClose: () => void;
+    isOpen: boolean;
 };
 
 const DeleteActivityModal = ({ activityId, onClose, isOpen }: DeleteActivityModalProps) => {
@@ -28,7 +28,7 @@ const DeleteActivityModal = ({ activityId, onClose, isOpen }: DeleteActivityModa
         undefined,
         () => {
             toast.success(t('deleteActivityModal.success'));
-            onClose && onClose();
+            onClose();
         }
     );
 
