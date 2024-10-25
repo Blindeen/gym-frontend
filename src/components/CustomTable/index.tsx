@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import {
     Button,
@@ -18,7 +18,7 @@ import { ImFilesEmpty } from 'react-icons/im';
 import { useTranslation } from 'react-i18next';
 import { useDebounce } from '@uidotdev/usehooks';
 
-import { Page, Pagination } from '@/types';
+import { Page } from '@/types';
 import CustomPagination from '@components/CustomPagination';
 import LoadingSpinner from '@components/LoadingSpinner';
 
@@ -47,20 +47,29 @@ const CustomTable = <T,>({ columns, url, actionButtons }: CustomTableProps) => {
 
     const buttonDisabled = selectedKey instanceof Set && selectedKey.size === 0;
 
-    let pagination: Pagination | undefined;
-    if (data) {
-        pagination = {
-            offset: data.pageable.offset,
-            numberOfElements: data.numberOfElements,
-            totalElements: data.totalElements,
-            totalPages: data.totalPages,
-            onChange: (page: number) =>
-                setSearchParams((prevState) => ({
-                    ...prevState,
-                    pageNumber: page,
-                })),
-        };
-    }
+    const pagination = useMemo(() => {
+        if (data) {
+            const {
+                pageable: { offset },
+                numberOfElements,
+                totalElements,
+                totalPages,
+            } = data;
+            return {
+                offset,
+                numberOfElements,
+                totalElements,
+                totalPages,
+                onChange: (page: number) =>
+                    setSearchParams((prevState) => ({
+                        ...prevState,
+                        pageNumber: page,
+                    })),
+            };
+        }
+
+        return undefined;
+    }, [data]);
 
     return (
         <div className="flex flex-col gap-y-5">
@@ -71,7 +80,11 @@ const CustomTable = <T,>({ columns, url, actionButtons }: CustomTableProps) => {
                     </Button>
                 ))}
             </div>
-            <Input startContent={<FaSearch />} placeholder={t('name')} onChange={(e) => setName(e.target.value)} />
+            <Input
+                startContent={<FaSearch />}
+                placeholder={t('name')}
+                onChange={(e) => setName(e.target.value)}
+            />
             <Table
                 aria-label="Custom table"
                 selectionMode="single"
