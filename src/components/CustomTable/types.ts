@@ -21,4 +21,5 @@ export type CustomTableProps = {
     columns: Column[];
     url: string;
     actionButtons?: ActionButton[];
+    onRowSelection?: (rowId?: Key) => void;
 };

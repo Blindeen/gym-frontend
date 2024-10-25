@@ -27,7 +27,7 @@ import useSearchParams from '@hooks/useSearchParams';
 
 import { CustomTableProps, IdentifiedItem } from './types';
 
-const CustomTable = <T,>({ columns, url, actionButtons }: CustomTableProps) => {
+const CustomTable = <T,>({ columns, url, actionButtons, onRowSelection }: CustomTableProps) => {
     const [selectedKey, setSelectedKey] = useState<Selection>(new Set());
     const [name, setName] = useState('');
 
@@ -89,9 +89,13 @@ const CustomTable = <T,>({ columns, url, actionButtons }: CustomTableProps) => {
                 aria-label="Custom table"
                 selectionMode="single"
                 selectedKeys={selectedKey}
-                onSelectionChange={setSelectedKey}
+                onSelectionChange={(keys) => {
+                    if (onRowSelection && keys instanceof Set) {
+                        onRowSelection(keys.values().next().value);
+                    }
+                    setSelectedKey(keys);
+                }}
                 layout="fixed"
-                isStriped
             >
                 <TableHeader columns={columns}>
                     {({ key, label }) => <TableColumn key={key}>{label}</TableColumn>}
