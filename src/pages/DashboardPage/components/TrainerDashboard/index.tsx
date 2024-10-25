@@ -1,13 +1,24 @@
+import { Key, useState } from 'react';
+
 import { useTranslation } from 'react-i18next';
+import { useDisclosure } from '@nextui-org/react';
 import { FaPen, FaPlus, FaTrash } from 'react-icons/fa6';
 
 import CustomTable from '@components/CustomTable';
 import { ActionButton } from '@components/CustomTable/types';
 
+import DeleteActivityModal from '@/features/activities/components/DeleteActivityModal';
 import { Activity } from '@/features/types';
 
 const TrainerDashboard = () => {
+    const [selectedActivityId, setSelectedActivityId] = useState<Key>();
+
     const { t } = useTranslation();
+    const {
+        isOpen: isDeleteModalOpen,
+        onOpen: onDeleteModalOpen,
+        onClose: onDeleteModalClose,
+    } = useDisclosure();
 
     const columns = [
         {
@@ -55,21 +66,29 @@ const TrainerDashboard = () => {
             children: t('delete'),
             startContent: <FaTrash />,
             color: 'danger',
-            onPress: () => console.log('deleted'),
+            onPress: () => onDeleteModalOpen(),
             alwaysEnabled: false,
         },
     ];
 
     return (
-        <div className="flex justify-center">
-            <div className="w-full md:w-3/4">
-                <CustomTable<Activity>
-                    columns={columns}
-                    url="/member/activities"
-                    actionButtons={buttons}
-                />
+        <>
+            <div className="flex justify-center">
+                <div className="w-full md:w-3/4">
+                    <CustomTable<Activity>
+                        columns={columns}
+                        url="/member/activities"
+                        actionButtons={buttons}
+                        onRowSelection={(rowId) => setSelectedActivityId(rowId)}
+                    />
+                </div>
             </div>
-        </div>
+            <DeleteActivityModal
+                activityId={selectedActivityId}
+                isOpen={isDeleteModalOpen}
+                onClose={onDeleteModalClose}
+            />
+        </>
     );
 };
 
