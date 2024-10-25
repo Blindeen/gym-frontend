@@ -4,7 +4,8 @@ import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { MdOutlinePublishedWithChanges } from 'react-icons/md';
 
-import ChangePasswordForm from '@containers/ChangePasswordForm';
+import { ChangePasswordForm } from '@/features/authentication';
+
 import Logo from '@components/Logo';
 
 import colors from '@/colors';

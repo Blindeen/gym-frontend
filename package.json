@@ -16,6 +16,7 @@
     "@nextui-org/react": "^2.4.1",
     "@react-pdf/renderer": "^4.0.0",
     "@types/qrcode": "^1.5.5",
+    "@uidotdev/usehooks": "^2.4.1",
     "axios": "^1.7.2",
     "dayjs": "^1.11.13",
     "flag-icons": "^7.2.3",

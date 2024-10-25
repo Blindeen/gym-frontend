@@ -10,10 +10,10 @@ import { CgAdidas } from 'react-icons/cg';
 import PersonalTraining from '/images/illustrations/personal-training.svg?url';
 import DumbbellImage from '/images/dumbbell.png';
 
-import InfoTabs from '@/components/InfoTabs';
+import InfoTabs from './components/InfoTabs';
 
-import { AuthContext } from '@/context/Auth';
-import routes from '@/router/routes.ts';
+import { AuthContext } from '@/contexts/AuthContext';
+import { routes } from '@/router';
 
 const LandingPage = () => {
     const {

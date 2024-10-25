@@ -1,11 +1,9 @@
 import { useState, forwardRef } from 'react';
 
-import { Input } from '@nextui-org/react';
+import { Input, InputProps } from '@nextui-org/react';
 import { LuEye, LuEyeOff } from 'react-icons/lu';
 
-import { PasswordInputProps } from './types';
-
-const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>((props, ref) => {
+const PasswordInput = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     const [passwordVisible, setPasswordVisible] = useState(false);
 
     return (

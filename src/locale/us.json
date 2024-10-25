@@ -43,7 +43,7 @@
     },
     "password": "Password",
     "forgotPassword": "Forgot password",
-    "doNotHaveAccount": "Doesn't have an account",
+    "doNotHaveAccount": "Don't have an account",
     "signUpHere": "Sign up here",
     "signedInSuccessfully": "Signed in successfully",
     "signedOutSuccessfully": "Signed out successfully",
@@ -103,7 +103,8 @@
       "passwordChange": "Password change",
       "contact": "Contact",
       "profile": "Profile",
-      "pass": "Pass"
+      "pass": "Pass",
+      "dashboard": "Dashboard"
     },
     "confirmPasswordIsRequired": "Confirm password is required",
     "enterNewPassword": "Enter a new password",
@@ -129,6 +130,18 @@
     "newPassword": "New password",
     "profileHasBeenEdited": "Profile has been edited",
     "pass": "Pass",
-    "download": "Download"
+    "download": "Download",
+    "add": "Add",
+    "delete": "Delete",
+    "noData": "No data",
+    "activityTableColumns": {
+      "name": "NAME",
+      "dayOfWeek": "DAY OF WEEK",
+      "startTime": "START TIME",
+      "duration": "DURATION",
+      "room": "ROOM",
+      "trainer": "TRAINER"
+    },
+    "name": "Name"
   }
 }

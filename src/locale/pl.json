@@ -103,7 +103,8 @@
       "passwordChange": "Zmiana hasła",
       "contact": "Kontakt",
       "profile": "Profil",
-      "pass": "Karnet"
+      "pass": "Karnet",
+      "dashboard": "Panel"
     },
     "confirmPasswordIsRequired": "Potwierdzenie hasła jest wymagane",
     "enterNewPassword": "Wprowadź nowe hasło",
@@ -129,6 +130,18 @@
     "newPassword": "Nowe hasło",
     "profileHasBeenEdited": "Profil został edytowany",
     "pass": "Karnet",
-    "download": "Pobierz"
+    "download": "Pobierz",
+    "add": "Dodaj",
+    "delete": "Usuń",
+    "noData": "Brak danych",
+    "activityTableColumns": {
+      "name": "NAZWA",
+      "dayOfWeek": "DZIEŃ TYGODNIA",
+      "startTime": "GODZINA ROZPOCZĘCIA",
+      "duration": "CZAS TRWANIA",
+      "room": "SALA",
+      "trainer": "TRENER"
+    },
+    "name": "Nazwa"
   }
 }

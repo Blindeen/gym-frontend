@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { Button, Image } from '@nextui-org/react';
 
 import useRequest from '@/hooks/useRequest';
-import routes from '@/router/routes';
+import { routes } from '@/router';
+
 import ConfirmAccountImage from '/images/illustrations/confirm-account.svg';
 
 import { ConfirmAccountRequestData } from './types';

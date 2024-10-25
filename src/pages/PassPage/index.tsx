@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
 
-import PassContainer from '@containers/PassContainer';
+import { PassContainer } from '@/features/pass';
 
-import routes from '@/router/routes';
+import { routes } from '@/router';
 
 const PassPage = () => {
     const { t } = useTranslation();

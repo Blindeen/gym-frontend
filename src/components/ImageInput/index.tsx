@@ -1,7 +1,19 @@
-import { ChangeEvent, forwardRef, useCallback, useEffect, useState } from 'react';
+import {
+    ChangeEvent,
+    ChangeEventHandler,
+    forwardRef,
+    useCallback,
+    useEffect,
+    useState,
+} from 'react';
 import { Avatar } from '@nextui-org/react';
 
-import { ImageInputProps } from './types';
+type ImageInputProps = {
+    name?: string;
+    src: File | null;
+    fallback?: string;
+    onChange?: ChangeEventHandler<HTMLInputElement>;
+};
 
 const ImageInput = forwardRef<HTMLInputElement, ImageInputProps>(
     ({ name, src, fallback, onChange }, ref) => {

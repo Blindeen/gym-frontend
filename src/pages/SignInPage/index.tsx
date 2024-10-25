@@ -3,9 +3,9 @@ import { Image, Link } from '@nextui-org/react';
 import { Divider } from '@nextui-org/divider';
 
 import Logo from '@/components/Logo';
-import SignInForm from '@containers/SignInForm';
+import { SignInForm } from '@/features/authentication';
 
-import routes from '@/router/routes.ts';
+import { routes } from '@/router';
 import LoginImage from '/images/illustrations/login.svg';
 
 const SignInPage = () => {

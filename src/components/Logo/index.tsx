@@ -1,9 +1,13 @@
 import { useCallback } from 'react';
-
 import { useNavigate, useLocation } from 'react-router-dom';
 
-import { LogoProps } from './types';
-import routes from '@/router/routes.ts';
+import { routes } from '@/router';
+
+type LogoProps = {
+    clickable?: boolean;
+    size?: 'sm' | 'md' | 'lg';
+    onPress?: () => void;
+};
 
 const Logo = ({ clickable = true, size = 'md', onPress }: LogoProps) => {
     const navigate = useNavigate();
