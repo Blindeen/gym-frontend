@@ -12,13 +12,13 @@ const useRequest = <T = never, K = never>(
 ) => {
     const [loadingRequest, setLoadingRequest] = useState(false);
 
-    const sendRequest = useCallback(async (data: T) => {
+    const sendRequest = useCallback(async (requestData?: T) => {
         setLoadingRequest(true);
         try {
             const { data: responseData } = await axiosClient<K>({
                 url,
                 method,
-                data,
+                data: requestData,
                 headers,
             });
 
@@ -28,7 +28,7 @@ const useRequest = <T = never, K = never>(
         } finally {
             setLoadingRequest(false);
         }
-    }, []);
+    }, [url]);
 
     return { sendRequest, loadingRequest };
 };
