@@ -7,8 +7,7 @@ import { FaPen, FaPlus, FaTrash } from 'react-icons/fa6';
 import CustomTable from '@components/CustomTable';
 import { ActionButton, Key } from '@components/CustomTable/types';
 
-import DeleteActivityModal from '@/features/activities/components/DeleteActivityModal';
-import { Activity } from '@/features/types';
+import { DeleteActivityModal, Activity } from '@/features/activities';
 
 import useSearchParams from '@hooks/useSearchParams';
 import useFetch from '@hooks/useFetch';

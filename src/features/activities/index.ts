@@ -1,3 +1,8 @@
 import ActivitiesGrid from './components/ActivitiesGrid';
+import DeleteActivityModal from './components/DeleteActivityModal';
 
-export { ActivitiesGrid };
+import { Activity } from './types';
+
+export { ActivitiesGrid, DeleteActivityModal };
+
+export type { Activity };
