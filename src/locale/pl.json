@@ -146,7 +146,8 @@
     "cancel": "Anuluj",
     "deleteActivityModal": {
       "header": "Usuwanie aktywności",
-      "body": "Czy jesteś pewien, że chcesz usunąć tą aktywność?"
+      "body": "Czy jesteś pewien, że chcesz usunąć tą aktywność?",
+      "success": "Aktywność została usunięta pomyślnie"
     }
   }
 }

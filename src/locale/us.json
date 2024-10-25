@@ -146,7 +146,8 @@
     "cancel": "Cancel",
     "deleteActivityModal": {
       "header": "Deletion of the activity",
-      "body": "Are you sure, that you want to delete this activtiy?"
+      "body": "Are you sure, that you want to delete this activtiy?",
+      "success": "Activity has been deleted successfully"
     }
   }
 }

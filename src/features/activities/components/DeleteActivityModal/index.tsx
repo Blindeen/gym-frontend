@@ -9,6 +9,8 @@ import {
     ModalHeader,
 } from '@nextui-org/react';
 import { useTranslation } from 'react-i18next';
+import toast from 'react-hot-toast';
+
 import useRequest from '@hooks/useRequest';
 
 type DeleteActivityModalProps = {
@@ -20,7 +22,15 @@ type DeleteActivityModalProps = {
 const DeleteActivityModal = ({ activityId, onClose, isOpen }: DeleteActivityModalProps) => {
     const { t } = useTranslation();
 
-    const { sendRequest, loadingRequest } = useRequest(`/activity/${activityId}/delete`, 'DELETE');
+    const { sendRequest, loadingRequest } = useRequest(
+        `/activity/${activityId}/delete`,
+        'DELETE',
+        undefined,
+        () => {
+            toast.success(t('deleteActivityModal.success'));
+            onClose && onClose();
+        }
+    );
 
     return (
         <Modal placement="center" onClose={onClose} isOpen={isOpen}>
@@ -37,10 +47,7 @@ const DeleteActivityModal = ({ activityId, onClose, isOpen }: DeleteActivityModa
                             </Button>
                             <Button
                                 color="danger"
-                                onPress={async () => {
-                                    await sendRequest();
-                                    onClose();
-                                }}
+                                onPress={async () => await sendRequest()}
                                 isLoading={loadingRequest}
                             >
                                 {t('delete')}
