@@ -3,7 +3,6 @@ import { useEffect, useMemo, useState } from 'react';
 import {
     Button,
     Input,
-    Selection,
     Table,
     TableBody,
     TableCell,
@@ -23,29 +22,29 @@ import CustomPagination from '@components/CustomPagination';
 import LoadingSpinner from '@components/LoadingSpinner';
 
 import useFetch from '@hooks/useFetch';
-import useSearchParams from '@hooks/useSearchParams';
 
 import { CustomTableProps, IdentifiedItem } from './types';
 
-const CustomTable = <T,>({ columns, url, actionButtons, onRowSelection }: CustomTableProps) => {
-    const [selectedKey, setSelectedKey] = useState<Selection>(new Set());
+const CustomTable = <T,>({
+    columns,
+    url,
+    searchParams,
+    actionButtons,
+    selectedKey,
+    onRowSelection,
+    onPageChange,
+    onSearch,
+}: CustomTableProps) => {
     const [name, setName] = useState('');
 
     const { t } = useTranslation();
     const debouncedName = useDebounce(name, 300);
 
-    const { searchParams, setSearchParams } = useSearchParams({
-        pageNumber: 1,
-        pageSize: 5,
-        name: '',
-    });
     const { data, isLoading } = useFetch<Page<IdentifiedItem<T>>>(url, searchParams);
 
-    useEffect(() => {
-        setSearchParams((prevState) => ({ ...prevState, name: debouncedName }));
-    }, [debouncedName]);
+    useEffect(() => onSearch(debouncedName), [debouncedName]);
 
-    const buttonDisabled = selectedKey instanceof Set && selectedKey.size === 0;
+    const buttonDisabled = selectedKey === undefined;
 
     const pagination = useMemo(() => {
         if (data) {
@@ -60,11 +59,7 @@ const CustomTable = <T,>({ columns, url, actionButtons, onRowSelection }: Custom
                 numberOfElements,
                 totalElements,
                 totalPages,
-                onChange: (page: number) =>
-                    setSearchParams((prevState) => ({
-                        ...prevState,
-                        pageNumber: page,
-                    })),
+                onChange: onPageChange,
             };
         }
 
@@ -88,12 +83,11 @@ const CustomTable = <T,>({ columns, url, actionButtons, onRowSelection }: Custom
             <Table
                 aria-label="Custom table"
                 selectionMode="single"
-                selectedKeys={selectedKey}
+                selectedKeys={new Set(selectedKey ? [selectedKey] : [])}
                 onSelectionChange={(keys) => {
-                    if (onRowSelection && keys instanceof Set) {
-                        onRowSelection(keys.values().next().value);
+                    if (keys instanceof Set) {
+                        onRowSelection?.(keys.values().next().value);
                     }
-                    setSelectedKey(keys);
                 }}
                 layout="fixed"
             >

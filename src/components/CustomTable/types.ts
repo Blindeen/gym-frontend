@@ -1,4 +1,4 @@
-import { Key, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 import { MergeAndOverride } from '@/types';
 
@@ -15,11 +15,17 @@ export type ActionButton = {
     alwaysEnabled: boolean;
 };
 
+export type Key = string | number;
+
 export type IdentifiedItem<T> = MergeAndOverride<T, { id: Key }>;
 
 export type CustomTableProps = {
     columns: Column[];
     url: string;
+    searchParams: Record<string, string | number>;
     actionButtons?: ActionButton[];
+    selectedKey?: number | string;
     onRowSelection?: (rowId?: Key) => void;
+    onPageChange: (page: number) => void;
+    onSearch: (search: string) => void;
 };

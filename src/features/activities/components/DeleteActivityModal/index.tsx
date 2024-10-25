@@ -16,10 +16,16 @@ import useRequest from '@hooks/useRequest';
 type DeleteActivityModalProps = {
     activityId?: Key;
     onClose: () => void;
+    onDeleted?: () => void;
     isOpen: boolean;
 };
 
-const DeleteActivityModal = ({ activityId, onClose, isOpen }: DeleteActivityModalProps) => {
+const DeleteActivityModal = ({
+    activityId,
+    onClose,
+    onDeleted,
+    isOpen,
+}: DeleteActivityModalProps) => {
     const { t } = useTranslation();
 
     const { sendRequest, loadingRequest } = useRequest(
@@ -28,6 +34,7 @@ const DeleteActivityModal = ({ activityId, onClose, isOpen }: DeleteActivityModa
         undefined,
         () => {
             toast.success(t('deleteActivityModal.success'));
+            onDeleted?.();
             onClose();
         }
     );
