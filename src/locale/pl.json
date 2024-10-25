@@ -142,6 +142,11 @@
       "room": "SALA",
       "trainer": "TRENER"
     },
-    "name": "Nazwa"
+    "name": "Nazwa",
+    "cancel": "Anuluj",
+    "deleteActivityModal": {
+      "header": "Usuwanie aktywności",
+      "body": "Czy jesteś pewien, że chcesz usunąć tą aktywność?"
+    }
   }
 }
