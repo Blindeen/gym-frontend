@@ -44,6 +44,7 @@ const ActivitiesGrid = ({ url }: ActivitiesProps) => {
             </div>
             {data && (
                 <CustomPagination
+                    pageNumber={data.pageable.pageNumber}
                     offset={data.pageable.offset}
                     numberOfElements={data.numberOfElements}
                     totalElements={data.totalElements}

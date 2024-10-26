@@ -4,6 +4,9 @@ export type Activity = {
     dayOfWeek: string;
     startTime: string;
     durationMin: number;
-    room: string;
+    room: {
+        id: number;
+        name: string;
+    };
     trainer: string;
 };
