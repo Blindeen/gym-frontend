@@ -9,7 +9,6 @@ import {
     TableColumn,
     TableHeader,
     TableRow,
-    getKeyValue,
 } from '@nextui-org/react';
 import { FaSearch } from 'react-icons/fa';
 import { ImFilesEmpty } from 'react-icons/im';
@@ -20,6 +19,7 @@ import { useDebounce } from '@uidotdev/usehooks';
 import CustomPagination from '@components/CustomPagination';
 import LoadingSpinner from '@components/LoadingSpinner';
 
+import { getNestedKeyValue } from './helpers';
 import { CustomTableProps } from './types';
 
 const CustomTable = <T,>({
@@ -104,7 +104,9 @@ const CustomTable = <T,>({
                 >
                     {(item) => (
                         <TableRow key={item.id}>
-                            {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
+                            {(columnKey) => (
+                                <TableCell>{getNestedKeyValue(item, columnKey)}</TableCell>
+                            )}
                         </TableRow>
                     )}
                 </TableBody>
