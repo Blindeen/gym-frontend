@@ -31,11 +31,11 @@ const ActivitiesGrid = ({ url }: ActivitiesProps) => {
                 )}
                 {!isLoading && data && (
                     <div className="grid h-[660px] w-full grid-cols-2 grid-rows-4 gap-4 md:h-[700px] md:w-7/12 lg:h-[425px] lg:w-[850px] lg:grid-cols-4 lg:grid-rows-2">
-                        {data.content.map(({ id, name, startTime, dayOfWeek }, idx) => (
+                        {data.content.map(({ id, name, startTime, dayOfWeek: { label } }, idx) => (
                             <CustomCard
                                 key={`${id}-${idx}`}
                                 title={name}
-                                subtitle={dayOfWeek}
+                                subtitle={label}
                                 description={startTime}
                             />
                         ))}

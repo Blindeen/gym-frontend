@@ -1,9 +1,12 @@
 export type Activity = {
     id: number;
     name: string;
-    dayOfWeek: string;
+    dayOfWeek: {
+        label: string;
+        value: string;
+    };
     startTime: string;
-    durationMin: number;
+    durationMin: string;
     room: {
         id: number;
         name: string;
