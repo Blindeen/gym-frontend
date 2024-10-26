@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import toast from 'react-hot-toast';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -19,13 +21,13 @@ import useFetch from '@hooks/useFetch';
 import useRequest from '@hooks/useRequest';
 import { FIELD_CLASS_NAMES } from '@/constants';
 
+import { timeFromString } from './helpers';
 import {
     AddEditActivityFormData,
     AddEditActivityModalProps,
     AddEditActivityRequestData,
     PrepareAddEditActivityFormData,
 } from './types';
-import { useEffect } from 'react';
 
 const AddEditActivityModal = ({
     activity,
@@ -51,12 +53,19 @@ const AddEditActivityModal = ({
 
     useEffect(() => {
         if (activity) {
+            const {
+                name,
+                dayOfWeek: { value },
+                startTime,
+                durationMin,
+                room: { id },
+            } = activity;
             reset({
-                name: '',
-                dayOfWeek: '',
-                startTime: '',
-                durationMin: '',
-                roomId: '',
+                name,
+                dayOfWeek: value,
+                startTime: timeFromString(startTime),
+                durationMin: durationMin,
+                roomId: id.toString(),
             });
         }
     }, [activity]);
@@ -149,6 +158,7 @@ const AddEditActivityModal = ({
                                     radius="lg"
                                     size="sm"
                                     errorMessage={errors.dayOfWeek?.message}
+                                    selectedKeys={[field.value]}
                                     {...field}
                                     isInvalid={!!errors.dayOfWeek}
                                 >
@@ -201,6 +211,7 @@ const AddEditActivityModal = ({
                                     radius="lg"
                                     size="sm"
                                     errorMessage={errors.roomId?.message}
+                                    selectedKeys={[field.value]}
                                     {...field}
                                     isInvalid={!!errors.roomId}
                                 >

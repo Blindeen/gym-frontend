@@ -42,7 +42,7 @@ const TrainerDashboard = () => {
             label: t('activityTableColumns.name'),
         },
         {
-            key: 'dayOfWeek',
+            key: 'dayOfWeek.label',
             label: t('activityTableColumns.dayOfWeek'),
         },
         {
