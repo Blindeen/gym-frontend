@@ -104,9 +104,7 @@ const CustomTable = <T,>({
                 >
                     {(item) => (
                         <TableRow key={item.id}>
-                            {(columnKey) => (
-                                <TableCell>{getNestedKeyValue(item, columnKey)}</TableCell>
-                            )}
+                            {(columnKey) => <TableCell>{getNestedKeyValue(item, columnKey)}</TableCell>}
                         </TableRow>
                     )}
                 </TableBody>
