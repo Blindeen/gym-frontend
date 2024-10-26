@@ -7,7 +7,7 @@ import { FaPen, FaPlus, FaTrash } from 'react-icons/fa6';
 import CustomTable from '@components/CustomTable';
 import { ActionButton, Key } from '@components/CustomTable/types';
 
-import { DeleteActivityModal, Activity } from '@/features/activities';
+import { DeleteActivityModal, Activity, AddEditActivityModal } from '@/features/activities';
 
 import useSearchParams from '@hooks/useSearchParams';
 import useFetch from '@hooks/useFetch';
@@ -22,6 +22,11 @@ const TrainerDashboard = () => {
         isOpen: isDeleteModalOpen,
         onOpen: onDeleteModalOpen,
         onClose: onDeleteModalClose,
+    } = useDisclosure();
+    const {
+        isOpen: isAddEditModalOpen,
+        onOpen: onAddEditModalOpen,
+        onClose: onAddEditModalClose,
     } = useDisclosure();
 
     const { searchParams, setSearchParams } = useSearchParams({
@@ -49,7 +54,7 @@ const TrainerDashboard = () => {
             label: t('activityTableColumns.duration'),
         },
         {
-            key: 'room',
+            key: 'room.name',
             label: t('activityTableColumns.room'),
         },
         {
@@ -63,14 +68,14 @@ const TrainerDashboard = () => {
             children: t('add'),
             startContent: <FaPlus />,
             color: 'primary',
-            onPress: () => console.log('added'),
+            onPress: () => onAddEditModalOpen(),
             alwaysEnabled: true,
         },
         {
             children: t('edit'),
             startContent: <FaPen />,
             color: 'warning',
-            onPress: () => console.log('edited'),
+            onPress: () => onAddEditModalOpen(),
             alwaysEnabled: false,
         },
         {
@@ -114,6 +119,14 @@ const TrainerDashboard = () => {
                     setSearchParams((prevState) => ({ ...prevState, pageNumber: 1 }));
                 }}
                 isOpen={isDeleteModalOpen}
+            />
+            <AddEditActivityModal
+                activity={data?.content.find((activity) => activity.id == selectedActivityId)}
+                onClose={onAddEditModalClose}
+                onAddEditSuccess={() =>
+                    setSearchParams((prevState) => ({ ...prevState, pageNumber: 1 }))
+                }
+                isOpen={isAddEditModalOpen}
             />
         </>
     );
