@@ -148,6 +148,18 @@
       "header": "Usuwanie aktywności",
       "body": "Czy jesteś pewien, że chcesz usunąć tą aktywność?",
       "success": "Aktywność została usunięta pomyślnie"
+    },
+    "addEditActivityModal": {
+      "addHeader": "Dodaj aktywność",
+      "editHeader": "Edytuj aktywność",
+      "name": "Nazwa",
+      "dayOfWeek": "Dzień tygodnia",
+      "startTime": "Godzina rozpoczęcia",
+      "duration": "Czas trwania",
+      "room": "Sala",
+      "save": "Zapisz",
+      "createSuccess": "Aktywność została dodana pomyślnie",
+      "updateSuccess": "Aktywność została zaktualizowana pomyślnie"
     }
   }
 }
