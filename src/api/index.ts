@@ -11,9 +11,14 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use((config) => {
-    const accessToken = JSON.parse(getLocalStorageItem('authState')).accessToken;
-    config.headers.Authorization = `Bearer ${accessToken}`;
+    const authState = getLocalStorageItem('authState');
+    if (authState) {
+        const authStateJSON = JSON.parse(authState);
+        const accessToken = authStateJSON.accessToken;
+        accessToken && (config.headers.Authorization = `Bearer ${accessToken}`);
+    }
     config.headers['Accept-Language'] = i18n.language;
+
     return config;
 });
 
