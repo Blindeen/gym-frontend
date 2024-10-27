@@ -217,7 +217,7 @@ const AddEditActivityModal = ({
                         />
                     </ModalBody>
                     <ModalFooter>
-                        <Button type="submit" color="primary">
+                        <Button className="text-white" type="submit" color="primary">
                             {t('addEditActivityModal.save')}
                         </Button>
                         <Button color="default" onPress={onClose}>

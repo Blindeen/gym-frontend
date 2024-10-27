@@ -34,7 +34,10 @@ const TrainerDashboard = () => {
         pageSize: 5,
         name: '',
     });
-    const { data, isLoading } = useFetch<Page<Activity>>('/members/activities', searchParams);
+    const { data, isLoading, fetchData } = useFetch<Page<Activity>>(
+        '/members/activities',
+        searchParams
+    );
 
     const columns = [
         {
@@ -101,16 +104,18 @@ const TrainerDashboard = () => {
                         actionButtons={buttons}
                         selectedKey={selectedActivityId}
                         onRowSelection={setSelectedActivityId}
-                        onPageChange={(page) =>
-                            setSearchParams((prevState) => ({ ...prevState, pageNumber: page }))
-                        }
-                        onSearch={(search) =>
+                        onPageChange={(page) => {
+                            setSelectedActivityId(undefined);
+                            setSearchParams((prevState) => ({ ...prevState, pageNumber: page }));
+                        }}
+                        onSearch={(search) => {
+                            setSelectedActivityId(undefined);
                             setSearchParams((prevState) => ({
                                 ...prevState,
                                 name: search,
                                 pageNumber: 1,
-                            }))
-                        }
+                            }));
+                        }}
                         isLoading={isLoading}
                     />
                 </div>
@@ -128,10 +133,11 @@ const TrainerDashboard = () => {
                 activity={data?.content.find(
                     (activity) => activity.id === Number(selectedActivityId)
                 )}
-                onClose={() => onAddEditModalClose()}
-                onAddEditSuccess={() =>
-                    setSearchParams((prevState) => ({ ...prevState, pageNumber: 1 }))
-                }
+                onClose={onAddEditModalClose}
+                onAddEditSuccess={async () => {
+                    await fetchData();
+                    setSelectedActivityId(undefined);
+                }}
                 isOpen={isAddEditModalOpen}
             />
         </>
