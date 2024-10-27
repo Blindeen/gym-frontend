@@ -66,6 +66,7 @@ const TrainerDashboard = () => {
     const buttons: ActionButton[] = [
         {
             children: t('add'),
+            className: 'text-white',
             startContent: <FaPlus />,
             color: 'primary',
             onPress: () => {

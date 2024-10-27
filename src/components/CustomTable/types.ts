@@ -9,6 +9,7 @@ type Column = {
 
 export type ActionButton = {
     children: string;
+    className?: string;
     startContent: ReactNode;
     color: 'primary' | 'success' | 'warning' | 'danger';
     onPress: () => void;
