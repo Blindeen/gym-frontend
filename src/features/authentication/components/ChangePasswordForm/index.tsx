@@ -29,7 +29,7 @@ const ChangePasswordForm = ({ token, setChangePasswordSuccessful }: ChangePasswo
     const navigate = useNavigate();
 
     const { sendRequest, loadingRequest } = useRequest<ChangePasswordData>(
-        '/members/change-password',
+        '/members/password/change',
         'PUT',
         undefined,
         () => {

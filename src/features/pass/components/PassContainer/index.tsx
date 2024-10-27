@@ -27,7 +27,7 @@ const PassContainer = () => {
         i18n: { language },
         t,
     } = useTranslation();
-    const { data, isLoading } = useFetch<PassBasics>('/members/pass-basics');
+    const { data, isLoading } = useFetch<PassBasics>('/members/pass');
 
     const passName = data?.name;
     const passUuid = data?.uuid;

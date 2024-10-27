@@ -52,7 +52,7 @@ const EditProfileForm = () => {
         }
     );
     const { sendRequest, loadingRequest } = useRequest<FormData, EditProfileData>(
-        '/members/update',
+        '/members/profile',
         'PUT',
         { 'Content-Type': 'multipart/form-data' },
         (data) => {
