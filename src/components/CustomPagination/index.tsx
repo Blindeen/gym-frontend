@@ -31,6 +31,7 @@ const CustomPagination = ({
                 {t('pagination.items')}
             </div>
             <Pagination
+                classNames={{ cursor: 'text-white' }}
                 page={pageNumber + 1}
                 total={totalPages}
                 onChange={onPageChange}
