@@ -38,7 +38,7 @@ const EditProfileForm = () => {
     const { t } = useTranslation();
 
     const { isLoading } = useFetch<EditProfileData>(
-        '/form/edit-profile/prepare',
+        '/forms/edit-profile',
         undefined,
         (data) => {
             const { birthdate, profilePicture, ...rest } = data;
@@ -52,7 +52,7 @@ const EditProfileForm = () => {
         }
     );
     const { sendRequest, loadingRequest } = useRequest<FormData, EditProfileData>(
-        '/member/update',
+        '/members/update',
         'PUT',
         { 'Content-Type': 'multipart/form-data' },
         (data) => {

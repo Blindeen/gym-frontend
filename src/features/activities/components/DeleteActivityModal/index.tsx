@@ -29,7 +29,7 @@ const DeleteActivityModal = ({
     const { t } = useTranslation();
 
     const { sendRequest, loadingRequest } = useRequest(
-        `/activity/${activityId}/delete`,
+        `/activities/${activityId}`,
         'DELETE',
         undefined,
         () => {

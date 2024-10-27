@@ -34,7 +34,7 @@ const TrainerDashboard = () => {
         pageSize: 5,
         name: '',
     });
-    const { data, isLoading } = useFetch<Page<Activity>>('/member/activities', searchParams);
+    const { data, isLoading } = useFetch<Page<Activity>>('/members/activities', searchParams);
 
     const columns = [
         {
@@ -68,7 +68,10 @@ const TrainerDashboard = () => {
             children: t('add'),
             startContent: <FaPlus />,
             color: 'primary',
-            onPress: () => onAddEditModalOpen(),
+            onPress: () => {
+                setSelectedActivityId(undefined);
+                onAddEditModalOpen();
+            },
             alwaysEnabled: true,
         },
         {
@@ -121,8 +124,10 @@ const TrainerDashboard = () => {
                 isOpen={isDeleteModalOpen}
             />
             <AddEditActivityModal
-                activity={data?.content.find((activity) => activity.id == selectedActivityId)}
-                onClose={onAddEditModalClose}
+                activity={data?.content.find(
+                    (activity) => activity.id === Number(selectedActivityId)
+                )}
+                onClose={() => onAddEditModalClose()}
                 onAddEditSuccess={() =>
                     setSearchParams((prevState) => ({ ...prevState, pageNumber: 1 }))
                 }

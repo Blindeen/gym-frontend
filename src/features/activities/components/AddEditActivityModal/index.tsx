@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 
 import toast from 'react-hot-toast';
 import { useForm, Controller } from 'react-hook-form';
@@ -22,6 +22,7 @@ import useRequest from '@hooks/useRequest';
 import { FIELD_CLASS_NAMES } from '@/constants';
 
 import { timeFromString } from './helpers';
+import { defaultValues } from './values';
 import {
     AddEditActivityFormData,
     AddEditActivityModalProps,
@@ -40,16 +41,29 @@ const AddEditActivityModal = ({
         handleSubmit,
         formState: { errors },
         reset,
-    } = useForm<AddEditActivityFormData>({
-        defaultValues: {
-            name: '',
-            dayOfWeek: '',
-            startTime: '',
-            durationMin: '',
-            roomId: '',
-        },
-    });
-    const { t } = useTranslation();
+    } = useForm<AddEditActivityFormData>({ defaultValues });
+    const {
+        i18n: { language },
+        t,
+    } = useTranslation();
+
+    const { data } = useFetch<PrepareAddEditActivityFormData>('/forms/add-edit-activity');
+    const { sendRequest } = useRequest<AddEditActivityRequestData>(
+        activity ? `/activities/${activity.id}` : '/activities',
+        activity ? 'PUT' : 'POST',
+        undefined,
+        () => {
+            onAddEditSuccess();
+            onClose();
+            toast.success(
+                t(
+                    activity
+                        ? 'addEditActivityModal.updateSuccess'
+                        : 'addEditActivityModal.createSuccess'
+                )
+            );
+        }
+    );
 
     useEffect(() => {
         if (activity) {
@@ -67,31 +81,10 @@ const AddEditActivityModal = ({
                 durationMin: durationMin,
                 roomId: id.toString(),
             });
+        } else {
+            reset(defaultValues);
         }
     }, [activity]);
-
-    const { data } = useFetch<PrepareAddEditActivityFormData>('/form/add-edit-activity/prepare');
-    const { sendRequest } = useRequest<AddEditActivityRequestData>(
-        activity ? `/activity/${activity.id}/update` : '/activity/create',
-        activity ? 'PUT' : 'POST',
-        undefined,
-        () => {
-            onAddEditSuccess();
-            onModalClose();
-            toast.success(
-                t(
-                    activity
-                        ? 'addEditActivityModal.updateSuccess'
-                        : 'addEditActivityModal.createSuccess'
-                )
-            );
-        }
-    );
-
-    const onModalClose = () => {
-        reset();
-        onClose();
-    };
 
     const onValid = async (data: AddEditActivityFormData) => {
         const { startTime, ...rest } = data;
@@ -103,22 +96,25 @@ const AddEditActivityModal = ({
         await sendRequest(requestData);
     };
 
-    const dayOfWeek = [
-        { key: 'MONDAY', label: t('dayOfWeek.monday') },
-        { key: 'TUESDAY', label: t('dayOfWeek.tuesday') },
-        { key: 'WEDNESDAY', label: t('dayOfWeek.wednesday') },
-        { key: 'THURSDAY', label: t('dayOfWeek.thursday') },
-        { key: 'FRIDAY', label: t('dayOfWeek.friday') },
-        { key: 'SATURDAY', label: t('dayOfWeek.saturday') },
-        { key: 'SUNDAY', label: t('dayOfWeek.sunday') },
-    ];
+    const dayOfWeek = useMemo(
+        () => [
+            { key: 'MONDAY', label: t('dayOfWeek.monday') },
+            { key: 'TUESDAY', label: t('dayOfWeek.tuesday') },
+            { key: 'WEDNESDAY', label: t('dayOfWeek.wednesday') },
+            { key: 'THURSDAY', label: t('dayOfWeek.thursday') },
+            { key: 'FRIDAY', label: t('dayOfWeek.friday') },
+            { key: 'SATURDAY', label: t('dayOfWeek.saturday') },
+            { key: 'SUNDAY', label: t('dayOfWeek.sunday') },
+        ],
+        [language]
+    );
 
     const fieldRules = {
         required: t('thisFieldIsRequired'),
     };
 
     return (
-        <Modal isOpen={isOpen} onClose={onModalClose}>
+        <Modal isOpen={isOpen} onClose={onClose}>
             <ModalContent>
                 <form onSubmit={handleSubmit(onValid)}>
                     <ModalHeader className="flex flex-col gap-1">
@@ -224,7 +220,7 @@ const AddEditActivityModal = ({
                         <Button type="submit" color="primary">
                             {t('addEditActivityModal.save')}
                         </Button>
-                        <Button color="default" onPress={onModalClose}>
+                        <Button color="default" onPress={onClose}>
                             {t('cancel')}
                         </Button>
                     </ModalFooter>
