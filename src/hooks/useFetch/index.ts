@@ -33,7 +33,7 @@ const useFetch = <T>(
         fetchData().then();
     }, [fetchData]);
 
-    return { data, error, isLoading };
+    return { data, error, fetchData, isLoading };
 };
 
 export default useFetch;
