@@ -5,8 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import { Button, Image } from '@nextui-org/react';
-import { SiNike, SiPuma, SiReebok } from 'react-icons/si';
-import { CgAdidas } from 'react-icons/cg';
+import { PiBarbellFill } from "react-icons/pi";
+import { IoNutritionSharp } from "react-icons/io5";
+import { MdSportsGymnastics } from "react-icons/md";
+import { GiBiceps } from "react-icons/gi";
 import PersonalTraining from '/images/illustrations/personal-training.svg?url';
 import DumbbellImage from '/images/dumbbell.png';
 
@@ -90,10 +92,10 @@ const LandingPage = () => {
                     <div>
                         <div className="my-6 text-center text-xl">{t('ourPartners')}</div>
                         <div className="flex flex-col items-center justify-between gap-5 md:flex-row md:gap-0">
-                            <SiNike title="Nike logo" size="120px" />
-                            <SiReebok title="Reebok logo" size="120px" />
-                            <CgAdidas title="Adidas logo" size="120px" />
-                            <SiPuma title="Puma logo" size="120px" />
+                            <PiBarbellFill size="120px" />
+                            <IoNutritionSharp size="120px" />
+                            <MdSportsGymnastics size="120px" />
+                            <GiBiceps size="120px" />
                         </div>
                     </div>
                 </div>
