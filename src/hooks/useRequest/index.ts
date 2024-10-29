@@ -28,7 +28,7 @@ const useRequest = <T = never, K = never>(
         } finally {
             setLoadingRequest(false);
         }
-    }, [url]);
+    }, [url, method, headers, onSuccess]);
 
     return { sendRequest, loadingRequest };
 };
