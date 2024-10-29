@@ -32,7 +32,6 @@ const EditProfileForm = () => {
         formState: { errors },
         reset,
         setValue,
-        getValues,
     } = useForm<EditProfileFormData>({ defaultValues });
     const { t } = useTranslation();
 
