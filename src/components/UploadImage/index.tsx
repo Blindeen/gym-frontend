@@ -3,17 +3,7 @@ import { Avatar } from '@nextui-org/react';
 
 import useRequest from '@hooks/useRequest';
 
-type ImageInputProps = {
-    src?: string | null;
-    url: string;
-    method: 'POST' | 'PUT' | 'PATCH';
-    onSuccessfulUpload?: (imageURL: string) => void;
-    fallback?: string;
-};
-
-type ImageResponse = {
-    imageURL: string;
-};
+import { ImageInputProps, ImageResponse } from './types';
 
 const UploadImage = ({ src, url, method, onSuccessfulUpload, fallback }: ImageInputProps) => {
     const [imageURL, setImageURL] = useState<string | undefined>(() => src ?? undefined);
