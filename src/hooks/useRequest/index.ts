@@ -6,7 +6,7 @@ import { RawAxiosRequestHeaders } from 'axios';
 
 const useRequest = <T = never, K = never>(
     url: string,
-    method: 'POST' | 'PUT' | 'DELETE' = 'POST',
+    method: 'POST' | 'PUT' | 'PATCH' | 'DELETE' = 'POST',
     headers?: RawAxiosRequestHeaders,
     onSuccess?: (data: K) => void
 ) => {
