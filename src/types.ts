@@ -11,7 +11,7 @@ type User = {
     lastName: string;
     email: string;
     role: Role;
-    profilePicture: Image | null;
+    avatarURL: string | null;
 };
 
 export type State = {
