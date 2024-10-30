@@ -42,7 +42,7 @@ const SignUpForm = () => {
         t,
     } = useTranslation();
 
-    const { data, isLoading } = useFetch<PrepareSignUpFormData>('/form/sign-up/prepare');
+    const { data, isLoading } = useFetch<PrepareSignUpFormData>('/forms/sign-up');
     const { sendRequest, loadingRequest } = useRequest<SignUpRequestData, AuthorizationResponse>(
         '/auth/sign-up',
         'POST',
