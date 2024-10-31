@@ -1,25 +1,4 @@
-import axios from 'axios';
-import i18n from 'i18next';
+import unauthenticatedInstance from './unauthenticatedInstance';
+import authenticatedInstance from './authenticatedInstance';
 
-import { getLocalStorageItem } from '@/utils';
-
-const instance = axios.create({
-    baseURL: import.meta.env.VITE_API_URL,
-    headers: {
-        'Content-Type': 'application/json',
-    },
-});
-
-instance.interceptors.request.use((config) => {
-    const authState = getLocalStorageItem('authState');
-    if (authState) {
-        const authStateJSON = JSON.parse(authState);
-        const accessToken = authStateJSON.accessToken;
-        accessToken && (config.headers.Authorization = `Bearer ${accessToken}`);
-    }
-    config.headers['Accept-Language'] = i18n.language;
-
-    return config;
-});
-
-export default instance;
+export { unauthenticatedInstance, authenticatedInstance };
