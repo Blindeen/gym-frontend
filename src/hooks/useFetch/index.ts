@@ -1,12 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import axios from '@/api';
+import { unauthenticatedInstance, authenticatedInstance } from '@/api';
 import { handleError } from '@/api/functions';
 import { SearchParams } from '@/hooks/types.ts';
 
 const useFetch = <T>(
     url: string,
-    searchParams: SearchParams | undefined = undefined,
+    searchParams?: SearchParams,
+    requiresAuth: boolean = true,
     onSuccess?: (data: T) => void
 ) => {
     const [data, setData] = useState<T>();
@@ -15,6 +16,7 @@ const useFetch = <T>(
 
     const fetchData = useCallback(async () => {
         setIsLoading(true);
+        const axios = requiresAuth ? authenticatedInstance : unauthenticatedInstance;
         try {
             const { data } = await axios.get<T>(url, {
                 params: searchParams,

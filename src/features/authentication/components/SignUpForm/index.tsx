@@ -46,6 +46,7 @@ const SignUpForm = () => {
     const { sendRequest, loadingRequest } = useRequest<SignUpRequestData, AuthorizationResponse>(
         '/auth/sign-up',
         'POST',
+        false,
         undefined,
         (data) => {
             setState({

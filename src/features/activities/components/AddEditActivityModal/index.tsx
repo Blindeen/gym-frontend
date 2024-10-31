@@ -51,6 +51,7 @@ const AddEditActivityModal = ({
     const { sendRequest } = useRequest<AddEditActivityRequestData>(
         activity ? `/activities/${activity.id}` : '/activities',
         activity ? 'PUT' : 'POST',
+        true,
         undefined,
         () => {
             onAddEditSuccess();

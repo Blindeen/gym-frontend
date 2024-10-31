@@ -12,7 +12,7 @@ const ActivitiesGrid = ({ url }: ActivitiesProps) => {
         pageNumber: 1,
         pageSize: 8,
     });
-    const { data, isLoading } = useFetch<ActivitiesPage>(url, searchParams);
+    const { data, isLoading } = useFetch<ActivitiesPage>(url, searchParams, false);
 
     const handlePageChange = (page: number) => {
         setSearchParams((prevState) => ({

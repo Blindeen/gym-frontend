@@ -31,6 +31,7 @@ const ChangePasswordForm = ({ token, setChangePasswordSuccessful }: ChangePasswo
     const { sendRequest, loadingRequest } = useRequest<ChangePasswordData>(
         '/members/password/change',
         'PUT',
+        false,
         undefined,
         () => {
             setChangePasswordSuccessful(true);

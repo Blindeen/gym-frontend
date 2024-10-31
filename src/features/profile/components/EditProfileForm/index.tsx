@@ -38,6 +38,7 @@ const EditProfileForm = () => {
     const { data, isLoading } = useFetch<EditProfileData>(
         '/forms/edit-profile',
         undefined,
+        true,
         (data) => {
             const { birthdate, ...rest } = data;
             reset({
@@ -52,6 +53,7 @@ const EditProfileForm = () => {
     const { sendRequest, loadingRequest } = useRequest<EditProfileRequestData, EditProfileData>(
         '/members/profile',
         'PUT',
+        true,
         undefined,
         (data: EditProfileData) => {
             const { firstName, lastName } = data;

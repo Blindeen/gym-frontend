@@ -11,6 +11,7 @@ const UploadImage = ({ src, url, method, onSuccessfulUpload, fallback }: ImageIn
     const { sendRequest } = useRequest<FormData, ImageResponse>(
         url,
         method,
+        true,
         { 'Content-Type': 'multipart/form-data' },
         ({ imageURL }) => {
             setImageURL(imageURL);

@@ -31,6 +31,7 @@ const DeleteActivityModal = ({
     const { sendRequest, loadingRequest } = useRequest(
         `/activities/${activityId}`,
         'DELETE',
+        true,
         undefined,
         () => {
             toast.success(t('deleteActivityModal.success'));
