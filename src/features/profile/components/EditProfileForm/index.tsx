@@ -8,7 +8,7 @@ import { parseDate } from '@internationalized/date';
 
 import PasswordInput from '@components/PasswordInput';
 import LoadingSpinner from '@components/LoadingSpinner';
-import ImageInput from '@components/ImageInput';
+import UploadImage from '@components/UploadImage';
 
 import useFetch from '@hooks/useFetch';
 import useRequest from '@hooks/useRequest';
@@ -19,9 +19,8 @@ import {
     POSTAL_CODE_REGEX,
 } from '@/constants';
 import { AuthContext } from '@/contexts/AuthContext';
-import { base64ToFile } from '@/utils';
 
-import { EditProfileFormData, EditProfileData } from './types';
+import { EditProfileFormData, EditProfileData, EditProfileRequestData } from './types';
 import { defaultValues } from './values';
 
 const EditProfileForm = () => {
@@ -33,31 +32,32 @@ const EditProfileForm = () => {
         formState: { errors },
         reset,
         setValue,
-        getValues,
     } = useForm<EditProfileFormData>({ defaultValues });
     const { t } = useTranslation();
 
-    const { isLoading } = useFetch<EditProfileData>(
-        '/form/edit-profile/prepare',
+    const { data, isLoading } = useFetch<EditProfileData>(
+        '/forms/edit-profile',
         undefined,
+        true,
         (data) => {
-            const { birthdate, profilePicture, ...rest } = data;
+            const { birthdate, ...rest } = data;
             reset({
                 ...rest,
                 password: '',
                 newPassword: '',
                 birthdate: parseDate(birthdate),
-                profilePicture: base64ToFile(profilePicture),
             });
         }
     );
-    const { sendRequest, loadingRequest } = useRequest<FormData, EditProfileData>(
-        '/member/update',
+
+    const { sendRequest, loadingRequest } = useRequest<EditProfileRequestData, EditProfileData>(
+        '/members/profile',
         'PUT',
-        { 'Content-Type': 'multipart/form-data' },
-        (data) => {
-            const { firstName, lastName, profilePicture } = data;
-            setState({ ...state, user: { ...state.user, firstName, lastName, profilePicture } });
+        true,
+        undefined,
+        (data: EditProfileData) => {
+            const { firstName, lastName } = data;
+            setState({ ...state, user: { ...state.user, firstName, lastName } });
             setValue('password', '');
             setValue('newPassword', '');
             toast.success(t('profileHasBeenEdited'));
@@ -69,14 +69,8 @@ const EditProfileForm = () => {
     }
 
     const onValid = async (formData: EditProfileFormData) => {
-        const { email, birthdate, profilePicture, ...rest } = formData;
-
-        const requestData = new FormData();
-        requestData.append(
-            'requestBody',
-            new Blob([JSON.stringify(rest)], { type: 'application/json' })
-        );
-        profilePicture && requestData.append('profilePicture', profilePicture);
+        const { email, birthdate, ...rest } = formData;
+        const requestData = { ...rest };
 
         await sendRequest(requestData);
     };
@@ -89,23 +83,13 @@ const EditProfileForm = () => {
         <form className="flex flex-col items-center" onSubmit={handleSubmit(onValid)}>
             <div className="flex w-full flex-col gap-y-5 md:w-1/2">
                 <div className="flex justify-center">
-                    <Controller
-                        control={control}
-                        name="profilePicture"
-                        render={({ field: { name, ref } }) => (
-                            <ImageInput
-                                name={name}
-                                ref={ref}
-                                src={getValues('profilePicture')}
-                                fallback={`${getValues('firstName')[0]}${getValues('lastName')[0]}`}
-                                onChange={(e) => {
-                                    const fileList = e.target.files;
-                                    if (fileList) {
-                                        setValue('profilePicture', fileList[0]);
-                                    }
-                                }}
-                            />
-                        )}
+                    <UploadImage
+                        src={data?.avatarURL}
+                        url="/members/avatar"
+                        method="PUT"
+                        onSuccessfulUpload={(imageURL) =>
+                            setState({ ...state, user: { ...state.user, avatarURL: imageURL } })
+                        }
                     />
                 </div>
 

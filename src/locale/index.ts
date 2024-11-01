@@ -1,8 +1,8 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import usTranslations from './us.json';
-import plTranslations from './pl.json';
+import usTranslations from './translations/us.json';
+import plTranslations from './translations/pl.json';
 
 import { getLocalStorageItem } from '@/utils';
 import { DEFAULT_LANGUAGE, LOCAL_STORAGE_LANGUAGE_KEY } from '@/constants';

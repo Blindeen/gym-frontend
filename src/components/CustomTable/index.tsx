@@ -3,14 +3,12 @@ import { useEffect, useMemo, useState } from 'react';
 import {
     Button,
     Input,
-    Selection,
     Table,
     TableBody,
     TableCell,
     TableColumn,
     TableHeader,
     TableRow,
-    getKeyValue,
 } from '@nextui-org/react';
 import { FaSearch } from 'react-icons/fa';
 import { ImFilesEmpty } from 'react-icons/im';
@@ -18,53 +16,46 @@ import { ImFilesEmpty } from 'react-icons/im';
 import { useTranslation } from 'react-i18next';
 import { useDebounce } from '@uidotdev/usehooks';
 
-import { Page } from '@/types';
 import CustomPagination from '@components/CustomPagination';
 import LoadingSpinner from '@components/LoadingSpinner';
 
-import useFetch from '@hooks/useFetch';
-import useSearchParams from '@hooks/useSearchParams';
+import { getNestedKeyValue } from './helpers';
+import { CustomTableProps } from './types';
 
-import { CustomTableProps, IdentifiedItem } from './types';
-
-const CustomTable = <T,>({ columns, url, actionButtons }: CustomTableProps) => {
-    const [selectedKey, setSelectedKey] = useState<Selection>(new Set());
+const CustomTable = <T,>({
+    columns,
+    data,
+    actionButtons,
+    selectedKey,
+    onRowSelection,
+    onPageChange,
+    onSearch,
+    isLoading,
+}: CustomTableProps<T>) => {
     const [name, setName] = useState('');
 
-    const { t } = useTranslation();
     const debouncedName = useDebounce(name, 300);
+    const { t } = useTranslation();
 
-    const { searchParams, setSearchParams } = useSearchParams({
-        pageNumber: 1,
-        pageSize: 5,
-        name: '',
-    });
-    const { data, isLoading } = useFetch<Page<IdentifiedItem<T>>>(url, searchParams);
+    useEffect(() => onSearch?.(debouncedName), [debouncedName]);
 
-    useEffect(() => {
-        setSearchParams((prevState) => ({ ...prevState, name: debouncedName }));
-    }, [debouncedName]);
-
-    const buttonDisabled = selectedKey instanceof Set && selectedKey.size === 0;
+    const buttonDisabled = selectedKey === undefined;
 
     const pagination = useMemo(() => {
         if (data) {
             const {
-                pageable: { offset },
+                pageable: { pageNumber, offset },
                 numberOfElements,
                 totalElements,
                 totalPages,
             } = data;
             return {
+                pageNumber,
                 offset,
                 numberOfElements,
                 totalElements,
                 totalPages,
-                onChange: (page: number) =>
-                    setSearchParams((prevState) => ({
-                        ...prevState,
-                        pageNumber: page,
-                    })),
+                onPageChange,
             };
         }
 
@@ -80,18 +71,23 @@ const CustomTable = <T,>({ columns, url, actionButtons }: CustomTableProps) => {
                     </Button>
                 ))}
             </div>
-            <Input
-                startContent={<FaSearch />}
-                placeholder={t('name')}
-                onChange={(e) => setName(e.target.value)}
-            />
+            {onSearch && (
+                <Input
+                    startContent={<FaSearch />}
+                    placeholder={t('name')}
+                    onChange={(e) => setName(e.target.value)}
+                />
+            )}
             <Table
                 aria-label="Custom table"
                 selectionMode="single"
-                selectedKeys={selectedKey}
-                onSelectionChange={setSelectedKey}
+                selectedKeys={new Set(selectedKey ? [selectedKey] : [])}
+                onSelectionChange={(keys) => {
+                    if (keys instanceof Set) {
+                        onRowSelection?.(keys.values().next().value);
+                    }
+                }}
                 layout="fixed"
-                isStriped
             >
                 <TableHeader columns={columns}>
                     {({ key, label }) => <TableColumn key={key}>{label}</TableColumn>}
@@ -108,7 +104,7 @@ const CustomTable = <T,>({ columns, url, actionButtons }: CustomTableProps) => {
                 >
                     {(item) => (
                         <TableRow key={item.id}>
-                            {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
+                            {(columnKey) => <TableCell>{getNestedKeyValue(item, columnKey)}</TableCell>}
                         </TableRow>
                     )}
                 </TableBody>

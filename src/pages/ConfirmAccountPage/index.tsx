@@ -16,8 +16,9 @@ const ConfirmAccountPage = () => {
     const navigate = useNavigate();
 
     const { sendRequest, loadingRequest } = useRequest<ConfirmAccountRequestData>(
-        '/member/confirm-account',
+        '/members/confirmation',
         'PUT',
+        false,
         undefined,
         () => {
             toast.success(t('accountConfirmed'));

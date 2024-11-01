@@ -136,12 +136,30 @@
     "noData": "Brak danych",
     "activityTableColumns": {
       "name": "NAZWA",
-      "dayOfWeek": "DZIEŃ TYGODNIA",
-      "startTime": "GODZINA ROZPOCZĘCIA",
-      "duration": "CZAS TRWANIA",
+      "dayOfWeek": "DZIEŃ",
+      "startTime": "GODZINA",
+      "duration": "CZAS",
       "room": "SALA",
       "trainer": "TRENER"
     },
-    "name": "Nazwa"
+    "name": "Nazwa",
+    "cancel": "Anuluj",
+    "deleteActivityModal": {
+      "header": "Usuwanie aktywności",
+      "body": "Czy jesteś pewien, że chcesz usunąć tą aktywność?",
+      "success": "Aktywność została usunięta pomyślnie"
+    },
+    "addEditActivityModal": {
+      "addHeader": "Dodaj aktywność",
+      "editHeader": "Edytuj aktywność",
+      "name": "Nazwa",
+      "dayOfWeek": "Dzień tygodnia",
+      "startTime": "Godzina rozpoczęcia",
+      "duration": "Czas trwania",
+      "room": "Sala",
+      "save": "Zapisz",
+      "createSuccess": "Aktywność została dodana pomyślnie",
+      "updateSuccess": "Aktywność została zaktualizowana pomyślnie"
+    }
   }
 }

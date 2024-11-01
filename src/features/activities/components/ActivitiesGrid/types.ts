@@ -1,5 +1,5 @@
 import { Page } from '@/types';
-import { Activity } from '@/features/types';
+import { Activity } from '../../types';
 
 export type ActivitiesProps = {
     url: string;

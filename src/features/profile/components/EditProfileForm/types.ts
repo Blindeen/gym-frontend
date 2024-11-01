@@ -1,6 +1,6 @@
 import { DateValue } from '@nextui-org/react';
 
-import { MergeAndOverride, Image } from '@/types';
+import { MergeAndOverride } from '@/types';
 
 export type EditProfileData = {
     firstName: string;
@@ -9,19 +9,19 @@ export type EditProfileData = {
     password: string;
     newPassword: string;
     birthdate: string;
+    avatarURL: string | null;
     addressLine: string;
     city: string;
     postalCode: string;
     phoneNumber: string;
-    profilePicture: Image | null;
 };
 
-export type EditProfileFormData = MergeAndOverride<
-    EditProfileData,
-    { birthdate: DateValue; profilePicture: File | null }
+export type EditProfileFormData = Omit<
+    MergeAndOverride<EditProfileData, { birthdate: DateValue }>,
+    keyof { avatarURL: string | null }
 >;
 
 export type EditProfileRequestData = Omit<
     EditProfileFormData,
-    keyof { email: string; birthdate: DateValue; profilePicture: File | null }
+    keyof { email: string; birthdate: DateValue }
 >;

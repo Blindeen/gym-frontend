@@ -15,7 +15,7 @@ const ActivitiesPage = () => {
                 <BreadcrumbItem>{t('activities')}</BreadcrumbItem>
             </Breadcrumbs>
             <h2 className="mb-6 mt-2">{t('activities')}</h2>
-            <ActivitiesGrid url="/activity/list" />
+            <ActivitiesGrid url="/activities" />
         </div>
     );
 };

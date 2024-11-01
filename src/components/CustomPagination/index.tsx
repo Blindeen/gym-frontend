@@ -1,14 +1,22 @@
 import { useTranslation } from 'react-i18next';
 import { Pagination } from '@nextui-org/react';
 
-import { CustomPaginationProps } from './types';
+type CustomPaginationProps = {
+    pageNumber: number;
+    offset: number;
+    numberOfElements: number;
+    totalElements: number;
+    totalPages: number;
+    onPageChange: (page: number) => void;
+};
 
 const CustomPagination = ({
+    pageNumber,
     offset,
     numberOfElements,
     totalElements,
     totalPages,
-    onChange,
+    onPageChange,
 }: CustomPaginationProps) => {
     const { t } = useTranslation();
 
@@ -23,8 +31,10 @@ const CustomPagination = ({
                 {t('pagination.items')}
             </div>
             <Pagination
+                classNames={{ cursor: 'text-white' }}
+                page={pageNumber + 1}
                 total={totalPages}
-                onChange={onChange}
+                onChange={onPageChange}
                 showControls
                 loop
                 disableAnimation={false}

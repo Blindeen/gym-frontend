@@ -35,6 +35,7 @@ const SignInForm = () => {
     const { sendRequest, loadingRequest } = useRequest<SignInFormData, AuthorizationResponse>(
         '/auth/sign-in',
         'POST',
+        false,
         undefined,
         (data) => {
             setState({
