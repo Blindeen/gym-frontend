@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import { routes } from '@/router';
 
+import TrainerGrid from './components/TrainerGrid';
+
 const StaffPage = () => {
     const { t } = useTranslation();
 
@@ -13,6 +15,7 @@ const StaffPage = () => {
                 <BreadcrumbItem>{t('staff')}</BreadcrumbItem>
             </Breadcrumbs>
             <h2 className="mb-6 mt-2">{t('staff')}</h2>
+            <TrainerGrid />
         </div>
     );
 };
