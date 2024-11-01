@@ -26,6 +26,7 @@ const TrainerGrid = () => {
                             src={avatarURL ?? undefined}
                             size="lg"
                             fallback={`${firstName[0]}${lastName[0]}`}
+                            imgProps={{ draggable: false }}
                         />
                     </CardHeader>
                     <CardBody className="overflow-visible text-center">

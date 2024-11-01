@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import { Button, Image } from '@nextui-org/react';
-import { PiBarbellFill } from "react-icons/pi";
-import { IoNutritionSharp } from "react-icons/io5";
-import { MdSportsGymnastics } from "react-icons/md";
-import { GiBiceps } from "react-icons/gi";
+import { PiBarbellFill } from 'react-icons/pi';
+import { IoNutritionSharp } from 'react-icons/io5';
+import { MdSportsGymnastics } from 'react-icons/md';
+import { GiBiceps } from 'react-icons/gi';
 import PersonalTraining from '/images/illustrations/personal-training.svg?url';
 import DumbbellImage from '/images/dumbbell.png';
 
@@ -49,6 +49,7 @@ const LandingPage = () => {
                                         radius="full"
                                         size="lg"
                                         color="primary"
+                                        onPress={() => navigate(routes.about)}
                                     >
                                         {t('findOutMore')}
                                     </Button>
