@@ -9,7 +9,7 @@ import App from '@/App.tsx';
 import ThemeProvider from '@/contexts/ThemeContext';
 
 import '@/index.css';
-import '@/locale';
+import '@/i18n';
 
 dayjs.extend(customParseFormat);
 
