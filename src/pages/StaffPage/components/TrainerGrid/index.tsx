@@ -17,15 +17,15 @@ const TrainerGrid = () => {
     }
 
     return (
-        <div className="grid grid-cols-4 justify-between">
-            {data?.map(({ firstName, lastName, avatarURL }) => (
-                <Card className="w-fit p-4">
+        <div className="grid w-full grid-cols-1 justify-items-center gap-y-5 md:grid-cols-3 xl:grid-cols-4">
+            {data?.map(({ firstName, lastName, avatarURL }, idx) => (
+                <Card key={idx} className="w-full p-4 md:w-fit">
                     <CardHeader className="flex justify-center">
                         <Avatar
-                            className="h-40 w-40 rounded-xl object-cover text-large"
+                            className="h-40 w-40 rounded-xl object-cover text-3xl"
                             src={avatarURL ?? undefined}
                             size="lg"
-                            fallback={`${firstName[0]} ${lastName[0]}`}
+                            fallback={`${firstName[0]}${lastName[0]}`}
                         />
                     </CardHeader>
                     <CardBody className="overflow-visible text-center">
