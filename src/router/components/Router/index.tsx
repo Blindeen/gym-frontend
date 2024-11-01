@@ -13,6 +13,7 @@ import PassPage from '@pages/PassPage';
 import ContactPage from '@pages/ContactPage';
 import ProfilePage from '@pages/ProfilePage';
 import DashboardPage from '@pages/DashboardPage';
+import StaffPage from '@pages/StaffPage';
 
 import { AuthContext } from '@/contexts/AuthContext';
 
@@ -97,6 +98,14 @@ const Router = () => {
                         >
                             <DashboardPage />
                         </PrivatePageRoute>
+                    }
+                />
+                <Route
+                    path={routes.staff}
+                    element={
+                        <PageRoute tabTranslationCode="staff">
+                            <StaffPage />
+                        </PageRoute>
                     }
                 />
             </Route>
