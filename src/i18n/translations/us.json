@@ -104,7 +104,8 @@
       "contact": "Contact",
       "profile": "Profile",
       "pass": "Pass",
-      "dashboard": "Dashboard"
+      "dashboard": "Dashboard",
+      "staff": "Staff"
     },
     "confirmPasswordIsRequired": "Confirm password is required",
     "enterNewPassword": "Enter a new password",

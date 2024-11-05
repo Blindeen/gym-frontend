@@ -104,7 +104,8 @@
       "contact": "Kontakt",
       "profile": "Profil",
       "pass": "Karnet",
-      "dashboard": "Panel"
+      "dashboard": "Panel",
+      "staff": "Kadra"
     },
     "confirmPasswordIsRequired": "Potwierdzenie hasła jest wymagane",
     "enterNewPassword": "Wprowadź nowe hasło",
