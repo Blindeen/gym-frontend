@@ -105,7 +105,8 @@
       "profile": "Profil",
       "pass": "Karnet",
       "dashboard": "Panel",
-      "staff": "Kadra"
+      "staff": "Kadra",
+      "aboutClub": "O klubie"
     },
     "confirmPasswordIsRequired": "Potwierdzenie hasła jest wymagane",
     "enterNewPassword": "Wprowadź nowe hasło",

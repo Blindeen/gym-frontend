@@ -105,7 +105,8 @@
       "profile": "Profile",
       "pass": "Pass",
       "dashboard": "Dashboard",
-      "staff": "Staff"
+      "staff": "Staff",
+      "aboutClub": "About club"
     },
     "confirmPasswordIsRequired": "Confirm password is required",
     "enterNewPassword": "Enter a new password",
