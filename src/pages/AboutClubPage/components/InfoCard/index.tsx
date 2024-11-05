@@ -19,7 +19,7 @@ const InfoCard = ({ header, description, isReversed = false }: InfoCardProps) =>
             {!isReversed && styledDivider}
             <div className="flex flex-col justify-start gap-y-5">
                 <h2>{header}</h2>
-                <p>{description}</p>
+                <p className="text-justify">{description}</p>
             </div>
             {isReversed && styledDivider}
         </div>
