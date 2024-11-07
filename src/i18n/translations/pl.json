@@ -105,7 +105,8 @@
       "profile": "Profil",
       "pass": "Karnet",
       "dashboard": "Panel",
-      "staff": "Kadra"
+      "staff": "Kadra",
+      "aboutClub": "O klubie"
     },
     "confirmPasswordIsRequired": "Potwierdzenie hasła jest wymagane",
     "enterNewPassword": "Wprowadź nowe hasło",
@@ -161,6 +162,24 @@
       "save": "Zapisz",
       "createSuccess": "Aktywność została dodana pomyślnie",
       "updateSuccess": "Aktywność została zaktualizowana pomyślnie"
+    },
+    "aboutClubContent": {
+      "personalTraining": {
+        "header": "Trening personalny",
+        "description": "Indywidualna droga do sukcesu - Trening personalny dostosowany do Twoich potrzeb i celów, gwarantujący skuteczność i bezpieczeństwo. Nasz ekspert pomoże Ci osiągnąć najlepsze wyniki w krótkim czasie. Skup się na poprawie kondycji i zdrowia pod okiem profesjonalisty"
+      },
+      "running": {
+        "header": "Bieg po zdrowie",
+        "description": "Bieganie to doskonały sposób na poprawę kondycji, zrzucenie zbędnych kilogramów i wzmocnienie układu krążenia. Oferujemy plany treningowe dostosowane do każdego poziomu zaawansowania. Niezależnie od tego, czy jesteś początkującym, czy zaawansowanym biegaczem, znajdziesz coś dla siebie."
+      },
+      "exercisesForWomen": {
+        "header": "Siła i wdzięk",
+        "description": "Specjalnie opracowane programy ćwiczeń pomagające kobietom w budowaniu siły, poprawie sylwetki i utrzymaniu zdrowia. Skupiamy się na indywidualnych potrzebach, od spalania tłuszczu po tonizację mięśni. Nasze ćwiczenia są idealne dla kobiet na każdym poziomie zaawansowania."
+      },
+      "exercisesForMen": {
+        "header": "Moc i wytrzymałość",
+        "description": "Skoncentruj się na rozwijaniu siły, masy mięśniowej i wytrzymałości dzięki naszym dedykowanym programom treningowym. Oferujemy ćwiczenia dopasowane do potrzeb każdego mężczyzny, od początkujących po zaawansowanych. Dołącz do nas i zbuduj swoją najlepszą formę."
+      }
     }
   }
 }

@@ -105,7 +105,8 @@
       "profile": "Profile",
       "pass": "Pass",
       "dashboard": "Dashboard",
-      "staff": "Staff"
+      "staff": "Staff",
+      "aboutClub": "About club"
     },
     "confirmPasswordIsRequired": "Confirm password is required",
     "enterNewPassword": "Enter a new password",
@@ -161,6 +162,24 @@
       "save": "Save",
       "createSuccess": "Activity has been added successfully",
       "updateSuccess": "Activity has been updated successfully"
+    },
+    "aboutClubContent": {
+      "personalTraining": {
+        "header": "Personal Training",
+        "description": "Your Personal Path to Success - Personalized training tailored to your needs and goals, ensuring effectiveness and safety. Our expert will help you achieve the best results in a short time. Focus on improving your fitness and health under professional guidance"
+      },
+      "running": {
+        "header": "Run for Health",
+        "description": "Running is an excellent way to improve fitness, shed extra pounds, and strengthen your cardiovascular system. We offer training plans tailored to every skill level. Whether you're a beginner or an experienced runner, there's something here for you."
+      },
+      "exercisesForWomen": {
+        "header": "Strength and Grace",
+        "description": "Specially designed exercise programs to help women build strength, improve their figure, and maintain health. We focus on individual needs, from fat burning to muscle toning. Our exercises are perfect for women of all fitness levels."
+      },
+      "exercisesForMen": {
+        "header": "Power and Endurance",
+        "description": "Focus on building strength, muscle mass, and endurance with our dedicated training programs. We offer exercises tailored to every man's needs, from beginners to advanced. Join us and build your best shape."
+      }
     }
   }
 }

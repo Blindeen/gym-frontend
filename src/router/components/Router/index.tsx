@@ -14,6 +14,7 @@ import ContactPage from '@pages/ContactPage';
 import ProfilePage from '@pages/ProfilePage';
 import DashboardPage from '@pages/DashboardPage';
 import StaffPage from '@pages/StaffPage';
+import AboutClubPage from '@pages/AboutClubPage';
 
 import { AuthContext } from '@/contexts/AuthContext';
 
@@ -105,6 +106,14 @@ const Router = () => {
                     element={
                         <PageRoute tabTranslationCode="staff">
                             <StaffPage />
+                        </PageRoute>
+                    }
+                />
+                <Route
+                    path={routes.about}
+                    element={
+                        <PageRoute tabTranslationCode="aboutClub">
+                            <AboutClubPage />
                         </PageRoute>
                     }
                 />
