@@ -1,4 +1,7 @@
 import { ChangeEvent, useState } from 'react';
+
+import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import { Avatar } from '@nextui-org/react';
 
 import useRequest from '@hooks/useRequest';
@@ -6,6 +9,7 @@ import useRequest from '@hooks/useRequest';
 import { ImageInputProps, ImageResponse } from './types';
 
 const UploadImage = ({ src, url, method, onSuccessfulUpload, fallback }: ImageInputProps) => {
+    const { t } = useTranslation();
     const [imageURL, setImageURL] = useState<string | undefined>(() => src ?? undefined);
 
     const { sendRequest } = useRequest<FormData, ImageResponse>(
@@ -16,6 +20,7 @@ const UploadImage = ({ src, url, method, onSuccessfulUpload, fallback }: ImageIn
         ({ imageURL }) => {
             setImageURL(imageURL);
             onSuccessfulUpload?.(imageURL);
+            toast.success(t('successfullImageUpload'));
         }
     );
 
