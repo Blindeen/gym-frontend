@@ -56,6 +56,7 @@ const AddEditActivityModal = ({
         () => {
             onAddEditSuccess();
             onClose();
+            reset(defaultValues);
             toast.success(
                 t(
                     activity
