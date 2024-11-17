@@ -4,6 +4,7 @@ import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
 import { useTranslation } from 'react-i18next';
 
 import TrainerDashboard from './components/TrainerDashboard';
+import { CustomerDashboard } from '@/features/activities';
 
 import { routes } from '@/router';
 import { AuthContext } from '@/contexts/AuthContext';
@@ -18,7 +19,7 @@ const DashboardPage = () => {
 
     let dashboardContainer: JSX.Element | null = null;
     if (role === 'CUSTOMER') {
-        dashboardContainer = null;
+        dashboardContainer = <CustomerDashboard />;
     } else if (role === 'TRAINER') {
         dashboardContainer = <TrainerDashboard />;
     }
