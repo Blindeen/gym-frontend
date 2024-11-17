@@ -7,7 +7,7 @@ export type Key = string | number;
 export type Column = {
     key: Key;
     label: string;
-    render?: (value: any) => ReactNode;
+    render?: (value: any, row: any) => ReactNode;
 };
 
 export type ActionButton = {

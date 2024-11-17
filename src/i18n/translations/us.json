@@ -184,6 +184,8 @@
     },
     "successfullImageUpload": "Image has been uploaded successfully",
     "enroll": "Enroll",
-    "leave": "Leave"
+    "leave": "Leave",
+    "enrollSuccess": "You have been enrolled successfully",
+    "leaveSuccess": "You have left the activity successfully"
   }
 }

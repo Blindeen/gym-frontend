@@ -17,7 +17,7 @@ export const renderCellContent = (columns: Column[], columnKey: Key, item: any) 
     const column = columns.find((column) => column.key === columnKey);
     const columnRenderCallback = column?.render;
     if (columnRenderCallback) {
-        return columnRenderCallback(getNestedKeyValue(item, columnKey));
+        return columnRenderCallback(getNestedKeyValue(item, columnKey), item);
     }
 
     return getNestedKeyValue(item, columnKey);

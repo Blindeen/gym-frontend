@@ -184,6 +184,8 @@
     },
     "successfullImageUpload": "Zdjęcie zostało pomyślnie przesłane",
     "enroll": "Zapisz się",
-    "leave": "Wypisz się"
+    "leave": "Wypisz się",
+    "enrollSuccess": "Zapisano się pomyślnie",
+    "leaveSuccess": "Wypisano się pomyślnie"
   }
 }
