@@ -6,8 +6,9 @@ import useSearchParams from '@hooks/useSearchParams';
 import useFetch from '@hooks/useFetch';
 
 import { Page } from '@/types';
-import { CustomerActivity } from './types';
+
 import EnrollLeaveButton from '../EnrollLeaveButton';
+import { CustomerActivity } from './types';
 
 const CustomerDashboard = () => {
     const { t } = useTranslation();
