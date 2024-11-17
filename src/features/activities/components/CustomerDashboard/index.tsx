@@ -1,5 +1,3 @@
-import toast from 'react-hot-toast';
-import { Button } from '@nextui-org/react';
 import { useTranslation } from 'react-i18next';
 
 import CustomTable from '@components/CustomTable';
@@ -7,11 +5,9 @@ import CustomTable from '@components/CustomTable';
 import useSearchParams from '@hooks/useSearchParams';
 import useFetch from '@hooks/useFetch';
 
-import { authenticatedInstance } from '@/api';
-import { handleError } from '@/api/functions';
-
 import { Page } from '@/types';
 import { CustomerActivity } from './types';
+import EnrollLeaveButton from '../EnrollLeaveButton';
 
 const CustomerDashboard = () => {
     const { t } = useTranslation();
@@ -25,26 +21,6 @@ const CustomerDashboard = () => {
         '/members/customers/activities',
         searchParams
     );
-
-    const enrollForActivity = async (activityID: number) => {
-        try {
-            await authenticatedInstance.post(`/activities/${activityID}/enrollment`);
-            await fetchData();
-            toast.success(t('enrollSuccess'));
-        } catch (err) {
-            handleError(err);
-        }
-    };
-
-    const leaveActivity = async (activityID: number) => {
-        try {
-            await authenticatedInstance.delete(`/activities/${activityID}/leave`);
-            await fetchData();
-            toast.success(t('leaveSuccess'));
-        } catch (err) {
-            handleError(err);
-        }
-    };
 
     const columns = [
         {
@@ -74,19 +50,9 @@ const CustomerDashboard = () => {
         {
             key: 'enrolled',
             label: t('activityTableColumns.action'),
-            render: (enrolled: boolean, row: CustomerActivity) => {
-                return (
-                    <Button
-                        color={enrolled ? 'danger' : 'success'}
-                        onPress={async () =>
-                            enrolled ? leaveActivity(row.id) : enrollForActivity(row.id)
-                        }
-                        fullWidth
-                    >
-                        {enrolled ? t('leave') : t('enroll')}
-                    </Button>
-                );
-            },
+            render: (enrolled: boolean, row: CustomerActivity) => (
+                <EnrollLeaveButton enrolled={enrolled} row={row} onSuccessfulRequest={fetchData} />
+            ),
         },
     ];
 
