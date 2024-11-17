@@ -7,6 +7,7 @@ import useFetch from '@hooks/useFetch';
 
 import { Page } from '@/types';
 import { CustomerActivity } from './types';
+import { Button } from '@nextui-org/react';
 
 const CustomerDashboard = () => {
     const { t } = useTranslation();
@@ -45,6 +46,17 @@ const CustomerDashboard = () => {
         {
             key: 'trainer',
             label: t('activityTableColumns.trainer'),
+        },
+        {
+            key: 'enrolled',
+            label: t('activityTableColumns.action'),
+            render: (enrolled: boolean) => {
+                return (
+                    <Button color={enrolled ? 'danger' : 'success'} fullWidth>
+                        {enrolled ? t('leave') : t('enroll')}
+                    </Button>
+                );
+            },
         },
     ];
 

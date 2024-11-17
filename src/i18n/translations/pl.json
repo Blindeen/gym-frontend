@@ -142,7 +142,8 @@
       "startTime": "GODZINA",
       "duration": "CZAS",
       "room": "SALA",
-      "trainer": "TRENER"
+      "trainer": "TRENER",
+      "action": "AKCJA"
     },
     "name": "Nazwa",
     "cancel": "Anuluj",
@@ -181,6 +182,8 @@
         "description": "Skoncentruj się na rozwijaniu siły, masy mięśniowej i wytrzymałości dzięki naszym dedykowanym programom treningowym. Oferujemy ćwiczenia dopasowane do potrzeb każdego mężczyzny, od początkujących po zaawansowanych. Dołącz do nas i zbuduj swoją najlepszą formę."
       }
     },
-    "successfullImageUpload": "Zdjęcie zostało pomyślnie przesłane"
+    "successfullImageUpload": "Zdjęcie zostało pomyślnie przesłane",
+    "enroll": "Zapisz się",
+    "leave": "Wypisz się"
   }
 }
