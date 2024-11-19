@@ -142,7 +142,8 @@
       "startTime": "START TIME",
       "duration": "DURATION",
       "room": "ROOM",
-      "trainer": "TRAINER"
+      "trainer": "TRAINER",
+      "action": "ACTION"
     },
     "name": "Name",
     "cancel": "Cancel",
@@ -181,6 +182,10 @@
         "description": "Focus on building strength, muscle mass, and endurance with our dedicated training programs. We offer exercises tailored to every man's needs, from beginners to advanced. Join us and build your best shape."
       }
     },
-    "successfullImageUpload": "Image has been uploaded successfully"
+    "successfullImageUpload": "Image has been uploaded successfully",
+    "enroll": "Enroll",
+    "leave": "Leave",
+    "enrollSuccess": "You have been enrolled successfully",
+    "leaveSuccess": "You have left the activity successfully"
   }
 }

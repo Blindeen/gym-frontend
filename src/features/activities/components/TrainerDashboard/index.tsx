@@ -35,7 +35,7 @@ const TrainerDashboard = () => {
         name: '',
     });
     const { data, isLoading, fetchData } = useFetch<Page<Activity>>(
-        '/members/activities',
+        '/members/trainers/activities',
         searchParams
     );
 

@@ -19,7 +19,7 @@ import { useDebounce } from '@uidotdev/usehooks';
 import CustomPagination from '@components/CustomPagination';
 import LoadingSpinner from '@components/LoadingSpinner';
 
-import { getNestedKeyValue } from './helpers';
+import { renderCellContent } from './helpers';
 import { CustomTableProps } from './types';
 
 const CustomTable = <T,>({
@@ -104,7 +104,9 @@ const CustomTable = <T,>({
                 >
                     {(item) => (
                         <TableRow key={item.id}>
-                            {(columnKey) => <TableCell>{getNestedKeyValue(item, columnKey)}</TableCell>}
+                            {(columnKey) => (
+                                <TableCell>{renderCellContent(columns, columnKey, item)}</TableCell>
+                            )}
                         </TableRow>
                     )}
                 </TableBody>

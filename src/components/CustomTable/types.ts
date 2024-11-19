@@ -2,9 +2,12 @@ import { ReactNode } from 'react';
 
 import { MergeAndOverride, Page } from '@/types';
 
-type Column = {
-    key: string;
+export type Key = string | number;
+
+export type Column = {
+    key: Key;
     label: string;
+    render?: (value: any, row: any) => ReactNode;
 };
 
 export type ActionButton = {
@@ -16,9 +19,7 @@ export type ActionButton = {
     alwaysEnabled: boolean;
 };
 
-export type Key = string | number;
-
-type Row<T> = MergeAndOverride<T, { id: Key }>;
+export type Row<T> = MergeAndOverride<T, { id: Key }>;
 
 export type CustomTableProps<T> = {
     columns: Column[];
